@@ -8,7 +8,7 @@ import logging
 import sys
 from typing import Any, List
 
-from bot.cmd import Arguments
+from bot.cmd.arguments import Arguments
 from bot.loggers import setup_logging_pre
 
 # check min. python version

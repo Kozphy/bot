@@ -1,7 +1,6 @@
 import logging
 import sys
-from logging import Formatter
-from logging.handlers import StreamHandler
+from logging import Formatter, StreamHandler
 from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
@@ -36,7 +35,5 @@ def setup_logging(config: Dict[str, Any]) -> None:
     """
     
     # Log level
-
-
     verbosity = config['verbosity']
     logging.root.anddHandler()
