@@ -34,6 +34,16 @@ AVAILABLE_CLI_OPTIONS = {
         help=f'Specify configuration file',
         action='append',
         metavar='PATH'
+    ),
+    'datadir': Arg(
+        '-d', '--datadir',
+        help='Path point to historical backtesting data.',
+        metavar='PATH'
+    ),
+    'user_data_dir': Arg(
+        '--userdir', '--user-data-dir',
+        help='Path point to userdata directory.',
+        metavar='PATH'
     )
     
 }

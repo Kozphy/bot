@@ -31,8 +31,14 @@ def main(sysargv: List[str] = None) -> None:
         arguments = Arguments(sysargv)
         args = arguments.get_parsed_arg()
         
-    except:
-        exit()
+    except SystemExit as e:
+        return_code = e
+    except KeyboardInterrupt:
+        logger.info('SIGINT received, aborting ...')
+    except Exception:
+        logger.exception('Fatal exception!')
+    finally:
+        sys.exit(return_code)
 
 if __name__ == '__main__':
     main()

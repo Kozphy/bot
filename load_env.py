@@ -8,7 +8,7 @@ from pathlib import Path
 
 from dotenv import dotenv_values
 
-p = Path('../env')
+p = Path('./user_data')
 q = p / '.env'
 config = None 
 

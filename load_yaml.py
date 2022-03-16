@@ -7,5 +7,5 @@ except:
 from pathlib import Path
 
 
-p = Path('../env')
+p = Path('./user_data')
 q = p / 'config.yaml'
