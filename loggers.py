@@ -1,6 +1,6 @@
 import logging
 import sys
-from logging import Formatter, StreamHandler
+from logging import Formatter, StreamHandler, RotatingFileHandler
 from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
@@ -29,6 +29,13 @@ def setup_logging_pre() -> None:
         handlers=[logging.StreamHandler(sys.stderr)]
     )
 
+def get_existing_handlers(handlertype):
+    """
+    Returns Existing handler or None (if the handler has not yet been added to the root handlers).
+    """
+
+    return next((h for h in logging.root.handers if isinstance(h, handlertype)), None)
+
 def setup_logging(config: Dict[str, Any]) -> None:
     """
     Process -v/--verbose, --logfile options
@@ -36,4 +43,6 @@ def setup_logging(config: Dict[str, Any]) -> None:
     
     # Log level
     verbosity = config['verbosity']
-    logging.root.anddHandler()
+    # logging.root.anddHandler()
+    
+    handler_rf = RotatingFileHandler()
