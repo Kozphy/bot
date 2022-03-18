@@ -1,1 +1,8 @@
-Proxy: True
+Proxy: False
+dry-run: True
+
+exchange:
+  kucoin:
+    balances: 
+      ETH: 1_0
+      USDT: 1_000

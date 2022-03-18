@@ -31,6 +31,11 @@ def main(sysargv: List[str] = None) -> None:
         arguments = Arguments(sysargv)
         args = arguments.get_parsed_arg()
         
+        if 'func' in args:
+            return_code = args['func'](args)
+        else:
+            raise Exception('Usage of bot requires subcommand to be given in cli interface.')
+
     except SystemExit as e:
         return_code = e
     except KeyboardInterrupt:

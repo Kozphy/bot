@@ -66,7 +66,7 @@ class Arguments:
                     cfgfile = Path.cwd() / DEFAULT_CONFIG
                     if cfgfile.is_file() or not no_conf_required:
                         parsed_arg['config'] = [str(cfgfile)]
-        # print(parsed_arg)
+        print(parsed_arg)
         return parsed_arg
 
 
@@ -86,13 +86,14 @@ class Arguments:
         """
         logging.info('build_subcommands')
 
-        # Build shared arguments (as group Common Options)
+        # Build option arguments (as group Common Options)
         _common_parser = argparse.ArgumentParser(add_help=False)
         group = _common_parser.add_argument_group("Common arguments")
         self._build_args(optionlist=ARGS_COMMON, parser=group)
         # _common_parser.print_help()
 
-        # Build main command into self.parser
+        # Build command into self.parser
         self._build_args(optionlist=['version'], parser=self.parser)
         subparsers = self.parser.add_subparsers(dest='command')
 
+        

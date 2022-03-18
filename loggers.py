@@ -1,6 +1,7 @@
 import logging
 import sys
-from logging import Formatter, StreamHandler, RotatingFileHandler
+from logging import Formatter, StreamHandler
+from logging.handlers import RotatingFileHandler
 from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
@@ -46,3 +47,4 @@ def setup_logging(config: Dict[str, Any]) -> None:
     # logging.root.anddHandler()
     
     handler_rf = RotatingFileHandler()
+    pass
