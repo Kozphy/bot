@@ -66,7 +66,7 @@ class Arguments:
                     cfgfile = Path.cwd() / DEFAULT_CONFIG
                     if cfgfile.is_file() or not no_conf_required:
                         parsed_arg['config'] = [str(cfgfile)]
-        print(parsed_arg)
+        # print(parsed_arg)
         return parsed_arg
 
 

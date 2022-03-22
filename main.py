@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Main Freqtrade bot script.
+Main bot script.
 Read the documentation to know what cli arguments you need.
 """
 
@@ -10,6 +10,7 @@ from typing import Any, List
 
 from bot.cmd.arguments import Arguments
 from bot.loggers import setup_logging_pre
+from bot.exceptions import OperationalException, BotException
 
 # check min. python version
 if sys.version_info < (3, 8, 10):
@@ -30,16 +31,19 @@ def main(sysargv: List[str] = None) -> None:
         setup_logging_pre()
         arguments = Arguments(sysargv)
         args = arguments.get_parsed_arg()
-        
+        print(args)
         if 'func' in args:
             return_code = args['func'](args)
         else:
-            raise Exception('Usage of bot requires subcommand to be given in cli interface.')
+            raise OperationalException('Usage of bot requires subcommand to be given in cli interface.')
 
     except SystemExit as e:
         return_code = e
     except KeyboardInterrupt:
         logger.info('SIGINT received, aborting ...')
+    except BotException as e: 
+        logger.error(str(e))
+        return_code = 2
     except Exception:
         logger.exception('Fatal exception!')
     finally:
