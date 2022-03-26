@@ -44,6 +44,13 @@ AVAILABLE_CLI_OPTIONS = {
         '--userdir', '--user-data-dir',
         help='Path point to userdata directory.',
         metavar='PATH'
+    ),
+    # Trade options
+    'strategy': Arg(
+        '-s', '--strategy',
+        help='what strategy do you want to run?',
+        metavar='PATH'
     )
     
+
 }

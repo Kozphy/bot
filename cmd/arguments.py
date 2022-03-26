@@ -12,6 +12,8 @@ from bot.cmd.cli_option import AVAILABLE_CLI_OPTIONS
 
 ARGS_COMMON = ['verbosity', 'logfile', 'version', 'config', 'datadir', 'user_data_dir']
 
+ARGS_TRADE = ['strategy','strategy_path', 'db_url', 'dry_run', 'fee']
+
 NO_CONFIG_REQUIRED = ['download-data']
 
 logger = logging.getLogger(__name__)
@@ -72,9 +74,12 @@ class Arguments:
 
     
     def _build_args(self, optionlist, parser):
-        logging.info('create arguments string')
 
         for val in optionlist: 
+            if hasattr(parser, 'title'):
+                logging.info(f'create {val} arguments string to {parser.title} parser')
+            elif hasattr(parser, 'prog'):
+                logging.info(f'create {val} arguments string to {parser.prog} parser')
             opt = AVAILABLE_CLI_OPTIONS[val]
             parser.add_argument(*opt.cli, dest=val, **opt.kwargs)
 
@@ -94,6 +99,13 @@ class Arguments:
 
         # Build command into self.parser
         self._build_args(optionlist=['version'], parser=self.parser)
+
+        ## build subcommand
         subparsers = self.parser.add_subparsers(dest='command')
 
-        
+        trade_cmd = subparsers.add_parser('trade', help='activate trade mode',
+                                            parents=[_common_parser])
+        self._build_args(optionlist=ARGS_TRADE, parser=trade_cmd)
+        # trade_cmd.set_defaults(func=start_trade)
+        # trade.add_argument('bar', help='trade mode')
+

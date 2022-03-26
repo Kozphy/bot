@@ -34,6 +34,7 @@ def main(sysargv: List[str] = None) -> None:
         print(args)
         if 'func' in args:
             return_code = args['func'](args)
+            print(return_code)
         else:
             raise OperationalException('Usage of bot requires subcommand to be given in cli interface.')
 
