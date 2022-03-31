@@ -11,6 +11,7 @@ from typing import Any, List
 from bot.cmd.arguments import Arguments
 from bot.loggers import setup_logging_pre
 from bot.exceptions import OperationalException, BotException
+from bot.configuration.load_config import load_yaml_setting
 
 # check min. python version
 if sys.version_info < (3, 8, 10):
@@ -18,6 +19,8 @@ if sys.version_info < (3, 8, 10):
 
 
 logger = logging.getLogger('short_bot')        
+
+args = None
 
 def main(sysargv: List[str] = None) -> None:
     """
@@ -30,11 +33,11 @@ def main(sysargv: List[str] = None) -> None:
     try:
         setup_logging_pre()
         arguments = Arguments(sysargv)
+        global args 
         args = arguments.get_parsed_arg()
         print(args)
         if 'func' in args:
             return_code = args['func'](args)
-            print(return_code)
         else:
             raise OperationalException('Usage of bot requires subcommand to be given in cli interface.')
 

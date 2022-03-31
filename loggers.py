@@ -7,6 +7,7 @@ from typing import Any, Dict
 logger = logging.getLogger(__name__)
 
 LOGFORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+LOGFORMATED = Formatter(LOGFORMAT)
 
 def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:
     """
@@ -19,16 +20,19 @@ def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> Non
 def setup_logging_pre() -> None:
     """
     Early setup for logging.
-    Uses INFO loglevel and only the Streamhandler.
+    Uses DEBUG loglevel and only the Streamhandler.
     Early messages (before proper logging setup) will therefore only be sent to additional
     logging handlers after the real initialization, because we don't know which
     ones the user desires beforehand.
     """
+
     logging.basicConfig(
-        level=logging.INFO,
+        level=logging.DEBUG,
         format=LOGFORMAT,
         handlers=[logging.StreamHandler(sys.stderr)]
     )
+    
+    
 
 def get_existing_handlers(handlertype):
     """
@@ -45,6 +49,19 @@ def setup_logging(config: Dict[str, Any]) -> None:
     # Log level
     verbosity = config['verbosity']
     # logging.root.anddHandler()
+    logfile = config.get('logfile')
+
+    # handler_rf = get_existing_handlers(RotatingFileHandler)
+    print(handler_rf)
     
-    handler_rf = RotatingFileHandler()
-    pass
+    handler_rf = RotatingFileHandler(logfile, 
+                                    maxBytes=1024*1024*10,
+                                    backupCount=5
+                                    )
+    handler_rf.setFormatter(LOGFORMATED)
+    logging.root.addHandler(handler_rf)
+
+
+    logging.root.setLevel(logging.INFO if verbosity < 1 else logging.DEBUG)
+    logger.info(f'Verbosity set to {verbosity}')
+

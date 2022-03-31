@@ -156,3 +156,6 @@ ccxt/
 
 # sh
 pushgit.sh
+
+# user_data
+user_data/

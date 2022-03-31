@@ -3,6 +3,8 @@ Definition of cli arguments used in arguments.py
 """
 
 from bot import __version__
+from pathlib import Path
+import logging
 
 class Arg:
     # Optional cli arguments
@@ -22,35 +24,63 @@ AVAILABLE_CLI_OPTIONS = {
     'logfile': Arg(
         '--logfile',
         help='Log to the file specified.',
-        metavar='FILE'
+        metavar='FILE',
     ),
     'version': Arg(
         '-V', '--version',
         action='version',
-        version=f'%(prog)s {__version__}'
+        version=f'%(prog)s {__version__}',
     ),
     'config': Arg(
         '-c', '--config',
         help=f'Specify configuration file',
-        action='append',
-        metavar='PATH'
-    ),
-    'datadir': Arg(
-        '-d', '--datadir',
-        help='Path point to historical backtesting data.',
-        metavar='PATH'
+        metavar='PATH',
+        nargs='?',
+        default=f'{Path.cwd()}/user_data/config/config.yaml'
     ),
     'user_data_dir': Arg(
         '--userdir', '--user-data-dir',
         help='Path point to userdata directory.',
-        metavar='PATH'
+        metavar='PATH',
+        nargs='?',
     ),
     # Trade options
     'strategy': Arg(
         '-s', '--strategy',
-        help='what strategy do you want to run?',
-        metavar='PATH'
-    )
-    
-
+        help='What strategy do you want to run?',
+        metavar='PATH',
+        nargs=1
+    ),
+    'strategy_path': Arg(
+        '-sp', '--strategy-path',
+        help='Where did you put the strategy?',
+        metavar='PATH',
+        nargs='?',
+        default=f'{Path.cwd()}/user_data/strategy',
+    ),
+    'db_path': Arg(
+        '-dbp', '--db-path',
+        help='Where did you want to set the database?',
+        metavar='PATH',
+        nargs='?',
+        default=f'{Path.cwd()}/db/test.db',
+    ),
+    'dry_run': Arg(
+        '-drun', '--dry-run',
+        help='active virtual trade mode',
+        action='store_true',
+    ),
+    'dry_run_wallet': Arg(
+        '-drw', '--dry-run-wallet',
+        help='How much dry run wallet do you want to initialize?',
+        metavar='number',
+        default='1000',
+        nargs=1
+    ),
+   # no-config required 
+   'sync': Arg(
+       '-sc', '--sync',
+       help='download data and let it store in sql',
+       action='store_true',
+   )
 }

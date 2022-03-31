@@ -10,11 +10,11 @@ import logging
 from bot.constants import DEFAULT_CONFIG
 from bot.cmd.cli_option import AVAILABLE_CLI_OPTIONS
 
-ARGS_COMMON = ['verbosity', 'logfile', 'version', 'config', 'datadir', 'user_data_dir']
+ARGS_COMMON = ['verbosity', 'logfile', 'version', 'config', 'user_data_dir']
 
-ARGS_TRADE = ['strategy','strategy_path', 'db_url', 'dry_run', 'fee']
+ARGS_TRADE = ['strategy','strategy_path', 'db_path', 'dry_run', 'dry_run_wallet']
 
-NO_CONFIG_REQUIRED = ['download-data']
+NO_CONFIG_REQUIRED = ['sync']
 
 logger = logging.getLogger(__name__)
 
@@ -43,31 +43,31 @@ class Arguments:
         """
         Parses cli interface given arguments and returns an argparse Namespace instance.
         """
-        logging.info('load cli interface arguments to namespace object')
+        logging.debug('load cli interface arguments to namespace object')
 
         parsed_arg = self.parser.parse_args(self.args)
 
         # Workaround issue in argparse with action='append' and default value
         # (see https://bugs.python.org/issue16399)
         # Allow no-config for certain commands (like downloading)
-        if ('config' in parsed_arg and parsed_arg['config'] is None):
-            no_conf_required = ('command' in parsed_arg and parsed_arg['command'] in NO_CONFIG_REQUIRED)
+        # if ('config' in parsed_arg and parsed_arg['config'] is None):
+        #     no_conf_required = ('command' in parsed_arg and parsed_arg['command'] in NO_CONFIG_REQUIRED)
 
-            ## if cli interface have specify user_dir
-            if 'user_data_dir' in parsed_arg and parsed_arg.user_data_dir is not None:
-                user_dir = parsed_arg.user_data_dir
-            else: 
-                # Default case
-                user_dir = 'user_data'
-                # Try loading from 'user_data/config.json'
-                cfgfile = Path(user_dir) / DEFAULT_CONFIG
-                if cfgfile.is_file():
-                    parsed_arg['config'] = [str(cfgfile)]
-                else:
-                    # use 'config.yaml'
-                    cfgfile = Path.cwd() / DEFAULT_CONFIG
-                    if cfgfile.is_file() or not no_conf_required:
-                        parsed_arg['config'] = [str(cfgfile)]
+        #     ## if cli interface have specify user_dir
+        #     if 'user_data_dir' in parsed_arg and parsed_arg.user_data_dir is not None:
+        #         user_dir = parsed_arg.user_data_dir
+        #     else: 
+        #         # Default case
+        #         user_dir = 'user_data'
+        #         # Try loading from 'user_data/config.json'
+        #         cfgfile = Path(user_dir) / DEFAULT_CONFIG
+        #         if cfgfile.is_file():
+        #             parsed_arg['config'] = [str(cfgfile)]
+        #         else:
+        #             # use 'config.yaml'
+        #             cfgfile = Path.cwd() / DEFAULT_CONFIG
+        #             if cfgfile.is_file() or not no_conf_required:
+        #                 parsed_arg['config'] = [str(cfgfile)]
         # print(parsed_arg)
         return parsed_arg
 
@@ -77,9 +77,9 @@ class Arguments:
 
         for val in optionlist: 
             if hasattr(parser, 'title'):
-                logging.info(f'create {val} arguments string to {parser.title} parser')
+                logging.debug(f'create {val} arguments string to {parser.title} parser')
             elif hasattr(parser, 'prog'):
-                logging.info(f'create {val} arguments string to {parser.prog} parser')
+                logging.debug(f'create {val} arguments string to {parser.prog} parser')
             opt = AVAILABLE_CLI_OPTIONS[val]
             parser.add_argument(*opt.cli, dest=val, **opt.kwargs)
 
@@ -89,7 +89,7 @@ class Arguments:
         Builds and attaches all subcommands.
         :return None
         """
-        logging.info('build_subcommands')
+        logging.debug('build_subcommands')
 
         # Build option arguments (as group Common Options)
         _common_parser = argparse.ArgumentParser(add_help=False)
@@ -102,10 +102,11 @@ class Arguments:
 
         ## build subcommand
         subparsers = self.parser.add_subparsers(dest='command')
-
+        from bot.cmd.trade_command import start_trade
         trade_cmd = subparsers.add_parser('trade', help='activate trade mode',
                                             parents=[_common_parser])
         self._build_args(optionlist=ARGS_TRADE, parser=trade_cmd)
-        # trade_cmd.set_defaults(func=start_trade)
+        trade_cmd.set_defaults(func=start_trade)
         # trade.add_argument('bar', help='trade mode')
 
+        
