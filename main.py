@@ -11,7 +11,7 @@ from typing import Any, List
 from bot.cmd.arguments import Arguments
 from bot.loggers import setup_logging_pre
 from bot.exceptions import OperationalException, BotException
-from bot.configuration.load_config import load_yaml_setting
+# from bot.configuration.load_config import load_yaml_setting
 
 # check min. python version
 if sys.version_info < (3, 8, 10):
@@ -27,16 +27,18 @@ def main(sysargv: List[str] = None) -> None:
     This function will initiate the bot and start the trading loop
     :return None
     """
-
     return_code: Any = 1
 
     try:
         setup_logging_pre()
         arguments = Arguments(sysargv)
-        global args 
+        global args
         args = arguments.get_parsed_arg()
-        print(args)
+
         if 'func' in args:
+            # result = load_yaml_setting()
+            # print(result)
+            # print(args)
             return_code = args['func'](args)
         else:
             raise OperationalException('Usage of bot requires subcommand to be given in cli interface.')
@@ -52,6 +54,7 @@ def main(sysargv: List[str] = None) -> None:
         logger.exception('Fatal exception!')
     finally:
         sys.exit(return_code)
+
 
 if __name__ == '__main__':
     main()

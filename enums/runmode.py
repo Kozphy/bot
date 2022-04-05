@@ -5,6 +5,8 @@ class RunMode(Enum):
     Bot running mode (backtesting, ...)
     can be "live", "dry-run"
     """
-    LIVE = "live"
-    DRY_RUN = "dry_run"
-    Other = "Other"
+    LIVE="live"
+    DRY_RUN="dry_run"
+    SYNC="sync"
+    BACKTEST='bracktest'
+    OTHER="Other"

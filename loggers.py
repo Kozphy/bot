@@ -3,6 +3,8 @@ import sys
 from logging import Formatter, StreamHandler
 from logging.handlers import RotatingFileHandler
 from typing import Any, Dict
+from bot.constants import LOG_FILE
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -45,23 +47,26 @@ def setup_logging(config: Dict[str, Any]) -> None:
     """
     Process -v/--verbose, --logfile options
     """
-    
+    # print(config) 
     # Log level
     verbosity = config['verbosity']
     # logging.root.anddHandler()
     logfile = config.get('logfile')
+    if logfile:
+        # handler_rf = get_existing_handlers(RotatingFileHandler)
+        # print(logfile)
+        handler_rf = RotatingFileHandler(logfile, 
+                                        maxBytes=1024*1024*10,
+                                        backupCount=5
+                                        )
 
-    # handler_rf = get_existing_handlers(RotatingFileHandler)
-    print(handler_rf)
-    
-    handler_rf = RotatingFileHandler(logfile, 
-                                    maxBytes=1024*1024*10,
-                                    backupCount=5
-                                    )
-    handler_rf.setFormatter(LOGFORMATED)
-    logging.root.addHandler(handler_rf)
+        # print(handler_rf)
+        handler_rf.setFormatter(LOGFORMATED)
+        logging.root.addHandler(handler_rf)
+        # print(logging.root.handle)
 
 
     logging.root.setLevel(logging.INFO if verbosity < 1 else logging.DEBUG)
+    # print(logging.root.handle)
     logger.info(f'Verbosity set to {verbosity}')
 

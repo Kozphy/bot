@@ -7,14 +7,20 @@ from functools import partial
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 import logging
-from bot.constants import DEFAULT_CONFIG
+# from bot.constants import CONFIG
 from bot.cmd.cli_option import AVAILABLE_CLI_OPTIONS
 
 ARGS_COMMON = ['verbosity', 'logfile', 'version', 'config', 'user_data_dir']
 
 ARGS_TRADE = ['strategy','strategy_path', 'db_path', 'dry_run', 'dry_run_wallet']
 
-NO_CONFIG_REQUIRED = ['sync']
+SYNC_ARGS = ['sync_from']
+
+ARGS_COMMON_OPTIMIZE = ['timeframe', 'timerange', 'fee']
+
+# NO_CONFIG_REQUIRED = ['sync']
+
+POSITION_ARGS = ['trade', 'backtesting', 'sync']
 
 logger = logging.getLogger(__name__)
 
@@ -39,6 +45,7 @@ class Arguments:
         
         return vars(self._parsed_arg)
     
+
     def _parse_args(self) -> argparse.Namespace:
         """
         Parses cli interface given arguments and returns an argparse Namespace instance.
@@ -71,17 +78,17 @@ class Arguments:
         # print(parsed_arg)
         return parsed_arg
 
-
     
-    def _build_args(self, optionlist, parser):
+    def _build_args(self, optionlist, parser, positionlist = None):
 
-        for val in optionlist: 
-            if hasattr(parser, 'title'):
-                logging.debug(f'create {val} arguments string to {parser.title} parser')
-            elif hasattr(parser, 'prog'):
-                logging.debug(f'create {val} arguments string to {parser.prog} parser')
-            opt = AVAILABLE_CLI_OPTIONS[val]
-            parser.add_argument(*opt.cli, dest=val, **opt.kwargs)
+        if positionlist is None: 
+            for val in optionlist: 
+                if hasattr(parser, 'title'):
+                    logging.debug(f'create {val} arguments string to {parser.title} parser')
+                elif hasattr(parser, 'prog'):
+                    logging.debug(f'create {val} arguments string to {parser.prog} parser')
+                opt = AVAILABLE_CLI_OPTIONS[val]
+                parser.add_argument(*opt.cli, dest=val, **opt.kwargs)
 
 
     def _build_subcommands(self) -> None:
@@ -102,11 +109,17 @@ class Arguments:
 
         ## build subcommand
         subparsers = self.parser.add_subparsers(dest='command')
-        from bot.cmd.trade_command import start_trade
+
+        from bot.cmd import (start_trade, start_sync)
+
+         
         trade_cmd = subparsers.add_parser('trade', help='activate trade mode',
                                             parents=[_common_parser])
         self._build_args(optionlist=ARGS_TRADE, parser=trade_cmd)
         trade_cmd.set_defaults(func=start_trade)
         # trade.add_argument('bar', help='trade mode')
 
-        
+        sync_cmd = subparsers.add_parser('sync', help='download data and let it store in sql',
+                                        parents=[_common_parser])
+        self._build_args(optionlist=SYNC_ARGS, parser=sync_cmd)
+        sync_cmd.set_defaults(func=start_sync)

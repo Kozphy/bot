@@ -5,6 +5,7 @@ Definition of cli arguments used in arguments.py
 from bot import __version__
 from pathlib import Path
 import logging
+from bot.constants import BOT_DIR, CONFIG, LOG_FILE, DEFAULT_USERDATA_DIR
 
 class Arg:
     # Optional cli arguments
@@ -25,6 +26,8 @@ AVAILABLE_CLI_OPTIONS = {
         '--logfile',
         help='Log to the file specified.',
         metavar='FILE',
+        nargs='?',
+        default=f'{LOG_FILE}',
     ),
     'version': Arg(
         '-V', '--version',
@@ -36,13 +39,14 @@ AVAILABLE_CLI_OPTIONS = {
         help=f'Specify configuration file',
         metavar='PATH',
         nargs='?',
-        default=f'{Path.cwd()}/user_data/config/config.yaml'
+        default=f'{CONFIG}'
     ),
     'user_data_dir': Arg(
-        '--userdir', '--user-data-dir',
+        '-udd', '--user-data-dir',
         help='Path point to userdata directory.',
         metavar='PATH',
         nargs='?',
+        default=f'{DEFAULT_USERDATA_DIR}'
     ),
     # Trade options
     'strategy': Arg(
@@ -56,14 +60,14 @@ AVAILABLE_CLI_OPTIONS = {
         help='Where did you put the strategy?',
         metavar='PATH',
         nargs='?',
-        default=f'{Path.cwd()}/user_data/strategy',
+        default=f'{BOT_DIR}/user_data/strategy',
     ),
     'db_path': Arg(
         '-dbp', '--db-path',
         help='Where did you want to set the database?',
         metavar='PATH',
         nargs='?',
-        default=f'{Path.cwd()}/db/test.db',
+        default=f'{BOT_DIR}/user_data/db/test.db',
     ),
     'dry_run': Arg(
         '-drun', '--dry-run',
@@ -77,9 +81,9 @@ AVAILABLE_CLI_OPTIONS = {
         default='1000',
         nargs=1
     ),
-   # no-config required 
-   'sync': Arg(
-       '-sc', '--sync',
+   # no-config required  (sync, backtest)
+   'sync_from': Arg(
+       '-sf', '--sync-from',
        help='download data and let it store in sql',
        action='store_true',
    )
