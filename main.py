@@ -36,9 +36,6 @@ def main(sysargv: List[str] = None) -> None:
         args = arguments.get_parsed_arg()
 
         if 'func' in args:
-            # result = load_yaml_setting()
-            # print(result)
-            # print(args)
             return_code = args['func'](args)
         else:
             raise OperationalException('Usage of bot requires subcommand to be given in cli interface.')

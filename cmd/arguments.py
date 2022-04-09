@@ -14,7 +14,7 @@ ARGS_COMMON = ['verbosity', 'logfile', 'version', 'config', 'user_data_dir']
 
 ARGS_TRADE = ['strategy','strategy_path', 'db_path', 'dry_run', 'dry_run_wallet']
 
-SYNC_ARGS = ['sync_from']
+SYNC_ARGS = ['startAt', 'endAt']
 
 ARGS_COMMON_OPTIMIZE = ['timeframe', 'timerange', 'fee']
 
@@ -112,13 +112,14 @@ class Arguments:
 
         from bot.cmd import (start_trade, start_sync)
 
-         
+        # build trade command and options
         trade_cmd = subparsers.add_parser('trade', help='activate trade mode',
                                             parents=[_common_parser])
         self._build_args(optionlist=ARGS_TRADE, parser=trade_cmd)
         trade_cmd.set_defaults(func=start_trade)
         # trade.add_argument('bar', help='trade mode')
 
+        # build sync command and options
         sync_cmd = subparsers.add_parser('sync', help='download data and let it store in sql',
                                         parents=[_common_parser])
         self._build_args(optionlist=SYNC_ARGS, parser=sync_cmd)

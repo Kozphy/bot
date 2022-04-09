@@ -4,6 +4,7 @@ bot constants
 
 from typing import List, Tuple
 from pathlib import Path
+from bot.exchanges.kucoin import Kucoin
 
 ## bot
 BOT_NAME = 'bot'
@@ -27,6 +28,9 @@ LOG_FILE = f'{DEFAULT_LOG_FILE_DIR}/bot_record'
 
 ## exchange
 DEFAUT_EXCHANGE = 'kucoin'
+support_exchange = {
+     'kucoin': Kucoin
+}
 
 ## .env
 DEFAUT_ENV = '.env'

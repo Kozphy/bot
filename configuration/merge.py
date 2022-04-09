@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from pathlib import Path
-from bot.constants import BOT_DIR, DEFAULT_USERDATA_DIR, CONFIG
+# from bot.constants import BOT_DIR, DEFAULT_USERDATA_DIR, CONFIG
 
 class merge:
     
@@ -19,26 +19,26 @@ class merge:
 
 #     pass
 
-class per_default(merge):
-    def merge_user_data(self, args):
-            return f"{DEFAULT_USERDATA_DIR}"
+# class per_default(merge):
+#     def merge_user_data(self, args):
+#             return f"{DEFAULT_USERDATA_DIR}"
 
-    def merge_config(self,args):
-        return f"{CONFIG}"
+#     def merge_config(self,args):
+#         return f"{CONFIG}"
 
-class per_args(merge):
-    def merge_user_data(self, args):
-        if args['user_data_dir'] != DEFAULT_USERDATA_DIR:
-            return f"{BOT_DIR}/{args['user_data_dir']}"
+# class per_args(merge):
+#     def merge_user_data(self, args):
+#         if args['user_data_dir'] != DEFAULT_USERDATA_DIR:
+#             return f"{BOT_DIR}/{args['user_data_dir']}"
 
-    def merge_config(self,args):
-        return f"{self.merge_user_data(args)}/{args['config']}"
+#     def merge_config(self,args):
+#         return f"{self.merge_user_data(args)}/{args['config']}"
 
-class per_config(merge):
-    def merge_user_data(self, args):
-        return f"{BOT_DIR}/{args['user_data_dir']}"
+# class per_config(merge):
+#     def merge_user_data(self, args):
+#         return f"{BOT_DIR}/{args['user_data_dir']}"
 
-    def merge_config(self,args):
-        return f"{self.merge_user_data(args)}/{args['config']}"
+#     def merge_config(self,args):
+#         return f"{self.merge_user_data(args)}/{args['config']}"
 
 

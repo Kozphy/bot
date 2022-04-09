@@ -6,12 +6,22 @@ from bot import __version__
 from pathlib import Path
 import logging
 from bot.constants import BOT_DIR, CONFIG, LOG_FILE, DEFAULT_USERDATA_DIR
+from datetime import datetime
+import argparse
 
 class Arg:
     # Optional cli arguments
     def __init__(self, *args, **kwargs):
         self.cli = args
         self.kwargs = kwargs
+
+def valid_date(s):
+    try:
+        return datetime.strptime(s, "%Y-%m-%d")
+    except ValueError:
+        msg = "not a valid date: {0!r}".format(s)
+        raise argparse.ArgumentTypeError(msg)
+
 
 ## List of avalilable cli options
 AVAILABLE_CLI_OPTIONS = {
@@ -79,12 +89,23 @@ AVAILABLE_CLI_OPTIONS = {
         help='How much dry run wallet do you want to initialize?',
         metavar='number',
         default='1000',
-        nargs=1
+        nargs=1,
     ),
    # no-config required  (sync, backtest)
-   'sync_from': Arg(
-       '-sf', '--sync-from',
-       help='download data and let it store in sql',
-       action='store_true',
+   'startAt': Arg(
+       '-sAt', '--start-at',
+       help='when do you want to start',
+       metavar='YYYY-MM-DD',
+       nargs='?',
+       type=valid_date
+    ),
+   'endAt': Arg(
+       '-eAt', '--end-at',
+       help='when do you want to stop',
+       metavar='YYYY-MM-DD',
+       nargs='?',
+       type=valid_date
    )
 }
+
+

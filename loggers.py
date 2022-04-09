@@ -3,7 +3,7 @@ import sys
 from logging import Formatter, StreamHandler
 from logging.handlers import RotatingFileHandler
 from typing import Any, Dict
-from bot.constants import LOG_FILE
+# from bot.constants import LOG_FILE
 import os
 
 logger = logging.getLogger(__name__)
