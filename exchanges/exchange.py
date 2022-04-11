@@ -22,6 +22,11 @@ class Exchange:
         self._exchange = None
 
     def init_exchange(self):
+        """
+        init exchange which is selected by user and
+        checking exchange is support or not
+        :return exchange obj is selected by user :obj
+        """
         from bot.constants import support_exchange
         if self.configured['runmode'] == RunMode.SYNC:
             name = self.configured['sync_dict']['session']

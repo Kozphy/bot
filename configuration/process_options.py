@@ -14,17 +14,6 @@ class Process_options:
         self._yaml: self.setting_format = None
         self._runmode = runmode
 
-    # @property
-    # def get_args(self):
-    #     return self._args
-    
-    # @property
-    # def get_config(self):
-    #     return self._config
-    
-    # @property
-    # def get_runmode(self):
-    #     return self._runmode
     def _process_logging_options(self, args: setting_format):
         """
         change logger level
@@ -49,10 +38,9 @@ class Process_options:
         logger.debug("process sync options") 
 
         ## process yaml sync 
-        # print(self._yaml) 
         config_sync_dict = self._yaml['sync']
         if config_sync_dict['sync_pairs'] == 'trade_pairs':
-            config_sync_dict['sync_paris'] = self._yaml['trade_pairs']
+            config_sync_dict['sync_pairs'] = self._yaml['trade_pairs']
         
         args['sync_dict'] = {'session': self._yaml['session'] ,**config_sync_dict}
 
@@ -62,7 +50,7 @@ class Process_options:
         if args['endAt'] is None:
             args['endAt'] = config_sync_dict['endAt']
 
-        # process mode 
+        # process runmode 
         args['runmode'] = self._runmode
         
      

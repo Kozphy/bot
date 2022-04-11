@@ -973,3 +973,449 @@ UnboundLocalError: local variable 'name' referenced before assignment
 2022-04-09 23:29:55,514 - bot.loggers - INFO - Verbosity set to 0
 2022-04-09 23:34:41,835 - bot.loggers - INFO - Verbosity set to 0
 2022-04-09 23:35:34,289 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 09:24:23,117 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 09:25:28,979 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 09:25:28,979 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 20, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 32, in init_exchange
+    self._exchange = support_exchange[name]()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 22, in __init__
+    yaml_key_struct = self.yaml['exchange']['apikey']
+AttributeError: 'Kucoin' object has no attribute 'yaml'
+2022-04-10 10:09:07,316 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 10:16:59,186 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 10:16:59,187 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 21, in start_sync
+    exchange.request_time_format()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 45, in request_time_format
+    print(len(startAt), endAt)
+TypeError: object of type 'datetime.date' has no len()
+2022-04-10 10:19:34,141 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 10:19:34,141 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 21, in start_sync
+    exchange.request_time_format()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 45, in request_time_format
+    print(len(startAt.timestamp()), endAt)
+AttributeError: 'datetime.date' object has no attribute 'timestamp'
+2022-04-10 10:22:39,134 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 10:23:19,815 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 10:26:37,226 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 10:26:37,226 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 21, in start_sync
+    exchange.request_time_format()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 45, in request_time_format
+    print(startAt.timestamp(), type(endAt))
+AttributeError: 'datetime.date' object has no attribute 'timestamp'
+2022-04-10 10:30:38,891 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 10:30:38,891 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 21, in start_sync
+    exchange.request_time_format()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 45, in request_time_format
+    print(startAt.timestamp(), type(endAt))
+AttributeError: 'datetime.date' object has no attribute 'timestamp'
+2022-04-10 10:30:48,919 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 10:36:40,102 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 10:37:40,064 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 10:37:48,608 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 10:46:29,125 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 10:50:52,308 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 11:02:58,674 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 11:19:14,779 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 15:09:42,436 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 15:15:49,188 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 15:16:15,437 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 20:17:29,102 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 20:17:29,102 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 21, in start_sync
+    client = exchange.init_client()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 26, in init_client
+    self.__client = Client(self._yaml, self._configured,
+AttributeError: 'Kucoin' object has no attribute '_yaml'
+2022-04-10 20:18:12,745 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 20:18:12,745 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 21, in start_sync
+    client = exchange.init_client()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 23, in init_client
+    self.__client = Client(self.yaml, self.configured,
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 17, in __init__
+    yaml_key_struct = self.yaml['exchange']['apikey']
+AttributeError: 'Client' object has no attribute 'yaml'
+2022-04-10 20:18:27,320 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 20:18:42,832 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 20:32:54,742 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 20:32:54,743 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 21, in start_sync
+    client = exchange.init_client()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 23, in init_client
+    self.__client = Client(self.yaml, self.configured,
+TypeError: __init__() should return None, not 'Kucoin_market'
+2022-04-10 20:34:22,896 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 20:34:22,896 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 21, in start_sync
+    client = exchange.init_client()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 23, in init_client
+    self.__client = Client(self.yaml, self.configured,
+TypeError: __init__() should return None, not 'Kucoin_market'
+2022-04-10 20:49:24,001 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 20:49:24,001 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 21, in start_sync
+    client = exchange.create_client()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 23, in create_client
+    self.__client = Client(self.yaml, self.configured,
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 18, in __init__
+    self.market = self.init_market()
+AttributeError: 'Client' object has no attribute 'init_market'
+2022-04-10 20:49:33,281 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 20:53:45,242 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 20:54:05,004 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 21:01:59,501 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 21:03:09,509 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 21:03:19,415 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 21:03:36,992 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 21:21:10,242 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 21:21:10,242 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 23, in start_sync
+    print(client.get_klines())
+TypeError: get_klines() missing 3 required positional arguments: 'symbol', 'type', and 'sandbox'
+2022-04-10 21:26:30,739 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 21:26:30,739 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 23, in start_sync
+    client = client.init_client()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 27, in init_client
+    symbols = self.configured['symbols']
+KeyError: 'symbols'
+2022-04-10 21:27:21,230 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 21:27:21,230 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 23, in start_sync
+    client = client.init_client()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 28, in init_client
+    symbols = self.configured['sync_dict']['symbols']
+KeyError: 'symbols'
+2022-04-10 21:28:13,251 - bot.loggers - INFO - Verbosity set to 0
+2022-04-10 21:28:13,251 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 23, in start_sync
+    client = client.init_client()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 28, in init_client
+    symbols = self.configured['sync_dict']['sync_paris']
+KeyError: 'sync_paris'
+2022-04-10 21:28:23,351 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 10:35:27,156 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 10:35:27,355 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 24, in start_sync
+    print(client.get_klines())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market.py", line 20, in get_klines
+    klines = self.market.get_kline('BTC-USDT', '1day',startAt=self.startAt, endAt=self.endAt)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 400-{"code":"400000","msg":"Bad Request"}
+2022-04-11 10:35:56,259 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 10:35:56,259 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 24, in start_sync
+    print(client.get_klines())
+AttributeError: 'NoneType' object has no attribute 'get_klines'
+2022-04-11 10:36:10,117 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 10:36:28,994 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 10:39:02,247 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 10:54:56,071 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 10:54:56,071 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 23, in start_sync
+    client = client.init_client()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 41, in init_client
+    symbols, timeframe, startAt, endAt = self.process_request_params()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 37, in process_request_params
+    print(**require_params[self.configured['runmode']])
+TypeError: 'symbols' is an invalid keyword argument for print()
+2022-04-11 10:58:07,237 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 10:58:07,237 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 23, in start_sync
+    client = client.init_client()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 44, in init_client
+    RunMode.SYNC: Kucoin_market(symbols, timeframe, startAt, endAt),
+NameError: name 'symbols' is not defined
+2022-04-11 10:59:05,140 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 10:59:28,602 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:00:27,661 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:00:27,662 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 23, in start_sync
+    client = client.init_client()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 44, in init_client
+    RunMode.SYNC: Kucoin_market(symbols, timeframe, startAt, endAt),
+NameError: name 'symbols' is not defined
+2022-04-11 11:00:33,137 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:01:35,723 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:03:40,335 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:12:18,858 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:20:38,604 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:22:07,589 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:22:07,590 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 24, in start_sync
+    print(client.get_merket_list())
+AttributeError: 'Kucoin_market' object has no attribute 'get_merket_list'
+2022-04-11 11:22:18,455 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:23:30,153 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:23:30,154 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_symbol_list())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market.py", line 18, in get_symbol_list
+    return self.market.get_symbol_list('USDS')
+TypeError: get_symbol_list() takes 1 positional argument but 2 were given
+2022-04-11 11:26:14,125 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:26:44,215 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:27:57,832 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:28:03,883 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:28:03,883 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_symbol_list())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market.py", line 18, in get_symbol_list
+    return self.market.get_symbol_list('USDT')
+TypeError: get_symbol_list() takes 1 positional argument but 2 were given
+2022-04-11 11:28:47,896 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:29:15,149 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:29:23,023 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:49:07,809 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:59:46,149 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 11:59:46,149 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_accept_paris()())
+AttributeError: 'Kucoin_market' object has no attribute 'get_accept_paris'
+2022-04-11 12:00:47,207 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 15:55:19,901 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:01:33,328 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:01:33,328 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 8, in get_accept_pairs
+    paris = self.get_symbol_list(currency_pair=currency_pair)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 13, in get_symbol_list
+    return self.market.get_symbol_list(currency_pair)
+TypeError: get_symbol_list() takes 1 positional argument but 2 were given
+2022-04-11 16:02:45,882 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:10:15,268 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:10:15,467 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 10, in get_accept_pairs
+    print(re.findall('+-USDT$',pair['name']))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/re.py", line 241, in findall
+    return _compile(pattern, flags).findall(string)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/re.py", line 304, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/sre_compile.py", line 764, in compile
+    p = sre_parse.parse(p, flags)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/sre_parse.py", line 948, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/sre_parse.py", line 443, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/sre_parse.py", line 668, in _parse
+    raise source.error("nothing to repeat",
+re.error: nothing to repeat at position 0
+2022-04-11 16:12:47,584 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:13:52,893 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:14:23,738 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:14:23,878 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 10, in get_accept_pairs
+    print(re.match('\S+-USDT$',pair['name']).group())
+AttributeError: 'NoneType' object has no attribute 'group'
+2022-04-11 16:16:36,757 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:16:36,929 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 10, in get_accept_pairs
+    print(re.match('\S+-USDT$',pair['name']).groupdict())
+AttributeError: 'NoneType' object has no attribute 'groupdict'
+2022-04-11 16:19:29,665 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:19:29,797 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 11, in get_accept_pairs
+    if re.match('\S+-USDT$',pair['name']).group() is not None:
+AttributeError: 'NoneType' object has no attribute 'group'
+2022-04-11 16:19:43,254 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:22:56,909 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:22:57,091 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 10, in get_accept_pairs
+    reg = re.match(reg, pair['name'])
+UnboundLocalError: local variable 'pair' referenced before assignment
+2022-04-11 16:23:27,304 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:23:27,434 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 10, in get_accept_pairs
+    pair_name = pair['name']
+UnboundLocalError: local variable 'pair' referenced before assignment
+2022-04-11 16:26:32,245 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:26:32,410 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 9, in get_accept_pairs
+    origin_pairs = [pair for pair in pairs]
+NameError: name 'pairs' is not defined
+2022-04-11 16:27:01,731 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:27:01,849 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 9, in get_accept_pairs
+    origin_pairs = [pair['name'] for pair in pairs]
+NameError: name 'pairs' is not defined
+2022-04-11 16:27:24,454 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:29:28,450 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:29:28,669 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 11, in get_accept_pairs
+    reg = re.match(reg, origin_pairs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/re.py", line 191, in match
+    return _compile(pattern, flags).match(string)
+TypeError: expected string or bytes-like object
+2022-04-11 16:33:08,969 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:33:09,107 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 10, in get_accept_pairs
+    reg = re.match(reg, origin_pairs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/re.py", line 191, in match
+    return _compile(pattern, flags).match(string)
+TypeError: expected string or bytes-like object
+2022-04-11 16:33:29,496 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:33:29,804 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 10, in get_accept_pairs
+    reg = re.match(reg)
+TypeError: match() missing 1 required positional argument: 'string'
+2022-04-11 16:34:19,067 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:34:19,214 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 11, in get_accept_pairs
+    result = list(filter(reg, origin_pairs))
+TypeError: 're.Pattern' object is not callable
+2022-04-11 16:36:32,396 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:36:32,568 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    print(client.get_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 11, in get_accept_pairs
+    result = list(filter(r, origin_pairs))
+TypeError: 're.Pattern' object is not callable
+2022-04-11 16:43:30,341 - bot.loggers - INFO - Verbosity set to 0
+2022-04-11 16:52:18,729 - bot.loggers - INFO - Verbosity set to 0

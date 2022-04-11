@@ -13,17 +13,19 @@ def start_sync(args: Dict[str, Any]) -> None:
     """
     try: 
         ## init config
+        print(args)
         c = Configuration(args=args, runmode=RunMode.SYNC)
         configured, yaml = c.get_config()
         exchange = Exchange(configured, yaml)
         print(configured)
         exchange = exchange.init_exchange()
-        exchange.request_time_format()
-        # market = exchange.init_market()
-        # client = exchange.client
-        # print(dir(exchange))
-        # exchange.get_kline()
-        # print(exchange._api)
+        client = exchange.create_client()
+        client = client.init_client()
+        # print(client.get_market_list())
+        print(client.get_accept_pairs())
+        # client.request_time_format()
+        # client.current_request_time()
+
         
 
         
