@@ -1419,3 +1419,377 @@ Traceback (most recent call last):
 TypeError: 're.Pattern' object is not callable
 2022-04-11 16:43:30,341 - bot.loggers - INFO - Verbosity set to 0
 2022-04-11 16:52:18,729 - bot.loggers - INFO - Verbosity set to 0
+2022-04-19 20:03:20,360 - bot.loggers - INFO - Verbosity set to 0
+2022-04-19 20:35:44,684 - bot.loggers - INFO - Verbosity set to 0
+2022-04-19 20:37:03,392 - bot.loggers - INFO - Verbosity set to 0
+2022-04-19 20:37:17,108 - bot.loggers - INFO - Verbosity set to 0
+2022-04-20 17:03:34,078 - bot.loggers - INFO - Verbosity set to 0
+2022-04-20 17:07:43,216 - bot.loggers - INFO - Verbosity set to 0
+2022-04-20 17:07:43,216 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 19, in start_sync
+    configured, yaml = c.get_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 27, in get_config
+    self._config = self.load_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 44, in load_config
+    configured = self._merge_args_yaml(self._args)
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 59, in _merge_args_yaml
+    self._process_persistent_options(configured)
+  File "/home/kopher/short_bot/bot/configuration/process_options.py", line 61, in _process_persistent_options
+    config_persistent_dict = self._yaml['persistent']
+KeyError: 'persistent'
+2022-04-20 17:08:16,806 - bot.loggers - INFO - Verbosity set to 0
+2022-04-20 17:09:31,623 - bot.loggers - INFO - Verbosity set to 0
+2022-04-20 17:09:43,078 - bot.loggers - INFO - Verbosity set to 0
+2022-04-20 17:48:11,085 - bot.loggers - INFO - Verbosity set to 0
+2022-04-20 17:49:12,210 - bot.loggers - INFO - Verbosity set to 0
+2022-04-20 17:50:06,357 - bot.loggers - INFO - Verbosity set to 0
+2022-04-20 17:55:31,533 - bot.loggers - INFO - Verbosity set to 0
+2022-04-20 18:01:39,157 - bot.loggers - INFO - Verbosity set to 0
+2022-04-20 18:44:21,899 - bot.loggers - INFO - Verbosity set to 0
+2022-04-20 21:23:24,547 - bot.loggers - INFO - Verbosity set to 0
+2022-04-20 21:36:05,804 - bot.loggers - INFO - Verbosity set to 0
+2022-04-20 21:36:05,805 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 19, in start_sync
+    configured, yaml = c.get_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 27, in get_config
+    self._config = self.load_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 44, in load_config
+    configured = self._merge_args_yaml(self._args)
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 59, in _merge_args_yaml
+    self._process_persistece_options(configured)
+  File "/home/kopher/short_bot/bot/configuration/process_options.py", line 60, in _process_persistece_options
+    from bot.constants import ( DATABASE,DATABASE_PORT, DEFAULT_DB_USER,
+ImportError: cannot import name 'DEFAULT_USERDATA_DIR_NAME' from 'bot.constants' (/home/kopher/short_bot/bot/constants.py)
+2022-04-20 21:36:26,243 - bot.loggers - INFO - Verbosity set to 0
+2022-04-20 21:36:52,963 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 20:14:14,549 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 22:34:56,940 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 22:36:01,906 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 22:54:26,339 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 22:54:26,340 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 19, in start_sync
+    configured, yaml = c.get_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 27, in get_config
+    self._config = self.load_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 44, in load_config
+    configured = self._merge_args_yaml(self._args)
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 59, in _merge_args_yaml
+    self._process_persistece_options(configured)
+  File "/home/kopher/short_bot/bot/configuration/process_options.py", line 75, in _process_persistece_options
+    if DEFAULT_DB_NAME == config_persistence_dict['name']:
+KeyError: 'name'
+2022-04-21 22:54:41,026 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 22:57:35,023 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 22:58:52,100 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 22:59:53,283 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:01:54,748 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:05:26,517 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:06:11,681 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:11:26,218 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:11:46,253 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:13:10,007 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:13:59,103 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:14:13,601 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:15:15,132 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:16:53,741 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:16:53,741 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 19, in start_sync
+    configured, yaml = c.get_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 27, in get_config
+    self._config = self.load_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 44, in load_config
+    configured = self._merge_args_yaml(self._args)
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 59, in _merge_args_yaml
+    self._process_persistece_options(configured)
+  File "/home/kopher/short_bot/bot/configuration/process_options.py", line 75, in _process_persistece_options
+    print(args['db_path'] + "\n" + default_db_path)
+TypeError: can only concatenate str (not "PurePosixPath") to str
+2022-04-21 23:17:25,639 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:18:52,639 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:21:24,939 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:26:37,072 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:26:47,421 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:26:54,058 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:28:48,310 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:28:54,682 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:29:13,837 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:30:11,664 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:30:14,877 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:30:30,748 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:30:30,749 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 19, in start_sync
+    configured, yaml = c.get_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 27, in get_config
+    self._config = self.load_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 44, in load_config
+    configured = self._merge_args_yaml(self._args)
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 59, in _merge_args_yaml
+    self._process_persistece_options(configured)
+  File "/home/kopher/short_bot/bot/configuration/process_options.py", line 80, in _process_persistece_options
+    print("database name: " +db_name)
+TypeError: can only concatenate str (not "dict") to str
+2022-04-21 23:31:11,705 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:31:26,896 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:32:23,881 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:39:02,199 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:39:11,731 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:41:21,717 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:43:11,622 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:43:14,540 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:43:31,105 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:43:48,510 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:44:11,252 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:44:38,160 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:44:49,903 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:45:12,661 - bot.loggers - INFO - Verbosity set to 0
+2022-04-21 23:52:48,682 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:20:02,428 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:22:56,805 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:24:03,775 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:24:03,775 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 19, in start_sync
+    configured, yaml = c.get_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 27, in get_config
+    self._config = self.load_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 44, in load_config
+    configured = self._merge_args_yaml(self._args)
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 59, in _merge_args_yaml
+    self._process_persistece_options(configured)
+  File "/home/kopher/short_bot/bot/configuration/process_options.py", line 84, in _process_persistece_options
+    if args['db_user'] == DEFAULT_DB_USER and DEFAULT_DB_USER != config_db_user:
+NameError: name 'config_db_user' is not defined
+2022-04-22 12:24:29,550 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:26:50,011 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:27:16,176 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:34:29,231 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:34:29,232 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 19, in start_sync
+    configured, yaml = c.get_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 27, in get_config
+    self._config = self.load_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 44, in load_config
+    configured = self._merge_args_yaml(self._args)
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 59, in _merge_args_yaml
+    self._process_persistece_options(configured)
+  File "/home/kopher/short_bot/bot/configuration/process_options.py", line 69, in _process_persistece_options
+    config_db_port: int = config_persistence['db_port']
+KeyError: 'db_port'
+2022-04-22 12:34:48,994 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:35:36,080 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:35:41,093 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:41:24,134 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:41:24,134 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 19, in start_sync
+    configured, yaml = c.get_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 27, in get_config
+    self._config = self.load_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 44, in load_config
+    configured = self._merge_args_yaml(self._args)
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 59, in _merge_args_yaml
+    self._process_persistece_options(configured)
+  File "/home/kopher/short_bot/bot/configuration/process_options.py", line 76, in _process_persistece_options
+    db_port = args['db_port']
+KeyError: 'db_port'
+2022-04-22 12:42:44,057 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:42:44,058 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 19, in start_sync
+    configured, yaml = c.get_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 27, in get_config
+    self._config = self.load_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 44, in load_config
+    configured = self._merge_args_yaml(self._args)
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 59, in _merge_args_yaml
+    self._process_persistece_options(configured)
+  File "/home/kopher/short_bot/bot/configuration/process_options.py", line 76, in _process_persistece_options
+    db_port = args['db_port']
+KeyError: 'db_port'
+2022-04-22 12:43:40,656 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:43:40,656 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 19, in start_sync
+    configured, yaml = c.get_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 27, in get_config
+    self._config = self.load_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 44, in load_config
+    configured = self._merge_args_yaml(self._args)
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 59, in _merge_args_yaml
+    self._process_persistece_options(configured)
+  File "/home/kopher/short_bot/bot/configuration/process_options.py", line 92, in _process_persistece_options
+    db_port = config_persistence['db_port']
+KeyError: 'db_port'
+2022-04-22 12:43:58,548 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:48:37,932 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:48:37,932 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 19, in start_sync
+    configured, yaml = c.get_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 27, in get_config
+    self._config = self.load_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 44, in load_config
+    configured = self._merge_args_yaml(self._args)
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 59, in _merge_args_yaml
+    self._process_persistece_options(configured)
+  File "/home/kopher/short_bot/bot/configuration/process_options.py", line 75, in _process_persistece_options
+    'db_path': db_path,
+UnboundLocalError: local variable 'db_path' referenced before assignment
+2022-04-22 12:49:35,328 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:53:14,295 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:54:30,022 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:55:06,072 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 12:58:45,088 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 13:37:40,796 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 13:38:50,416 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 13:49:56,482 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 14:04:09,810 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 14:04:09,810 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 25, in start_sync
+    client = client.init_client()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 40, in init_client
+    params = self.process_request_params()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 36, in process_request_params
+    if self.configured['runmode'] in require_params:
+KeyError: 'runmode'
+2022-04-22 14:06:46,141 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 14:06:46,141 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 23, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 34, in init_exchange
+    if name not in support_exchange:
+UnboundLocalError: local variable 'name' referenced before assignment
+2022-04-22 14:07:07,803 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 14:07:07,803 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 23, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 34, in init_exchange
+    if name not in support_exchange:
+UnboundLocalError: local variable 'name' referenced before assignment
+2022-04-22 14:12:15,040 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 14:14:50,665 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 14:14:50,665 - short_bot - ERROR - None exchange not support
+2022-04-22 14:22:24,446 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 14:48:31,862 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:08:24,442 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:08:24,621 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    print(client.check_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 23, in check_accept_pairs
+    raise(f"{self.symbols} is not in {accept_pairs}")
+TypeError: exceptions must derive from BaseException
+2022-04-22 17:11:12,007 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:11:12,121 - short_bot - ERROR - ['BTC/USDT', 'ETH/USDT'] is not in ['XLM-USDT', 'VET-USDT', 'GO-USDT', 'EOS-USDT', 'ETC-USDT', 'LTC-USDT', 'LYM-USDT', 'TKY-USDT', 'ONT-USDT', 'AOA-USDT', 'SUSD-USDT', 'TRX-USDT', 'BSV-USDT', 'KCS-USDT', 'NEO-USDT', 'BCH-USDT', 'ETH-USDT', 'BTC-USDT', 'AVA-USDT', 'MHC-USDT', 'MTV-USDT', 'KMD-USDT', 'TEL-USDT', 'AERGO-USDT', 'XMR-USDT', 'ATOM-USDT', 'ETN-USDT', 'FTM-USDT', 'TOMO-USDT', 'VSYS-USDT', 'BNB-USDT', 'JAR-USDT', 'ALGO-USDT', 'XEM-USDT', 'CIX100-USDT', 'XTZ-USDT', 'ZEC-USDT', 'ADA-USDT', 'REV-USDT', 'WXT-USDT', 'FORESTPLUS-USDT', 'BOLT-USDT', 'ARPA-USDT', 'DAPPT-USDT', 'NOIA-USDT', 'WIN-USDT', 'DERO-USDT', 'BTT-USDT', 'EOSC-USDT', 'ENQ-USDT', 'ONE-USDT', 'TOKO-USDT', 'VID-USDT', 'LUNA-USDT', 'MXW-USDT', 'SXP-USDT', 'MAP-USDT', 'DAG-USDT', 'POL-USDT', 'ARX-USDT', 'NWC-USDT', 'BEPRO-USDT', 'VRA-USDT', 'DASH-USDT', 'ACOIN-USDT', 'XDB-USDT', 'SYLO-USDT', 'WOM-USDT', 'DGB-USDT', 'STX-USDT', 'XSR-USDT', 'CRO-USDT', 'KAI-USDT', 'WEST-USDT', 'BNS-USDT', 'MLK-USDT', 'DOT-USDT', 'EWT-USDT', 'CKB-USDT', 'ALEPH-USDT', 'VELO-USDT', 'BUY-USDT', 'OXEN-USDT', 'NIM-USDT', 'FIL-USDT', 'REAP-USDT', 'PRE-USDT', 'SHR-USDT', 'UBXT-USDT', 'ROSE-USDT', 'USDC-USDT', 'CTI-USDT', 'XHV-USDT', 'GRT-USDT', 'CAS-USDT', 'MSWAP-USDT', 'GOM2-USDT', 'LON-USDT', '1INCH-USDT', 'LOC-USDT', 'HTR-USDT', 'HYDRA-USDT', 'FRM-USDT', 'ZEN-USDT', 'CUDOS-USDT', 'LRC-USDT', 'KLV-USDT', 'BOA-USDT', 'QNT-USDT', 'BAT-USDT', 'DOGE-USDT', 'DAO-USDT', 'STRONG-USDT', 'TRIAS-USDT', 'MITX-USDT', 'CAKE-USDT', 'ORAI-USDT', 'ZEE-USDT', 'MASK-USDT', 'IDEA-USDT', 'SRK-USDT', 'PIVX-USDT', 'SWINGBY-USDT', 'GAS-USDT', 'AVAX-USDT', 'KRL-USDT', 'ANC-USDT', 'SKEY-USDT', 'TARA-USDT', 'IOST-USDT', 'XYM-USDT', 'ORBS-USDT', 'ANKR-USDT', 'DSLA-USDT', 'SPI-USDT', 'VAI-USDT', 'XCUR-USDT', 'FLUX-USDT', 'OMG-USDT', 'ZIL-USDT', 'DODO-USDT', 'CBC-USDT', 'MAN-USDT', 'BAX-USDT', 'BOSON-USDT', 'PUNDIX-USDT', 'WAXP-USDT', 'HT-USDT', 'PDEX-USDT', 'LABS-USDT', 'GMB-USDT', 'PHNX-USDT', 'HAI-USDT', 'EQZ-USDT', 'FORTH-USDT', 'CARR-USDT', 'HORD-USDT', 'UBX-USDT', 'GHX-USDT', 'TCP-USDT', 'STND-USDT', 'ACE-USDT', 'CARD-USDT', 'FLy-USDT', 'SHIB-USDT', 'POLX-USDT', 'KDA-USDT', 'ICP-USDT', 'STC-USDT', 'GOVI-USDT', 'FKX-USDT', 'CELO-USDT', 'cUSD-USDT', 'FCL-USDT', 'MATIC-USDT', 'ELA-USDT', 'CRPT-USDT', 'OPCT-USDT', 'OGN-USDT', 'OUSD-USDT', 'TLOS-USDT', 'YOP-USDT', 'GLQ-USDT', 'MXC-USDT', 'HOTCROSS-USDT', 'HYVE-USDT', 'DAPPX-USDT', 'KONO-USDT', 'PRQ-USDT', 'MAHA-USDT', 'PROM-USDT', 'ALBT-USDT', 'XCAD-USDT', 'ELON-USDT', 'APL-USDT', 'DIVI-USDT', 'JUP-USDT', 'LPOOL-USDT', 'LSS-USDT', 'ETHO-USDT', 'ABBC-USDT', 'KOK-USDT', 'ROSN-USDT', 'ZCX-USDT', 'NORD-USDT', 'GMEE-USDT', 'XAVA-USDT', 'AI-USDT', 'IOI-USDT', 'MNST-USDT', 'MEM-USDT', 'AGIX-USDT', 'CQT-USDT', 'AIOZ-USDT', 'MARSH-USDT', 'HAPI-USDT', 'MODEFI-USDT', 'YFDAI-USDT', 'GENS-USDT', 'FORM-USDT', 'ARRR-USDT', 'CEUR-USDT', 'EXRD-USDT', 'NGM-USDT', 'LPT-USDT', 'STMX-USDT', 'ASD-USDT', 'BOND-USDT', 'SOUL-USDT', '2CRZ-USDT', 'NEAR-USDT', 'DFYN-USDT', 'OOE-USDT', 'CFG-USDT', 'AXS-USDT', 'CLV-USDT', 'ROUTE-USDT', 'KAR-USDT', 'EFX-USDT', 'BURP-USDT', 'SHFT-USDT', 'PMON-USDT', 'DPET-USDT', 'ERG-USDT', 'SOL-USDT', 'SLP-USDT', 'LITH-USDT', 'XCH-USDT', 'HAKA-USDT', 'MTL-USDT', 'IOTX-USDT', 'GALA-USDT', 'REQ-USDT', 'TXA-USDT', 'CIRUS-USDT', 'QI-USDT', 'ODDZ-USDT', 'PNT-USDT', 'XPR-USDT', 'TRIBE-USDT', 'MOVR-USDT', 'WOO-USDT', 'WILD-USDT', 'QRDO-USDT', 'SDN-USDT', 'MAKI-USDT', 'REP-USDT', 'BNT-USDT', 'OXT-USDT', 'BAL-USDT', 'STORJ-USDT', 'YGG-USDT', 'NDAU-USDT', 'SDAO-USDT', 'XRP3S-USDT', 'SKL-USDT', 'NMR-USDT', 'IXS-USDT', 'TRB-USDT', 'DYDX-USDT', 'XYO-USDT', 'GTC-USDT', 'LUNA3L-USDT', 'LUNA3S-USDT', 'EQX-USDT', 'RLC-USDT', 'XPRT-USDT', 'EGLD-USDT', 'HBAR-USDT', 'DOGE3L-USDT', 'DOGE3S-USDT', 'FLOW-USDT', 'NKN-USDT', 'PBX-USDT', 'SOL3L-USDT', 'SOL3S-USDT', 'MLN-USDT', 'XNL-USDT', 'SOLVE-USDT', 'WNCG-USDT', 'DMTR-USDT', 'LINK3L-USDT', 'LINK3S-USDT', 'DOT3L-USDT', 'UMB-USDT', 'CTSI-USDT', 'ALICE-USDT', 'OPUL-USDT', 'DINO-USDT', 'ILV-USDT', 'BAND-USDT', 'FTT-USDT', 'DVPN-USDT', 'SKU-USDT', 'EDG-USDT', 'SLIM-USDT', 'TLM-USDT', 'DEXE-USDT', 'MATTER-USDT', 'RUNE-USDT', 'RMRK-USDT', 'SOV-USDT', 'BMON-USDT', 'C98-USDT', 'BLOK-USDT', 'SOLR-USDT', 'ATOM3L-USDT', 'ATOM3S-USDT', 'UNI3L-USDT', 'UNI3S-USDT', 'WSIENNA-USDT', 'PUSH-USDT', 'NTVRK-USDT', 'AXS3L-USDT', 'AXS3S-USDT', 'FTM3L-USDT', 'FTM3S-USDT', 'FLAME-USDT', 'AGLD-USDT', 'NAKA-USDT', 'YLD-USDT', 'TONE-USDT', 'REEF-USDT', 'TIDAL-USDT', 'TVK-USDT', 'INJ-USDT', 'BNB3L-USDT', 'BNB3S-USDT', 'MATIC3L-USDT', 'MATIC3S-USDT', 'NFTB-USDT', 'VEGA-USDT', 'ALPHA-USDT', 'BADGER-USDT', 'ZKT-USDT', 'AR-USDT', 'XVS-USDT', 'JASMY-USDT', 'PERP-USDT', 'GHST-USDT', 'SCLP-USDT', 'SUPER-USDT', 'CPOOL-USDT', 'HERO-USDT', 'BASIC-USDT', 'XED-USDT', 'AURY-USDT', 'SWASH-USDT', 'LTO-USDT', 'BUX-USDT', 'MTRG-USDT', 'DREAMS-USDT', 'QUICK-USDT', 'TRU-USDT', 'WRX-USDT', 'TKO-USDT', 'SUSHI3L-USDT', 'SUSHI3S-USDT', 'NEAR3L-USDT', 'NEAR3S-USDT', 'DATA-USDT', 'ISP-USDT', 'CERE-USDT', 'SHILL-USDT', 'HEGIC-USDT', 'ERN-USDT', 'FTG-USDT', 'PAXG-USDT', 'AUDIO-USDT', 'ENS-USDT', 'AAVE3L-USDT', 'AAVE3S-USDT', 'SAND3L-USDT', 'SAND3S-USDT', 'XTM-USDT', 'MNW-USDT', 'FXS-USDT', 'ATA-USDT', 'VXV-USDT', 'DPR-USDT', 'CWAR-USDT', 'PBR-USDT', 'WNXM-USDT', 'ANT-USDT', 'COV-USDT', 'SWP-USDT', 'TWT-USDT', 'OM-USDT', 'ADX-USDT', 'AVAX3L-USDT', 'AVAX3S-USDT', 'MANA3L-USDT', 'MANA3S-USDT', 'GLM-USDT', 'BAKE-USDT', 'NUM-USDT', 'VLX-USDT', 'TRADE-USDT', 'MONI-USDT', 'LIKE-USDT', 'MFT-USDT', 'LIT-USDT', 'KAVA-USDT', 'SFP-USDT', 'BURGER-USDT', 'ILA-USDT', 'CREAM-USDT', 'RSR-USDT', 'IMX-USDT', 'GODS-USDT', 'KMA-USDT', 'SRM-USDT', 'POLC-USDT', 'XTAG-USDT', 'KIN-USDT', 'MNET-USDT', 'NGC-USDT', 'HARD-USDT', 'GALAX3L-USDT', 'GALAX3S-USDT', 'UNIC-USDT', 'POND-USDT', 'VR-USDT', 'EPIK-USDT', 'NGL-USDT', 'KDON-USDT', 'PEL-USDT', 'LINA-USDT', 'KLAY-USDT', 'CREDI-USDT', 'TRVL-USDT', 'LACE-USDT', 'ARKER-USDT', 'BONDLY-USDT', 'XEC-USDT', 'HEART-USDT', 'UNB-USDT', 'GAFI-USDT', 'KOL-USDT', 'H3RO3S-USDT', 'FALCONS-USDT', 'UFO-USDT', 'CHMB-USDT', 'GEEQ-USDT', 'RACEFI-USDT', 'PEOPLE-USDT', 'ADS-USDT', 'OCEAN-USDT', 'SOS-USDT', 'WHALE-USDT', 'TIME-USDT', 'CWEB-USDT', 'IOTA-USDT', 'OOKI-USDT', 'HNT-USDT', 'GGG-USDT', 'POWR-USDT', 'REVU-USDT', 'CLH-USDT', 'PLGR-USDT', 'GLMR-USDT', 'LOVE-USDT', 'CTC-USDT', 'GARI-USDT', 'FRR-USDT', 'ASTR-USDT', 'ERTHA-USDT', 'FCON-USDT', 'ACA-USDT', 'MTS-USDT', 'ROAR-USDT', 'HBB-USDT', 'SURV-USDT', 'CVX-USDT', 'AMP-USDT', 'ACT-USDT', 'MJT-USDT', 'SHX-USDT', 'STARLY-USDT', 'ONSTON-USDT', 'RANKER-USDT', 'WMT-USDT', 'XNO-USDT', 'MARS4-USDT', 'TFUEL-USDT', 'METIS-USDT', 'LAVAX-USDT', 'WAL-USDT', 'BULL-USDT', 'SON-USDT', 'MELOS-USDT', 'APE-USDT', 'GMT-USDT', 'BICO-USDT', 'STG-USDT', 'LMR-USDT', 'LOKA-USDT', 'URUS-USDT', 'JAM-USDT', 'BNC-USDT', 'LBP-USDT', 'CFX-USDT', 'LOOKS-USDT', 'XCN-USDT', 'KP3R-USDT', 'TITAN-USDT', 'INDI-USDT', 'UPO-USDT', 'SPELL-USDT', 'SLCL-USDT', 'RPC-USDT', 'CEEK-USDT', 'VEMP-USDT', 'BETA-USDT', 'NHCT-USDT', 'ARNM-USDT', 'FRA-USDT', 'VISION-USDT', 'COCOS-USDT', 'ALPINE-USDT', 'BNX-USDT', 'ZBC-USDT', 'WOOP-USDT', 'T-USDT', 'NYM-USDT', 'VOXEL-USDT', 'PSTAKE-USDT', 'SPA-USDT', 'SYNR-USDT', 'DAR-USDT', 'MV-USDT', 'XDEFI-USDT', 'RACA-USDT', 'XWG-USDT', 'HAWK-USDT', 'SWFTC-USDT', 'IDEX-USDT', 'BRWL-USDT', 'KAT-USDT', 'XRP-USDT', 'GRIN-USDT']
+2022-04-22 17:18:08,212 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:18:08,212 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    print(client.check_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 23, in check_accept_pairs
+    symbols = self.symbols.split('-')
+AttributeError: 'list' object has no attribute 'split'
+2022-04-22 17:22:44,983 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:23:12,329 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:23:12,329 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    print(client.check_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 24, in check_accept_pairs
+    symbols = np.array(self.symbols).split('/')
+AttributeError: 'numpy.ndarray' object has no attribute 'split'
+2022-04-22 17:25:12,880 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:25:12,881 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    print(client.check_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 24, in check_accept_pairs
+    symbols = np.array(self.symbols).split()
+AttributeError: 'numpy.ndarray' object has no attribute 'split'
+2022-04-22 17:26:33,933 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:27:10,189 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:31:11,957 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:31:22,039 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:37:27,797 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:38:00,636 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:38:55,445 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:40:07,496 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:42:11,555 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:42:11,555 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    print(client.check_accept_pairs())
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/pairs.py", line 30, in check_accept_pairs
+    print(symbol.join('-'))
+AttributeError: 'list' object has no attribute 'join'
+2022-04-22 17:42:56,405 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:43:30,418 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:45:33,251 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:50:11,695 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:50:32,770 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:50:32,898 - short_bot - ERROR - ['SIF/USDT'] not accept pair
+2022-04-22 17:50:47,846 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:50:47,978 - short_bot - ERROR - ['SIF/USDT', 'fdsjkl/USDT'] not accept pair
+2022-04-22 17:53:09,663 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:59:28,266 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:59:35,840 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 17:59:35,951 - short_bot - ERROR - ['SIF/USDT'] not accept pair in exchange
+2022-04-22 18:41:57,021 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 18:42:20,209 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 18:44:02,435 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 18:44:02,436 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 27, in start_sync
+    client.get_accept_pairs()
+AttributeError: 'set' object has no attribute 'get_accept_pairs'
+2022-04-22 18:56:58,692 - bot.loggers - INFO - Verbosity set to 0
+2022-04-22 20:16:12,298 - bot.loggers - INFO - Verbosity set to 0

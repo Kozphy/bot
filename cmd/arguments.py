@@ -8,18 +8,13 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 import logging
 # from bot.constants import CONFIG
-from bot.cmd.cli_option import AVAILABLE_CLI_OPTIONS
+from bot.cmd.cli_option import (AVAILABLE_CLI_OPTIONS, ARGS_COMMON, ARGS_TRADE,
+ SYNC_ARGS, ARGS_COMMON_OPTIMIZE)
 
-ARGS_COMMON = ['verbosity', 'logfile', 'version', 'config', 'user_data_dir']
-
-ARGS_TRADE = ['strategy','strategy_path', 'db_path', 'dry_run', 'dry_run_wallet']
-
-SYNC_ARGS = ['startAt', 'endAt']
-
-ARGS_COMMON_OPTIMIZE = ['timeframe', 'timerange', 'fee']
 
 # NO_CONFIG_REQUIRED = ['sync']
 
+## position argument
 POSITION_ARGS = ['trade', 'backtesting', 'sync']
 
 logger = logging.getLogger(__name__)

@@ -18,7 +18,6 @@ class Exchange:
         """
         self.configured = configured
         self.yaml = yaml
-        # self._exchange_name = exchange
         self._exchange = None
 
     def init_exchange(self):
@@ -28,6 +27,7 @@ class Exchange:
         :return exchange obj is selected by user :obj
         """
         from bot.constants import support_exchange
+        name = None
         if self.configured['runmode'] == RunMode.SYNC:
             name = self.configured['sync_dict']['session']
 

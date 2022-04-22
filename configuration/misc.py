@@ -10,3 +10,5 @@ def check_folder(folder) -> None:
         logger.info(f"Creating {folder}, which not exists")
         Path(folder).mkdir(parents=True)
     return
+
+

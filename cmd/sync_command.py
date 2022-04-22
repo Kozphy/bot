@@ -3,7 +3,9 @@ from typing import Any, Dict, List
 from bot.configuration import Configuration
 from bot.exchanges import Exchange
 from bot.enums import RunMode
+from bot.persistence.engine import init_db
 import sys
+
 
 logger = logging.getLogger(__name__)
 
@@ -11,6 +13,7 @@ def start_sync(args: Dict[str, Any]) -> None:
     """
     Download data
     """
+    logger.debug("start sync")
     try: 
         ## init config
         print(args)
@@ -21,15 +24,12 @@ def start_sync(args: Dict[str, Any]) -> None:
         exchange = exchange.init_exchange()
         client = exchange.create_client()
         client = client.init_client()
-        # print(client.get_market_list())
-        print(client.get_accept_pairs())
-        # client.request_time_format()
-        # client.current_request_time()
+        # client.get_accept_pairs()
+        # client.get_klines()
 
         
 
         
-
     except KeyboardInterrupt:
         sys.exit('SIGINT received, aborting ...')
     

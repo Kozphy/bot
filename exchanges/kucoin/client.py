@@ -1,27 +1,23 @@
 from kucoin.client import Market
 import math
 from datetime import datetime, timedelta
-from bot.exchanges.kucoin.market.market import Kucoin_market
+from bot.exchanges.kucoin.market.market_interface import market_interface
 from bot.exchanges.kucoin.user.user import Kucoin_user
 from bot.exchanges.kucoin.trade.trade import Kucoin_trade
-from kucoin.base_request.base_request import KucoinBaseRestApi
+# from kucoin.base_request.base_request import KucoinBaseRestApi
 from bot.enums import RunMode
 # from bot.exchanges.kucoin import Kucoin
 
 class Client:
-    def __init__(self,yaml, configured, is_sandbox):
+    def __init__(self, yaml, configured, is_sandbox):
         self.yaml = yaml
         self.configured = configured
-        # self.market = self.init_market()
-        self.__api = None
-        self.__secrect = None
-        self.__passphrase = None
-        self.__is_sandbox = is_sandbox
-
         yaml_key_struct = self.yaml['exchange']['apikey']
         self.__api = yaml_key_struct['public']
         self.__secrect = yaml_key_struct['secret']
         self.__passphrase = yaml_key_struct['password']
+        self.__is_sandbox = is_sandbox
+
 
     def process_request_params(self):
         sync_dict = self.configured['sync_dict']
@@ -40,7 +36,7 @@ class Client:
         params = self.process_request_params()
         # print(params)
         support_client = {
-            RunMode.SYNC: Kucoin_market(**params),
+            RunMode.SYNC: market_interface(**params),
             'trade': Kucoin_trade,
             'user': Kucoin_user
         }

@@ -56,6 +56,7 @@ class Configuration(Process_options):
         configured = deepcopy(args)
         self._process_logging_options(configured)
         self._process_sync_options(configured)
+        self._process_persistece_options(configured)
         
         
         return configured
