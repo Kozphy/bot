@@ -44,8 +44,9 @@ class Process_options:
 
         ## process yaml sync 
         config_sync_dict = self._yaml['sync']
-        if config_sync_dict['sync_pairs'] == 'trade_pairs':
-            config_sync_dict['sync_pairs'] = self._yaml['trade_pairs']
+        # print(config_sync_dict)
+        # if config_sync_dict['sync_pairs'] == 'trade_pairs':
+        #     config_sync_dict['sync_pairs'] = self._yaml['trade_pairs']
         
         args['sync_dict'] = {'session': self._yaml['session'] ,**config_sync_dict}
 
@@ -74,11 +75,12 @@ class Process_options:
             # default and args
             persistence = {
                 'db': config_persistence['db'],
+                'db_password': config_persistence['password'],
                 'db_path': args['db_path'],
                 'db_name': args['db_name'],
                 'db_user': args['db_user'],
                 'db_port': args['db_port'],
-                'db_host': args['db_host']
+                'db_host': args['db_host'],
             }
 
             # TODO: refactor

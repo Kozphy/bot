@@ -1793,3 +1793,777 @@ Traceback (most recent call last):
 AttributeError: 'set' object has no attribute 'get_accept_pairs'
 2022-04-22 18:56:58,692 - bot.loggers - INFO - Verbosity set to 0
 2022-04-22 20:16:12,298 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 11:12:14,927 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 11:12:57,713 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 14:13:43,152 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 14:15:54,598 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 14:16:11,819 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 14:16:49,998 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 14:17:23,671 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 14:17:23,785 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 27, in start_sync
+    pairs = client.get_accept_pairs()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/symbols_ticker.py", line 24, in get_accept_pairs
+    self.check_accept_pairs(self.symbols, pairs_done)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/symbols_ticker.py", line 38, in check_accept_pairs
+    symbol = symbol[0] + '-' + symbol[1]
+IndexError: list index out of range
+2022-04-23 14:17:34,855 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 14:18:33,891 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:02:23,341 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:04:05,586 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:08:59,349 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:08:59,349 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 27, in start_sync
+    client = client.init_client()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 47, in init_client
+    params = self.process_request_params()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 36, in process_request_params
+    'symbols': self.configured['trade_pairs'],
+KeyError: 'trade_pairs'
+2022-04-23 15:13:08,681 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:30:29,166 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:30:45,699 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:33:02,132 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:33:56,072 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:36:07,025 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:36:14,696 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:36:14,849 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 28, in start_sync
+    client.get_klines()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 10, in get_klines
+    print(self.attribute)
+AttributeError: 'market_interface' object has no attribute 'attribute'
+2022-04-23 15:36:57,063 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:53:41,411 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:54:11,472 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:54:41,109 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:56:17,927 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:57:43,692 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 15:57:43,929 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 19, in get_klines
+    tasks = self.get_tasks(session)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 13, in get_tasks
+    tasks.append(session.get(self.market.get_kline(symbol, '1day', startAt=self.startAt,
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/site-packages/kucoin/base_request/base_request.py", line 116, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 200-{"code":"400100","msg":"This pair is not provided at present."}
+2022-04-23 16:00:48,024 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 16:00:48,442 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 22, in get_klines
+    responses = await asyncio.gather(*tasks)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/site-packages/aiohttp/client.py", line 1122, in send
+    return self._coro.send(arg)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/site-packages/aiohttp/client.py", line 422, in _request
+    url = self._build_url(str_or_url)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/site-packages/aiohttp/client.py", line 356, in _build_url
+    url = URL(str_or_url)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/site-packages/yarl/_url.py", line 158, in __new__
+    raise TypeError("Constructor parameter should be str")
+TypeError: Constructor parameter should be str
+2022-04-23 17:00:18,778 - bot.loggers - INFO - Verbosity set to 0
+2022-04-23 17:00:19,076 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 20, in get_klines
+    tasks = self.get_tasks()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 14, in get_tasks
+    tasks.append(asyncio.create_task(self.market.get_kline(symbol, '1day', startAt=self.startAt,
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/asyncio/tasks.py", line 382, in create_task
+    task = loop.create_task(coro)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.8/asyncio/base_events.py", line 431, in create_task
+    task = tasks.Task(coro, loop=self, name=name)
+TypeError: a coroutine was expected, got {'code': '200000', 'data': []}
+2022-04-24 10:35:54,118 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 10:49:51,103 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 10:49:51,278 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 22, in get_klines
+    tasks = await self.get_tasks()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 15, in get_tasks
+    res = await asyncio.asyncio.to_thread(self.get_klines_thread(symbol, '1day', startAt=self.startAt
+AttributeError: module 'asyncio' has no attribute 'asyncio'
+2022-04-24 10:50:12,667 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 10:50:12,802 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 22, in get_klines
+    tasks = await self.get_tasks()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 15, in get_tasks
+    res = await asyncio.to_thread(self.get_klines_thread(symbol, '1day', startAt=self.startAt
+AttributeError: 'market_interface' object has no attribute 'get_klines_thread'
+2022-04-24 10:51:12,603 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 10:51:12,841 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 22, in get_klines
+    tasks = await self.get_tasks()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 15, in get_tasks
+    res = await asyncio.to_thread(self.market.get_kline(symbol, '1day', startAt=self.startAt
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+TypeError: 'dict' object is not callable
+2022-04-24 10:53:03,400 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 10:53:03,720 - asyncio - ERROR - _GatheringFuture exception was never retrieved
+future: <_GatheringFuture finished exception=CancelledError()>
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+asyncio.exceptions.CancelledError
+2022-04-24 10:53:03,721 - asyncio - ERROR - _GatheringFuture exception was never retrieved
+future: <_GatheringFuture finished exception=CancelledError()>
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+asyncio.exceptions.CancelledError
+2022-04-24 10:53:37,852 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 10:53:38,113 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 22, in get_klines
+    tasks = await self.get_tasks()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 15, in get_tasks
+    res = await asyncio.gather(asyncio.to_thread(self.market.get_kline(symbol, '1day', startAt=self.startAt
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+TypeError: 'dict' object is not callable
+2022-04-24 10:58:50,117 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 10:58:50,265 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 27, in get_klines
+    tasks = await self.get_tasks()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 21, in get_tasks
+    res = await asyncio.gather(asyncio.to_thread(self.market.get_kline(), **args))
+TypeError: get_kline() missing 2 required positional arguments: 'symbol' and 'kline_type'
+2022-04-24 11:03:10,579 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 11:03:10,697 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 27, in get_klines
+    tasks = await self.get_tasks()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 21, in get_tasks
+    res = await asyncio.gather(asyncio.to_thread(self.market.get_kline(), **args))
+TypeError: get_kline() missing 2 required positional arguments: 'symbol' and 'kline_type'
+2022-04-24 11:03:43,927 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 11:03:44,037 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 27, in get_klines
+    tasks = await self.get_tasks()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 21, in get_tasks
+    res = await asyncio.gather(asyncio.to_thread(self.market.get_klines(), **args))
+AttributeError: 'Market' object has no attribute 'get_klines'
+2022-04-24 11:03:51,179 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 11:03:51,339 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 27, in get_klines
+    tasks = await self.get_tasks()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 21, in get_tasks
+    res = await asyncio.gather(asyncio.to_thread(self.market.get_kline(), **args))
+TypeError: get_kline() missing 2 required positional arguments: 'symbol' and 'kline_type'
+2022-04-24 11:04:31,552 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 11:04:31,666 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 27, in get_klines
+    tasks = await self.get_tasks()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 21, in get_tasks
+    res = await asyncio.gather(asyncio.to_thread(self.market.get_kline(), **args))
+TypeError: get_kline() missing 2 required positional arguments: 'symbol' and 'kline_type'
+2022-04-24 11:04:47,094 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 11:04:47,211 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 27, in get_klines
+    tasks = await self.get_tasks()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 21, in get_tasks
+    res = await asyncio.gather(asyncio.to_thread(self.market.get_kline, **args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+TypeError: get_kline() missing 1 required positional argument: 'kline_type'
+2022-04-24 11:05:22,925 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 11:05:57,515 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 11:12:42,091 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 11:15:57,810 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 11:16:37,096 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 11:18:05,799 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 11:19:05,643 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 11:19:05,764 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 30, in get_klines
+    tasks = await self.get_tasks()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 15, in get_tasks
+    print(self.configured['startAt'])
+AttributeError: 'market_interface' object has no attribute 'configured'
+2022-04-24 11:19:42,385 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 11:20:33,097 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 11:55:55,989 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 11:55:55,989 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 28, in start_sync
+    client = client.init_client()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 52, in init_client
+    params = self.process_request_params()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 37, in process_request_params
+    'startAt': isodate_to_datetime_ms(self.configured['startAt']),
+  File "/home/kopher/short_bot/bot/exchanges/misc.py", line 18, in isodate_to_datetime_ms
+    min_time = datetime.min.time()
+AttributeError: module 'datetime' has no attribute 'min'
+2022-04-24 11:59:26,291 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:00:05,650 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:00:49,296 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:00:49,535 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 34, in get_klines
+    tasks = await self.get_tasks()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 28, in get_tasks
+    res = await asyncio.gather(asyncio.to_thread(self.market.get_kline, **args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-24 12:01:11,134 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:04:20,711 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:07:27,318 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:07:35,353 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:08:27,018 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:11:50,316 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:12:10,398 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:12:10,653 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 36, in get_klines
+    tasks = await self.get_tasks()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 28, in get_tasks
+    res = await asyncio.gather(asyncio.to_thread(self.market.get_kline, **args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-24 12:12:18,825 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:13:01,198 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:14:47,563 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:15:20,484 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:16:26,542 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:16:51,917 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:17:28,549 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 12:21:08,939 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 13:40:59,299 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 13:40:59,496 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 15, in get_klines
+    ndarray = np.empty()
+TypeError: empty() missing required argument 'shape' (pos 0)
+2022-04-24 13:41:08,418 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 13:41:45,745 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 13:42:44,544 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 13:50:00,556 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 13:50:00,724 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 28, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 32, in get_klines
+    data.update({symbol: res[0]})
+TypeError: 'coroutine' object is not subscriptable
+2022-04-24 13:50:25,406 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 13:54:40,701 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 13:54:40,835 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 31, in start_sync
+    data = asyncio.run(client.get_trade_histories())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 50, in get_trade_histories
+    res = await self.asy_to_thread(symbol)
+TypeError: asy_to_thread() missing 1 required positional argument: 'req_args'
+2022-04-24 13:55:39,810 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 13:55:40,019 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 31, in start_sync
+    data = asyncio.run(client.get_trade_histories())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 50, in get_trade_histories
+    res = await self.asy_to_thread(self.market.get_trade_histories, symbol)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 17, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+TypeError: asyncio.threads.to_thread() argument after ** must be a mapping, not str
+2022-04-24 13:57:41,453 - bot.loggers - INFO - Verbosity set to 0
+2022-04-24 14:16:15,603 - bot.loggers - INFO - Verbosity set to 0
+2022-04-26 22:54:58,168 - bot.loggers - INFO - Verbosity set to 0
+2022-04-26 22:54:58,563 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 34, in start_sync
+    'user': configured['user'],
+KeyError: 'user'
+2022-04-26 22:55:59,821 - bot.loggers - INFO - Verbosity set to 0
+2022-04-26 22:56:00,191 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 38, in start_sync
+    engine = init_db(**db_para)
+TypeError: init_db() missing 1 required positional argument: 'password'
+2022-04-26 22:58:59,383 - bot.loggers - INFO - Verbosity set to 0
+2022-04-26 22:58:59,764 - bot.persistence.engine - ERROR - create_engine() takes 1 positional argument but 3 were given
+2022-04-26 22:58:59,765 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 27, in init_db
+    engine = create_engine(db_url, echo, future)
+TypeError: create_engine() takes 1 positional argument but 3 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 39, in start_sync
+    engine = init_db(**db_para)
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 44, in init_db
+    raise Exception("Database connection failed")
+Exception: Database connection failed
+2022-04-26 23:00:54,822 - bot.loggers - INFO - Verbosity set to 0
+2022-04-26 23:00:55,247 - bot.persistence.engine - ERROR - Could not parse rfc1738 URL from string 'mysql+mysqldb:://root:miox_0270453@localhost/test?utf8mb4'
+2022-04-26 23:00:55,247 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 27, in init_db
+    engine = create_engine(db_url, ehco=echo, future=future)
+  File "<string>", line 2, in create_engine
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 530, in create_engine
+    u = _url.make_url(url)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/url.py", line 731, in make_url
+    return _parse_rfc1738_args(name_or_url)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/url.py", line 792, in _parse_rfc1738_args
+    raise exc.ArgumentError(
+sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string 'mysql+mysqldb:://root:miox_0270453@localhost/test?utf8mb4'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 39, in start_sync
+    engine = init_db(**db_para)
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 44, in init_db
+    raise Exception("Database connection failed")
+Exception: Database connection failed
+2022-04-26 23:17:08,783 - bot.loggers - INFO - Verbosity set to 0
+2022-04-26 23:17:09,129 - bot.persistence.engine - ERROR - Could not parse rfc1738 URL from string 'mysql+mysqldb:://root:miox_0270453@localhost/test?charset=utf8mb4'
+2022-04-26 23:17:09,129 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 27, in init_db
+    engine = create_engine(db_url, ehco=echo, future=future)
+  File "<string>", line 2, in create_engine
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 530, in create_engine
+    u = _url.make_url(url)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/url.py", line 731, in make_url
+    return _parse_rfc1738_args(name_or_url)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/url.py", line 792, in _parse_rfc1738_args
+    raise exc.ArgumentError(
+sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string 'mysql+mysqldb:://root:miox_0270453@localhost/test?charset=utf8mb4'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 39, in start_sync
+    engine = init_db(**db_para)
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 44, in init_db
+    raise Exception("Database connection failed")
+Exception: Database connection failed
+2022-04-26 23:20:01,114 - bot.loggers - INFO - Verbosity set to 0
+2022-04-26 23:20:01,486 - bot.persistence.engine - ERROR - Could not parse rfc1738 URL from string 'mysql+mysqldb:://root:miox_0270453@localhost:11010/test?charset=utf8mb4'
+2022-04-26 23:20:01,486 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 27, in init_db
+    engine = create_engine(db_url, ehco=echo, future=future)
+  File "<string>", line 2, in create_engine
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 530, in create_engine
+    u = _url.make_url(url)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/url.py", line 731, in make_url
+    return _parse_rfc1738_args(name_or_url)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/url.py", line 792, in _parse_rfc1738_args
+    raise exc.ArgumentError(
+sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string 'mysql+mysqldb:://root:miox_0270453@localhost:11010/test?charset=utf8mb4'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 40, in start_sync
+    engine = init_db(**db_para)
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 44, in init_db
+    raise Exception("Database connection failed")
+Exception: Database connection failed
+2022-04-26 23:20:32,636 - bot.loggers - INFO - Verbosity set to 0
+2022-04-26 23:20:32,872 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 32, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 17, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-26 23:20:42,309 - bot.loggers - INFO - Verbosity set to 0
+2022-04-26 23:20:42,701 - bot.persistence.engine - ERROR - Could not parse rfc1738 URL from string 'mysql+mysqldb:://root:miox_0270453@localhost[:11010]/test?charset=utf8mb4'
+2022-04-26 23:20:42,702 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 27, in init_db
+    engine = create_engine(db_url, ehco=echo, future=future)
+  File "<string>", line 2, in create_engine
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 530, in create_engine
+    u = _url.make_url(url)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/url.py", line 731, in make_url
+    return _parse_rfc1738_args(name_or_url)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/url.py", line 792, in _parse_rfc1738_args
+    raise exc.ArgumentError(
+sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string 'mysql+mysqldb:://root:miox_0270453@localhost[:11010]/test?charset=utf8mb4'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 40, in start_sync
+    engine = init_db(**db_para)
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 44, in init_db
+    raise Exception("Database connection failed")
+Exception: Database connection failed
+2022-04-26 23:21:42,657 - bot.loggers - INFO - Verbosity set to 0
+2022-04-26 23:21:43,195 - bot.persistence.engine - ERROR - Could not parse rfc1738 URL from string 'mysql+mysqldb:://root:miox_0270453@localhost[:11010]/test'
+2022-04-26 23:21:43,195 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 27, in init_db
+    engine = create_engine(db_url, ehco=echo, future=future)
+  File "<string>", line 2, in create_engine
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 530, in create_engine
+    u = _url.make_url(url)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/url.py", line 731, in make_url
+    return _parse_rfc1738_args(name_or_url)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/url.py", line 792, in _parse_rfc1738_args
+    raise exc.ArgumentError(
+sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string 'mysql+mysqldb:://root:miox_0270453@localhost[:11010]/test'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 40, in start_sync
+    engine = init_db(**db_para)
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 44, in init_db
+    raise Exception("Database connection failed")
+Exception: Database connection failed
+2022-04-26 23:22:03,555 - bot.loggers - INFO - Verbosity set to 0
+2022-04-26 23:22:03,878 - bot.persistence.engine - ERROR - invalid literal for int() with base 10: '11010]'
+2022-04-26 23:22:03,878 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 27, in init_db
+    engine = create_engine(db_url, ehco=echo, future=future)
+  File "<string>", line 2, in create_engine
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 530, in create_engine
+    u = _url.make_url(url)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/url.py", line 731, in make_url
+    return _parse_rfc1738_args(name_or_url)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/url.py", line 787, in _parse_rfc1738_args
+    components["port"] = int(components["port"])
+ValueError: invalid literal for int() with base 10: '11010]'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 40, in start_sync
+    engine = init_db(**db_para)
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 44, in init_db
+    raise Exception("Database connection failed")
+Exception: Database connection failed
+2022-04-26 23:22:21,601 - bot.loggers - INFO - Verbosity set to 0
+2022-04-26 23:22:22,205 - bot.persistence.engine - ERROR - No module named 'MySQLdb'
+2022-04-26 23:22:22,205 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 27, in init_db
+    engine = create_engine(db_url, ehco=echo, future=future)
+  File "<string>", line 2, in create_engine
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 560, in create_engine
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/dialects/mysql/mysqldb.py", line 163, in dbapi
+    return __import__("MySQLdb")
+ModuleNotFoundError: No module named 'MySQLdb'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 40, in start_sync
+    engine = init_db(**db_para)
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 44, in init_db
+    raise Exception("Database connection failed")
+Exception: Database connection failed
+2022-04-26 23:24:01,925 - bot.loggers - INFO - Verbosity set to 0
+2022-04-26 23:24:02,297 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 32, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 17, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-26 23:24:04,422 - bot.loggers - INFO - Verbosity set to 0
+2022-04-26 23:24:04,825 - bot.persistence.engine - ERROR - Invalid argument(s) 'ehco' sent to create_engine(), using configuration MySQLDialect_mysqldb/QueuePool/Engine.  Please check that the keyword arguments are appropriate for this combination of components.
+2022-04-26 23:24:04,825 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 27, in init_db
+    engine = create_engine(db_url, ehco=echo, future=future)
+  File "<string>", line 2, in create_engine
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/deprecations.py", line 309, in warned
+    return fn(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 648, in create_engine
+    raise TypeError(
+TypeError: Invalid argument(s) 'ehco' sent to create_engine(), using configuration MySQLDialect_mysqldb/QueuePool/Engine.  Please check that the keyword arguments are appropriate for this combination of components.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 40, in start_sync
+    engine = init_db(**db_para)
+  File "/home/kopher/short_bot/bot/persistence/engine.py", line 44, in init_db
+    raise Exception("Database connection failed")
+Exception: Database connection failed
+2022-04-26 23:24:27,072 - bot.loggers - INFO - Verbosity set to 0

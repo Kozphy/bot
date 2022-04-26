@@ -1,7 +1,6 @@
 import logging
 from kucoin.client import Market
-import math
-from datetime import datetime
+import asyncio
 
 logger = logging.getLogger(__name__)
 
@@ -13,7 +12,27 @@ class Kucoin_market():
         self.timeframe = timeframe
         self.startAt = startAt
         self.endAt = endAt
-    
 
+    async def asy_to_thread(self, fn, req_args):
+        res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+        return res
+
+    def get_symbol_list(self, currency_pair="USDS"):
+        """
+        Request via this endpoint to get the transaction currency for the entire trading market.
+
+        :return market ticker :list
+        """
+        return self.market.get_symbol_list(market=currency_pair)
+    
+    def get_market_list(self):
+        return self.market.get_market_list()
+    
+    
+    # def sync_kline():
+    #     """
+    #     write info to database
+    #     """
+    #     pass
 
 
