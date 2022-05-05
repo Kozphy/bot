@@ -20,7 +20,6 @@ class Symbols_Ticker(Kucoin_market):
         r = re.compile(reg)
         # TODO: not very understand why
         pairs_done = list(filter(r.match, origin_pairs))
-
         self.check_accept_pairs(self.symbols, pairs_done)
 
         return pairs_done

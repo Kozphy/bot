@@ -10,7 +10,7 @@ from bot.enums import RunMode
 # from bot.exchanges.kucoin import Kucoin
 
 class Client:
-    def __init__(self, yaml, configured, is_sandbox):
+    def __init__(self, configured, yaml, is_sandbox=False):
         self.yaml = yaml
         self.configured = configured
         yaml_key_struct = self.yaml['exchange']['apikey']
@@ -60,8 +60,8 @@ class Client:
 
         # check accecpt pair and get all pairs list
         self.accepted_pairs = market_client.get_accept_pairs()
-        print(self.configured['startAt'])
-        print(self.configured['endAt'])
+        # print(self.configured['startAt'])
+        # print(self.configured['endAt'])
 
         if self.configured['runmode'] in support_client:
             client = support_client[self.configured['runmode']]

@@ -4,8 +4,7 @@ This module contains the configuration class
 import logging
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-# from bot.enums import runmode
-from bot.configuration.load_config import load_yaml_setting
+from bot.configuration.load_config import Load_config
 from copy import deepcopy
 from bot.configuration.process_options import Process_options
 
@@ -16,6 +15,8 @@ class Configuration(Process_options):
     Class to read and init bot configuration
     Reuse this class for the bot, every script that required configuration
     """
+    def __init__(self, args):
+        super().__init__(args)
 
     def get_config(self) -> Dict[str, Any]:
         """
@@ -40,7 +41,11 @@ class Configuration(Process_options):
             
             
         # Load all configs
-        self._yaml = load_yaml_setting(self._args)
+        load = Load_config()
+        self._yaml = load.load_yaml_setting(self._args)
+        # TODO: write another funtion for alembic autogenerate
+        # if self.autogenerate == True:
+            # return self._yaml
         configured = self._merge_args_yaml(self._args) 
 
         # self._process_logging_options(config)

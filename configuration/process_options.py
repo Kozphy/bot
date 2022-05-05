@@ -1,6 +1,5 @@
 from distutils.command.config import config
 import logging
-from this import d 
 from .misc import check_folder
 from bot.loggers import setup_logging
 from typing import Any, Dict, List, Optional
@@ -11,18 +10,17 @@ logger = logging.getLogger(__name__)
 
 class Process_options:
     setting_format = Optional[Dict[str, Any]]
-    def __init__(self, args: setting_format, runmode = None):
+    def __init__(self, args: setting_format):
         self._args = args
         self._config: self.setting_format = None
         self._yaml: self.setting_format = None
-        self._runmode = runmode
 
     def _process_logging_options(self, args: setting_format):
         """
         change logger level
         """
         # TODO: change to PurePath
-        from bot.constants import BOT_DIR, DEFAULT_USERDATA_DIR, DEFAULT_LOG_FILE_DIR
+        from bot.constants import DEFAULT_LOG_FILE_DIR
         logger.debug('process logging options')
 
         filename = self._args['logfile'].split('/')[-1]
@@ -55,9 +53,8 @@ class Process_options:
             args['startAt'] = config_sync_dict['startAt']
         if args['endAt'] is None:
             args['endAt'] = config_sync_dict['endAt']
-
         # process runmode 
-        args['runmode'] = self._runmode
+        # args['runmode'] = self._runmode
         
      
     def _process_persistece_options(self, args: setting_format):
@@ -65,6 +62,7 @@ class Process_options:
 
             from bot.constants import ( DEFAULT_DB_HOST, DEFAULT_DB_PORT, DEFAULT_DB_USER,
             DEFAULT_USERDATA_DIR, DEFAULT_DB_DIR, DEFAULT_DB_NAME)
+            # print(self._yaml)
             config_persistence = self._yaml['persistence']
             config_db_path: str = str(PurePath(DEFAULT_USERDATA_DIR,config_persistence['path']))
             config_db_name: str = config_persistence['name']

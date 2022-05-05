@@ -13,54 +13,51 @@ import logging
 from typing import Any, Dict, Optional
 from dotenv import dotenv_values
 from bot.exceptions import OperationalException
-
 from .misc import check_folder
 
 logger = logging.getLogger(__name__)
+class Load_config():
+    def determine_destination(self, args):
+        logger.debug('determine where is user_data_dir')
+        from bot.constants import (CONFIG, BOT_DIR, DEFAULT_USERDATA_DIR, 
+        DEFAULT_CONFIG_NAME, DEFAULT_CONFIG_DIR_NAME)
+        # use default
+        user_dir = DEFAULT_USERDATA_DIR 
+        config_dir_name = DEFAULT_CONFIG_DIR_NAME
+        config_name = DEFAULT_CONFIG_NAME
 
-def determine_destination(args):
-    logger.debug('determine where is user_data_dir')
-    from bot.constants import (CONFIG, BOT_DIR, DEFAULT_USERDATA_DIR, 
-    DEFAULT_CONFIG_NAME, DEFAULT_CONFIG_DIR_NAME)
-    # use default
-    user_dir = DEFAULT_USERDATA_DIR
-    config_dir_name = DEFAULT_CONFIG_DIR_NAME
-    config_name = DEFAULT_CONFIG_NAME
+        # TODO: write another function for alembic --autogenerate, 
+        # The condition statement use temporarily here.
+        # when using alembic migration --autogenerate command args is None
+        # print(alembic_autogenerate)
+        # if alembic_autogenerate == True: 
+            # print(user_dir + '\n', config_dir_name + '\n', config_name)
+            # return  f"{user_dir}/{config_dir_name}/{config_name}"
+        
+        if args['user_data_dir'] != DEFAULT_USERDATA_DIR:
+            # user_data_dir use args
+            user_dir = f"{BOT_DIR}/{args['user_data_dir']}"
+            check_folder(f"{user_dir}/{config_dir_name}")
 
-    
-    if args['user_data_dir'] != DEFAULT_USERDATA_DIR:
-        # user_data_dir use args
-        user_dir = f"{BOT_DIR}/{args['user_data_dir']}"
-        check_folder(f"{user_dir}/{config_dir_name}")
+        if args['config'] != CONFIG:
+            # config use args
+            config_name = args['config']
 
-    if args['config'] != CONFIG:
-        # config use args
-        config_name = args['config']
-
-    destination = f"{user_dir}/{config_dir_name}/{config_name}"
-    return destination
-
-
-def load_yaml_setting(args) -> Dict[str, Any]:
-    destination = determine_destination(args)
-    
-    logger.debug('parse yaml file')
-    try:
-        with open(destination, 'r') as f:
-            yaml = CSLoader(stream=f).get_data()
-        return yaml
-    except FileNotFoundError:
-        raise OperationalException(f"file {destination} not found!")
+        destination = f"{user_dir}/{config_dir_name}/{config_name}"
+        return destination
 
 
+    def load_yaml_setting(self, args) -> Dict[str, Any]:
+        destination = self.determine_destination(args)
+        
+        logger.debug('parse yaml file')
+        try:
+            with open(destination, 'r') as f:
+                yaml = CSLoader(stream=f).get_data()
+            return yaml
+        except FileNotFoundError as e:
+            logger.error(e)
+            raise OperationalException(f"file {destination} not found")
 
-# def get_env_setting():
-#     logger.info('parse env file')
-#     p = Path('./user_data')
-#     q = p / '.env'
-#     config = None 
-#     with open(q, 'r') as f:
-#         config = dotenv_values(stream=f)
-#     return config
 
-# get_env_setting()
+

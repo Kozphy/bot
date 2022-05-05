@@ -9,4 +9,5 @@ class RunMode(Enum):
     DRY_RUN="dry_run"
     SYNC="sync"
     BACKTEST='bracktest'
+    MIGRATIONS='migrations'
     OTHER="Other"

@@ -11,6 +11,10 @@ from typing import Any, List
 from bot.cmd.arguments import Arguments
 from bot.loggers import setup_logging_pre
 from bot.exceptions import OperationalException, BotException
+from bot.configuration import Configuration
+# import sys
+
+
 # from bot.configuration.load_config import load_yaml_setting
 
 # check min. python version
@@ -28,15 +32,19 @@ def main(sysargv: List[str] = None) -> None:
     :return None
     """
     return_code: Any = 1
+    # print(sys.path)
 
     try:
+        # TODO: unknown global args whether using, so temporarily place here
         setup_logging_pre()
         arguments = Arguments(sysargv)
         global args
         args = arguments.get_parsed_arg()
+        c = Configuration(args=args)
+        configured, yaml = c.get_config()
 
         if 'func' in args:
-            return_code = args['func'](args)
+            return_code = args['func'](configured, yaml)
         else:
             raise OperationalException('Usage of bot requires subcommand to be given in cli interface.')
 

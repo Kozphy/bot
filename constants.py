@@ -9,10 +9,15 @@ from bot.exchanges.kucoin import Kucoin
 ## bot
 BOT_NAME = 'bot'
 BOT_DIR = f'{Path.cwd()}/{BOT_NAME}'
+BOT_DIR_alembic_autogenerate = f'{Path.cwd().parent}/{BOT_NAME}'
 
 ## user data dir
 DEFAULT_USERDATA_DIR_NAME = 'user_data'
 DEFAULT_USERDATA_DIR = f'{BOT_DIR}/{DEFAULT_USERDATA_DIR_NAME}'
+USERDATA_DIR_alembic_autogenerate = f'{BOT_DIR_alembic_autogenerate}/{DEFAULT_USERDATA_DIR_NAME}'
+
+## alembic
+ALEMBIC_CONFIG_FILE = f'{BOT_DIR}/alembic.ini'
 
 ## database 
 DEFAULT_DB_USER = 'root'

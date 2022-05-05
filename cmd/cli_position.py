@@ -2,6 +2,7 @@
 Definition of cli position arguments
 """
 from bot.cmd.cli_option import Arg
+# TODO: refactor position arguemnts
 
 AVAILABLE_CLI_POSITIONS = {
     'trade': Arg(

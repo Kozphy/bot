@@ -2567,3 +2567,1923 @@ Traceback (most recent call last):
     raise Exception("Database connection failed")
 Exception: Database connection failed
 2022-04-26 23:24:27,072 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:36:14,545 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:37:43,251 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:37:43,646 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 41, in start_sync
+    kline_to_database(engine, data)
+  File "/home/kopher/short_bot/bot/persistence/write_kline.py", line 18, in kline_to_database
+    stmt = insert(kline_table).Values()
+AttributeError: 'Insert' object has no attribute 'Values'
+2022-04-27 15:49:21,743 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:50:14,108 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:51:48,207 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:52:09,530 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:52:54,822 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:52:55,068 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 33, in get_klines
+    print(kline[i])
+TypeError: list indices must be integers or slices, not list
+2022-04-27 15:53:24,237 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:54:00,424 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:54:21,118 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:54:21,486 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 30, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 17, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-27 15:54:24,247 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:56:55,502 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:58:33,848 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:58:34,079 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 33, in get_klines
+    for i, kline in res[0]:
+ValueError: too many values to unpack (expected 2)
+2022-04-27 15:58:58,645 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:59:31,064 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 15:59:31,445 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 30, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 17, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-27 15:59:33,097 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:00:03,236 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:00:03,562 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 30, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 17, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-27 16:00:05,694 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:00:06,064 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 30, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 17, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-27 16:00:09,140 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:00:09,515 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 30, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 17, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-27 16:00:38,819 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:00:39,040 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 30, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 17, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-27 16:01:41,017 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:08:00,897 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:11:06,429 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:12:26,789 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:16:30,471 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:18:45,029 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:21:35,519 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:21:35,823 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 49, in get_klines
+    data[symbol].update(dt_format)
+KeyError: 'BTC-USDT'
+2022-04-27 16:25:03,418 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:25:39,896 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:25:40,125 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 46, in get_klines
+    data[symbol].add(dt_format)
+KeyError: 'BTC-USDT'
+2022-04-27 16:27:11,267 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:27:11,539 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 47, in get_klines
+    data[symbol].update(dt_format)
+KeyError: 'BTC-USDT'
+2022-04-27 16:27:33,788 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:27:34,025 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 48, in get_klines
+    data[symbol].update(dt_format)
+KeyError: 'BTC-USDT'
+2022-04-27 16:27:53,520 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:27:53,731 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 47, in get_klines
+    data[symbol].update(dt_format)
+AttributeError: 'str' object has no attribute 'update'
+2022-04-27 16:28:45,471 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:28:45,688 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 48, in get_klines
+    data[symbol].update(dt_format)
+AttributeError: 'str' object has no attribute 'update'
+2022-04-27 16:29:02,369 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:29:27,419 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:33:17,261 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:34:04,529 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:35:04,533 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:35:04,947 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 33, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 17, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-27 16:35:06,976 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:38:14,345 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:42:46,139 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:42:46,459 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 28, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 17, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-27 16:43:28,606 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:43:28,893 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 28, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 17, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 116, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 200-{"code":"400100","msg":"This type of Candlestick is currently not provided."}
+2022-04-27 16:43:46,652 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:44:41,798 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 16:45:52,773 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 18:23:25,249 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 18:23:25,543 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 31, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 17, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 116, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 200-{"code":"400100","msg":"This type of Candlestick is currently not provided."}
+2022-04-27 18:24:03,763 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 18:24:04,053 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 32, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 17, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 116, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 200-{"code":"400100","msg":"This type of Candlestick is currently not provided."}
+2022-04-27 18:28:39,607 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 18:31:00,489 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 18:33:50,980 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 18:33:51,435 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 29, in start_sync
+    data = asyncio.run(client.get_klines())
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 31, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 32, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-27 18:38:43,349 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 18:39:55,492 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 18:40:42,619 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 18:52:05,051 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 19:43:24,494 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 19:43:24,681 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (2002, "Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 39, in start_sync
+    asyncio.run(client.get_klines(db_engine))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 17, in get_klines
+    with engine.connect() as conn:
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/future/engine.py", line 406, in connect
+    return super(Engine, self).connect()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3234, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3313, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3283, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2117, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb._exceptions.OperationalError) (2002, "Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2022-04-27 19:46:01,485 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 19:46:01,729 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 39, in start_sync
+    asyncio.run(client.get_klines(db_engine))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 32, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 32, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-27 19:46:04,249 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 19:46:04,581 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 39, in start_sync
+    asyncio.run(client.get_klines(db_engine))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 32, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 32, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-27 19:46:12,256 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 19:46:12,730 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 39, in start_sync
+    asyncio.run(client.get_klines(db_engine))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 32, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 32, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-27 19:46:54,613 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 19:48:12,294 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 19:51:21,152 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 19:51:21,690 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 39, in start_sync
+    asyncio.run(client.get_klines(db_engine))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/Histories.py", line 32, in get_klines
+    res = await self.asy_to_thread(self.market.get_kline, req_args)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/market/market_api.py", line 32, in asy_to_thread
+    res = await asyncio.gather(asyncio.to_thread(fn, **req_args))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/market/market.py", line 349, in get_kline
+    return self._request('GET', '/api/v1/market/candles', params=params)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 99, in _request
+    return self.check_response_data(response_data)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/kucoin/base_request/base_request.py", line 118, in check_response_data
+    raise Exception("{}-{}".format(response_data.status_code, response_data.text))
+Exception: 429-{"code":"429000","msg":"Too Many Requests"}
+2022-04-27 19:52:39,314 - bot.loggers - INFO - Verbosity set to 0
+2022-04-27 19:57:29,747 - bot.loggers - INFO - Verbosity set to 0
+2022-04-29 23:40:53,001 - bot.loggers - INFO - Verbosity set to 0
+2022-04-29 23:40:53,001 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 27, in start_sync
+    client = Client(configured, yaml)
+TypeError: __init__() missing 1 required positional argument: 'is_sandbox'
+2022-04-29 23:46:34,486 - bot.loggers - INFO - Verbosity set to 0
+2022-04-29 23:46:34,486 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 27, in start_sync
+    client = Client(configured, yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/client.py", line 16, in __init__
+    yaml_key_struct = self.yaml['exchange']['apikey']
+KeyError: 'exchange'
+2022-04-29 23:49:50,558 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 15:03:11,289 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 15:03:11,452 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 39, in main
+    return_code = args['func'](args)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 31, in start_sync
+    alembic_cfg = Config(f"{pathlib.cwd()}/bot/alembic.ini")
+AttributeError: module 'pathlib' has no attribute 'cwd'
+2022-05-02 15:04:00,616 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 15:36:48,668 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 17:12:41,598 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 17:53:51,506 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 17:53:51,507 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 45, in main
+    migration(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 25, in migration
+    print(alembic_cfg.get_section())
+TypeError: get_section() missing 1 required positional argument: 'name'
+2022-05-02 17:57:21,666 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 17:57:52,166 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 17:58:06,487 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 17:58:06,487 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 45, in main
+    migration(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 25, in migration
+    print(alembic_cfg.get_main_option())
+TypeError: get_main_option() missing 1 required positional argument: 'name'
+2022-05-02 17:58:28,310 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 17:58:43,220 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 19:19:06,731 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 19:19:06,934 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 48, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 26, in start_sync
+    migrations_update(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 44, in migrations_update
+    command.upgrade(alem_config, "head")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 300, in upgrade
+    script = ScriptDirectory.from_config(config)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 204, in from_config
+    return ScriptDirectory(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 91, in __init__
+    raise util.CommandError(
+alembic.util.exc.CommandError: Path doesn't exist: '/home/kopher/short_bot/alembic'.  Please use the 'init' command to create a new scripts folder.
+2022-05-02 19:19:39,996 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 19:19:40,121 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 48, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 26, in start_sync
+    migrations_update(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 44, in migrations_update
+    command.upgrade(alem_config, "head")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 300, in upgrade
+    script = ScriptDirectory.from_config(config)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 204, in from_config
+    return ScriptDirectory(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 91, in __init__
+    raise util.CommandError(
+alembic.util.exc.CommandError: Path doesn't exist: '/home/kopher/short_bot/alembic'.  Please use the 'init' command to create a new scripts folder.
+2022-05-02 19:20:32,184 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 19:21:58,340 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 19:25:05,351 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 19:55:39,438 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 19:55:56,623 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 19:58:27,153 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 19:58:27,316 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1698, "Access denied for user 'root'@'localhost'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 48, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 26, in start_sync
+    migrations_update(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 45, in migrations_update
+    command.upgrade(alem_config, "head")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 320, in upgrade
+    script.run_env()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 563, in run_env
+    util.load_python_file(self.dir, "env.py")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 92, in load_python_file
+    module = load_module_py(module_id, path)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 108, in load_module_py
+    spec.loader.exec_module(module)  # type: ignore
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "./bot/alembic/env.py", line 79, in <module>
+    run_migrations_online()
+  File "./bot/alembic/env.py", line 67, in run_migrations_online
+    with connectable.connect() as connection:
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3234, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3313, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3283, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2117, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb._exceptions.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2022-05-02 19:58:49,098 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 19:58:49,225 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1698, "Access denied for user 'root'@'localhost'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 48, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 26, in start_sync
+    migrations_update(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 45, in migrations_update
+    command.upgrade(alem_config, "head")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 320, in upgrade
+    script.run_env()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 563, in run_env
+    util.load_python_file(self.dir, "env.py")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 92, in load_python_file
+    module = load_module_py(module_id, path)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 108, in load_module_py
+    spec.loader.exec_module(module)  # type: ignore
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "./bot/alembic/env.py", line 79, in <module>
+    run_migrations_online()
+  File "./bot/alembic/env.py", line 67, in run_migrations_online
+    with connectable.connect() as connection:
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3234, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3313, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3283, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2117, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb._exceptions.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2022-05-02 20:00:12,250 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 20:00:12,364 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1698, "Access denied for user 'root'@'localhost'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 48, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 26, in start_sync
+    migrations_update(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 46, in migrations_update
+    command.upgrade(alem_config, "head")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 320, in upgrade
+    script.run_env()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 563, in run_env
+    util.load_python_file(self.dir, "env.py")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 92, in load_python_file
+    module = load_module_py(module_id, path)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 108, in load_module_py
+    spec.loader.exec_module(module)  # type: ignore
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "./bot/alembic/env.py", line 79, in <module>
+    run_migrations_online()
+  File "./bot/alembic/env.py", line 67, in run_migrations_online
+    with connectable.connect() as connection:
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3234, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3313, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3283, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2117, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb._exceptions.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2022-05-02 20:59:16,544 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 20:59:16,712 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1045, "Access denied for user 'kopher'@'localhost' (using password: YES)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 48, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 26, in start_sync
+    migrations_update(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 46, in migrations_update
+    command.upgrade(alem_config, "head")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 320, in upgrade
+    script.run_env()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 563, in run_env
+    util.load_python_file(self.dir, "env.py")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 92, in load_python_file
+    module = load_module_py(module_id, path)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 108, in load_module_py
+    spec.loader.exec_module(module)  # type: ignore
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "./bot/alembic/env.py", line 79, in <module>
+    run_migrations_online()
+  File "./bot/alembic/env.py", line 67, in run_migrations_online
+    with connectable.connect() as connection:
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3234, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3313, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3283, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2117, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb._exceptions.OperationalError) (1045, "Access denied for user 'kopher'@'localhost' (using password: YES)")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2022-05-02 21:02:53,724 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:02:53,845 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1045, "Access denied for user 'kopher'@'localhost' (using password: YES)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 48, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 26, in start_sync
+    migrations_update(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 47, in migrations_update
+    command.upgrade(alem_config, "head")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 320, in upgrade
+    script.run_env()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 563, in run_env
+    util.load_python_file(self.dir, "env.py")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 92, in load_python_file
+    module = load_module_py(module_id, path)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 108, in load_module_py
+    spec.loader.exec_module(module)  # type: ignore
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "./bot/alembic/env.py", line 79, in <module>
+    run_migrations_online()
+  File "./bot/alembic/env.py", line 67, in run_migrations_online
+    with connectable.connect() as connection:
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3234, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3313, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3283, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2117, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb._exceptions.OperationalError) (1045, "Access denied for user 'kopher'@'localhost' (using password: YES)")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2022-05-02 21:04:13,814 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:05:00,017 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:05:55,435 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:06:43,224 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:08:06,808 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:08:41,880 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:08:55,193 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:09:46,590 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:10:08,792 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:10:08,965 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (1049, "Unknown database 'test'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 47, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 26, in start_sync
+    migrations_update(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 46, in migrations_update
+    command.upgrade(alem_config, "head")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 320, in upgrade
+    script.run_env()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 563, in run_env
+    util.load_python_file(self.dir, "env.py")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 92, in load_python_file
+    module = load_module_py(module_id, path)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 108, in load_module_py
+    spec.loader.exec_module(module)  # type: ignore
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "./bot/alembic/env.py", line 79, in <module>
+    run_migrations_online()
+  File "./bot/alembic/env.py", line 67, in run_migrations_online
+    with connectable.connect() as connection:
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3234, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3313, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3283, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2117, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3280, in _wrap_pool_connect
+    return fn()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 597, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+sqlalchemy.exc.OperationalError: (MySQLdb._exceptions.OperationalError) (1049, "Unknown database 'test'")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2022-05-02 21:18:31,897 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:18:32,078 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.OperationalError: (1449, "The user specified as a definer ('mysql.infoschema'@'localhost') does not exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 47, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 26, in start_sync
+    migrations_update(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 47, in migrations_update
+    if database_exists(url) == False:
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy_utils/functions/database.py", line 504, in database_exists
+    return bool(_get_scalar_result(engine, text))
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy_utils/functions/database.py", line 449, in _get_scalar_result
+    return conn.scalar(sql)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1188, in scalar
+    return self.execute(object_, *multiparams, **params).scalar()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1291, in execute
+    return self._exec_driver_sql(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1595, in _exec_driver_sql
+    ret = self._execute_context(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1862, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2043, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1819, in _execute_context
+    self.dialect.do_execute(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+sqlalchemy.exc.OperationalError: (MySQLdb._exceptions.OperationalError) (1449, "The user specified as a definer ('mysql.infoschema'@'localhost') does not exist")
+[SQL: SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'test']
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2022-05-02 21:31:21,013 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:31:21,547 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-02 21:31:21,547 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-02 21:31:21,580 - alembic.runtime.migration - INFO - Running upgrade  -> d28d3d22d677, create kline
+2022-05-02 21:31:21,616 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-02 21:31:21,617 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-02 21:35:23,763 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:35:23,938 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-02 21:35:23,939 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-02 21:36:37,472 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:36:37,674 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 21:36:37,693 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-02 21:36:37,693 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-02 21:52:11,037 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:52:11,212 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 21:52:11,213 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 45, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 27, in start_sync
+    migrations_downgrade(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 57, in migrations_downgrade
+    command.downgrade(alem_config, revision)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 343, in downgrade
+    script = ScriptDirectory.from_config(config)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 150, in from_config
+    script_location = config.get_main_option("script_location")
+AttributeError: 'tuple' object has no attribute 'get_main_option'
+2022-05-02 21:55:52,952 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:55:53,073 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 21:55:53,088 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-02 21:55:53,089 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-02 21:55:59,782 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:55:59,911 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 21:55:59,911 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 45, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 27, in start_sync
+    migrations_downgrade(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 57, in migrations_downgrade
+    command.downgrade(alem_config, revision)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 343, in downgrade
+    script = ScriptDirectory.from_config(config)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 150, in from_config
+    script_location = config.get_main_option("script_location")
+AttributeError: 'tuple' object has no attribute 'get_main_option'
+2022-05-02 21:57:59,578 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:57:59,727 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 21:57:59,729 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 45, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 27, in start_sync
+    migrations_downgrade(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 58, in migrations_downgrade
+    command.downgrade(alem_config, revision)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 343, in downgrade
+    script = ScriptDirectory.from_config(config)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 150, in from_config
+    script_location = config.get_main_option("script_location")
+AttributeError: 'tuple' object has no attribute 'get_main_option'
+2022-05-02 21:58:15,931 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 21:58:16,072 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 21:58:16,095 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-02 21:58:16,096 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-02 21:58:16,100 - alembic.runtime.migration - INFO - Running downgrade d28d3d22d677 -> , create kline
+2022-05-02 22:00:33,387 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 22:00:33,521 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 22:00:33,544 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-02 22:00:33,544 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-02 22:00:33,549 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 45, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 28, in start_sync
+    show_history()
+TypeError: show_history() missing 1 required positional argument: 'configured'
+2022-05-02 22:00:45,860 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 22:00:46,018 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 22:00:46,028 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-02 22:00:46,028 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-02 22:00:46,032 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 22:00:46,033 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 45, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 28, in start_sync
+    show_history(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 61, in show_history
+    command.show_history(alem_config, rev_range, verbose)
+AttributeError: module 'alembic.command' has no attribute 'show_history'
+2022-05-02 22:00:58,288 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 22:00:58,412 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 22:00:58,435 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-02 22:00:58,435 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-02 22:00:58,440 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 22:00:58,441 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 45, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 28, in start_sync
+    show_history(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 61, in show_history
+    command.history(alem_config, rev_range, verbose)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 416, in history
+    raise util.CommandError(
+alembic.util.exc.CommandError: History range requires [start]:[end], [start]:, or :[end]
+2022-05-02 22:01:24,354 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 22:01:24,491 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 22:01:24,511 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-02 22:01:24,511 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-02 22:01:24,517 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 22:01:24,518 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 45, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 28, in start_sync
+    show_history(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 61, in show_history
+    command.history(alem_config, verbose)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 416, in history
+    raise util.CommandError(
+alembic.util.exc.CommandError: History range requires [start]:[end], [start]:, or :[end]
+2022-05-02 22:01:53,289 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 22:01:53,427 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 22:01:53,444 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-02 22:01:53,445 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-02 22:01:53,449 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 22:09:33,995 - bot.loggers - INFO - Verbosity set to 0
+2022-05-02 22:09:34,375 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-02 22:09:34,389 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-02 22:09:34,389 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-02 22:09:34,393 - alembic.runtime.migration - INFO - Running upgrade  -> d28d3d22d677, create kline
+2022-05-02 22:09:34,430 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-03 16:16:37,526 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 16:16:37,665 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-03 16:17:01,432 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 16:17:01,547 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-03 16:17:01,565 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 16:17:01,566 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 16:17:01,570 - alembic.runtime.migration - INFO - Running downgrade d28d3d22d677 -> , create kline
+2022-05-03 16:17:01,601 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-03 17:25:18,079 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 17:25:18,220 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-03 17:25:18,232 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 17:25:18,232 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 17:25:18,237 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-03 17:32:03,484 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 17:32:03,814 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-03 17:32:03,825 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 17:32:03,826 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 17:32:03,831 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-03 17:42:10,776 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 17:42:10,926 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-03 17:42:10,927 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 45, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 27, in start_sync
+    migrations_downgrade(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 57, in migrations_downgrade
+    command.downgrade(alem_config, revision)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 343, in downgrade
+    script = ScriptDirectory.from_config(config)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 204, in from_config
+    return ScriptDirectory(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 91, in __init__
+    raise util.CommandError(
+alembic.util.exc.CommandError: Path doesn't exist: '/home/kopher/short_bot/alembic'.  Please use the 'init' command to create a new scripts folder.
+2022-05-03 18:43:47,773 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 18:43:47,944 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-03 18:43:47,955 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 18:43:47,955 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 18:43:47,960 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-03 18:55:11,288 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 18:58:36,053 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 18:58:36,175 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-03 18:58:36,191 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 18:58:36,192 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 18:58:36,196 - alembic.runtime.migration - INFO - Running upgrade  -> d28d3d22d677, create kline
+2022-05-03 19:10:13,277 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 19:10:13,402 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-03 19:10:13,418 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 19:10:13,419 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 19:14:07,668 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 19:14:07,794 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-03 19:14:07,806 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 45, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 22, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 37, in init_exchange
+    self._exchange = support_exchange[name](self.configured, self.yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 17, in __init__
+    migrations_update(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 50, in migrations_update
+    print(command.current())
+TypeError: current() missing 1 required positional argument: 'config'
+2022-05-03 19:14:19,249 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 19:14:19,374 - bot.persistence.migrations - INFO - Setting alembic config
+2022-05-03 19:14:19,389 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 19:14:19,390 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 19:14:19,396 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 19:14:19,396 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 19:15:07,092 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 19:15:07,232 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 19:15:07,233 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 19:15:18,956 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 19:15:19,095 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 19:15:19,095 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 19:15:19,102 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 19:15:19,102 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 19:17:38,525 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 19:17:38,663 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 19:17:38,663 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 19:40:47,994 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 19:40:48,132 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 19:40:48,133 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 19:40:48,139 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 19:40:48,139 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 19:41:21,598 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 19:41:21,736 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 19:41:21,736 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 19:42:16,498 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 19:42:16,633 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 19:42:16,634 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 19:43:52,877 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 19:43:53,016 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 19:43:53,016 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 19:44:42,592 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 19:44:42,732 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 19:44:42,732 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 20:06:08,386 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 20:06:08,522 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 20:06:08,523 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 20:06:38,124 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 20:06:38,263 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 20:06:38,263 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 20:38:16,290 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 20:38:16,425 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 20:38:16,425 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-03 20:44:11,963 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 20:44:12,096 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 45, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 22, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 37, in init_exchange
+    self._exchange = support_exchange[name](self.configured, self.yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 17, in __init__
+    migrations_update(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 52, in migrations_update
+    if check_current_head(alem_config, engine.create_engine(url)) == False:
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 71, in check_current_head
+    directory = script.ScriptDirectory.from_config(alembic_cfg)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 204, in from_config
+    return ScriptDirectory(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 91, in __init__
+    raise util.CommandError(
+alembic.util.exc.CommandError: Path doesn't exist: '/home/kopher/short_bot/alembic'.  Please use the 'init' command to create a new scripts folder.
+2022-05-03 20:45:38,668 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 20:45:38,801 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 45, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 22, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 37, in init_exchange
+    self._exchange = support_exchange[name](self.configured, self.yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 17, in __init__
+    migrations_update(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 53, in migrations_update
+    if check_current_head(alem_config, engine.create_engine(url)) == False:
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 72, in check_current_head
+    directory = script.ScriptDirectory.from_config(alembic_cfg)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 204, in from_config
+    return ScriptDirectory(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 91, in __init__
+    raise util.CommandError(
+alembic.util.exc.CommandError: Path doesn't exist: '/home/kopher/bot/alembic'.  Please use the 'init' command to create a new scripts folder.
+2022-05-03 20:46:46,555 - bot.loggers - INFO - Verbosity set to 0
+2022-05-03 20:46:46,693 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-03 20:46:46,693 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 13:32:22,713 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 13:32:22,897 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 13:32:22,898 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 15:21:26,154 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 15:21:26,271 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 15:21:26,271 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 15:36:48,539 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 15:36:48,653 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 15:36:48,653 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 20:06:27,132 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 20:06:27,287 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 20:06:27,287 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 20:06:27,295 - short_bot - ERROR - file /home/kopher/bot/user_data/config/config.yaml not found!
+2022-05-04 20:11:34,928 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 20:11:35,067 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 20:11:35,068 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 20:11:35,074 - short_bot - ERROR - file /home/kopher/bot/user_data/config/config.yaml not found!
+2022-05-04 20:13:02,575 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 20:13:02,722 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 20:13:02,722 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 20:13:02,728 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/configuration/load_config.py", line 55, in load_yaml_setting
+    with open(destination, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/kopher/bot/user_data/config/config.yaml'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 47, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 22, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 37, in init_exchange
+    self._exchange = support_exchange[name](self.configured, self.yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 17, in __init__
+    migrations_update(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 65, in migrations_update
+    command.upgrade(alem_config, revision)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 320, in upgrade
+    script.run_env()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 563, in run_env
+    util.load_python_file(self.dir, "env.py")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 92, in load_python_file
+    module = load_module_py(module_id, path)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 108, in load_module_py
+    spec.loader.exec_module(module)  # type: ignore
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "./bot/alembic/env.py", line 98, in <module>
+    run_migrations_online()
+  File "./bot/alembic/env.py", line 78, in run_migrations_online
+    url = get_db_url()
+  File "./bot/alembic/env.py", line 37, in get_db_url
+    configured, _ = c.get_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 29, in get_config
+    self._config = self.load_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 45, in load_config
+    self._yaml = load_yaml_setting(self._args, self.autogenerate)
+  File "/home/kopher/short_bot/bot/configuration/load_config.py", line 59, in load_yaml_setting
+    logging.ERROR(e)
+TypeError: 'int' object is not callable
+2022-05-04 20:13:30,236 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 20:13:30,378 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 20:13:30,378 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 20:13:30,385 - bot.configuration.load_config - ERROR - [Errno 2] No such file or directory: '/home/kopher/bot/user_data/config/config.yaml'
+2022-05-04 20:13:30,385 - short_bot - ERROR - file /home/kopher/bot/user_data/config/config.yaml not found!
+2022-05-04 20:14:13,874 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 20:14:14,017 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 20:14:14,017 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 20:14:14,022 - bot.configuration.load_config - ERROR - [Errno 2] No such file or directory: '/home/kopher/bot/user_data/config/config.yaml'
+2022-05-04 20:14:14,022 - short_bot - ERROR - file /home/kopher/bot/user_data/config/config.yaml not found!
+2022-05-04 20:15:48,245 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 20:15:48,388 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 20:15:48,388 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 20:15:48,393 - short_bot - ERROR - [Errno 2] No such file or directory: '/home/kopher/bot/user_data/config/config.yaml'
+2022-05-04 20:18:56,996 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 20:18:57,137 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 20:18:57,137 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 20:18:57,143 - bot.configuration.load_config - ERROR - [Errno 2] No such file or directory: '/home/kopher/bot/user_data/config/config.yaml'
+2022-05-04 20:18:57,143 - short_bot - ERROR - [Errno 2] No such file or directory: '/home/kopher/bot/user_data/config/config.yaml'
+2022-05-04 20:19:27,036 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 20:19:27,179 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 20:19:27,179 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 20:19:27,185 - bot.configuration.load_config - ERROR - [Errno 2] No such file or directory: '/home/kopher/bot/user_data/config/config.yaml'
+2022-05-04 20:19:27,185 - short_bot - ERROR - file /home/kopher/bot/user_data/config/config.yaml not found
+2022-05-04 20:37:10,451 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 20:37:10,601 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 20:37:10,601 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 20:37:10,607 - bot.configuration.load_config - ERROR - [Errno 2] No such file or directory: '/home/kopher/bot/user_data/config/config.yaml'
+2022-05-04 20:37:10,608 - short_bot - ERROR - file /home/kopher/bot/user_data/config/config.yaml not found
+2022-05-04 20:39:37,640 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 20:39:37,777 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 20:39:37,777 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 20:39:37,783 - bot.configuration.load_config - ERROR - [Errno 2] No such file or directory: '/home/kopher/bot/user_data/config/config.yaml'
+2022-05-04 20:39:37,783 - short_bot - ERROR - file /home/kopher/bot/user_data/config/config.yaml not found
+2022-05-04 20:40:11,196 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 20:40:11,341 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 20:40:11,341 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 20:40:11,347 - bot.configuration.load_config - ERROR - [Errno 2] No such file or directory: '/home/kopher/bot/user_data/config/config.yaml'
+2022-05-04 20:40:11,347 - short_bot - ERROR - file /home/kopher/bot/user_data/config/config.yaml not found
+2022-05-04 20:41:06,584 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 20:41:06,730 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 20:41:06,731 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 20:41:06,736 - bot.configuration.load_config - ERROR - [Errno 2] No such file or directory: '/home/kopher/bot/user_data/config/config.yaml'
+2022-05-04 20:41:06,736 - short_bot - ERROR - file /home/kopher/bot/user_data/config/config.yaml not found
+2022-05-04 20:50:34,690 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 20:50:34,812 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 47, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 22, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 37, in init_exchange
+    self._exchange = support_exchange[name](self.configured, self.yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 17, in __init__
+    migrations_update(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 58, in migrations_update
+    alem_config, url = setting_alembic_cfg(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 32, in setting_alembic_cfg
+    'user': configured['user'],
+KeyError: 'user'
+2022-05-04 20:50:50,489 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 20:50:50,630 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 20:50:50,631 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 20:52:07,204 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 20:52:07,345 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 20:52:07,345 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 21:03:17,061 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 21:03:17,200 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 21:03:17,201 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 21:05:39,604 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 21:05:39,747 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 21:05:39,747 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 21:05:51,403 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 21:05:51,546 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 21:05:51,546 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 21:06:40,870 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 21:06:41,012 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 21:06:41,012 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 21:06:54,884 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 21:06:55,027 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 21:06:55,027 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 21:07:45,028 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 21:07:45,169 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 21:07:45,169 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 21:16:54,768 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 21:16:54,907 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 21:16:54,907 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-04 21:17:42,330 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 21:17:42,474 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 47, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 22, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 37, in init_exchange
+    self._exchange = support_exchange[name](self.configured, self.yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 17, in __init__
+    migrations_update(configured)
+  File "/home/kopher/short_bot/bot/persistence/migrations.py", line 64, in migrations_update
+    command.upgrade(alem_config, revision)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/command.py", line 320, in upgrade
+    script.run_env()
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/script/base.py", line 563, in run_env
+    util.load_python_file(self.dir, "env.py")
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 92, in load_python_file
+    module = load_module_py(module_id, path)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/alembic/util/pyfiles.py", line 108, in load_module_py
+    spec.loader.exec_module(module)  # type: ignore
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "./bot/alembic/env.py", line 99, in <module>
+    run_migrations_online()
+  File "./bot/alembic/env.py", line 79, in run_migrations_online
+    url = get_db_url()
+  File "./bot/alembic/env.py", line 38, in get_db_url
+    configured, _ = c.get_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 28, in get_config
+    self._config = self.load_config()
+  File "/home/kopher/short_bot/bot/configuration/configuration.py", line 44, in load_config
+    self._yaml = load_yaml_setting(self._args)
+  File "/home/kopher/short_bot/bot/configuration/load_config.py", line 52, in load_yaml_setting
+    destination = determine_destination(args)
+  File "/home/kopher/short_bot/bot/configuration/load_config.py", line 38, in determine_destination
+    if args['user_data_dir'] != DEFAULT_USERDATA_DIR:
+TypeError: 'NoneType' object is not subscriptable
+2022-05-04 21:17:51,630 - bot.loggers - INFO - Verbosity set to 0
+2022-05-04 21:17:51,776 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-04 21:17:51,776 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-05 10:33:05,181 - bot.loggers - INFO - Verbosity set to 0
+2022-05-05 10:33:05,319 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-05 10:33:05,320 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
