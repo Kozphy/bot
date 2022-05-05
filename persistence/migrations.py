@@ -17,6 +17,7 @@ support_databases = {
 support_ssl = ['MYSQL']
 
 def setting_alembic_cfg(configured):
+    logger.debug("Setting alembic env")
     print(configured)
     db_para = {
             'db': configured['db'],
@@ -42,7 +43,6 @@ def init_db_url(db, user, password, host, dbname, port, charset="utf8mb4", ssl=F
     if db not in support_databases:
         raise Exception("Database not supported")
     db_url = f"{support_databases[db]}{user}:{password}@{host}:{port}/{dbname}?charset={charset}"
-
 
     return db_url
     

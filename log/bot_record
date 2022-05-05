@@ -4487,3 +4487,13 @@ TypeError: 'NoneType' object is not subscriptable
 2022-05-05 10:33:05,181 - bot.loggers - INFO - Verbosity set to 0
 2022-05-05 10:33:05,319 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
 2022-05-05 10:33:05,320 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-05 16:36:14,203 - bot.loggers - INFO - Verbosity set to 0
+2022-05-05 16:36:14,342 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-05 16:36:14,342 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-05 17:10:46,673 - bot.loggers - INFO - Verbosity set to 0
+2022-05-05 17:10:46,810 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-05 17:10:46,810 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-05 17:13:10,685 - bot.loggers - INFO - Verbosity set to 0
+2022-05-05 17:13:10,822 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
+2022-05-05 17:13:10,822 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
+2022-05-05 17:13:10,826 - alembic.runtime.migration - INFO - Running downgrade d28d3d22d677 -> , create kline

@@ -13,8 +13,9 @@ logger = logging.getLogger(__name__)
 class Kucoin(Exchange):
     def __init__(self, configured, yaml):
         super().__init__(configured, yaml)
-        from bot.persistence.migrations import migrations_update
-        migrations_update(configured)
+        from bot.persistence.migrations import migrations_update, migrations_downgrade
+        # migrations_update(configured)
+        migrations_downgrade(configured)
     
     # def migration():
     #     migrations_downgrade(configured)

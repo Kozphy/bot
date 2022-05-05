@@ -8,7 +8,7 @@ import sys
 sys.path.append(str(Path.cwd().parent))
 # print(sys.path)
 from bot.alembic.configuration_alembic import Configuration_alembic
-from bot.persistence.migrations import setting_alembic_cfg
+from bot.persistence.migrations import init_db_url
 from bot.persistence.models import metadata_obj
 
 # logger = logging.getLogger(__name__)
@@ -32,17 +32,14 @@ target_metadata = [metadata_obj]
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 
-def get_db_url(autogenerate):
-    print(vars(config))
-    # exit()
+def get_db_url():
+    autogenerate = vars(config.cmd_opts)['autogenerate']
     if autogenerate:
         c = Configuration_alembic()
         configured = c.get_config()
-        config_persistence = configured['persistence']
-        # print(config_persistence)
-        _, url = setting_alembic_cfg(config_persistence)
+        url = init_db_url(**configured)
         config.set_main_option('sqlalchemy.url', url)
-        print(url)
+        print('In autogenerate mode url is :' + url)
     return None
     
 def run_migrations_offline():
@@ -57,9 +54,6 @@ def run_migrations_offline():
     script output.
 
     """
-    if hasattr(vars(config.cmd_opts), 'autogenerate'):
-        autogenerate = vars(config.cmd_opts)['autogenerate']
-        get_db_url(autogenerate)
 
     url = config.get_main_option("sqlalchemy.url")
     context.configure(
@@ -80,10 +74,9 @@ def run_migrations_online():
     and associate a connection with the context.
 
     """
-    # url = get_configured_db()
-    url = get_db_url()
+
     connectable = engine_from_config(
-         config.get_section(config.config_ini_section),
+        config.get_section(config.config_ini_section),
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
     )
@@ -95,7 +88,10 @@ def run_migrations_online():
 
         with context.begin_transaction():
             context.run_migrations()
-
+        
+# if in autogenerate mode detect yaml file, to catch the config
+if hasattr(config.cmd_opts, 'autogenerate'):
+    get_db_url()
 
 if context.is_offline_mode():
     run_migrations_offline()
