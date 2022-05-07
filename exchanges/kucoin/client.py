@@ -8,6 +8,7 @@ from bot.exchanges.kucoin.trade.trade import Kucoin_trade
 from ..misc import isodate_to_datetime_ms
 from bot.enums import RunMode
 # from bot.exchanges.kucoin import Kucoin
+from bot.exchanges.bbgo_grpc.market_service import grpc_get_kline
 
 class Client:
     def __init__(self, configured, yaml, is_sandbox=False):

@@ -22,5 +22,3 @@ def isodate_to_datetime_ms(timer):
 def ms_to_seconds(timer):
     result = round(timer/1000)
     return result
-
-# def 

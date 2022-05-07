@@ -35,7 +35,7 @@ def setup_logging_pre() -> None:
     )
     
     
-
+# TODO: confuse this function doing
 def get_existing_handlers(handlertype):
     """
     Returns Existing handler or None (if the handler has not yet been added to the root handlers).

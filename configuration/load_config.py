@@ -26,13 +26,6 @@ class Load_config():
         config_dir_name = DEFAULT_CONFIG_DIR_NAME
         config_name = DEFAULT_CONFIG_NAME
 
-        # TODO: write another function for alembic --autogenerate, 
-        # The condition statement use temporarily here.
-        # when using alembic migration --autogenerate command args is None
-        # print(alembic_autogenerate)
-        # if alembic_autogenerate == True: 
-            # print(user_dir + '\n', config_dir_name + '\n', config_name)
-            # return  f"{user_dir}/{config_dir_name}/{config_name}"
         
         if args['user_data_dir'] != DEFAULT_USERDATA_DIR:
             # user_data_dir use args

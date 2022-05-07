@@ -1,7 +1,7 @@
 """
 This module contains the argument manager class
 """
-
+import click
 import argparse
 from functools import partial
 from pathlib import Path
@@ -49,28 +49,6 @@ class Arguments:
 
         parsed_arg = self.parser.parse_args(self.args)
 
-        # Workaround issue in argparse with action='append' and default value
-        # (see https://bugs.python.org/issue16399)
-        # Allow no-config for certain commands (like downloading)
-        # if ('config' in parsed_arg and parsed_arg['config'] is None):
-        #     no_conf_required = ('command' in parsed_arg and parsed_arg['command'] in NO_CONFIG_REQUIRED)
-
-        #     ## if cli interface have specify user_dir
-        #     if 'user_data_dir' in parsed_arg and parsed_arg.user_data_dir is not None:
-        #         user_dir = parsed_arg.user_data_dir
-        #     else: 
-        #         # Default case
-        #         user_dir = 'user_data'
-        #         # Try loading from 'user_data/config.json'
-        #         cfgfile = Path(user_dir) / DEFAULT_CONFIG
-        #         if cfgfile.is_file():
-        #             parsed_arg['config'] = [str(cfgfile)]
-        #         else:
-        #             # use 'config.yaml'
-        #             cfgfile = Path.cwd() / DEFAULT_CONFIG
-        #             if cfgfile.is_file() or not no_conf_required:
-        #                 parsed_arg['config'] = [str(cfgfile)]
-        # print(parsed_arg)
         return parsed_arg
 
     

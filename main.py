@@ -12,14 +12,14 @@ from bot.cmd.arguments import Arguments
 from bot.loggers import setup_logging_pre
 from bot.exceptions import OperationalException, BotException
 from bot.configuration import Configuration
-# import sys
+import sys
 
 
 # from bot.configuration.load_config import load_yaml_setting
 
 # check min. python version
-if sys.version_info < (3, 8, 10):
-    sys.exit('short bot requires Python version >= 3.8.10')
+if sys.version_info < (3, 9, 12):
+    sys.exit('short bot requires Python version >= 3.9.12')
 
 
 logger = logging.getLogger('short_bot')        
@@ -36,13 +36,14 @@ def main(sysargv: List[str] = None) -> None:
         
 
     try:
-        # TODO: unknown global args whether using, so temporarily place here
         setup_logging_pre()
         arguments = Arguments(sysargv)
+        # TODO: unknown global args whether using in future, so temporarily place here
         global args
         args = arguments.get_parsed_arg()
         c = Configuration(args=args)
         configured, yaml = c.get_config()
+        print(yaml)
 
         if 'func' in args:
             return_code = args['func'](configured, yaml)

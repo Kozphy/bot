@@ -1,0 +1,26 @@
+{
+    "sourceFile": "loggers.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1651839577638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1651890286287,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n logger = logging.getLogger(__name__)\n \n LOGFORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'\n LOGFORMATED = Formatter(LOGFORMAT)\n-\n+# TODO: reformat all this file\n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n     Set logging level for third party libraries\n     :return None\n"
+                },
+                {
+                    "date": 1651890305647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n logger = logging.getLogger(__name__)\n \n LOGFORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'\n LOGFORMATED = Formatter(LOGFORMAT)\n-# TODO: reformat all this file\n+\n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n     Set logging level for third party libraries\n     :return None\n"
+                }
+            ],
+            "date": 1651839577638,
+            "name": "Commit-0",
+            "content": "import logging\nimport sys\nfrom logging import Formatter, StreamHandler\nfrom logging.handlers import RotatingFileHandler\nfrom typing import Any, Dict\n# from bot.constants import LOG_FILE\nimport os\n\nlogger = logging.getLogger(__name__)\n\nLOGFORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'\nLOGFORMATED = Formatter(LOGFORMAT)\n\ndef _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n    \"\"\"\n    Set logging level for third party libraries\n    :return None\n    \"\"\"\n    pass\n\n\ndef setup_logging_pre() -> None:\n    \"\"\"\n    Early setup for logging.\n    Uses DEBUG loglevel and only the Streamhandler.\n    Early messages (before proper logging setup) will therefore only be sent to additional\n    logging handlers after the real initialization, because we don't know which\n    ones the user desires beforehand.\n    \"\"\"\n\n    logging.basicConfig(\n        level=logging.DEBUG,\n        format=LOGFORMAT,\n        handlers=[logging.StreamHandler(sys.stderr)]\n    )\n    \n    \n# TODO: confuse this function doing\ndef get_existing_handlers(handlertype):\n    \"\"\"\n    Returns Existing handler or None (if the handler has not yet been added to the root handlers).\n    \"\"\"\n\n    return next((h for h in logging.root.handers if isinstance(h, handlertype)), None)\n\ndef setup_logging(config: Dict[str, Any]) -> None:\n    \"\"\"\n    Process -v/--verbose, --logfile options\n    \"\"\"\n    # print(config) \n    # Log level\n    verbosity = config['verbosity']\n    # logging.root.anddHandler()\n    logfile = config.get('logfile')\n    if logfile:\n        # handler_rf = get_existing_handlers(RotatingFileHandler)\n        # print(logfile)\n        handler_rf = RotatingFileHandler(logfile, \n                                        maxBytes=1024*1024*10,\n                                        backupCount=5\n                                        )\n\n        # print(handler_rf)\n        handler_rf.setFormatter(LOGFORMATED)\n        logging.root.addHandler(handler_rf)\n        # print(logging.root.handle)\n\n\n    logging.root.setLevel(logging.INFO if verbosity < 1 else logging.DEBUG)\n    # print(logging.root.handle)\n    logger.info(f'Verbosity set to {verbosity}')\n\n"
+        }
+    ]
+}

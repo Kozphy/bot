@@ -60,7 +60,7 @@ class Process_options:
     def _process_persistece_options(self, args: setting_format):
             logger.debug("process persistence options") 
 
-            from bot.constants import ( DEFAULT_DB_HOST, DEFAULT_DB_PORT, DEFAULT_DB_USER,
+            from bot.constants import (DEFAULT_DB_HOST, DEFAULT_DB_PORT, DEFAULT_DB_USER,
             DEFAULT_USERDATA_DIR, DEFAULT_DB_DIR, DEFAULT_DB_NAME)
             # print(self._yaml)
             config_persistence = self._yaml['persistence']

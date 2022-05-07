@@ -27,8 +27,6 @@ class Configuration(Process_options):
         if self._config is None:
             self._config = self.load_config()
 
-        # print(self._args)
-
         return self._config, self._yaml
         
         
@@ -43,12 +41,8 @@ class Configuration(Process_options):
         # Load all configs
         load = Load_config()
         self._yaml = load.load_yaml_setting(self._args)
-        # TODO: write another funtion for alembic autogenerate
-        # if self.autogenerate == True:
-            # return self._yaml
         configured = self._merge_args_yaml(self._args) 
 
-        # self._process_logging_options(config)
         return configured
 
     def _merge_args_yaml(self, args:Dict[str,Any]) -> Dict[str, Any]:

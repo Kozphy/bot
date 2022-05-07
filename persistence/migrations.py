@@ -17,7 +17,7 @@ support_databases = {
 support_ssl = ['MYSQL']
 
 def setting_alembic_cfg(configured):
-    logger.debug("Setting alembic env")
+    logger.debug("Setting alembic context env")
     print(configured)
     db_para = {
             'db': configured['db'],
@@ -29,9 +29,7 @@ def setting_alembic_cfg(configured):
         }
 
     url = init_db_url(**db_para)
-    # print(url)
     alembic_cfg = Config(ALEMBIC_CONFIG_FILE)
-    # print(vars(alembic_cfg.file_config))
     alembic_cfg.set_main_option("script_location", "./bot/alembic")
     alembic_cfg.set_main_option("sqlalchemy.url", url)
     return alembic_cfg, url
@@ -57,6 +55,7 @@ def migrations_update(configured, revision='head'):
     
     # command.history(alem_config, verbose=True)
 
+# TODO: implement alembic downgrade in cmd with bot config
 def migrations_downgrade(configured, revision='base'):
     alem_config, _ = setting_alembic_cfg(configured)
     command.downgrade(alem_config, revision)

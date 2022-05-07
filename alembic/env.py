@@ -89,9 +89,10 @@ def run_migrations_online():
         with context.begin_transaction():
             context.run_migrations()
         
-# if in autogenerate mode detect yaml file, to catch the config
+# if in --autogenerate mode detect yaml file, catch the config
 if hasattr(config.cmd_opts, 'autogenerate'):
     get_db_url()
+print(config.get_context())
 
 if context.is_offline_mode():
     run_migrations_offline()

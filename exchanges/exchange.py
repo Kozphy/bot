@@ -26,15 +26,20 @@ class Exchange:
         checking exchange is support or not
         :return exchange obj is selected by user :obj
         """
-        from bot.constants import support_exchange
+        from bot.constants import support_exchange_api, support_bbgo_grpc
         name = None
         if self.configured['runmode'] == RunMode.SYNC:
-            name = self.configured['sync_dict']['session']
+            name = self.configured['sync_dict']['session'].lower()
 
-        if name not in support_exchange:
-            raise ExchangeError(f'{name} exchange not support')
+        if name not in support_exchange_api:
+            raise ExchangeError(f'{name} exchange is not support')
         
-        self._exchange = support_exchange[name](self.configured, self.yaml)
+        if name not in support_bbgo_grpc: 
+            raise ExchangeError(f'{name} exchange is not support bbgo_grpc')
+        
+
+        
+        self._exchange = support_exchange_api[name](self.configured, self.yaml)
         
         return self._exchange
 

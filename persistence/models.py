@@ -1,25 +1,26 @@
-from ast import Num
 from sqlalchemy import (Column, Table, MetaData,
                         Integer, String, DateTime,Boolean, PrimaryKeyConstraint)
-from sqlalchemy.dialects.mysql import NUMERIC as MysqlNumeric
+from sqlalchemy.types import VARCHAR, NUMERIC
 import logging
 
-
+# MysqlNumeric(16,8, unsigned=True)
 
 logger = logging.getLogger(__name__)
 
 metadata_obj = MetaData()
 
+# metadata_obj.reflect()
 # klines table
 kline_table = Table("kline", metadata_obj,
     Column('Symbol', String),
+    Column('exchange', VARCHAR(10), nullable=False),
     Column('timeframe', String),
-    Column('TimeStamp', DateTime, primary_key=True),
-    Column('open', MysqlNumeric(16,8, unsigned=True), nullable=False),
-    Column('close', MysqlNumeric(16,8, unsigned=True), nullable=False),
-    Column('high',MysqlNumeric(16,8, unsigned=True), nullable=False),
-    Column('low',MysqlNumeric(16,8,unsigned=True), nullable=False),
-    Column('volume', MysqlNumeric(16,8, unsigned=True)),
-    Column('amount', MysqlNumeric(16,8,unsigned=True)),
+    Column('start_time', DateTime, primary_key=True),
+    Column('open', NUMERIC(20,8), nullable=False),
+    Column('close',  NUMERIC(20,8), nullable=False),
+    Column('high',NUMERIC(20,8), nullable=False),
+    Column('low',NUMERIC(20,8), nullable=False),
+    Column('volume', NUMERIC(20,8)),
+    Column('amount', NUMERIC(20,8)),
 )
 

@@ -42,9 +42,10 @@ LOG_FILE = f'{DEFAULT_LOG_FILE_DIR}/{DEFAULT_LOG_FILE_NAME}'
 
 ## exchange
 DEFAUT_EXCHANGE = 'kucoin'
-support_exchange = {
+support_exchange_api = {
      'kucoin': Kucoin
 }
+support_bbgo_grpc = ['kucoin', 'binance', 'ftx', 'max', 'okex']
 
 ## .env
 DEFAUT_ENV = '.env'

@@ -1,5 +1,5 @@
 from bot.main import main
-# import sys
+import sys
 
 
 if __name__ == '__main__':

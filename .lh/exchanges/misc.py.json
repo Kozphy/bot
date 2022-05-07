@@ -1,0 +1,18 @@
+{
+    "sourceFile": "exchanges/misc.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1651848547922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1651848547922,
+            "name": "Commit-0",
+            "content": "from datetime import datetime\n\ndef split_pairs_to_request_format(pairs):\n    \"\"\"\n    Split pairs to request format\n    :param pairs:\n    :return:\n    \"\"\"\n    result = []\n    for pair in pairs:\n        pair = pair.split('/')\n        pair = pair[0] + '-' + pair[1]\n        result.append(pair)\n    return result\n\n# process time\ndef isodate_to_datetime_ms(timer):\n    min_time = datetime.min.time()\n    result = datetime.combine(timer, min_time).timestamp()*1000\n    return round(result)\n\ndef ms_to_seconds(timer):\n    result = round(timer/1000)\n    return result\n"
+        }
+    ]
+}

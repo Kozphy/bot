@@ -4497,3 +4497,168 @@ TypeError: 'NoneType' object is not subscriptable
 2022-05-05 17:13:10,822 - alembic.runtime.migration - INFO - Context impl MySQLImpl.
 2022-05-05 17:13:10,822 - alembic.runtime.migration - INFO - Will assume non-transactional DDL.
 2022-05-05 17:13:10,826 - alembic.runtime.migration - INFO - Running downgrade d28d3d22d677 -> , create kline
+2022-05-06 20:48:03,190 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:02:02,205 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:12:14,654 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:13:01,831 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:15:24,293 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:17:02,798 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:17:49,834 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:25:25,526 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:32:28,962 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:32:28,962 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 49, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 22, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 37, in init_exchange
+    self._exchange = support_exchange[name](self.configured, self.yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 25, in __init__
+    grpc_kline(**get_para)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/click/core.py", line 1054, in main
+    with self.make_context(prog_name, args, **extra) as ctx:
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/click/core.py", line 915, in make_context
+    ctx = self.context_class(
+TypeError: __init__() got an unexpected keyword argument 'exchange'
+2022-05-07 20:34:14,718 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:34:14,719 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 49, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 22, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 37, in init_exchange
+    self._exchange = support_exchange[name](self.configured, self.yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 25, in __init__
+    grpc_kline(**get_para)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/click/core.py", line 1054, in main
+    with self.make_context(prog_name, args, **extra) as ctx:
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/click/core.py", line 915, in make_context
+    ctx = self.context_class(
+TypeError: __init__() got an unexpected keyword argument 'exchange'
+2022-05-07 20:36:20,359 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:36:20,359 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 49, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 22, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 37, in init_exchange
+    self._exchange = support_exchange[name](self.configured, self.yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 25, in __init__
+    grpc_kline(**get_para)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/click/core.py", line 1054, in main
+    with self.make_context(prog_name, args, **extra) as ctx:
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/click/core.py", line 915, in make_context
+    ctx = self.context_class(
+TypeError: __init__() got an unexpected keyword argument 'exchange'
+2022-05-07 20:40:41,360 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:40:41,360 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 49, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 22, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 37, in init_exchange
+    self._exchange = support_exchange[name](self.configured, self.yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 27, in __init__
+    grpc_kline(**get_para)
+  File "/home/kopher/short_bot/bot/exchanges/bbgo_grpc/market.py", line 10, in grpc_kline
+    service = MarketService(kwargs.host, kwargs.port)
+AttributeError: 'dict' object has no attribute 'host'
+2022-05-07 20:41:49,727 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:41:49,727 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 49, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 22, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 37, in init_exchange
+    self._exchange = support_exchange[name](self.configured, self.yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 27, in __init__
+    grpc_kline(**get_para)
+  File "/home/kopher/short_bot/bot/exchanges/bbgo_grpc/market.py", line 10, in grpc_kline
+    print(**kwargs)
+TypeError: print() takes at most 4 keyword arguments (8 given)
+2022-05-07 20:42:38,905 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:43:22,575 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:43:22,575 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 49, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 22, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 37, in init_exchange
+    self._exchange = support_exchange[name](self.configured, self.yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 27, in __init__
+    grpc_kline(**get_para)
+  File "/home/kopher/short_bot/bot/exchanges/bbgo_grpc/market.py", line 11, in grpc_kline
+    service = MarketService(kwargs.host, kwargs.port)
+AttributeError: 'dict' object has no attribute 'host'
+2022-05-07 20:43:55,000 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:43:55,000 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 49, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 22, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 37, in init_exchange
+    self._exchange = support_exchange[name](self.configured, self.yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 27, in __init__
+    grpc_kline(**get_para)
+  File "/home/kopher/short_bot/bot/exchanges/bbgo_grpc/market.py", line 11, in grpc_kline
+    service = MarketService(kwargs['host'], kwargs.port)
+AttributeError: 'dict' object has no attribute 'port'
+2022-05-07 20:46:05,068 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:46:36,580 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:46:43,387 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:48:44,845 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:49:25,000 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:50:00,728 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:54:07,211 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 20:54:47,164 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 21:00:40,098 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 21:00:40,259 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 49, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 22, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 37, in init_exchange
+    self._exchange = support_exchange[name](self.configured, self.yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 27, in __init__
+    grpc_kline(**get_para)
+  File "/home/kopher/short_bot/bot/exchanges/bbgo_grpc/market_service.py", line 12, in grpc_kline
+    klines = service.query_klines(
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/bbgo/services.py", line 69, in query_klines
+    response = self.stub.QueryKLines(request)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/grpc/_channel.py", line 946, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/home/kopher/miniconda3/envs/short_bot_env/lib/python3.9/site-packages/grpc/_channel.py", line 849, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNKNOWN
+	details = "{"code":"429000","msg":"Too Many Requests"}"
+	debug_error_string = "{"created":"@1651928440.259164500","description":"Error received from peer ipv4:127.0.0.1:50051","file":"src/core/lib/surface/call.cc","file_line":952,"grpc_message":"{"code":"429000","msg":"Too Many Requests"}","grpc_status":2}"
+>
+2022-05-07 21:00:55,179 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 21:18:30,761 - bot.loggers - INFO - Verbosity set to 0
+2022-05-07 21:18:30,761 - short_bot - ERROR - Fatal exception!
+Traceback (most recent call last):
+  File "/home/kopher/short_bot/bot/main.py", line 49, in main
+    return_code = args['func'](configured, yaml)
+  File "/home/kopher/short_bot/bot/cmd/sync_command.py", line 22, in start_sync
+    exchange = exchange.init_exchange()
+  File "/home/kopher/short_bot/bot/exchanges/exchange.py", line 42, in init_exchange
+    self._exchange = support_exchange[name](self.configured, self.yaml)
+  File "/home/kopher/short_bot/bot/exchanges/kucoin/kucoin.py", line 24, in __init__
+    grpc_kline(**get_para)
+NameError: name 'grpc_kline' is not defined
+2022-05-07 21:18:42,704 - bot.loggers - INFO - Verbosity set to 0
