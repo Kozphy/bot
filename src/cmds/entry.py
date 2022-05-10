@@ -1,9 +1,7 @@
 import click
-from configuration import Configuration
 from cmds.sync_command import start_sync
 from loggers import setup_logging_pre
 from cmds.cli_option import AVAILABLE_CLI_OPTIONS as AO
-from enums import RunMode
 
 
 @click.group()
@@ -46,8 +44,7 @@ def sync(ctx,start_at,end_at):
         'endAt': end_at,
     }
     ctx.obj.update(args)
-    c, _ = Configuration(args=ctx.obj).get_config()
-    start_sync(c)
+    start_sync(ctx)
 
 @cli.command()
 def trade():

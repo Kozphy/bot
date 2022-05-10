@@ -20,14 +20,11 @@ class Kucoin_market():
         '1d': '1day',
         '1w': '1week',
     }
-
-    def __init__(self, symbols, timeframe, startAt, endAt, is_sandbox=False):
+    # symbols, timeframe, startAt, endAt, is_sandbox=False
+    def __init__(self, configured, is_sandbox=False):
         self.market = Market()
+        self.configured = configured
         self.is_sandbox = is_sandbox
-        self.symbols =  symbols
-        self.timeframe = timeframe
-        self.startAt = startAt
-        self.endAt = endAt
 
     async def asy_to_thread(self, fn, req_args):
         # TODO: need to fix rate limit
@@ -47,11 +44,3 @@ class Kucoin_market():
     def get_market_list(self):
         return self.market.get_market_list()
     
-    
-    # def sync_kline():
-    #     """
-    #     write info to database
-    #     """
-    #     pass
-
-

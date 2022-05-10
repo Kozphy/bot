@@ -15,12 +15,13 @@ class Symbols_Ticker(Kucoin_market):
         filter out pairs which exchnage allow
         :return filtered pairs :list
         """
+        symbols = self.configured['symbols']
         pairs = self.get_symbol_list(currency_pair)
         origin_pairs = [pair['name'] for pair in pairs]
         r = re.compile(reg)
         # TODO: not very understand why
         pairs_done = list(filter(r.match, origin_pairs))
-        self.check_accept_pairs(self.symbols, pairs_done)
+        self.check_accept_pairs(symbols, pairs_done)
 
         return pairs_done
 

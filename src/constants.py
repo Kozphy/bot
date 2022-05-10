@@ -12,6 +12,7 @@ BOT_NAME = 'bot'
 BOT_DIR = f'{Path.cwd()}/src'
 BOT_DIR_alembic_autogenerate = f'{Path.cwd().parent}/{BOT_NAME}'
 
+
 ## cmd Directory and name
 CMD_DIR = f'{BOT_DIR}/cmd'
 CMD_NAME1 = 'scripts'

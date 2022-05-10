@@ -3,34 +3,35 @@ from typing import Any, Dict, List
 from exchanges.kucoin.client import Client
 from exchanges import Exchange
 from enums import RunMode
+from configuration import Configuration
 import sys
 import asyncio
-import click
-
+import pprint
 
 logger = logging.getLogger(__name__)
 
 
-def start_sync(configured) -> None:
+def start_sync(ctx: Dict[str, Any]) -> None:
     """
     Download data
     """
     logger.debug("start sync")
     try: 
         ## init config
-        configured['runmode'] = RunMode.SYNC
-        print(configured)
-        # exit()
-        exchange = Exchange(configured, yaml)
+        ctx.obj['runmode'] = RunMode.SYNC
+        configured, _ = Configuration(ctx.obj).get_config()
+        pprint.pprint(configured)
+        exchange = Exchange(configured)
         exchange = exchange.init_exchange()
-        client = Client(configured, yaml)
+        # exit()
+        client = Client(configured)
         client = client.init_client()
+        # print(dir(client))
+        client.grpc_get_kline(configured)
         # migrations_update(configured)
 
         exit()
 
-
-        
         asyncio.run(client.get_klines())
       
         # data = asyncio.run(client.get_trade_histories())

@@ -4,6 +4,8 @@ from .misc import check_folder
 from loggers import setup_logging
 from typing import Any, Dict, List, Optional
 from pathlib import PurePath
+import pprint
+from enums import RunMode
 
 logger = logging.getLogger(__name__)
 
@@ -35,18 +37,40 @@ class Process_options:
         check_folder(DEFAULT_LOG_FILE_DIR)
             
         setup_logging(args)
-    
-    def _process_exchange_options(self, args: setting_format):
-        # TODO: process exchange yaml
-        pass
+
+    def _process_api(self, args: setting_format):
+        """
+        setting which source api featrue do you want
+        """
+        logger.debug("process api options")
         # print(self._yaml)
-        # args['session'] = self._yaml['session']
+        bbgo = self._yaml['bbgo']
+        ccxt = self._yaml['ccxt']
+        args.update(bbgo)
+
+        
+    def _process_exchange_options(self, args: setting_format):
+        logger.debug("process exchange options")
+        # TODO: process exchange yaml
+        exchange_yaml = self._yaml['exchange']
+        
+        exchange = {**exchange_yaml}
+        args.update(exchange)
+
+
+
 
     def _process_sync_options(self, args: setting_format):
         logger.debug("process sync options") 
 
         ## process yaml sync 
         yaml_sync_dict = self._yaml['sync']
+        # pprint.pprint(self._yaml)
+        # print('\n')
+        # print(yaml_sync_dict)
+        # exit()
+        if args['runmode'] == RunMode.SYNC:
+            args['symbols'] = yaml_sync_dict['sync_symbols']
 
         # process startAt amd emdAt
         if 'startAt' in args == False or args['startAt'] is None:
@@ -56,6 +80,7 @@ class Process_options:
 
         del yaml_sync_dict['startAt']
         del yaml_sync_dict['endAt']
+        del yaml_sync_dict['sync_symbols']
 
         args.update(yaml_sync_dict)
         

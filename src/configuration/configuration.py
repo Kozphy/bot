@@ -37,7 +37,6 @@ class Configuration(Process_options):
         :return: Configuration dictionary
         """    
             
-            
         # Load all configs
         load = Load_config()
         self._yaml = load.load_yaml_setting(self._args)
@@ -54,6 +53,7 @@ class Configuration(Process_options):
         logging.debug('merge config and yaml')
         configured = deepcopy(args)
         self._process_logging_options(configured)
+        self._process_api(configured)
         self._process_sync_options(configured)
         self._process_exchange_options(configured)
         self._process_persistece_options(configured)

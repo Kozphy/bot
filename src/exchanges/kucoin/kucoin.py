@@ -8,19 +8,19 @@ from exchanges import Exchange
 logger = logging.getLogger(__name__)
 
 class Kucoin(Exchange):
-    def __init__(self, configured, yaml):
-        super().__init__(configured, yaml)
-        get_para = {
-            'host': '127.0.0.1',
-            'port': 50051,
-            'exchange': 'kucoin',
-            'symbol' : 'DOTUSDT',
-            'timeframe': '4h',
-            'start_time': 1651408281,
-            'end_time': 1651840281,
-            'limit':30
-        }
-        grpc_get_kline(**get_para)
+    def __init__(self, configured):
+        super().__init__(configured)
+        # get_para = {
+        #     'host': '127.0.0.1',
+        #     'port': 50051,
+        #     'exchange': 'kucoin',
+        #     'symbol' : 'DOTUSDT',
+        #     'timeframe': '4h',
+        #     'start_time': 1651408281,
+        #     'end_time': 1651840281,
+        #     'limit':30
+        # }
+        # grpc_get_kline(**get_para)
         # from bot.persistence.migrations import migrations_update, migrations_downgrade
         # migrations_update(configured)
         # migrations_downgrade(configured)

@@ -1,72 +1,27 @@
 from kucoin.client import Market
-import math
 from datetime import datetime, timedelta
-from exchanges.kucoin.market.market_interface import market_interface
-from exchanges.kucoin.user.user import Kucoin_user
-from exchanges.kucoin.trade.trade import Kucoin_trade
-# from kucoin.base_request.base_request import KucoinBaseRestApi
-from ..misc import isodate_to_datetime_ms
-from enums import RunMode
+import math
 # from bot.exchanges.kucoin import Kucoin
-from exchanges.bbgo_grpc.market_service import grpc_get_kline
+from exchanges.kucoin.client_interface import Client_interface
 
 class Client:
-    def __init__(self, configured, yaml, is_sandbox=False):
-        self.yaml = yaml
+    def __init__(self, configured, is_sandbox=False):
         self.configured = configured
-        yaml_key_struct = self.yaml['exchange']['apikey']
-        self.__api = yaml_key_struct['public']
-        self.__secrect = yaml_key_struct['secret']
-        self.__passphrase = yaml_key_struct['password']
+        self.bbgo_grpc = configured['bbgo_grpc']
+        self._apikey = configured['apikey']
         self.__is_sandbox = is_sandbox
         self.accepted_pairs = None
-            
-    def process_request_params(self):
-        """
-        Process api request parameters
-        """
-        sync_dict = self.configured['sync_dict']
-        symbols = sync_dict['sync_pairs']
-
-        if self.configured['runmode'] != RunMode.SYNC:
-            symbols = self.configured['trade_pairs']
-            
-        require_params = {
-            RunMode.SYNC: {
-                'symbols': symbols, 
-                'timeframe': sync_dict['timeframe'],
-                'startAt': isodate_to_datetime_ms(self.configured['startAt']),
-                'endAt': isodate_to_datetime_ms(self.configured['endAt'])
-            },
-            RunMode.LIVE: {
-                'symbols': symbols,
-            },
-            RunMode.BACKTEST:{
-                'symbols': symbols,
-            },
-        }
-        
-        if self.configured['runmode'] in require_params:
-            return require_params[self.configured['runmode']]
 
     def init_client(self):
-        params = self.process_request_params()
-        # print(params)
-        market_client = market_interface(**params)
-        support_client = {
-            RunMode.SYNC: market_client,
-            'trade': Kucoin_trade,
-            'user': Kucoin_user
-        }
+        client = Client_interface(self.configured)
+        print(dir(client))
+        # client.grpc_get_kline(self.configured)
+        exit()
 
         # check accecpt pair and get all pairs list
-        self.accepted_pairs = market_client.get_accept_pairs()
-        # print(self.configured['startAt'])
-        # print(self.configured['endAt'])
+        self.accepted_pairs = client.get_accept_pairs()
 
-        if self.configured['runmode'] in support_client:
-            client = support_client[self.configured['runmode']]
-            return client 
+        return client 
 
     @staticmethod
     def current_request_time():
