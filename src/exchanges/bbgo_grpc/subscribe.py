@@ -12,10 +12,16 @@ from bbgo.enums import DepthType
 @click.option('--port', default=50051)
 def main(host, port):
     subscriptions = [
-        Subscription('binance', ChannelType.BOOK, symbol='BTCUSDT', depth=DepthType.FULL),
+        Subscription('kucoin', ChannelType.KLINE, symbol='BTCUSDT',
+         depth=DepthType.FULL, interval='1m'),
     ]
 
     service = MarketService(host, port)
+    service.query_klines()
+
     response_iter = service.subscribe(subscriptions)
     for response in response_iter:
         logger.info(response)
+
+if __name__ == '__main__':
+    main()

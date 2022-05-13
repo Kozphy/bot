@@ -25,19 +25,17 @@ def start_sync(ctx: Dict[str, Any]) -> None:
         exchange = exchange.init_exchange()
         # exit()
         client = Client(configured)
-        client = client.init_client()
+        client = client.active_service()
         # print(dir(client))
-        client.grpc_get_kline(configured)
+        if configured['bbgo_grpc_service']['market'] == True:
+            data = asyncio.run(client.grpc_get_kline(limit=20))
+        # print(data)
         # migrations_update(configured)
 
-        exit()
-
-        asyncio.run(client.get_klines())
+        data = asyncio.run(client.get_klines())
+        pprint.pprint(data)
       
         # data = asyncio.run(client.get_trade_histories())
-        # print(data)
-
-        
 
         
     except KeyboardInterrupt:

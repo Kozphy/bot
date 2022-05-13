@@ -1,0 +1,62 @@
+{
+    "sourceFile": "src/exchanges/kucoin/client_services.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1652321789493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652321881980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n \n \n     def get_bbgo_market_service(self):\n         if self.bbgo_options['market']:\n-            return  bbgo_market_service(self.configured)\n+            return  bbgo_market_service(self.configured, self.grpc_server_host, self.grpc_server_port)\n \n     def get_market_services(self):\n         return market_facade(self.configured)\n     \n"
+                },
+                {
+                    "date": 1652357616518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,13 +13,14 @@\n         self.market = self.get_market_services()\n         self.market_method = [f for f in dir(self.market) if not f.startswith('_')]\n \n         if self.configured['bbgo_grpc']:\n-            self.grpc_server_host = self.configured['bbgo_grpc_server']['host']\n-            self.grpc_server_port = self.configured['bbgo_grpc_server']['port']\n-            self.bbgo_market_service = self.get_bbgo_market_service()\n-            self.bbgo_market_service_method = [f for f in dir(self.bbgo_market_service) if not f.startswith('_')]\n-            self.bbgo_market_service_attribute = [a for a in self.bbgo_market_service.__dict__.keys()]\n+            if self.bbgo_options['market']:\n+                self.grpc_server_host = self.configured['bbgo_grpc_server']['host']\n+                self.grpc_server_port = self.configured['bbgo_grpc_server']['port']\n+                self.bbgo_market_service = self.get_bbgo_market_service()\n+                self.bbgo_market_service_method = [f for f in dir(self.bbgo_market_service) if not f.startswith('_')]\n+                self.bbgo_market_service_attribute = [a for a in self.bbgo_market_service.__dict__.keys()]\n \n \n     def __dir__(self):\n         # return self.__dict__.items()\n"
+                },
+                {
+                    "date": 1652357900469,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,7 @@\n from exchanges.kucoin.market.market_facade import market_facade\n from exchanges.bbgo_grpc.market_service import bbgo_market_service\n-from types import FunctionType\n \n-class NonDelegatableItem(AttributeError):\n-    pass\n \n # TODO: maybe need to change code architecture\n class Client_services():\n     def __init__(self, configured):\n"
+                },
+                {
+                    "date": 1652358024286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,10 @@\n     def __dir__(self):\n         # return self.__dict__.items()\n         # return [x for x, y in self.__dict__.items()]\n         # return [x for x, y in self.__dict__.items()]\n-        return list(self.__dict__.keys()) + self.bbgo_market_service_method\n+        if self.bbgo_options['market']:\n+            return list(self.__dict__.keys()) + self.bbgo_market_service_method\n \n     def __getattr__(self, func):\n         ## delegate pattern\n         def method(*args, **kwargs):\n"
+                },
+                {
+                    "date": 1652358050285,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,9 @@\n         # return [x for x, y in self.__dict__.items()]\n         # return [x for x, y in self.__dict__.items()]\n         if self.bbgo_options['market']:\n             return list(self.__dict__.keys()) + self.bbgo_market_service_method\n+        return self.__dict__.keys()\n \n     def __getattr__(self, func):\n         ## delegate pattern\n         def method(*args, **kwargs):\n"
+                },
+                {
+                    "date": 1652358118637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,9 @@\n \n     def __getattr__(self, func):\n         ## delegate pattern\n         def method(*args, **kwargs):\n+            print(func)\n             if func in self.bbgo_market_service_method:\n                 return getattr(self.bbgo_market_service, func)(*args, **kwargs)\n             if func in self.market_method:\n                 return getattr(self.market, func)(*args, **kwargs)\n"
+                },
+                {
+                    "date": 1652358304846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,8 @@\n \n     def __getattr__(self, func):\n         ## delegate pattern\n         def method(*args, **kwargs):\n-            print(func)\n             if func in self.bbgo_market_service_method:\n                 return getattr(self.bbgo_market_service, func)(*args, **kwargs)\n             if func in self.market_method:\n                 return getattr(self.market, func)(*args, **kwargs)\n"
+                },
+                {
+                    "date": 1652358311435,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,11 +19,9 @@\n                 self.bbgo_market_service_attribute = [a for a in self.bbgo_market_service.__dict__.keys()]\n \n \n     def __dir__(self):\n-        # return self.__dict__.items()\n-        # return [x for x, y in self.__dict__.items()]\n-        # return [x for x, y in self.__dict__.items()]\n+\n         if self.bbgo_options['market']:\n             return list(self.__dict__.keys()) + self.bbgo_market_service_method\n         return self.__dict__.keys()\n \n"
+                },
+                {
+                    "date": 1652358443374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,18 +19,18 @@\n                 self.bbgo_market_service_attribute = [a for a in self.bbgo_market_service.__dict__.keys()]\n \n \n     def __dir__(self):\n-\n         if self.bbgo_options['market']:\n             return list(self.__dict__.keys()) + self.bbgo_market_service_method\n         return self.__dict__.keys()\n \n     def __getattr__(self, func):\n         ## delegate pattern\n         def method(*args, **kwargs):\n-            if func in self.bbgo_market_service_method:\n-                return getattr(self.bbgo_market_service, func)(*args, **kwargs)\n+            if self.bbgo_options['market']: \n+                if func in self.bbgo_market_service_method:\n+                    return getattr(self.bbgo_market_service, func)(*args, **kwargs)\n             if func in self.market_method:\n                 return getattr(self.market, func)(*args, **kwargs)\n             else:\n                 raise AttributeError(f'{func} is not defined')\n"
+                },
+                {
+                    "date": 1652358503018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,11 +26,10 @@\n \n     def __getattr__(self, func):\n         ## delegate pattern\n         def method(*args, **kwargs):\n-            if self.bbgo_options['market']: \n-                if func in self.bbgo_market_service_method:\n-                    return getattr(self.bbgo_market_service, func)(*args, **kwargs)\n+            if self.bbgo_options['market'] and func in self.bbgo_market_service_method:\n+                return getattr(self.bbgo_market_service, func)(*args, **kwargs)\n             if func in self.market_method:\n                 return getattr(self.market, func)(*args, **kwargs)\n             else:\n                 raise AttributeError(f'{func} is not defined')\n"
+                },
+                {
+                    "date": 1652360409126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n                 self.bbgo_market_service = self.get_bbgo_market_service()\n                 self.bbgo_market_service_method = [f for f in dir(self.bbgo_market_service) if not f.startswith('_')]\n                 self.bbgo_market_service_attribute = [a for a in self.bbgo_market_service.__dict__.keys()]\n \n-\n+    # TODO: need to fix dir issue\n     def __dir__(self):\n         if self.bbgo_options['market']:\n             return list(self.__dict__.keys()) + self.bbgo_market_service_method\n         return self.__dict__.keys()\n"
+                }
+            ],
+            "date": 1652321789493,
+            "name": "Commit-0",
+            "content": "from exchanges.kucoin.market.market_facade import market_facade\nfrom exchanges.bbgo_grpc.market_service import bbgo_market_service\nfrom types import FunctionType\n\nclass NonDelegatableItem(AttributeError):\n    pass\n\n# TODO: maybe need to change code architecture\nclass Client_services():\n    def __init__(self, configured):\n        self.configured = configured\n        self.bbgo_options = configured['bbgo_grpc_service']\n        self.market = self.get_market_services()\n        self.market_method = [f for f in dir(self.market) if not f.startswith('_')]\n\n        if self.configured['bbgo_grpc']:\n            self.grpc_server_host = self.configured['bbgo_grpc_server']['host']\n            self.grpc_server_port = self.configured['bbgo_grpc_server']['port']\n            self.bbgo_market_service = self.get_bbgo_market_service()\n            self.bbgo_market_service_method = [f for f in dir(self.bbgo_market_service) if not f.startswith('_')]\n            self.bbgo_market_service_attribute = [a for a in self.bbgo_market_service.__dict__.keys()]\n\n\n    def __dir__(self):\n        # return self.__dict__.items()\n        # return [x for x, y in self.__dict__.items()]\n        # return [x for x, y in self.__dict__.items()]\n        return list(self.__dict__.keys()) + self.bbgo_market_service_method\n\n    def __getattr__(self, func):\n        ## delegate pattern\n        def method(*args, **kwargs):\n            if func in self.bbgo_market_service_method:\n                return getattr(self.bbgo_market_service, func)(*args, **kwargs)\n            if func in self.market_method:\n                return getattr(self.market, func)(*args, **kwargs)\n            else:\n                raise AttributeError(f'{func} is not defined')\n        return method\n\n\n    def get_bbgo_market_service(self):\n        if self.bbgo_options['market']:\n            return  bbgo_market_service(self.configured)\n\n    def get_market_services(self):\n        return market_facade(self.configured)\n    \n\n"
+        }
+    ]
+}

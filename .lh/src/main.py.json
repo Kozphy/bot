@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/main.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1652325535126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1652325535126,
+            "name": "Commit-0",
+            "content": "# deprecate\n\n#!/usr/bin/env python3\n\"\"\"\nMain bot script.\nRead the documentation to know what cli arguments you need.\n\"\"\"\n\nimport logging\nimport sys\nfrom typing import Any, List\n\nfrom cmds.arguments import Arguments\nfrom loggers import setup_logging_pre\nfrom exceptions import OperationalException, BotException\nfrom configuration import Configuration\nimport sys\n\n\n# from bot.configuration.load_config import load_yaml_setting\n\n# check min. python version\nif sys.version_info < (3, 9, 12):\n    sys.exit('short bot requires Python version >= 3.9.12')\n\n\nlogger = logging.getLogger('short_bot')        \n\nargs = None\n\ndef main(sysargv: List[str] = None) -> None:\n    \"\"\"\n    This function will initiate the bot and start the trading loop\n    :return None\n    \"\"\"\n    return_code: Any = 1\n    # print(sys.path)\n        \n\n    try:\n        setup_logging_pre()\n        arguments = Arguments(sysargv)\n        # TODO: unknown global args whether using in future, so temporarily place here\n        global args\n        args = arguments.get_parsed_arg()\n        c = Configuration(args=args)\n        configured, yaml = c.get_config()\n        print(yaml)\n\n        if 'func' in args:\n            return_code = args['func'](configured, yaml)\n        else:\n            raise OperationalException('Usage of bot requires subcommand to be given in cli interface.')\n\n    except SystemExit as e:\n        return_code = e\n    except KeyboardInterrupt:\n        logger.info('SIGINT received, aborting ...')\n    except BotException as e: \n        logger.error(str(e))\n        return_code = 2\n    except Exception:\n        logger.exception('Fatal exception!')\n    finally:\n        sys.exit(return_code)\n\n\nif __name__ == '__main__':\n    main()"
+        }
+    ]
+}

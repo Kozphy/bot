@@ -1,0 +1,70 @@
+{
+    "sourceFile": "src/exchanges/bbgo_grpc/subscribe.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1652342040425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652342375636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n from bbgo.enums import ChannelType\n from bbgo.enums import DepthType\n \n \n-@click.command()\n+# @click.command()\n # @click.option('--host', default='127.0.0.1')\n # @click.option('--port', default=50051)\n def main(host, port):\n     subscriptions = [\n@@ -17,5 +17,8 @@\n \n     service = MarketService(host, port)\n     response_iter = service.subscribe(subscriptions)\n     for response in response_iter:\n-        logger.info(response)\n\\ No newline at end of file\n+        logger.info(response)\n+\n+if __name__ == '__main__':\n+    main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652342387614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,11 @@\n from bbgo.enums import ChannelType\n from bbgo.enums import DepthType\n \n \n-# @click.command()\n-# @click.option('--host', default='127.0.0.1')\n-# @click.option('--port', default=50051)\n+@click.command()\n+@click.option('--host', default='127.0.0.1')\n+@click.option('--port', default=50051)\n def main(host, port):\n     subscriptions = [\n         Subscription('binance', ChannelType.BOOK, symbol='BTCUSDT', depth=DepthType.FULL),\n     ]\n"
+                },
+                {
+                    "date": 1652342398318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     subscriptions = [\n-        Subscription('binance', ChannelType.BOOK, symbol='BTCUSDT', depth=DepthType.FULL),\n+        Subscription('kucion', ChannelType.BOOK, symbol='BTCUSDT', depth=DepthType.FULL),\n     ]\n \n     service = MarketService(host, port)\n     response_iter = service.subscribe(subscriptions)\n"
+                },
+                {
+                    "date": 1652342826515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     subscriptions = [\n-        Subscription('kucion', ChannelType.BOOK, symbol='BTCUSDT', depth=DepthType.FULL),\n+        Subscription('kucoin', ChannelType.KLINE, symbol='BTCUSDT', depth=DepthType.FULL),\n     ]\n \n     service = MarketService(host, port)\n     response_iter = service.subscribe(subscriptions)\n"
+                },
+                {
+                    "date": 1652343131696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     subscriptions = [\n-        Subscription('kucoin', ChannelType.KLINE, symbol='BTCUSDT', depth=DepthType.FULL),\n+        Subscription('kucoin', ChannelType.KLINE, symbol='BTCUSDT', depth=DepthType.FULL, interval='1d'),\n     ]\n \n     service = MarketService(host, port)\n     response_iter = service.subscribe(subscriptions)\n"
+                },
+                {
+                    "date": 1652343140972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,10 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     subscriptions = [\n-        Subscription('kucoin', ChannelType.KLINE, symbol='BTCUSDT', depth=DepthType.FULL, interval='1d'),\n+        Subscription('kucoin', ChannelType.KLINE, symbol='BTCUSDT',\n+         depth=DepthType.FULL, interval='1d', start_at='2020-01-01T00:00:00Z',),\n     ]\n \n     service = MarketService(host, port)\n     response_iter = service.subscribe(subscriptions)\n"
+                },
+                {
+                    "date": 1652343150941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n @click.option('--port', default=50051)\n def main(host, port):\n     subscriptions = [\n         Subscription('kucoin', ChannelType.KLINE, symbol='BTCUSDT',\n-         depth=DepthType.FULL, interval='1d', start_at='2020-01-01T00:00:00Z',),\n+         depth=DepthType.FULL, interval='1d', start_at='',),\n     ]\n \n     service = MarketService(host, port)\n     response_iter = service.subscribe(subscriptions)\n"
+                },
+                {
+                    "date": 1652343218258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,10 @@\n @click.option('--port', default=50051)\n def main(host, port):\n     subscriptions = [\n         Subscription('kucoin', ChannelType.KLINE, symbol='BTCUSDT',\n-         depth=DepthType.FULL, interval='1d', start_at='',),\n+         depth=DepthType.FULL, interval='1d', start_time='1651407438',\n+         end_time='1651407438', limit=20),\n     ]\n \n     service = MarketService(host, port)\n     response_iter = service.subscribe(subscriptions)\n"
+                },
+                {
+                    "date": 1652343234779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n def main(host, port):\n     subscriptions = [\n         Subscription('kucoin', ChannelType.KLINE, symbol='BTCUSDT',\n          depth=DepthType.FULL, interval='1d', start_time='1651407438',\n-         end_time='1651407438', limit=20),\n+         end_time='1652185038', limit=20),\n     ]\n \n     service = MarketService(host, port)\n     response_iter = service.subscribe(subscriptions)\n"
+                },
+                {
+                    "date": 1652343377799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,9 @@\n @click.option('--port', default=50051)\n def main(host, port):\n     subscriptions = [\n         Subscription('kucoin', ChannelType.KLINE, symbol='BTCUSDT',\n-         depth=DepthType.FULL, interval='1d', start_time='1651407438',\n-         end_time='1652185038', limit=20),\n+         depth=DepthType.FULL, interval='1d'),\n     ]\n \n     service = MarketService(host, port)\n     response_iter = service.subscribe(subscriptions)\n"
+                },
+                {
+                    "date": 1652349104830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n          depth=DepthType.FULL, interval='1d'),\n     ]\n \n     service = MarketService(host, port)\n+    service.query_klines()\n     response_iter = service.subscribe(subscriptions)\n     for response in response_iter:\n         logger.info(response)\n \n"
+                },
+                {
+                    "date": 1652349135511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n     ]\n \n     service = MarketService(host, port)\n     service.query_klines()\n+\n     response_iter = service.subscribe(subscriptions)\n     for response in response_iter:\n         logger.info(response)\n \n"
+                },
+                {
+                    "date": 1652355712586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n @click.option('--port', default=50051)\n def main(host, port):\n     subscriptions = [\n         Subscription('kucoin', ChannelType.KLINE, symbol='BTCUSDT',\n-         depth=DepthType.FULL, interval='1d'),\n+         depth=DepthType.FULL, interval='1m'),\n     ]\n \n     service = MarketService(host, port)\n     service.query_klines()\n"
+                }
+            ],
+            "date": 1652342040425,
+            "name": "Commit-0",
+            "content": "import click\nfrom loguru import logger\n\nfrom bbgo import MarketService\nfrom bbgo.data import Subscription\nfrom bbgo.enums import ChannelType\nfrom bbgo.enums import DepthType\n\n\n@click.command()\n# @click.option('--host', default='127.0.0.1')\n# @click.option('--port', default=50051)\ndef main(host, port):\n    subscriptions = [\n        Subscription('binance', ChannelType.BOOK, symbol='BTCUSDT', depth=DepthType.FULL),\n    ]\n\n    service = MarketService(host, port)\n    response_iter = service.subscribe(subscriptions)\n    for response in response_iter:\n        logger.info(response)"
+        }
+    ]
+}

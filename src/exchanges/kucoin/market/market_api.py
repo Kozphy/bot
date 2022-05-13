@@ -1,6 +1,7 @@
 import logging
 from kucoin.client import Market
 import asyncio
+from exchanges.utils.misc import isodate_to_unixtime, convert_symbols_to_request_format
 
 logger = logging.getLogger(__name__)
 
@@ -23,6 +24,11 @@ class Kucoin_market():
     # symbols, timeframe, startAt, endAt, is_sandbox=False
     def __init__(self, configured, is_sandbox=False):
         self.market = Market()
+        self.exchange = configured['session']
+        self.symbols = convert_symbols_to_request_format(configured['symbols'], '-')
+        self.startAt = isodate_to_unixtime(configured['startAt'])
+        self.endAt = isodate_to_unixtime(configured['endAt'])
+        self.timeframe = configured['timeframes']
         self.configured = configured
         self.is_sandbox = is_sandbox
 

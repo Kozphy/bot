@@ -12,7 +12,7 @@ from typing import Any, List
 
 from cmds.arguments import Arguments
 from loggers import setup_logging_pre
-from bot.src.exceptions import OperationalException, BotException
+from exceptions import OperationalException, BotException
 from configuration import Configuration
 import sys
 

@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/exchanges/kucoin/client.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1652343987925,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652357915155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         self.accepted_pairs = None\n \n     def active_service(self):\n         client = Client_services(self.configured)\n-        # print(dir(client))\n+        print(dir(client))\n \n         # exit()\n \n         # check accecpt pair and get all pairs list\n"
+                },
+                {
+                    "date": 1652358066798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n \n         # exit()\n \n         # check accecpt pair and get all pairs list\n-        self.accepted_pairs = client.get_accept_pairs()\n+        # self.accepted_pairs = client.get_accept_pairs()\n \n         return client \n \n     @staticmethod\n"
+                },
+                {
+                    "date": 1652411045165,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,14 @@\n         self.accepted_pairs = None\n \n     def active_service(self):\n         client = Client_services(self.configured)\n-        print(dir(client))\n+        # print(dir(client))\n \n         # exit()\n \n         # check accecpt pair and get all pairs list\n-        # self.accepted_pairs = client.get_accept_pairs()\n+        self.accepted_pairs = client.get_accept_pairs()\n \n         return client \n \n     @staticmethod\n"
+                }
+            ],
+            "date": 1652343987925,
+            "name": "Commit-0",
+            "content": "from kucoin.client import Market\nfrom datetime import datetime, timedelta\nimport math\nfrom exchanges.kucoin.client_services import Client_services\n\nclass Client:\n    def __init__(self, configured, is_sandbox=False):\n        self.configured = configured\n        self.__is_sandbox = is_sandbox\n        self.accepted_pairs = None\n\n    def active_service(self):\n        client = Client_services(self.configured)\n        # print(dir(client))\n\n        # exit()\n\n        # check accecpt pair and get all pairs list\n        self.accepted_pairs = client.get_accept_pairs()\n\n        return client \n\n    @staticmethod\n    def current_request_time():\n        \"\"\"\n        Get server and local time in millisecond\n        :return localtime, servertime\n        \"\"\"\n        client = Market()\n        servertime = client.get_server_timestamp()\n        localtime = math.floor(datetime.today().timestamp()*1000)\n        return localtime, servertime\n\n"
+        }
+    ]
+}

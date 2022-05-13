@@ -1,0 +1,58 @@
+{
+    "sourceFile": "src/cmds/sync_command.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1652323161649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652323340558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,9 @@\n         client = Client(configured)\n         client = client.active_service()\n         # print(dir(client))\n         data = asyncio.run(client.grpc_get_kline(limit=20))\n+        print(data)\n         # migrations_update(configured)\n \n         exit()\n         # asyncio.run(client.get_klines())\n"
+                },
+                {
+                    "date": 1652323578415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         client = Client(configured)\n         client = client.active_service()\n         # print(dir(client))\n         data = asyncio.run(client.grpc_get_kline(limit=20))\n-        print(data)\n+        # print(data)\n         # migrations_update(configured)\n \n         exit()\n         # asyncio.run(client.get_klines())\n"
+                },
+                {
+                    "date": 1652356333436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n         # exit()\n         client = Client(configured)\n         client = client.active_service()\n         # print(dir(client))\n-        data = asyncio.run(client.grpc_get_kline(limit=20))\n+        # data = asyncio.run(client.grpc_get_kline(limit=20))\n         # print(data)\n         # migrations_update(configured)\n \n         exit()\n"
+                },
+                {
+                    "date": 1652356440738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,10 @@\n         # exit()\n         client = Client(configured)\n         client = client.active_service()\n         # print(dir(client))\n-        # data = asyncio.run(client.grpc_get_kline(limit=20))\n+        if configured['bbgo_grpc_service']['market'] == True:\n+            # data = asyncio.run(client.grpc_get_kline(limit=20))\n         # print(data)\n         # migrations_update(configured)\n \n         exit()\n"
+                },
+                {
+                    "date": 1652356447259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,13 +27,13 @@\n         client = Client(configured)\n         client = client.active_service()\n         # print(dir(client))\n         if configured['bbgo_grpc_service']['market'] == True:\n-            # data = asyncio.run(client.grpc_get_kline(limit=20))\n+            data = asyncio.run(client.grpc_get_kline(limit=20))\n         # print(data)\n         # migrations_update(configured)\n \n-        exit()\n+        # exit()\n         # asyncio.run(client.get_klines())\n       \n         # data = asyncio.run(client.get_trade_histories())\n         # print(data)\n"
+                },
+                {
+                    "date": 1652356453025,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n         # print(data)\n         # migrations_update(configured)\n \n         # exit()\n-        # asyncio.run(client.get_klines())\n+        data = asyncio.run(client.get_klines())\n       \n         # data = asyncio.run(client.get_trade_histories())\n         # print(data)\n \n"
+                },
+                {
+                    "date": 1652356488562,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,8 @@\n             data = asyncio.run(client.grpc_get_kline(limit=20))\n         # print(data)\n         # migrations_update(configured)\n \n-        # exit()\n         data = asyncio.run(client.get_klines())\n       \n         # data = asyncio.run(client.get_trade_histories())\n         # print(data)\n"
+                },
+                {
+                    "date": 1652356561806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,11 +32,12 @@\n         # print(data)\n         # migrations_update(configured)\n \n         data = asyncio.run(client.get_klines())\n+\n+        print(data)\n       \n         # data = asyncio.run(client.get_trade_histories())\n-        # print(data)\n \n         \n \n         \n"
+                },
+                {
+                    "date": 1652362343287,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,16 +32,13 @@\n         # print(data)\n         # migrations_update(configured)\n \n         data = asyncio.run(client.get_klines())\n-\n-        print(data)\n+        # print(data)\n       \n         # data = asyncio.run(client.get_trade_histories())\n \n         \n-\n-        \n     except KeyboardInterrupt:\n         sys.exit('SIGINT received, aborting ...')\n     \n \n"
+                },
+                {
+                    "date": 1652363308158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n         # print(data)\n         # migrations_update(configured)\n \n         data = asyncio.run(client.get_klines())\n-        # print(data)\n+        pprint.pprint(data)\n       \n         # data = asyncio.run(client.get_trade_histories())\n \n         \n"
+                }
+            ],
+            "date": 1652323161649,
+            "name": "Commit-0",
+            "content": "import logging\nfrom typing import Any, Dict, List\nfrom exchanges.kucoin.client import Client\nfrom exchanges import Exchange\nfrom enums import RunMode\nfrom configuration import Configuration\nimport sys\nimport asyncio\nimport pprint\n\nlogger = logging.getLogger(__name__)\n\n\ndef start_sync(ctx: Dict[str, Any]) -> None:\n    \"\"\"\n    Download data\n    \"\"\"\n    logger.debug(\"start sync\")\n    try: \n        ## init config\n        ctx.obj['runmode'] = RunMode.SYNC\n        configured, _ = Configuration(ctx.obj).get_config()\n        pprint.pprint(configured)\n        exchange = Exchange(configured)\n        exchange = exchange.init_exchange()\n        # exit()\n        client = Client(configured)\n        client = client.active_service()\n        # print(dir(client))\n        data = asyncio.run(client.grpc_get_kline(limit=20))\n        # migrations_update(configured)\n\n        exit()\n        # asyncio.run(client.get_klines())\n      \n        # data = asyncio.run(client.get_trade_histories())\n        # print(data)\n\n        \n\n        \n    except KeyboardInterrupt:\n        sys.exit('SIGINT received, aborting ...')\n    \n\n"
+        }
+    ]
+}

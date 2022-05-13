@@ -1,15 +1,20 @@
 from datetime import datetime
 
-def split_pairs_to_request_format(pairs):
+def convert_symbols_to_request_format(pairs, delimiter=None):
     """
-    Split pairs to request format
+    convert symbols to request format
     :param pairs:
-    :return:
+    :return: list
     """
     result = []
     for pair in pairs:
         pair = pair.split('/')
-        pair = pair[0] + '-' + pair[1]
+        if delimiter is None:
+            pair = pair[0] + pair[1]
+            result.append(pair)
+            continue
+
+        pair = pair[0] + delimiter + pair[1]
         result.append(pair)
     return result
 
@@ -22,3 +27,8 @@ def isodate_to_datetime_ms(timer):
 def ms_to_seconds(timer):
     result = round(timer/1000)
     return result
+
+def isodate_to_unixtime(timer):
+    return ms_to_seconds(isodate_to_datetime_ms(timer))
+
+

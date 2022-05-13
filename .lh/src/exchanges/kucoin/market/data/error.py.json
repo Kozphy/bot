@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/exchanges/kucoin/market/data/error.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1652410854380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652410860009,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n+from __future__ import annotations\n \n+from dataclasses import dataclass\n \n @dataclass\n class ErrorMessage:\n     code: int\n"
+                },
+                {
+                    "date": 1652410875387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     code: int\n     message: str\n \n     @classmethod\n-    def from_pb(cls, obj: bbgo_pb2.Error) -> ErrorMessage:\n+    def from_pb(cls, data) -> ErrorMessage:\n         return cls(\n-            code=obj.error_code,\n-            message=obj.error_message,\n+            code=data.error_code,\n+            message=data.error_message,\n         )\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652410927620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     code: int\n     message: str\n \n     @classmethod\n-    def from_pb(cls, data) -> ErrorMessage:\n+    def from_api(cls, data) -> ErrorMessage:\n         return cls(\n             code=data.error_code,\n             message=data.error_message,\n         )\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1652410854380,
+            "name": "Commit-0",
+            "content": "\n\n@dataclass\nclass ErrorMessage:\n    code: int\n    message: str\n\n    @classmethod\n    def from_pb(cls, obj: bbgo_pb2.Error) -> ErrorMessage:\n        return cls(\n            code=obj.error_code,\n            message=obj.error_message,\n        )"
+        }
+    ]
+}

@@ -13,8 +13,11 @@ def main():
     channel = grpc.insecure_channel(address)
     stub = bbgo_pb2_grpc.UserDataServiceStub(channel)
 
-    request = bbgo_pb2.UserDataRequest(session='max')
+    request = bbgo_pb2.UserDataRequest(session='kucoin')
     response_iter = stub.Subscribe(request)
     for response in response_iter:
         event = UserDataEvent.from_pb(response)
         logger.info(event)
+
+if __name__ == '__main__':
+    main()

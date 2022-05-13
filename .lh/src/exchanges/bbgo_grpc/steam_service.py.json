@@ -1,0 +1,114 @@
+{
+    "sourceFile": "src/exchanges/bbgo_grpc/steam_service.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 24,
+            "patches": [
+                {
+                    "date": 1652325063446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652342078915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,11 @@\n     def handle(self, event: Event) -> None:\n         logger.info(event)\n \n \n-# @click.command()\n-# @click.option('--host', default='127.0.0.1')\n-# @click.option('--port', default=50051)\n+@click.command()\n+@click.option('--host', default='127.0.0.1')\n+@click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n     stream.subscribe('max', 'book', 'BTCUSDT', 'full')\n     stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n"
+                },
+                {
+                    "date": 1652342089420,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n     stream.subscribe('max', 'book', 'BTCUSDT', 'full')\n-    stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n+    # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('max')\n     stream.add_event_handler(LogBook())\n     stream.start()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652342102324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n-    stream.subscribe('max', 'book', 'BTCUSDT', 'full')\n+    stream.subscribe('kucoin', 'book', 'BTCUSDT', 'full')\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('max')\n     stream.add_event_handler(LogBook())\n     stream.start()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652342228912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,7 +18,9 @@\n def main(host, port):\n     stream = Stream(host, port)\n     stream.subscribe('kucoin', 'book', 'BTCUSDT', 'full')\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n-    stream.subscribe_user_data('max')\n+    stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n\\ No newline at end of file\n-    stream.start()\n+    stream.start()\n+if __name__ == __main__:\n+    main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652342260299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,6 +21,6 @@\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n     stream.start()\n-if __name__ == __main__:\n+if __name__ == '__main__':\n     main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652342690526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n-    stream.subscribe('kucoin', 'book', 'BTCUSDT', 'full')\n+    stream.subscribe('kucoin', 'kline', 'BTCUSDT', 'full')\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n     stream.start()\n"
+                },
+                {
+                    "date": 1652343105554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n-    stream.subscribe('kucoin', 'kline', 'BTCUSDT', 'full')\n+    stream.subscribe('kucoin', 'kline','1d', 'BTCUSDT', 'full')\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n     stream.start()\n"
+                },
+                {
+                    "date": 1652347491556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n-    stream.subscribe('kucoin', 'kline','1d', 'BTCUSDT', 'full')\n+    stream.subscribe('kucoin', 'kline', 'BTCUSDT', 'full', '1d')\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n     stream.start()\n"
+                },
+                {
+                    "date": 1652347642016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n-    stream.subscribe('kucoin', 'kline', 'BTCUSDT', 'full', '1d')\n+    stream.subscribe(exchange='kucoin', 'kline', 'BTCUSDT', 'full', '1d')\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n     stream.start()\n"
+                },
+                {
+                    "date": 1652347649240,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n-    stream.subscribe(exchange='kucoin', 'kline', 'BTCUSDT', 'full', '1d')\n+    stream.subscribe(exchange='kucoin', channel='kline', 'BTCUSDT', 'full', '1d')\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n     stream.start()\n"
+                },
+                {
+                    "date": 1652347656390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n-    stream.subscribe(exchange='kucoin', channel='kline', 'BTCUSDT', 'full', '1d')\n+    stream.subscribe(exchange='kucoin', channel='kline', symbol='BTCUSDT', 'full', '1d')\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n     stream.start()\n"
+                },
+                {
+                    "date": 1652347674086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,10 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n-    stream.subscribe(exchange='kucoin', channel='kline', symbol='BTCUSDT', 'full', '1d')\n+    stream.subscribe(exchange='kucoin', channel='kline', symbol='BTCUSDT',\n+     depth='full', interval='1d')\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n     stream.start()\n"
+                },
+                {
+                    "date": 1652347720956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n-    stream.subscribe(exchange='kucoin', channel='kline', symbol='BTCUSDT',\n+    stream.subscribe(exchange='kucoin', channel='KLINE', symbol='BTCUSDT',\n      depth='full', interval='1d')\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n"
+                },
+                {
+                    "date": 1652347751357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,7 @@\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n     stream.start()\n+    \n if __name__ == '__main__':\n     main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652347757616,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,7 +22,7 @@\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n     stream.start()\n-    \n+\n if __name__ == '__main__':\n     main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652347911680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n-    stream.subscribe(exchange='kucoin', channel='KLINE', symbol='BTCUSDT',\n+    stream.subscribe(exchange='kucoin', channel='BOOK', symbol='BTCUSDT',\n      depth='full', interval='1d')\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n"
+                },
+                {
+                    "date": 1652347926894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n-    stream.subscribe(exchange='kucoin', channel='BOOK', symbol='BTCUSDT',\n+    stream.subscribe(exchange='kucoin', channel='KLINE', symbol='BTCUSDT',\n      depth='full', interval='1d')\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n"
+                },
+                {
+                    "date": 1652348877937,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,9 @@\n def main(host, port):\n     stream = Stream(host, port)\n     stream.subscribe(exchange='kucoin', channel='KLINE', symbol='BTCUSDT',\n      depth='full', interval='1d')\n+     \n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n     stream.start()\n"
+                },
+                {
+                    "date": 1652350164858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,10 @@\n \n from bbgo import Stream\n from bbgo.data import Event\n from bbgo.handlers import UpdateHandler\n+from bbgo.enums import ChannelType\n \n-\n class LogBook(UpdateHandler):\n \n     def handle(self, event: Event) -> None:\n         logger.info(event)\n@@ -16,11 +16,11 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n-    stream.subscribe(exchange='kucoin', channel='KLINE', symbol='BTCUSDT',\n+    stream.subscribe(exchange='kucoin', channel=ChannelType.KLINE, symbol='BTCUSDT',\n      depth='full', interval='1d')\n-     \n+\n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n     stream.start()\n"
+                },
+                {
+                    "date": 1652350356667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n @click.option('--host', default='127.0.0.1')\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n-    stream.subscribe(exchange='kucoin', channel=ChannelType.KLINE, symbol='BTCUSDT',\n+    stream.subscribe(exchange='kucoin', channel='kline', symbol='BTCUSDT',\n      depth='full', interval='1d')\n \n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n"
+                },
+                {
+                    "date": 1652351973226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n     stream.subscribe(exchange='kucoin', channel='kline', symbol='BTCUSDT',\n-     depth='full', interval='1d')\n+     depth='full', interval='1m')\n \n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n"
+                },
+                {
+                    "date": 1652352089731,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n \n from bbgo import Stream\n from bbgo.data import Event\n from bbgo.handlers import UpdateHandler\n-from bbgo.enums import ChannelType\n \n class LogBook(UpdateHandler):\n \n     def handle(self, event: Event) -> None:\n"
+                },
+                {
+                    "date": 1652352148028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n     stream.subscribe(exchange='kucoin', channel='kline', symbol='BTCUSDT',\n-     depth='full', interval='1m')\n+     depth='full', interval='1s')\n \n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n"
+                },
+                {
+                    "date": 1652355702457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n @click.option('--port', default=50051)\n def main(host, port):\n     stream = Stream(host, port)\n     stream.subscribe(exchange='kucoin', channel='kline', symbol='BTCUSDT',\n-     depth='full', interval='1s')\n+     depth='full', interval='1m')\n \n     # stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n     stream.subscribe_user_data('kucoin')\n     stream.add_event_handler(LogBook())\n"
+                }
+            ],
+            "date": 1652325063446,
+            "name": "Commit-0",
+            "content": "import click\nfrom loguru import logger\n\nfrom bbgo import Stream\nfrom bbgo.data import Event\nfrom bbgo.handlers import UpdateHandler\n\n\nclass LogBook(UpdateHandler):\n\n    def handle(self, event: Event) -> None:\n        logger.info(event)\n\n\n# @click.command()\n# @click.option('--host', default='127.0.0.1')\n# @click.option('--port', default=50051)\ndef main(host, port):\n    stream = Stream(host, port)\n    stream.subscribe('max', 'book', 'BTCUSDT', 'full')\n    stream.subscribe('max', 'book', 'ETHUSDT', 'full')\n    stream.subscribe_user_data('max')\n    stream.add_event_handler(LogBook())\n    stream.start()"
+        }
+    ]
+}

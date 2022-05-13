@@ -2,7 +2,7 @@
 """
 Definition of cli position arguments
 """
-from bot.cmd.cli_option import Arg
+from cmds.cli_option import Arg
 # TODO: refactor position arguemnts
 
 AVAILABLE_CLI_POSITIONS = {
@@ -15,5 +15,4 @@ AVAILABLE_CLI_POSITIONS = {
     'backtesting': Arg(
         help='backtesting strategy with historical data'
     )
-
 }

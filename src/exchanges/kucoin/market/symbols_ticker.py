@@ -5,7 +5,7 @@ from exceptions import BotException
 import numpy as np
 import time
 from .market_api import Kucoin_market
-from  exchanges.misc import split_pairs_to_request_format
+from  exchanges.utils.misc import convert_symbols_to_request_format
 
 logger = logging.getLogger(__name__)
 
@@ -19,7 +19,7 @@ class Symbols_Ticker(Kucoin_market):
         pairs = self.get_symbol_list(currency_pair)
         origin_pairs = [pair['name'] for pair in pairs]
         r = re.compile(reg)
-        # TODO: not very understand why
+        # TODO: not very understand why this work
         pairs_done = list(filter(r.match, origin_pairs))
         self.check_accept_pairs(symbols, pairs_done)
 

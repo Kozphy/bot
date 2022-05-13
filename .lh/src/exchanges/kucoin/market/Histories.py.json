@@ -1,0 +1,278 @@
+{
+    "sourceFile": "src/exchanges/kucoin/market/Histories.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 65,
+            "patches": [
+                {
+                    "date": 1652359045116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652359197712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n from persistence.write_kline import kline_to_database\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n+    startAt = self.configured['startAt']\n     async def get_klines(self):\n         startAt = ms_to_seconds(self.startAt)\n         endAt = ms_to_seconds(self.endAt)\n         data = {}\n"
+                },
+                {
+                    "date": 1652359216359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,8 @@\n from persistence.write_kline import kline_to_database\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n-    startAt = self.configured['startAt']\n     async def get_klines(self):\n         startAt = ms_to_seconds(self.startAt)\n         endAt = ms_to_seconds(self.endAt)\n         data = {}\n"
+                },
+                {
+                    "date": 1652359830356,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,10 @@\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n     async def get_klines(self):\n-        startAt = ms_to_seconds(self.startAt)\n-        endAt = ms_to_seconds(self.endAt)\n+        startAt = self.startAt\n+        endAt = self.endAt\n         data = {}\n         # with engine.connect() as conn:\n         # TODO: refactor\n         for symbol in self.symbols:\n"
+                },
+                {
+                    "date": 1652359970071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n import logging\n import aiohttp\n from .market_api import Kucoin_market\n-from exchanges.utils.misc import ms_to_seconds\n import asyncio\n import numpy as np\n import time\n from persistence.write_kline import kline_to_database\n@@ -12,8 +11,9 @@\n     async def get_klines(self):\n         startAt = self.startAt\n         endAt = self.endAt\n         data = {}\n+        symbols\n         # with engine.connect() as conn:\n         # TODO: refactor\n         for symbol in self.symbols:\n             symbol = symbol.split('/')\n"
+                },
+                {
+                    "date": 1652359982686,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import logging\n import aiohttp\n from .market_api import Kucoin_market\n+from exchanges.utils.misc import convert_symbols_to_request_format\n import asyncio\n import numpy as np\n import time\n from persistence.write_kline import kline_to_database\n"
+                },
+                {
+                    "date": 1652360147385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n class Histories(Kucoin_market):\n     async def get_klines(self):\n         startAt = self.startAt\n         endAt = self.endAt\n+        symbols = \n         data = {}\n-        symbols\n         # with engine.connect() as conn:\n         # TODO: refactor\n         for symbol in self.symbols:\n             symbol = symbol.split('/')\n"
+                },
+                {
+                    "date": 1652360167690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,8 @@\n class Histories(Kucoin_market):\n     async def get_klines(self):\n         startAt = self.startAt\n         endAt = self.endAt\n-        symbols = \n         data = {}\n         # with engine.connect() as conn:\n         # TODO: refactor\n         for symbol in self.symbols:\n"
+                },
+                {
+                    "date": 1652360180027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,8 @@\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n     async def get_klines(self):\n-        startAt = self.startAt\n-        endAt = self.endAt\n         data = {}\n         # with engine.connect() as conn:\n         # TODO: refactor\n         for symbol in self.symbols:\n"
+                },
+                {
+                    "date": 1652360200570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,13 +10,10 @@\n \n class Histories(Kucoin_market):\n     async def get_klines(self):\n         data = {}\n-        # with engine.connect() as conn:\n         # TODO: refactor\n         for symbol in self.symbols:\n-            symbol = symbol.split('/')\n-            symbol = symbol[0] + '-' + symbol[1]\n             data.update({symbol:{}})\n \n             req_args = {\n                 'symbol': symbol,\n"
+                },
+                {
+                    "date": 1652360207316,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,10 @@\n \n             req_args = {\n                 'symbol': symbol,\n                 'kline_type': None,\n-                'startAt': startAt,\n-                'endAt': endAt,\n+                'startAt': self.startAt,\n+                'endAt': self.endAt,\n             }\n             for timeframe in self.timeframe:\n                 req_args['kline_type'] = self.timeframe_format[timeframe]\n                 res = await self.asy_to_thread(self.market.get_kline, req_args)\n"
+                },
+                {
+                    "date": 1652360236219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n                 'kline_type': None,\n                 'startAt': self.startAt,\n                 'endAt': self.endAt,\n             }\n+\n             for timeframe in self.timeframe:\n                 req_args['kline_type'] = self.timeframe_format[timeframe]\n                 res = await self.asy_to_thread(self.market.get_kline, req_args)\n \n"
+                },
+                {
+                    "date": 1652360298086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,10 +43,8 @@\n                         dt_format = {\n                             kline[0]: ohlcv\n                         }\n \n-                        # kline_to_database(dt_format)\n-                        # data[symbol])\n                         data[symbol].update(dt_format)\n                 print(data)\n                 end = time.process_time() \n                 print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n"
+                },
+                {
+                    "date": 1652360314596,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,8 @@\n \n                         dt_format = {\n                             kline[0]: ohlcv\n                         }\n-\n                         data[symbol].update(dt_format)\n                 print(data)\n                 end = time.process_time() \n                 print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n"
+                },
+                {
+                    "date": 1652360333975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,14 +43,16 @@\n                         dt_format = {\n                             kline[0]: ohlcv\n                         }\n                         data[symbol].update(dt_format)\n-                print(data)\n+\n+                # print(data)\n                 end = time.process_time() \n                 print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n+        \n         # exit()\n         # print(data)\n-        return\n+        return \n \n     async def get_trade_histories(self):\n         for symbol in self.symbols:\n             req_args = {\n"
+                },
+                {
+                    "date": 1652360342465,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n from exchanges.utils.misc import convert_symbols_to_request_format\n import asyncio\n import numpy as np\n import time\n+import pprint\n from persistence.write_kline import kline_to_database\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n"
+                },
+                {
+                    "date": 1652360350737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,9 @@\n \n                 # print(data)\n                 end = time.process_time() \n                 print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n+            pprint.pprint(data)\n         \n         # exit()\n         # print(data)\n         return \n"
+                },
+                {
+                    "date": 1652360544827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n             pprint.pprint(data)\n         \n         # exit()\n         # print(data)\n-        return \n+        return data\n \n     async def get_trade_histories(self):\n         for symbol in self.symbols:\n             req_args = {\n"
+                },
+                {
+                    "date": 1652360928139,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,8 +31,9 @@\n                 if res:\n                     # print(res)\n                     for kline in res[0]:\n                         ohlcv = {\n+                            'exchange': \n                             'timeframe': timeframe,\n                             'open': kline[1],\n                             'close': kline[2],\n                             'high': kline[3],\n"
+                },
+                {
+                    "date": 1652360979049,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n                 if res:\n                     # print(res)\n                     for kline in res[0]:\n                         ohlcv = {\n-                            'exchange': \n+                            'exchange': self.exchange,\n                             'timeframe': timeframe,\n                             'open': kline[1],\n                             'close': kline[2],\n                             'high': kline[3],\n"
+                },
+                {
+                    "date": 1652362201567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import logging\n import aiohttp\n from .market_api import Kucoin_market\n from exchanges.utils.misc import convert_symbols_to_request_format\n+from .data import kline\n import asyncio\n import numpy as np\n import time\n import pprint\n"
+                },
+                {
+                    "date": 1652362215532,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import logging\n import aiohttp\n from .market_api import Kucoin_market\n from exchanges.utils.misc import convert_symbols_to_request_format\n-from .data import kline\n+from .data.kine import Kline\n import asyncio\n import numpy as np\n import time\n import pprint\n"
+                },
+                {
+                    "date": 1652362264216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,18 @@\n import logging\n import aiohttp\n from .market_api import Kucoin_market\n from exchanges.utils.misc import convert_symbols_to_request_format\n-from .data.kine import Kline\n+from .data.kline import Kline\n import asyncio\n import numpy as np\n import time\n import pprint\n from persistence.write_kline import kline_to_database\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n-    async def get_klines(self):\n+    async def get_klines(self) -> Kline:\n         data = {}\n         # TODO: refactor\n         for symbol in self.symbols:\n             data.update({symbol:{}})\n"
+                },
+                {
+                    "date": 1652362283890,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n from persistence.write_kline import kline_to_database\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n-    async def get_klines(self) -> Kline:\n+    async def get_klines(self) -> KLine:\n         data = {}\n         # TODO: refactor\n         for symbol in self.symbols:\n             data.update({symbol:{}})\n"
+                },
+                {
+                    "date": 1652362330567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import logging\n import aiohttp\n from .market_api import Kucoin_market\n from exchanges.utils.misc import convert_symbols_to_request_format\n-from .data.kline import Kline\n+from .data.kline import KLine\n import asyncio\n import numpy as np\n import time\n import pprint\n@@ -33,8 +33,9 @@\n                     # print(res)\n                     for kline in res[0]:\n                         ohlcv = {\n                             'exchange': self.exchange,\n+                            'symbol': symbol,\n                             'timeframe': timeframe,\n                             'open': kline[1],\n                             'close': kline[2],\n                             'high': kline[3],\n"
+                },
+                {
+                    "date": 1652362354188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     async def get_klines(self) -> KLine:\n         data = {}\n         # TODO: refactor\n         for symbol in self.symbols:\n-            data.update({symbol:{}})\n+            # data.update({symbol:{}})\n \n             req_args = {\n                 'symbol': symbol,\n                 'kline_type': None,\n"
+                },
+                {
+                    "date": 1652362377041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,8 @@\n         data = {}\n         # TODO: refactor\n         for symbol in self.symbols:\n             # data.update({symbol:{}})\n-\n             req_args = {\n                 'symbol': symbol,\n                 'kline_type': None,\n                 'startAt': self.startAt,\n@@ -43,11 +42,11 @@\n                             'volumne': kline[5],\n                             'amount': kline[6],\n                         }\n \n-                        dt_format = {\n-                            kline[0]: ohlcv\n-                        }\n+                        # dt_format = {\n+                        #     kline[0]: ohlcv\n+                        # }\n                         data[symbol].update(dt_format)\n \n                 # print(data)\n                 end = time.process_time() \n"
+                },
+                {
+                    "date": 1652362385525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n                 start = time.process_time()\n                 if res:\n                     # print(res)\n                     for kline in res[0]:\n-                        ohlcv = {\n+                        Kline = {\n                             'exchange': self.exchange,\n                             'symbol': symbol,\n                             'timeframe': timeframe,\n                             'open': kline[1],\n"
+                },
+                {
+                    "date": 1652362396077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n                 start = time.process_time()\n                 if res:\n                     # print(res)\n                     for kline in res[0]:\n-                        Kline = {\n+                        ohlcv = {\n                             'exchange': self.exchange,\n                             'symbol': symbol,\n                             'timeframe': timeframe,\n                             'open': kline[1],\n@@ -45,9 +45,9 @@\n \n                         # dt_format = {\n                         #     kline[0]: ohlcv\n                         # }\n-                        data[symbol].update(dt_format)\n+                        # data[symbol].update(dt_format)\n \n                 # print(data)\n                 end = time.process_time() \n                 print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n"
+                },
+                {
+                    "date": 1652362602670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,8 +40,9 @@\n                             'high': kline[3],\n                             'low': kline[4],\n                             'volumne': kline[5],\n                             'amount': kline[6],\n+                            'closed': True\n                         }\n \n                         # dt_format = {\n                         #     kline[0]: ohlcv\n"
+                },
+                {
+                    "date": 1652362662131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n                             'open': kline[1],\n                             'close': kline[2],\n                             'high': kline[3],\n                             'low': kline[4],\n-                            'volumne': kline[5],\n+                            'quote_volumne': kline[5],\n                             'amount': kline[6],\n                             'closed': True\n                         }\n \n"
+                },
+                {
+                    "date": 1652362710190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,8 +34,9 @@\n                         ohlcv = {\n                             'exchange': self.exchange,\n                             'symbol': symbol,\n                             'timeframe': timeframe,\n+                            'start_time': kline[0],\n                             'open': kline[1],\n                             'close': kline[2],\n                             'high': kline[3],\n                             'low': kline[4],\n"
+                },
+                {
+                    "date": 1652362783059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,8 +35,9 @@\n                             'exchange': self.exchange,\n                             'symbol': symbol,\n                             'timeframe': timeframe,\n                             'start_time': kline[0],\n+                            'end_time': kline[0]\n                             'open': kline[1],\n                             'close': kline[2],\n                             'high': kline[3],\n                             'low': kline[4],\n"
+                },
+                {
+                    "date": 1652362860360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n                             'exchange': self.exchange,\n                             'symbol': symbol,\n                             'timeframe': timeframe,\n                             'start_time': kline[0],\n-                            'end_time': kline[0]\n+                            'end_time': kline[0],\n                             'open': kline[1],\n                             'close': kline[2],\n                             'high': kline[3],\n                             'low': kline[4],\n"
+                },
+                {
+                    "date": 1652362910643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n             }\n \n             for timeframe in self.timeframe:\n                 req_args['kline_type'] = self.timeframe_format[timeframe]\n-                res = await self.asy_to_thread(self.market.get_kline, req_args)\n+                res = await  await asyncio.gather(asyncio.to_thread(fn, **req_args), return_exceptions=True)\n \n                 start = time.process_time()\n                 if res:\n                     # print(res)\n"
+                },
+                {
+                    "date": 1652362923076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n import logging\n import aiohttp\n from .market_api import Kucoin_market\n-from exchanges.utils.misc import convert_symbols_to_request_format\n from .data.kline import KLine\n import asyncio\n import numpy as np\n import time\n@@ -24,9 +23,9 @@\n             }\n \n             for timeframe in self.timeframe:\n                 req_args['kline_type'] = self.timeframe_format[timeframe]\n-                res = await  await asyncio.gather(asyncio.to_thread(fn, **req_args), return_exceptions=True)\n+                res = await asyncio.gather(asyncio.to_thread(fn, **req_args), return_exceptions=True)\n \n                 start = time.process_time()\n                 if res:\n                     # print(res)\n"
+                },
+                {
+                    "date": 1652362931749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,15 @@\n import logging\n import aiohttp\n from .market_api import Kucoin_market\n-from .data.kline import KLine\n import asyncio\n import numpy as np\n import time\n import pprint\n from persistence.write_kline import kline_to_database\n+\n+\n+from .data.kline import KLine\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n     async def get_klines(self) -> KLine:\n"
+                },
+                {
+                    "date": 1652362974517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,14 @@\n import logging\n import aiohttp\n from .market_api import Kucoin_market\n+from exchanges.utils.misc import convert_symbols_to_request_format\n+from .data.kline import KLine\n import asyncio\n import numpy as np\n import time\n import pprint\n from persistence.write_kline import kline_to_database\n-\n-\n-from .data.kline import KLine\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n     async def get_klines(self) -> KLine:\n@@ -25,9 +24,9 @@\n             }\n \n             for timeframe in self.timeframe:\n                 req_args['kline_type'] = self.timeframe_format[timeframe]\n-                res = await asyncio.gather(asyncio.to_thread(fn, **req_args), return_exceptions=True)\n+                res = await self.asy_to_thread(self.market.get_kline, req_args)\n \n                 start = time.process_time()\n                 if res:\n                     # print(res)\n"
+                },
+                {
+                    "date": 1652363098467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n class Histories(Kucoin_market):\n     async def get_klines(self) -> KLine:\n         data = {}\n         # TODO: refactor\n+        try:\n         for symbol in self.symbols:\n             # data.update({symbol:{}})\n             req_args = {\n                 'symbol': symbol,\n@@ -54,9 +55,11 @@\n                 # print(data)\n                 end = time.process_time() \n                 print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n             pprint.pprint(data)\n-        \n+       except Exception as e: \n+           logger.error(e)\n+\n         # exit()\n         # print(data)\n         return data\n \n"
+                },
+                {
+                    "date": 1652363107055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,10 +55,10 @@\n                 # print(data)\n                 end = time.process_time() \n                 print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n             pprint.pprint(data)\n-       except Exception as e: \n-           logger.error(e)\n+        except Exception as e: \n+            logger.error(e)\n \n         # exit()\n         # print(data)\n         return data\n"
+                },
+                {
+                    "date": 1652363139154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,49 +14,49 @@\n     async def get_klines(self) -> KLine:\n         data = {}\n         # TODO: refactor\n         try:\n-        for symbol in self.symbols:\n-            # data.update({symbol:{}})\n-            req_args = {\n-                'symbol': symbol,\n-                'kline_type': None,\n-                'startAt': self.startAt,\n-                'endAt': self.endAt,\n-            }\n+            for symbol in self.symbols:\n+                # data.update({symbol:{}})\n+                req_args = {\n+                    'symbol': symbol,\n+                    'kline_type': None,\n+                    'startAt': self.startAt,\n+                    'endAt': self.endAt,\n+                }\n \n-            for timeframe in self.timeframe:\n-                req_args['kline_type'] = self.timeframe_format[timeframe]\n-                res = await self.asy_to_thread(self.market.get_kline, req_args)\n+                for timeframe in self.timeframe:\n+                    req_args['kline_type'] = self.timeframe_format[timeframe]\n+                    res = await self.asy_to_thread(self.market.get_kline, req_args)\n \n-                start = time.process_time()\n-                if res:\n-                    # print(res)\n-                    for kline in res[0]:\n-                        ohlcv = {\n-                            'exchange': self.exchange,\n-                            'symbol': symbol,\n-                            'timeframe': timeframe,\n-                            'start_time': kline[0],\n-                            'end_time': kline[0],\n-                            'open': kline[1],\n-                            'close': kline[2],\n-                            'high': kline[3],\n-                            'low': kline[4],\n-                            'quote_volumne': kline[5],\n-                            'amount': kline[6],\n-                            'closed': True\n-                        }\n+                    start = time.process_time()\n+                    if res:\n+                        # print(res)\n+                        for kline in res[0]:\n+                            ohlcv = {\n+                                'exchange': self.exchange,\n+                                'symbol': symbol,\n+                                'timeframe': timeframe,\n+                                'start_time': kline[0],\n+                                'end_time': kline[0],\n+                                'open': kline[1],\n+                                'close': kline[2],\n+                                'high': kline[3],\n+                                'low': kline[4],\n+                                'quote_volumne': kline[5],\n+                                'amount': kline[6],\n+                                'closed': True\n+                            }\n \n-                        # dt_format = {\n-                        #     kline[0]: ohlcv\n-                        # }\n-                        # data[symbol].update(dt_format)\n+                            # dt_format = {\n+                            #     kline[0]: ohlcv\n+                            # }\n+                            # data[symbol].update(dt_format)\n \n-                # print(data)\n-                end = time.process_time() \n-                print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n-            pprint.pprint(data)\n+                    # print(data)\n+                    end = time.process_time() \n+                    print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n+                pprint.pprint(data)\n         except Exception as e: \n             logger.error(e)\n \n         # exit()\n"
+                },
+                {
+                    "date": 1652363209447,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,9 @@\n                             # dt_format = {\n                             #     kline[0]: ohlcv\n                             # }\n                             # data[symbol].update(dt_format)\n+                            data.update(ohlcv)\n \n                     # print(data)\n                     end = time.process_time() \n                     print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n"
+                },
+                {
+                    "date": 1652363265721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n     async def get_klines(self) -> KLine:\n-        data = {}\n+        data = []\n         # TODO: refactor\n         try:\n             for symbol in self.symbols:\n                 # data.update({symbol:{}})\n@@ -50,9 +50,9 @@\n                             # dt_format = {\n                             #     kline[0]: ohlcv\n                             # }\n                             # data[symbol].update(dt_format)\n-                            data.update(ohlcv)\n+                            data.append(ohlcv)\n \n                     # print(data)\n                     end = time.process_time() \n                     print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n"
+                },
+                {
+                    "date": 1652363300691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,8 @@\n \n                     # print(data)\n                     end = time.process_time() \n                     print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n-                pprint.pprint(data)\n         except Exception as e: \n             logger.error(e)\n \n         # exit()\n"
+                },
+                {
+                    "date": 1652363312884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,10 +58,8 @@\n                     print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n         except Exception as e: \n             logger.error(e)\n \n-        # exit()\n-        # print(data)\n         return data\n \n     async def get_trade_histories(self):\n         for symbol in self.symbols:\n"
+                },
+                {
+                    "date": 1652363381912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n from persistence.write_kline import kline_to_database\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n-    async def get_klines(self) -> KLine:\n+    async def get_klines(self) -> [KLine]:\n         data = []\n         # TODO: refactor\n         try:\n             for symbol in self.symbols:\n"
+                },
+                {
+                    "date": 1652363394159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n from persistence.write_kline import kline_to_database\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n-    async def get_klines(self) -> [KLine]:\n+    async def get_klines(self) -> list(KLine):\n         data = []\n         # TODO: refactor\n         try:\n             for symbol in self.symbols:\n"
+                },
+                {
+                    "date": 1652363412392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n from persistence.write_kline import kline_to_database\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n-    async def get_klines(self) -> list(KLine):\n+    async def get_klines(self) -> KLine:\n         data = []\n         # TODO: refactor\n         try:\n             for symbol in self.symbols:\n"
+                },
+                {
+                    "date": 1652363704438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,12 +7,13 @@\n import numpy as np\n import time\n import pprint\n from persistence.write_kline import kline_to_database\n+from typing import List\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n-    async def get_klines(self) -> KLine:\n+    async def get_klines(self) -> List[KLine]:\n         data = []\n         # TODO: refactor\n         try:\n             for symbol in self.symbols:\n"
+                },
+                {
+                    "date": 1652364629790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n import time\n import pprint\n from persistence.write_kline import kline_to_database\n from typing import List\n+\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n     async def get_klines(self) -> List[KLine]:\n"
+                },
+                {
+                    "date": 1652410314352,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n                                 'open': kline[1],\n                                 'close': kline[2],\n                                 'high': kline[3],\n                                 'low': kline[4],\n-                                'quote_volumne': kline[5],\n+                                'volumne': kline[5],\n                                 'amount': kline[6],\n                                 'closed': True\n                             }\n \n"
+                },
+                {
+                    "date": 1652410711833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,8 +47,9 @@\n                                 'volumne': kline[5],\n                                 'amount': kline[6],\n                                 'closed': True\n                             }\n+                            \n \n                             # dt_format = {\n                             #     kline[0]: ohlcv\n                             # }\n"
+                },
+                {
+                    "date": 1652410721974,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,17 @@\n import logging\n import aiohttp\n from .market_api import Kucoin_market\n from exchanges.utils.misc import convert_symbols_to_request_format\n-from .data.kline import KLine\n import asyncio\n import numpy as np\n import time\n import pprint\n from persistence.write_kline import kline_to_database\n from typing import List\n \n+\n+from .data.kline import KLine\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n     async def get_klines(self) -> List[KLine]:\n"
+                },
+                {
+                    "date": 1652410745258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,10 @@\n import pprint\n from persistence.write_kline import kline_to_database\n from typing import List\n \n+from .data.kline import KLine\n \n-from .data.kline import KLine\n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n     async def get_klines(self) -> List[KLine]:\n@@ -54,9 +54,9 @@\n                             # dt_format = {\n                             #     kline[0]: ohlcv\n                             # }\n                             # data[symbol].update(dt_format)\n-                            data.append(ohlcv)\n+                            data.append(Kline.from_api(ohlcv))\n \n                     # print(data)\n                     end = time.process_time() \n                     print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n"
+                },
+                {
+                    "date": 1652410784747,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,10 +54,12 @@\n                             # dt_format = {\n                             #     kline[0]: ohlcv\n                             # }\n                             # data[symbol].update(dt_format)\n-                            data.append(Kline.from_api(ohlcv))\n+                            data.append(KLine.from_api(ohlcv))\n \n+                            error = \n+\n                     # print(data)\n                     end = time.process_time() \n                     print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n         except Exception as e: \n"
+                },
+                {
+                    "date": 1652410911799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n from persistence.write_kline import kline_to_database\n from typing import List\n \n from .data.kline import KLine\n+from .data.error import ErrorMessage\n \n logger = logging.getLogger(__name__)\n \n class Histories(Kucoin_market):\n@@ -56,9 +57,9 @@\n                             # }\n                             # data[symbol].update(dt_format)\n                             data.append(KLine.from_api(ohlcv))\n \n-                            error = \n+                            error = Error\n \n                     # print(data)\n                     end = time.process_time() \n                     print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n"
+                },
+                {
+                    "date": 1652410923281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,9 +57,9 @@\n                             # }\n                             # data[symbol].update(dt_format)\n                             data.append(KLine.from_api(ohlcv))\n \n-                            error = Error\n+                            error = ErrorMessage.from_api()\n \n                     # print(data)\n                     end = time.process_time() \n                     print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n"
+                },
+                {
+                    "date": 1652411383730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,8 +54,9 @@\n \n                             # dt_format = {\n                             #     kline[0]: ohlcv\n                             # }\n+                            pprint.pprint(ohlcv)\n                             # data[symbol].update(dt_format)\n                             data.append(KLine.from_api(ohlcv))\n \n                             error = ErrorMessage.from_api()\n"
+                },
+                {
+                    "date": 1652411407498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                                 'open': kline[1],\n                                 'close': kline[2],\n                                 'high': kline[3],\n                                 'low': kline[4],\n-                                'volumne': kline[5],\n+                                'volone': kline[5],\n                                 'amount': kline[6],\n                                 'closed': True\n                             }\n                             \n"
+                },
+                {
+                    "date": 1652411423489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                                 'open': kline[1],\n                                 'close': kline[2],\n                                 'high': kline[3],\n                                 'low': kline[4],\n-                                'volone': kline[5],\n+                                'volume': kline[5],\n                                 'amount': kline[6],\n                                 'closed': True\n                             }\n                             \n"
+                },
+                {
+                    "date": 1652413198721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n                             pprint.pprint(ohlcv)\n                             # data[symbol].update(dt_format)\n                             data.append(KLine.from_api(ohlcv))\n \n-                            error = ErrorMessage.from_api()\n+                            # error = ErrorMessage.from_api()\n \n                     # print(data)\n                     end = time.process_time() \n                     print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n"
+                },
+                {
+                    "date": 1652413256898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n                             pprint.pprint(ohlcv)\n                             # data[symbol].update(dt_format)\n                             data.append(KLine.from_api(ohlcv))\n \n-                            # error = ErrorMessage.from_api()\n+                            error = ErrorMessage.from_api()\n \n                     # print(data)\n                     end = time.process_time() \n                     print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n"
+                },
+                {
+                    "date": 1652413273860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,8 +59,10 @@\n                             # data[symbol].update(dt_format)\n                             data.append(KLine.from_api(ohlcv))\n \n                             error = ErrorMessage.from_api()\n+                            if error.code != 0:\n+                                logger.error(error.message)\n \n                     # print(data)\n                     end = time.process_time() \n                     print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n"
+                },
+                {
+                    "date": 1652424136142,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n                             pprint.pprint(ohlcv)\n                             # data[symbol].update(dt_format)\n                             data.append(KLine.from_api(ohlcv))\n \n-                            error = ErrorMessage.from_api()\n+                            error = ErrorMessage.from_api(res)\n                             if error.code != 0:\n                                 logger.error(error.message)\n \n                     # print(data)\n"
+                },
+                {
+                    "date": 1652424149482,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,11 +58,11 @@\n                             pprint.pprint(ohlcv)\n                             # data[symbol].update(dt_format)\n                             data.append(KLine.from_api(ohlcv))\n \n-                            error = ErrorMessage.from_api(res)\n-                            if error.code != 0:\n-                                logger.error(error.message)\n+                            # error = ErrorMessage.from_api(res)\n+                            # if error.code != 0:\n+                            #     logger.error(error.message)\n \n                     # print(data)\n                     end = time.process_time() \n                     print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n"
+                },
+                {
+                    "date": 1652424779860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n \n                             # dt_format = {\n                             #     kline[0]: ohlcv\n                             # }\n-                            pprint.pprint(ohlcv)\n+                            # pprint.pprint(ohlcv)\n                             # data[symbol].update(dt_format)\n                             data.append(KLine.from_api(ohlcv))\n \n                             # error = ErrorMessage.from_api(res)\n"
+                }
+            ],
+            "date": 1652359045116,
+            "name": "Commit-0",
+            "content": "import logging\nimport aiohttp\nfrom .market_api import Kucoin_market\nfrom exchanges.utils.misc import ms_to_seconds\nimport asyncio\nimport numpy as np\nimport time\nfrom persistence.write_kline import kline_to_database\nlogger = logging.getLogger(__name__)\n\nclass Histories(Kucoin_market):\n    async def get_klines(self):\n        startAt = ms_to_seconds(self.startAt)\n        endAt = ms_to_seconds(self.endAt)\n        data = {}\n        # with engine.connect() as conn:\n        # TODO: refactor\n        for symbol in self.symbols:\n            symbol = symbol.split('/')\n            symbol = symbol[0] + '-' + symbol[1]\n            data.update({symbol:{}})\n\n            req_args = {\n                'symbol': symbol,\n                'kline_type': None,\n                'startAt': startAt,\n                'endAt': endAt,\n            }\n            for timeframe in self.timeframe:\n                req_args['kline_type'] = self.timeframe_format[timeframe]\n                res = await self.asy_to_thread(self.market.get_kline, req_args)\n\n                start = time.process_time()\n                if res:\n                    # print(res)\n                    for kline in res[0]:\n                        ohlcv = {\n                            'timeframe': timeframe,\n                            'open': kline[1],\n                            'close': kline[2],\n                            'high': kline[3],\n                            'low': kline[4],\n                            'volumne': kline[5],\n                            'amount': kline[6],\n                        }\n\n                        dt_format = {\n                            kline[0]: ohlcv\n                        }\n\n                        # kline_to_database(dt_format)\n                        # data[symbol])\n                        data[symbol].update(dt_format)\n                print(data)\n                end = time.process_time() \n                print(f'process {symbol} {timeframe} kline consume time: ', end - start)\n        # exit()\n        # print(data)\n        return\n\n    async def get_trade_histories(self):\n        for symbol in self.symbols:\n            req_args = {\n                'symbol': symbol\n            }\n            res = await self.asy_to_thread(self.market.get_trade_histories, req_args)\n        \n        return res\n\n    \n"
+        }
+    ]
+}

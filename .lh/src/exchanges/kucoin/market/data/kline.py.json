@@ -1,0 +1,146 @@
+{
+    "sourceFile": "src/exchanges/kucoin/market/data/kline.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 32,
+            "patches": [
+                {
+                    "date": 1652361814145,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652408087846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,4 +14,6 @@\n     start_time: datetime = None\n     end_time: datetime = None\n     quote_volume: float = None\n     closed: bool = None\n+    @classmethod\n+    def \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652408562956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,6 +14,7 @@\n     start_time: datetime = None\n     end_time: datetime = None\n     quote_volume: float = None\n     closed: bool = None\n+\n     @classmethod\n\\ No newline at end of file\n-    def \n+    def from_api(cls, data) -> Kline:\n"
+                },
+                {
+                    "date": 1652408585613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,5 +16,8 @@\n     quote_volume: float = None\n     closed: bool = None\n \n     @classmethod\n-    def from_api(cls, data) -> Kline:\n\\ No newline at end of file\n+    def from_api(cls, data) -> KLine:\n+        return cls(\n+            exchange=data['exchange'],\n+        )\n"
+                },
+                {
+                    "date": 1652408759976,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n from dataclasses import dataclass\n from datetime import datetime\n \n+from exchanges.utils import parse_float, parse_time\n @dataclass\n class KLine:\n     exchange: str\n     symbol: str\n"
+                },
+                {
+                    "date": 1652408776167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n from dataclasses import dataclass\n from datetime import datetime\n \n-from exchanges.utils import parse_float, parse_time\n+from exchanges.utils.convert import parse_float, parse_time\n @dataclass\n class KLine:\n     exchange: str\n     symbol: str\n"
+                },
+                {
+                    "date": 1652408786097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n from dataclasses import dataclass\n from datetime import datetime\n \n-from exchanges.utils.convert import parse_float, parse_time\n+from exchanges.market.utils.convert import parse_float, parse_time\n @dataclass\n class KLine:\n     exchange: str\n     symbol: str\n"
+                },
+                {
+                    "date": 1652408792681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n from dataclasses import dataclass\n from datetime import datetime\n \n-from exchanges.market.utils.convert import parse_float, parse_time\n+from exchanges.kucoin.market.utils.convert import parse_float, parse_time\n @dataclass\n class KLine:\n     exchange: str\n     symbol: str\n"
+                },
+                {
+                    "date": 1652408807815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n from dataclasses import dataclass\n from datetime import datetime\n \n-from exchanges.kucoin.market.utils.convert import parse_float, parse_time\n+from exchanges.kucoin.market.data.utils.convert import parse_float, parse_time\n @dataclass\n class KLine:\n     exchange: str\n     symbol: str\n"
+                },
+                {
+                    "date": 1652409920637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n from dataclasses import dataclass\n from datetime import datetime\n \n from exchanges.kucoin.market.data.utils.convert import parse_float, parse_time\n+\n @dataclass\n class KLine:\n     exchange: str\n     symbol: str\n@@ -20,5 +21,6 @@\n     @classmethod\n     def from_api(cls, data) -> KLine:\n         return cls(\n             exchange=data['exchange'],\n+            \n         )\n"
+                },
+                {
+                    "date": 1652409937459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,6 +21,6 @@\n     @classmethod\n     def from_api(cls, data) -> KLine:\n         return cls(\n             exchange=data['exchange'],\n-            \n+            symbol=data[' \n         )\n"
+                },
+                {
+                    "date": 1652409951601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,6 +21,7 @@\n     @classmethod\n     def from_api(cls, data) -> KLine:\n         return cls(\n             exchange=data['exchange'],\n-            symbol=data[' \n+            symbol=data['symbol'],\n+            open=\n         )\n"
+                },
+                {
+                    "date": 1652409969312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,6 @@\n     def from_api(cls, data) -> KLine:\n         return cls(\n             exchange=data['exchange'],\n             symbol=data['symbol'],\n-            open=\n+            open=parse_float(data['open'])\n         )\n"
+                },
+                {
+                    "date": 1652410018876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,10 @@\n     def from_api(cls, data) -> KLine:\n         return cls(\n             exchange=data['exchange'],\n             symbol=data['symbol'],\n-            open=parse_float(data['open'])\n+            open=parse_float(data['open']),\n+            high=parse_float(data['high']),\n+            low=parse_float(data['low']),\n+            close=parse_float(data['close']),\n+            volume=parse_float(data[''])\n         )\n"
+                },
+                {
+                    "date": 1652410044277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,6 +26,7 @@\n             open=parse_float(data['open']),\n             high=parse_float(data['high']),\n             low=parse_float(data['low']),\n             close=parse_float(data['close']),\n-            volume=parse_float(data[''])\n+            volume=parse_float(data['quote_volume']),\n+            \n         )\n"
+                },
+                {
+                    "date": 1652410213585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,6 +27,6 @@\n             high=parse_float(data['high']),\n             low=parse_float(data['low']),\n             close=parse_float(data['close']),\n             volume=parse_float(data['quote_volume']),\n-            \n+            amount=\n         )\n"
+                },
+                {
+                    "date": 1652410327202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,7 +26,7 @@\n             open=parse_float(data['open']),\n             high=parse_float(data['high']),\n             low=parse_float(data['low']),\n             close=parse_float(data['close']),\n-            volume=parse_float(data['quote_volume']),\n+            volume=parse_float(data['volume']),\n             amount=\n         )\n"
+                },
+                {
+                    "date": 1652410335160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,6 +27,6 @@\n             high=parse_float(data['high']),\n             low=parse_float(data['low']),\n             close=parse_float(data['close']),\n             volume=parse_float(data['volume']),\n-            amount=\n+            amount=parse_float(data['amount'])\n         )\n"
+                },
+                {
+                    "date": 1652410355606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,6 +27,7 @@\n             high=parse_float(data['high']),\n             low=parse_float(data['low']),\n             close=parse_float(data['close']),\n             volume=parse_float(data['volume']),\n-            amount=parse_float(data['amount'])\n+            amount=parse_float(data['amount']),\n+            start_time=parse_time(data[''])\n         )\n"
+                },
+                {
+                    "date": 1652410366321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,6 +28,6 @@\n             low=parse_float(data['low']),\n             close=parse_float(data['close']),\n             volume=parse_float(data['volume']),\n             amount=parse_float(data['amount']),\n-            start_time=parse_time(data[''])\n+            start_time=parse_time(data['start_time'])\n         )\n"
+                },
+                {
+                    "date": 1652410383318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,6 +28,8 @@\n             low=parse_float(data['low']),\n             close=parse_float(data['close']),\n             volume=parse_float(data['volume']),\n             amount=parse_float(data['amount']),\n-            start_time=parse_time(data['start_time'])\n+            start_time=parse_time(data['start_time']),\n+            end_time=parse_time(data['end_time']),\n+            closed=\n         )\n"
+                },
+                {
+                    "date": 1652410391178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,6 +30,6 @@\n             volume=parse_float(data['volume']),\n             amount=parse_float(data['amount']),\n             start_time=parse_time(data['start_time']),\n             end_time=parse_time(data['end_time']),\n-            closed=\n+            closed=data['close']\n         )\n"
+                },
+                {
+                    "date": 1652410445717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     quote_volume: float = None\n     closed: bool = None\n \n     @classmethod\n-    def from_api(cls, data) -> KLine:\n+    def from_api(cls, data) -> 'KLine':\n         return cls(\n             exchange=data['exchange'],\n             symbol=data['symbol'],\n             open=parse_float(data['open']),\n@@ -30,6 +30,6 @@\n             volume=parse_float(data['volume']),\n             amount=parse_float(data['amount']),\n             start_time=parse_time(data['start_time']),\n             end_time=parse_time(data['end_time']),\n-            closed=data['close']\n+            closed=data['close'],\n         )\n"
+                },
+                {
+                    "date": 1652410494007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n from dataclasses import dataclass\n from datetime import datetime\n+from typing import Dict\n \n from exchanges.kucoin.market.data.utils.convert import parse_float, parse_time\n \n @dataclass\n@@ -18,9 +19,9 @@\n     quote_volume: float = None\n     closed: bool = None\n \n     @classmethod\n-    def from_api(cls, data) -> 'KLine':\n+    def from_api(cls, data: D) -> 'KLine':\n         return cls(\n             exchange=data['exchange'],\n             symbol=data['symbol'],\n             open=parse_float(data['open']),\n"
+                },
+                {
+                    "date": 1652410509639,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     quote_volume: float = None\n     closed: bool = None\n \n     @classmethod\n-    def from_api(cls, data: D) -> 'KLine':\n+    def from_api(cls, data: Dict[str, Any]) -> 'KLine':\n         return cls(\n             exchange=data['exchange'],\n             symbol=data['symbol'],\n             open=parse_float(data['open']),\n"
+                },
+                {
+                    "date": 1652410667026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n+from __future__ import annotations\n+\n from dataclasses import dataclass\n from datetime import datetime\n-from typing import Dict\n+from typing import Dict, Any\n \n from exchanges.kucoin.market.data.utils.convert import parse_float, parse_time\n \n @dataclass\n"
+                },
+                {
+                    "date": 1652410672348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n     quote_volume: float = None\n     closed: bool = None\n \n     @classmethod\n-    def from_api(cls, data: Dict[str, Any]) -> 'KLine':\n+    def from_api(cls, data: Dict[str, Any]) -> KLine:\n         return cls(\n             exchange=data['exchange'],\n             symbol=data['symbol'],\n             open=parse_float(data['open']),\n"
+                },
+                {
+                    "date": 1652413153656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,13 +13,13 @@\n     open: float\n     high: float\n     low: float\n     close: float\n-    volume: float\n+    amount: float\n     session: str = None\n     start_time: datetime = None\n     end_time: datetime = None\n-    quote_volume: float = None\n+    volume: float = None\n     closed: bool = None\n \n     @classmethod\n     def from_api(cls, data: Dict[str, Any]) -> KLine:\n"
+                },
+                {
+                    "date": 1652413206385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n     @classmethod\n     def from_api(cls, data: Dict[str, Any]) -> KLine:\n         return cls(\n             exchange=data['exchange'],\n-            symbol=data['symbol'],\n+            symbol=data['symbo'],\n             open=parse_float(data['open']),\n             high=parse_float(data['high']),\n             low=parse_float(data['low']),\n             close=parse_float(data['close']),\n"
+                },
+                {
+                    "date": 1652413211857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n     @classmethod\n     def from_api(cls, data: Dict[str, Any]) -> KLine:\n         return cls(\n             exchange=data['exchange'],\n-            symbol=data['symbo'],\n+            symbol=data['symbol'],\n             open=parse_float(data['open']),\n             high=parse_float(data['high']),\n             low=parse_float(data['low']),\n             close=parse_float(data['close']),\n"
+                },
+                {
+                    "date": 1652424596207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,10 @@\n from dataclasses import dataclass\n from datetime import datetime\n from typing import Dict, Any\n \n-from exchanges.kucoin.market.data.utils.convert import parse_float, parse_time\n+from exchanges.kucoin.market.data.utils.convert import (parse_float, \n+from_unix_timestamp_to_date)\n \n @dataclass\n class KLine:\n     exchange: str\n"
+                },
+                {
+                    "date": 1652424610159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,8 +32,8 @@\n             low=parse_float(data['low']),\n             close=parse_float(data['close']),\n             volume=parse_float(data['volume']),\n             amount=parse_float(data['amount']),\n-            start_time=parse_time(data['start_time']),\n-            end_time=parse_time(data['end_time']),\n+            start_time=from_unix_timestamp_to_date(data['start_time']),\n+            end_time=from_unix_timestamp_to_date(data['end_time']),\n             closed=data['close'],\n         )\n"
+                },
+                {
+                    "date": 1652424638849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n from datetime import datetime\n from typing import Dict, Any\n \n from exchanges.kucoin.market.data.utils.convert import (parse_float, \n-from_unix_timestamp_to_date)\n+from_unix_timestamp_to_localdate)\n \n @dataclass\n class KLine:\n     exchange: str\n@@ -32,8 +32,8 @@\n             low=parse_float(data['low']),\n             close=parse_float(data['close']),\n             volume=parse_float(data['volume']),\n             amount=parse_float(data['amount']),\n-            start_time=from_unix_timestamp_to_date(data['start_time']),\n-            end_time=from_unix_timestamp_to_date(data['end_time']),\n+            start_time=from_unix_timestamp_to_localdate(data['start_time']),\n+            end_time=from_unix_timestamp_to_localdate(data['end_time']),\n             closed=data['close'],\n         )\n"
+                }
+            ],
+            "date": 1652361814145,
+            "name": "Commit-0",
+            "content": "from dataclasses import dataclass\nfrom datetime import datetime\n\n@dataclass\nclass KLine:\n    exchange: str\n    symbol: str\n    open: float\n    high: float\n    low: float\n    close: float\n    volume: float\n    session: str = None\n    start_time: datetime = None\n    end_time: datetime = None\n    quote_volume: float = None\n    closed: bool = None\n"
+        }
+    ]
+}

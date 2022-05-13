@@ -1,0 +1,54 @@
+{
+    "sourceFile": "src/exchanges/kucoin/market/data/utils/convert.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1652408650717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652424353621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,5 @@\n def parse_time(t: Union[str, int]) -> datetime:\n     if isinstance(t, str):\n         t = int(t)\n \n-    return datetime.fromtimestamp(t / 1000)\n\\ No newline at end of file\n+    return datetime.fromtimestamp(t)/1000\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652424363194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,5 @@\n def parse_time(t: Union[str, int]) -> datetime:\n     if isinstance(t, str):\n         t = int(t)\n \n-    return datetime.fromtimestamp(t)/1000\n\\ No newline at end of file\n+    return datetime.fromtimestamp(t / 1000)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652424411559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,11 @@\n from datetime import datetime\n from typing import Union\n+import logging\n \n+logger = logging.getLogger(__name__)\n \n+\n def parse_float(s: Union[str, float]) -> float:\n     if s is None:\n         return 0\n \n@@ -12,8 +15,12 @@\n     return float(s)\n \n \n def parse_time(t: Union[str, int]) -> datetime:\n-    if isinstance(t, str):\n-        t = int(t)\n+    try:\n+        if isinstance(t, str):\n\\ No newline at end of file\n+            t = int(t)\n \n-    return datetime.fromtimestamp(t / 1000)\n+        return datetime.fromtimestamp(t / 1000)\n+    except Exception as e:\n+        logger.error(e)\n+        return None\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652424426930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,7 +20,8 @@\n         if isinstance(t, str):\n             t = int(t)\n \n         return datetime.fromtimestamp(t / 1000)\n+        \n     except Exception as e:\n         logger.error(e)\n         return None\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652424433267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,8 @@\n         if isinstance(t, str):\n             t = int(t)\n \n         return datetime.fromtimestamp(t / 1000)\n-        \n+\n     except Exception as e:\n         logger.error(e)\n         return None\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652424460806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     try:\n         if isinstance(t, str):\n             t = int(t)\n \n-        return datetime.fromtimestamp(t / 1000)\n+        return datetime.fromtimestamp(t)\n \n     except Exception as e:\n         logger.error(e)\n         return None\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652424536995,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n \n     return float(s)\n \n \n-def parse_time(t: Union[str, int]) -> datetime:\n+def from_unix_timestamp_to_date(t: Union[str, int]) -> datetime:\n     try:\n         if isinstance(t, str):\n             t = int(t)\n \n"
+                },
+                {
+                    "date": 1652424562639,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,13 +15,8 @@\n     return float(s)\n \n \n def from_unix_timestamp_to_date(t: Union[str, int]) -> datetime:\n-    try:\n         if isinstance(t, str):\n             t = int(t)\n \n         return datetime.fromtimestamp(t)\n-\n-    except Exception as e:\n-        logger.error(e)\n-        return None\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652424629419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n \n     return float(s)\n \n \n-def from_unix_timestamp_to_date(t: Union[str, int]) -> datetime:\n-        if isinstance(t, str):\n-            t = int(t)\n+def from_unix_timestamp_to_localdate(t: Union[str, int]) -> datetime:\n+    if isinstance(t, str):\n+        t = int(t)\n \n-        return datetime.fromtimestamp(t)\n+    return datetime.fromtimestamp(t)\n"
+                }
+            ],
+            "date": 1652408650717,
+            "name": "Commit-0",
+            "content": "from datetime import datetime\nfrom typing import Union\n\n\ndef parse_float(s: Union[str, float]) -> float:\n    if s is None:\n        return 0\n\n    if s == \"\":\n        return 0\n\n    return float(s)\n\n\ndef parse_time(t: Union[str, int]) -> datetime:\n    if isinstance(t, str):\n        t = int(t)\n\n    return datetime.fromtimestamp(t / 1000)"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/exchanges/kucoin/market/market_api.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1652359248348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652359763126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import logging\n from kucoin.client import Market\n import asyncio\n+from exchanges.utils.misc import ms_to_seconds\n \n logger = logging.getLogger(__name__)\n \n class Kucoin_market():\n"
+                },
+                {
+                    "date": 1652359796258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import logging\n from kucoin.client import Market\n import asyncio\n-from exchanges.utils.misc import ms_to_seconds\n+from exchanges.utils.misc import isodate_to_unixtime\n \n logger = logging.getLogger(__name__)\n \n class Kucoin_market():\n@@ -23,10 +23,10 @@\n     }\n     # symbols, timeframe, startAt, endAt, is_sandbox=False\n     def __init__(self, configured, is_sandbox=False):\n         self.market = Market()\n-        self.startAt = configured['startAt']\n-        self.endAt = configured['endAt']\n+        self.startAt = isodate_to_unixtime(configured['startAt'])\n+        self.endAt = isodate_to_unixtime(configured['endAt'])\n         self.configured = configured\n         self.is_sandbox = is_sandbox\n \n     async def asy_to_thread(self, fn, req_args):\n"
+                },
+                {
+                    "date": 1652360044107,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import logging\n from kucoin.client import Market\n import asyncio\n-from exchanges.utils.misc import isodate_to_unixtime\n+from exchanges.utils.misc import isodate_to_unixtime, convert_symbols_to_request_format\n \n logger = logging.getLogger(__name__)\n \n class Kucoin_market():\n@@ -23,8 +23,9 @@\n     }\n     # symbols, timeframe, startAt, endAt, is_sandbox=False\n     def __init__(self, configured, is_sandbox=False):\n         self.market = Market()\n+        self.symbols = convert_symbols_to_request_format(configured.symbols)\n         self.startAt = isodate_to_unixtime(configured['startAt'])\n         self.endAt = isodate_to_unixtime(configured['endAt'])\n         self.configured = configured\n         self.is_sandbox = is_sandbox\n"
+                },
+                {
+                    "date": 1652360052935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n     }\n     # symbols, timeframe, startAt, endAt, is_sandbox=False\n     def __init__(self, configured, is_sandbox=False):\n         self.market = Market()\n-        self.symbols = convert_symbols_to_request_format(configured.symbols)\n+        self.symbols = convert_symbols_to_request_format(configured['symbols'], '-')\n         self.startAt = isodate_to_unixtime(configured['startAt'])\n         self.endAt = isodate_to_unixtime(configured['endAt'])\n         self.configured = configured\n         self.is_sandbox = is_sandbox\n"
+                },
+                {
+                    "date": 1652360127758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,9 @@\n         self.market = Market()\n         self.symbols = convert_symbols_to_request_format(configured['symbols'], '-')\n         self.startAt = isodate_to_unixtime(configured['startAt'])\n         self.endAt = isodate_to_unixtime(configured['endAt'])\n+        self.timeframe = configured['timeframes']\n         self.configured = configured\n         self.is_sandbox = is_sandbox\n \n     async def asy_to_thread(self, fn, req_args):\n"
+                },
+                {
+                    "date": 1652360947299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,9 @@\n     }\n     # symbols, timeframe, startAt, endAt, is_sandbox=False\n     def __init__(self, configured, is_sandbox=False):\n         self.market = Market()\n+        self.exchange = configured['session']\n         self.symbols = convert_symbols_to_request_format(configured['symbols'], '-')\n         self.startAt = isodate_to_unixtime(configured['startAt'])\n         self.endAt = isodate_to_unixtime(configured['endAt'])\n         self.timeframe = configured['timeframes']\n"
+                }
+            ],
+            "date": 1652359248348,
+            "name": "Commit-0",
+            "content": "import logging\nfrom kucoin.client import Market\nimport asyncio\n\nlogger = logging.getLogger(__name__)\n\nclass Kucoin_market():\n    timeframe_format = {\n        '1m': '1min',\n        '3m': '3min',\n        '5m': '5min',\n        '15m': '15min',\n        '30m': '30min',\n        '1h': '1hour',\n        '2h': '2hour',\n        '4h': '4hour',\n        '6h': '6hour',\n        '8h': '8hour',\n        '12h': '12hour',\n        '1d': '1day',\n        '1w': '1week',\n    }\n    # symbols, timeframe, startAt, endAt, is_sandbox=False\n    def __init__(self, configured, is_sandbox=False):\n        self.market = Market()\n        self.startAt = configured['startAt']\n        self.endAt = configured['endAt']\n        self.configured = configured\n        self.is_sandbox = is_sandbox\n\n    async def asy_to_thread(self, fn, req_args):\n        # TODO: need to fix rate limit\n        # reference article: https://nordicapis.com/everything-you-need-to-know-about-api-rate-limiting/\n        # In considering use https://github.com/vutran1710/PyrateLimiter, or other method\n        res = await asyncio.gather(asyncio.to_thread(fn, **req_args), return_exceptions=True)\n        return res\n\n    def get_symbol_list(self, currency_pair=\"USDS\"):\n        \"\"\"\n        Request via this endpoint to get the transaction currency for the entire trading market.\n\n        :return market ticker :list\n        \"\"\"\n        return self.market.get_symbol_list(market=currency_pair)\n    \n    def get_market_list(self):\n        return self.market.get_market_list()\n    "
+        }
+    ]
+}

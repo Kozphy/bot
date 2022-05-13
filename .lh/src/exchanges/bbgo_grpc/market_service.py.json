@@ -1,0 +1,362 @@
+{
+    "sourceFile": "src/exchanges/bbgo_grpc/market_service.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 86,
+            "patches": [
+                {
+                    "date": 1652320104305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652320233847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,15 @@\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n         # exit()\n+        self.service.query_klines(\n+            exchange='kucoin',\n+            interval='1d',\n+            start_time=isodate_to_unixtime(c['startAt']),\n+            end_time=isodate_to_unixtime(c['endAt']),\n+            limit=limit\n+        )\n         result = []\n         for symbol in self.symbols:\n             for timeframe in c['timeframes']:\n                 print('\\n')\n"
+                },
+                {
+                    "date": 1652320247887,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,12 +17,14 @@\n         # exit()\n         self.service.query_klines(\n             exchange='kucoin',\n             interval='1d',\n+            symbol='BTCUSDT',\n             start_time=isodate_to_unixtime(c['startAt']),\n             end_time=isodate_to_unixtime(c['endAt']),\n             limit=limit\n         )\n+\n         result = []\n         for symbol in self.symbols:\n             for timeframe in c['timeframes']:\n                 print('\\n')\n"
+                },
+                {
+                    "date": 1652320258689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n         # exit()\n+        result = []\n         self.service.query_klines(\n             exchange='kucoin',\n             interval='1d',\n             symbol='BTCUSDT',\n@@ -23,9 +24,8 @@\n             end_time=isodate_to_unixtime(c['endAt']),\n             limit=limit\n         )\n \n-        result = []\n         for symbol in self.symbols:\n             for timeframe in c['timeframes']:\n                 print('\\n')\n                 req_para = {\n"
+                },
+                {
+                    "date": 1652320310648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,17 +15,22 @@\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n         # exit()\n         result = []\n-        self.service.query_klines(\n+        klines = self.service.query_klines(\n             exchange='kucoin',\n             interval='1d',\n             symbol='BTCUSDT',\n             start_time=isodate_to_unixtime(c['startAt']),\n             end_time=isodate_to_unixtime(c['endAt']),\n             limit=limit\n         )\n+        result.append(klines)\n+        for kline in klines:\n+            print(kline)\n+        \n \n+\n         for symbol in self.symbols:\n             for timeframe in c['timeframes']:\n                 print('\\n')\n                 req_para = {\n"
+                },
+                {
+                    "date": 1652320315958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,32 +29,32 @@\n             print(kline)\n         \n \n \n-        for symbol in self.symbols:\n-            for timeframe in c['timeframes']:\n-                print('\\n')\n-                req_para = {\n-                    'exchange': c['session'],\n-                    'symbol': symbol,\n-                    'interval': timeframe,\n-                    'start_time': isodate_to_unixtime(c['startAt']),\n-                    'end_time': isodate_to_unixtime(c['endAt']),\n-                    'limit': limit\n-                }\n+        # for symbol in self.symbols:\n+        #     for timeframe in c['timeframes']:\n+        #         print('\\n')\n+        #         req_para = {\n+        #             'exchange': c['session'],\n+        #             'symbol': symbol,\n+        #             'interval': timeframe,\n+        #             'start_time': isodate_to_unixtime(c['startAt']),\n+        #             'end_time': isodate_to_unixtime(c['endAt']),\n+        #             'limit': limit\n+        #         }\n \n-                pprint.pprint(req_para)\n-                print('\\n')\n-                klines = self.service.query_klines(\n-                    exchange=c['session'],\n-                    symbol=symbol,\n-                    interval=timeframe,\n-                    start_time=isodate_to_unixtime(c['startAt']),\n-                    end_time=isodate_to_unixtime(c['endAt']),\n-                    limit=limit,\n-                )\n-                result.append(klines)\n-        print(result)\n+        #         pprint.pprint(req_para)\n+        #         print('\\n')\n+        #         klines = self.service.query_klines(\n+        #             exchange=c['session'],\n+        #             symbol=symbol,\n+        #             interval=timeframe,\n+        #             start_time=isodate_to_unixtime(c['startAt']),\n+        #             end_time=isodate_to_unixtime(c['endAt']),\n+        #             limit=limit,\n+        #         )\n+        #         result.append(klines)\n+        # print(result)\n         # print(klines)\n \n         # print(type(klines))\n         # for kline in klines:\n"
+                },
+                {
+                    "date": 1652320499266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,17 +5,18 @@\n class bbgo_market_service():\n     def __init__(self, configured):\n         self.config = configured\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n-        self.service = MarketService(self.config['db_host'], self.config['db_port'])\n         \n \n     def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n         # exit()\n+\n+        self.service = MarketService(self.config['db_host'], self.config['db_port'])\n         result = []\n         klines = self.service.query_klines(\n             exchange='kucoin',\n             interval='1d',\n"
+                },
+                {
+                    "date": 1652320512855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n class bbgo_market_service():\n     def __init__(self, configured):\n         self.config = configured\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n+        self.service = MarketService(self.config['db_host'], self.config['db_port'])\n         \n \n     def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n@@ -14,9 +15,8 @@\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n         # exit()\n \n-        self.service = MarketService(self.config['db_host'], self.config['db_port'])\n         result = []\n         klines = self.service.query_klines(\n             exchange='kucoin',\n             interval='1d',\n"
+                },
+                {
+                    "date": 1652320618846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,13 @@\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n         # exit()\n+        print(c['db_host'])\n+        print('\\n')\n+        print(c['db_port'])\n+        p\n+        # service = MarketService(host, port)\n \n         result = []\n         klines = self.service.query_klines(\n             exchange='kucoin',\n"
+                },
+                {
+                    "date": 1652320668116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n class bbgo_market_service():\n     def __init__(self, configured):\n         self.config = configured\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n-        self.service = MarketService(self.config['db_host'], self.config['db_port'])\n+        self.service = MarketService(self.config['grpc_server_host'], self.config['grpc_host_port'])\n         \n \n     def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n@@ -17,9 +17,8 @@\n         # exit()\n         print(c['db_host'])\n         print('\\n')\n         print(c['db_port'])\n-        p\n         # service = MarketService(host, port)\n \n         result = []\n         klines = self.service.query_klines(\n"
+                },
+                {
+                    "date": 1652320681719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,51 +14,51 @@\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n         # exit()\n-        print(c['db_host'])\n-        print('\\n')\n-        print(c['db_port'])\n+        # print(c['db_host'])\n+        # print('\\n')\n+        # print(c['db_port'])\n         # service = MarketService(host, port)\n \n-        result = []\n-        klines = self.service.query_klines(\n-            exchange='kucoin',\n-            interval='1d',\n-            symbol='BTCUSDT',\n-            start_time=isodate_to_unixtime(c['startAt']),\n-            end_time=isodate_to_unixtime(c['endAt']),\n-            limit=limit\n-        )\n-        result.append(klines)\n-        for kline in klines:\n-            print(kline)\n+        # result = []\n+        # klines = self.service.query_klines(\n+        #     exchange='kucoin',\n+        #     interval='1d',\n+        #     symbol='BTCUSDT',\n+        #     start_time=isodate_to_unixtime(c['startAt']),\n+        #     end_time=isodate_to_unixtime(c['endAt']),\n+        #     limit=limit\n+        # )\n+        # result.append(klines)\n+        # for kline in klines:\n+        #     print(kline)\n         \n \n \n-        # for symbol in self.symbols:\n-        #     for timeframe in c['timeframes']:\n-        #         print('\\n')\n-        #         req_para = {\n-        #             'exchange': c['session'],\n-        #             'symbol': symbol,\n-        #             'interval': timeframe,\n-        #             'start_time': isodate_to_unixtime(c['startAt']),\n-        #             'end_time': isodate_to_unixtime(c['endAt']),\n-        #             'limit': limit\n-        #         }\n+        for symbol in self.symbols:\n+            for timeframe in c['timeframes']:\n+                print('\\n')\n+                req_para = {\n+                    'exchange': c['session'],\n+                    'symbol': symbol,\n+                    'interval': timeframe,\n+                    'start_time': isodate_to_unixtime(c['startAt']),\n+                    'end_time': isodate_to_unixtime(c['endAt']),\n+                    'limit': limit\n+                }\n \n-        #         pprint.pprint(req_para)\n-        #         print('\\n')\n-        #         klines = self.service.query_klines(\n-        #             exchange=c['session'],\n-        #             symbol=symbol,\n-        #             interval=timeframe,\n-        #             start_time=isodate_to_unixtime(c['startAt']),\n-        #             end_time=isodate_to_unixtime(c['endAt']),\n-        #             limit=limit,\n-        #         )\n-        #         result.append(klines)\n+                pprint.pprint(req_para)\n+                print('\\n')\n+                klines = self.service.query_klines(\n+                    exchange=c['session'],\n+                    symbol=symbol,\n+                    interval=timeframe,\n+                    start_time=isodate_to_unixtime(c['startAt']),\n+                    end_time=isodate_to_unixtime(c['endAt']),\n+                    limit=limit,\n+                )\n+                result.append(klines)\n         # print(result)\n         # print(klines)\n \n         # print(type(klines))\n"
+                },
+                {
+                    "date": 1652320702309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n         # print('\\n')\n         # print(c['db_port'])\n         # service = MarketService(host, port)\n \n-        # result = []\n+        result = []\n         # klines = self.service.query_klines(\n         #     exchange='kucoin',\n         #     interval='1d',\n         #     symbol='BTCUSDT',\n"
+                },
+                {
+                    "date": 1652320752398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,10 @@\n \n class bbgo_market_service():\n     def __init__(self, configured):\n         self.config = configured\n+        print(self.config)\n+        self.grpc_server_host = self.configured['bbgo']\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n         self.service = MarketService(self.config['grpc_server_host'], self.config['grpc_host_port'])\n         \n \n@@ -57,9 +59,9 @@\n                     end_time=isodate_to_unixtime(c['endAt']),\n                     limit=limit,\n                 )\n                 result.append(klines)\n-        # print(result)\n+        print(result)\n         # print(klines)\n \n         # print(type(klines))\n         # for kline in klines:\n"
+                },
+                {
+                    "date": 1652320779837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,10 @@\n class bbgo_market_service():\n     def __init__(self, configured):\n         self.config = configured\n         print(self.config)\n-        self.grpc_server_host = self.configured['bbgo']\n+        # exit()\n+        self.grpc_server_host = self.configured['bbgo']['grpc_server_host']\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n         self.service = MarketService(self.config['grpc_server_host'], self.config['grpc_host_port'])\n         \n \n"
+                },
+                {
+                    "date": 1652320800747,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n         self.config = configured\n         print(self.config)\n         # exit()\n         self.grpc_server_host = self.configured['bbgo']['grpc_server_host']\n+        self.grpc_host_port = self.configured['bbgo']['grpc_host_port']\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n         self.service = MarketService(self.config['grpc_server_host'], self.config['grpc_host_port'])\n         \n \n"
+                },
+                {
+                    "date": 1652320851507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n         # exit()\n         self.grpc_server_host = self.configured['bbgo']['grpc_server_host']\n         self.grpc_host_port = self.configured['bbgo']['grpc_host_port']\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n-        self.service = MarketService(self.config['grpc_server_host'], self.config['grpc_host_port'])\n+        self.service = MarketService(self.grpc_server_host, self.grpc_host_port)\n         \n \n     def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n"
+                },
+                {
+                    "date": 1652320879078,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,11 @@\n         print(self.config)\n         # exit()\n         self.grpc_server_host = self.configured['bbgo']['grpc_server_host']\n         self.grpc_host_port = self.configured['bbgo']['grpc_host_port']\n+        print(self.grpc_server_host)\n+        print('\\n')\n+        print(self.grpc_host_port)\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n         self.service = MarketService(self.grpc_server_host, self.grpc_host_port)\n         \n \n"
+                },
+                {
+                    "date": 1652320897519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,10 @@\n     def __init__(self, configured):\n         self.config = configured\n         print(self.config)\n         # exit()\n-        self.grpc_server_host = self.configured['bbgo']['grpc_server_host']\n-        self.grpc_host_port = self.configured['bbgo']['grpc_host_port']\n+        self.grpc_server_host = self.config['bbgo']['grpc_server_host']\n+        self.grpc_host_port = self.config['bbgo']['grpc_host_port']\n         print(self.grpc_server_host)\n         print('\\n')\n         print(self.grpc_host_port)\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n"
+                },
+                {
+                    "date": 1652320912809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n class bbgo_market_service():\n     def __init__(self, configured):\n         self.config = configured\n-        print(self.config)\n+        pprint.pprint(self.config)\n         # exit()\n         self.grpc_server_host = self.config['bbgo']['grpc_server_host']\n         self.grpc_host_port = self.config['bbgo']['grpc_host_port']\n         print(self.grpc_server_host)\n"
+                },
+                {
+                    "date": 1652320927902,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,10 @@\n     def __init__(self, configured):\n         self.config = configured\n         pprint.pprint(self.config)\n         # exit()\n-        self.grpc_server_host = self.config['bbgo']['grpc_server_host']\n-        self.grpc_host_port = self.config['bbgo']['grpc_host_port']\n+        self.grpc_server_host = self.config['grpc_server_host']\n+        self.grpc_host_port = self.config['grpc_host_port']\n         print(self.grpc_server_host)\n         print('\\n')\n         print(self.grpc_host_port)\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n"
+                },
+                {
+                    "date": 1652321031679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,10 @@\n     def __init__(self, configured):\n         self.config = configured\n         pprint.pprint(self.config)\n         # exit()\n-        self.grpc_server_host = self.config['grpc_server_host']\n-        self.grpc_host_port = self.config['grpc_host_port']\n+        self.grpc_server_host = self.config['bbgo_grpc_server']['grpc_server_host']\n+        self.grpc_host_port = self.config['bbgo_grpc_server']\n         print(self.grpc_server_host)\n         print('\\n')\n         print(self.grpc_host_port)\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n"
+                },
+                {
+                    "date": 1652321048620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n         self.config = configured\n         pprint.pprint(self.config)\n         # exit()\n         self.grpc_server_host = self.config['bbgo_grpc_server']['grpc_server_host']\n-        self.grpc_host_port = self.config['bbgo_grpc_server']\n+        self.grpc_host_port = self.config['bbgo_grpc_server']['grpc']\n         print(self.grpc_server_host)\n         print('\\n')\n         print(self.grpc_host_port)\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n"
+                },
+                {
+                    "date": 1652321059167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n         self.config = configured\n         pprint.pprint(self.config)\n         # exit()\n         self.grpc_server_host = self.config['bbgo_grpc_server']['grpc_server_host']\n-        self.grpc_host_port = self.config['bbgo_grpc_server']['grpc']\n+        self.grpc_host_port = self.config['bbgo_grpc_server']['grpc_server_host']\n         print(self.grpc_server_host)\n         print('\\n')\n         print(self.grpc_host_port)\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n"
+                },
+                {
+                    "date": 1652321071970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,11 @@\n         pprint.pprint(self.config)\n         # exit()\n         self.grpc_server_host = self.config['bbgo_grpc_server']['grpc_server_host']\n         self.grpc_host_port = self.config['bbgo_grpc_server']['grpc_server_host']\n-        print(self.grpc_server_host)\n-        print('\\n')\n-        print(self.grpc_host_port)\n+        # print(self.grpc_server_host)\n+        # print('\\n')\n+        # print(self.grpc_host_port)\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n         self.service = MarketService(self.grpc_server_host, self.grpc_host_port)\n         \n \n"
+                },
+                {
+                    "date": 1652321100360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,19 +27,19 @@\n         # print(c['db_port'])\n         # service = MarketService(host, port)\n \n         result = []\n-        # klines = self.service.query_klines(\n-        #     exchange='kucoin',\n-        #     interval='1d',\n-        #     symbol='BTCUSDT',\n-        #     start_time=isodate_to_unixtime(c['startAt']),\n-        #     end_time=isodate_to_unixtime(c['endAt']),\n-        #     limit=limit\n-        # )\n-        # result.append(klines)\n-        # for kline in klines:\n-        #     print(kline)\n+        klines = self.service.query_klines(\n+            exchange='kucoin',\n+            interval='1d',\n+            symbol='BTCUSDT',\n+            start_time=isodate_to_unixtime(c['startAt']),\n+            end_time=isodate_to_unixtime(c['endAt']),\n+            limit=limit\n+        )\n+        result.append(klines)\n+        for kline in klines:\n+            print(kline)\n         \n \n \n         for symbol in self.symbols:\n"
+                },
+                {
+                    "date": 1652321130588,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n         self.config = configured\n         pprint.pprint(self.config)\n         # exit()\n         self.grpc_server_host = self.config['bbgo_grpc_server']['grpc_server_host']\n-        self.grpc_host_port = self.config['bbgo_grpc_server']['grpc_server_host']\n+        self.grpc_host_port = self.config['bbgo_grpc_server']['grpc_server_port']\n         # print(self.grpc_server_host)\n         # print('\\n')\n         # print(self.grpc_host_port)\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n"
+                },
+                {
+                    "date": 1652321148068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,20 +26,20 @@\n         # print('\\n')\n         # print(c['db_port'])\n         # service = MarketService(host, port)\n \n-        result = []\n-        klines = self.service.query_klines(\n-            exchange='kucoin',\n-            interval='1d',\n-            symbol='BTCUSDT',\n-            start_time=isodate_to_unixtime(c['startAt']),\n-            end_time=isodate_to_unixtime(c['endAt']),\n-            limit=limit\n-        )\n-        result.append(klines)\n-        for kline in klines:\n-            print(kline)\n+        # result = []\n+        # klines = self.service.query_klines(\n+        #     exchange='kucoin',\n+        #     interval='1d',\n+        #     symbol='BTCUSDT',\n+        #     start_time=isodate_to_unixtime(c['startAt']),\n+        #     end_time=isodate_to_unixtime(c['endAt']),\n+        #     limit=limit\n+        # )\n+        # result.append(klines)\n+        # for kline in klines:\n+        #     print(kline)\n         \n \n \n         for symbol in self.symbols:\n"
+                },
+                {
+                    "date": 1652321171480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,9 @@\n         pprint.pprint(self.config)\n         # exit()\n         self.grpc_server_host = self.config['bbgo_grpc_server']['grpc_server_host']\n         self.grpc_host_port = self.config['bbgo_grpc_server']['grpc_server_port']\n-        # print(self.grpc_server_host)\n-        # print('\\n')\n-        # print(self.grpc_host_port)\n+\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n         self.service = MarketService(self.grpc_server_host, self.grpc_host_port)\n         \n \n@@ -26,9 +24,9 @@\n         # print('\\n')\n         # print(c['db_port'])\n         # service = MarketService(host, port)\n \n-        # result = []\n+        result = []\n         # klines = self.service.query_klines(\n         #     exchange='kucoin',\n         #     interval='1d',\n         #     symbol='BTCUSDT',\n"
+                },
+                {
+                    "date": 1652321188658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,8 @@\n         pprint.pprint(self.config)\n         # exit()\n         self.grpc_server_host = self.config['bbgo_grpc_server']['grpc_server_host']\n         self.grpc_host_port = self.config['bbgo_grpc_server']['grpc_server_port']\n-\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n         self.service = MarketService(self.grpc_server_host, self.grpc_host_port)\n         \n \n@@ -19,28 +18,10 @@\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n         # exit()\n-        # print(c['db_host'])\n-        # print('\\n')\n-        # print(c['db_port'])\n-        # service = MarketService(host, port)\n \n         result = []\n-        # klines = self.service.query_klines(\n-        #     exchange='kucoin',\n-        #     interval='1d',\n-        #     symbol='BTCUSDT',\n-        #     start_time=isodate_to_unixtime(c['startAt']),\n-        #     end_time=isodate_to_unixtime(c['endAt']),\n-        #     limit=limit\n-        # )\n-        # result.append(klines)\n-        # for kline in klines:\n-        #     print(kline)\n-        \n-\n-\n         for symbol in self.symbols:\n             for timeframe in c['timeframes']:\n                 print('\\n')\n                 req_para = {\n"
+                },
+                {
+                    "date": 1652321432641,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,10 +32,10 @@\n                     'end_time': isodate_to_unixtime(c['endAt']),\n                     'limit': limit\n                 }\n \n-                pprint.pprint(req_para)\n-                print('\\n')\n+                # pprint.pprint(req_para)\n+                # print('\\n')\n                 klines = self.service.query_klines(\n                     exchange=c['session'],\n                     symbol=symbol,\n                     interval=timeframe,\n"
+                },
+                {
+                    "date": 1652321478127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n class bbgo_market_service():\n     def __init__(self, configured):\n         self.config = configured\n         pprint.pprint(self.config)\n-        # exit()\n+        exit()\n         self.grpc_server_host = self.config['bbgo_grpc_server']['grpc_server_host']\n         self.grpc_host_port = self.config['bbgo_grpc_server']['grpc_server_port']\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n         self.service = MarketService(self.grpc_server_host, self.grpc_host_port)\n@@ -22,9 +22,9 @@\n \n         result = []\n         for symbol in self.symbols:\n             for timeframe in c['timeframes']:\n-                print('\\n')\n+                # print('\\n')\n                 req_para = {\n                     'exchange': c['session'],\n                     'symbol': symbol,\n                     'interval': timeframe,\n"
+                },
+                {
+                    "date": 1652321540590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n class bbgo_market_service():\n     def __init__(self, configured):\n         self.config = configured\n         pprint.pprint(self.config)\n-        exit()\n+        # exit()\n         self.grpc_server_host = self.config['bbgo_grpc_server']['grpc_server_host']\n         self.grpc_host_port = self.config['bbgo_grpc_server']['grpc_server_port']\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n         self.service = MarketService(self.grpc_server_host, self.grpc_host_port)\n"
+                },
+                {
+                    "date": 1652321641200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,10 @@\n     def __init__(self, configured):\n         self.config = configured\n         pprint.pprint(self.config)\n         # exit()\n-        self.grpc_server_host = self.config['bbgo_grpc_server']['grpc_server_host']\n-        self.grpc_host_port = self.config['bbgo_grpc_server']['grpc_server_port']\n+        self.grpc_server_host = self.config['bbgo_grpc_server']['host']\n+        self.grpc_host_port = self.config['bbgo_grpc_server']['port']\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n         self.service = MarketService(self.grpc_server_host, self.grpc_host_port)\n         \n \n"
+                },
+                {
+                    "date": 1652321856466,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,16 +2,14 @@\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n \n class bbgo_market_service():\n-    def __init__(self, configured):\n+    def __init__(self, configuredi, host, port):\n         self.config = configured\n         pprint.pprint(self.config)\n         # exit()\n-        self.grpc_server_host = self.config['bbgo_grpc_server']['host']\n-        self.grpc_host_port = self.config['bbgo_grpc_server']['port']\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n-        self.service = MarketService(self.grpc_server_host, self.grpc_host_port)\n+        self.service = MarketService(host, port)\n         \n \n     def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n"
+                },
+                {
+                    "date": 1652321902462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n \n class bbgo_market_service():\n-    def __init__(self, configuredi, host, port):\n+    def __init__(self, configured, host, port):\n         self.config = configured\n         pprint.pprint(self.config)\n         # exit()\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n"
+                },
+                {
+                    "date": 1652322002916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n from bbgo import MarketService\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n+import time\n \n class bbgo_market_service():\n     def __init__(self, configured, host, port):\n         self.config = configured\n"
+                },
+                {
+                    "date": 1652322010598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n         # exit()\n+        start = time.time()\n \n         result = []\n         for symbol in self.symbols:\n             for timeframe in c['timeframes']:\n"
+                },
+                {
+                    "date": 1652322143330,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,9 @@\n                     start_time=isodate_to_unixtime(c['startAt']),\n                     end_time=isodate_to_unixtime(c['endAt']),\n                     limit=limit,\n                 )\n+                print(klines)\n                 result.append(klines)\n         print(result)\n         # print(klines)\n \n"
+                },
+                {
+                    "date": 1652322835989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,19 +32,19 @@\n                     'end_time': isodate_to_unixtime(c['endAt']),\n                     'limit': limit\n                 }\n \n-                # pprint.pprint(req_para)\n-                # print('\\n')\n+                pprint.pprint(req_para)\n+                print('\\n')\n                 klines = self.service.query_klines(\n                     exchange=c['session'],\n                     symbol=symbol,\n                     interval=timeframe,\n                     start_time=isodate_to_unixtime(c['startAt']),\n                     end_time=isodate_to_unixtime(c['endAt']),\n                     limit=limit,\n                 )\n-                print(klines)\n+                # print(klines)\n                 result.append(klines)\n         print(result)\n         # print(klines)\n \n"
+                },
+                {
+                    "date": 1652322962170,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,14 @@\n         pprint.pprint(self.config)\n         # exit()\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n         self.service = MarketService(host, port)\n-        \n \n+    async def query_kline(self, req_para):\n+        result = []\n+        result = await self.service.query_klines(req_para) \n+\n+\n     def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n"
+                },
+                {
+                    "date": 1652323009010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,14 +39,9 @@\n \n                 pprint.pprint(req_para)\n                 print('\\n')\n                 klines = self.service.query_klines(\n-                    exchange=c['session'],\n-                    symbol=symbol,\n-                    interval=timeframe,\n-                    start_time=isodate_to_unixtime(c['startAt']),\n-                    end_time=isodate_to_unixtime(c['endAt']),\n-                    limit=limit,\n+                  **req_para \n                 )\n                 # print(klines)\n                 result.append(klines)\n         print(result)\n"
+                },
+                {
+                    "date": 1652323053129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n from bbgo import MarketService\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n import time\n-\n+import asyncio\n class bbgo_market_service():\n     def __init__(self, configured, host, port):\n         self.config = configured\n         pprint.pprint(self.config)\n@@ -38,11 +38,9 @@\n                 }\n \n                 pprint.pprint(req_para)\n                 print('\\n')\n-                klines = self.service.query_klines(\n-                  **req_para \n-                )\n+                klines = self.service.query_klines(**req_para )\n                 # print(klines)\n                 result.append(klines)\n         print(result)\n         # print(klines)\n"
+                },
+                {
+                    "date": 1652323064530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n import time\n import asyncio\n+\n class bbgo_market_service():\n     def __init__(self, configured, host, port):\n         self.config = configured\n         pprint.pprint(self.config)\n@@ -38,9 +39,9 @@\n                 }\n \n                 pprint.pprint(req_para)\n                 print('\\n')\n-                klines = self.service.query_klines(**req_para )\n+                klines = self.service.query_klines(**req_para)\n                 # print(klines)\n                 result.append(klines)\n         print(result)\n         # print(klines)\n"
+                },
+                {
+                    "date": 1652323119201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n         result = []\n         result = await self.service.query_klines(req_para) \n \n \n-    def grpc_get_kline(self, limit=30, *args, **kwargs):\n+    async def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n"
+                },
+                {
+                    "date": 1652323133590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,8 +39,9 @@\n                 }\n \n                 pprint.pprint(req_para)\n                 print('\\n')\n+                klines = asyncio.gather(asyncio.to_thread(fn, **req_args), return_exceptions=True)\n                 klines = self.service.query_klines(**req_para)\n                 # print(klines)\n                 result.append(klines)\n         print(result)\n"
+                },
+                {
+                    "date": 1652323222659,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n         # exit()\n-        start = time.time()\n+        start = time.process_time()\n \n         result = []\n         for symbol in self.symbols:\n             for timeframe in c['timeframes']:\n@@ -43,9 +43,12 @@\n                 klines = asyncio.gather(asyncio.to_thread(fn, **req_args), return_exceptions=True)\n                 klines = self.service.query_klines(**req_para)\n                 # print(klines)\n                 result.append(klines)\n+        \n         print(result)\n+        \n+        return result\n         # print(klines)\n \n         # print(type(klines))\n         # for kline in klines:\n"
+                },
+                {
+                    "date": 1652323230638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,14 +45,8 @@\n                 # print(klines)\n                 result.append(klines)\n         \n         print(result)\n-        \n+\n         return result\n-        # print(klines)\n \n-        # print(type(klines))\n-        # for kline in klines:\n-        #     print(kline)\n \n-\n-\n"
+                },
+                {
+                    "date": 1652323238803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n \n                 pprint.pprint(req_para)\n                 print('\\n')\n                 klines = asyncio.gather(asyncio.to_thread(fn, **req_args), return_exceptions=True)\n-                klines = self.service.query_klines(**req_para)\n+                klines = await self.service.query_klines(**req_para)\n                 # print(klines)\n                 result.append(klines)\n         \n         print(result)\n"
+                },
+                {
+                    "date": 1652323328380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n                 }\n \n                 pprint.pprint(req_para)\n                 print('\\n')\n-                klines = asyncio.gather(asyncio.to_thread(fn, **req_args), return_exceptions=True)\n+                klines = asyncio.gather(asyncio.to_thread(self.query_kline, **req_para), return_exceptions=True)\n                 klines = await self.service.query_klines(**req_para)\n                 # print(klines)\n                 result.append(klines)\n         \n"
+                },
+                {
+                    "date": 1652323346248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n \n                 pprint.pprint(req_para)\n                 print('\\n')\n                 klines = asyncio.gather(asyncio.to_thread(self.query_kline, **req_para), return_exceptions=True)\n-                klines = await self.service.query_klines(**req_para)\n+                # klines = await self.service.query_klines(**req_para)\n                 # print(klines)\n                 result.append(klines)\n         \n         print(result)\n"
+                },
+                {
+                    "date": 1652323357087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n         result = []\n         result = await self.service.query_klines(req_para) \n \n \n+\n     async def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n"
+                },
+                {
+                    "date": 1652323373710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,11 @@\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n         self.service = MarketService(host, port)\n \n     async def query_kline(self, req_para):\n-        result = []\n+        # result = []\n         result = await self.service.query_klines(req_para) \n+        print(result)\n \n \n \n     async def grpc_get_kline(self, limit=30, *args, **kwargs):\n"
+                },
+                {
+                    "date": 1652323416047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n                 # klines = await self.service.query_klines(**req_para)\n                 # print(klines)\n                 result.append(klines)\n         \n-        print(result)\n+        end = time.process_time()\n \n         return result\n \n \n"
+                },
+                {
+                    "date": 1652323436919,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,8 +47,9 @@\n                 # print(klines)\n                 result.append(klines)\n         \n         end = time.process_time()\n+        print(f'process time {end - start}')\n \n         return result\n \n \n"
+                },
+                {
+                    "date": 1652323487357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n                 }\n \n                 pprint.pprint(req_para)\n                 print('\\n')\n-                klines = asyncio.gather(asyncio.to_thread(self.query_kline, **req_para), return_exceptions=True)\n+                klines = awiat asyncio.gather(asyncio.to_thread(self.query_kline, **req_para), return_exceptions=True)\n                 # klines = await self.service.query_klines(**req_para)\n                 # print(klines)\n                 result.append(klines)\n         \n"
+                },
+                {
+                    "date": 1652323497929,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n         self.service = MarketService(host, port)\n \n     async def query_kline(self, req_para):\n         # result = []\n-        result = await self.service.query_klines(req_para) \n+        result = self.service.query_klines(req_para) \n         print(result)\n \n \n \n@@ -41,9 +41,9 @@\n                 }\n \n                 pprint.pprint(req_para)\n                 print('\\n')\n-                klines = awiat asyncio.gather(asyncio.to_thread(self.query_kline, **req_para), return_exceptions=True)\n+                klines = await asyncio.gather(asyncio.to_thread(self.query_kline, **req_para), return_exceptions=True)\n                 # klines = await self.service.query_klines(**req_para)\n                 # print(klines)\n                 result.append(klines)\n         \n"
+                },
+                {
+                    "date": 1652323525691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n                 }\n \n                 pprint.pprint(req_para)\n                 print('\\n')\n-                klines = await asyncio.gather(asyncio.to_thread(self.query_kline, **req_para), return_exceptions=True)\n+                klines = await asyncio.gather(asyncio.to_thread(self.service.query_klines, **req_para), return_exceptions=True)\n                 # klines = await self.service.query_klines(**req_para)\n                 # print(klines)\n                 result.append(klines)\n         \n"
+                },
+                {
+                    "date": 1652323537153,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,12 +11,12 @@\n         # exit()\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n         self.service = MarketService(host, port)\n \n-    async def query_kline(self, req_para):\n-        # result = []\n-        result = self.service.query_klines(req_para) \n-        print(result)\n+    # async def query_kline(self, req_para):\n+    #     # result = []\n+    #     result = self.service.query_klines(req_para) \n+    #     print(result)\n \n \n \n     async def grpc_get_kline(self, limit=30, *args, **kwargs):\n"
+                },
+                {
+                    "date": 1652323587224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,8 +47,9 @@\n                 # print(klines)\n                 result.append(klines)\n         \n         end = time.process_time()\n+        print(result)\n         print(f'process time {end - start}')\n \n         return result\n \n"
+                },
+                {
+                    "date": 1652323672420,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n                 }\n \n                 pprint.pprint(req_para)\n                 print('\\n')\n-                klines = await asyncio.gather(asyncio.to_thread(self.service.query_klines, **req_para), return_exceptions=True)\n+                klines = await asyncio.gather(asyncio.to_thread(self.service.query_klines, **req_para))\n                 # klines = await self.service.query_klines(**req_para)\n                 # print(klines)\n                 result.append(klines)\n         \n"
+                },
+                {
+                    "date": 1652323907958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n                 # print(klines)\n                 result.append(klines)\n         \n         end = time.process_time()\n-        print(result)\n+        # print(result)\n         print(f'process time {end - start}')\n \n         return result\n \n"
+                },
+                {
+                    "date": 1652324619061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,14 +43,16 @@\n                 pprint.pprint(req_para)\n                 print('\\n')\n                 klines = await asyncio.gather(asyncio.to_thread(self.service.query_klines, **req_para))\n                 # klines = await self.service.query_klines(**req_para)\n-                # print(klines)\n+                print(klines)\n                 result.append(klines)\n         \n         end = time.process_time()\n         # print(result)\n         print(f'process time {end - start}')\n+        print(1)\n+        print(2)\n \n         return result\n \n \n"
+                },
+                {
+                    "date": 1652324700670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,15 +11,9 @@\n         # exit()\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n         self.service = MarketService(host, port)\n \n-    # async def query_kline(self, req_para):\n-    #     # result = []\n-    #     result = self.service.query_klines(req_para) \n-    #     print(result)\n \n-\n-\n     async def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n"
+                },
+                {
+                    "date": 1652324722634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n                 print('\\n')\n                 klines = await asyncio.gather(asyncio.to_thread(self.service.query_klines, **req_para))\n                 # klines = await self.service.query_klines(**req_para)\n                 print(klines)\n-                result.append(klines)\n+                # result.append(klines)\n         \n         end = time.process_time()\n         # print(result)\n         print(f'process time {end - start}')\n"
+                },
+                {
+                    "date": 1652341884117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,10 +43,10 @@\n         \n         end = time.process_time()\n         # print(result)\n         print(f'process time {end - start}')\n-        print(1)\n-        print(2)\n+        # print(1)\n+        # print(2)\n \n         return result\n \n \n"
+                },
+                {
+                    "date": 1652353480686,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n from bbgo import MarketService\n+from bbgo.bbgo.pb_2\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n import time\n import asyncio\n"
+                },
+                {
+                    "date": 1652353505512,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n from bbgo import MarketService\n-from bbgo.bbgo.pb_2\n+import bbgo_pb2\n+import bbgo_pb2_grpc\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n import time\n import asyncio\n"
+                },
+                {
+                    "date": 1652353513698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n from bbgo import MarketService\n-import bbgo_pb2\n-import bbgo_pb2_grpc\n+from bbgo import bbgo_pb2\n+from bbgo import bbgo_pb2_grpc\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n import time\n import asyncio\n"
+                },
+                {
+                    "date": 1652353957661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n         self.service = MarketService(host, port)\n \n \n     async def grpc_get_kline(self, limit=30, *args, **kwargs):\n+        stub: bbgo_pb2_grpc.MarketDataServiceStub\n         c = self.config\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n"
+                },
+                {
+                    "date": 1652353964625,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n \n \n     async def grpc_get_kline(self, limit=30, *args, **kwargs):\n         stub: bbgo_pb2_grpc.MarketDataServiceStub\n+        exit()\n         c = self.config\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n"
+                },
+                {
+                    "date": 1652354021429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n from bbgo import MarketService\n-from bbgo import bbgo_pb2\n-from bbgo import bbgo_pb2_grpc\n+import bbgo_pb2\n+import bbgo_pb2_grpc\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n import time\n import asyncio\n"
+                },
+                {
+                    "date": 1652354273133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,8 @@\n         self.service = MarketService(host, port)\n \n \n     async def grpc_get_kline(self, limit=30, *args, **kwargs):\n-        stub: bbgo_pb2_grpc.MarketDataServiceStub\n-        exit()\n         c = self.config\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n"
+                },
+                {
+                    "date": 1652354444528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n from bbgo import MarketService\n-import bbgo_pb2\n-import bbgo_pb2_grpc\n+# import bbgo_pb2\n+# import bbgo_pb2_grpc\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n import time\n import asyncio\n@@ -16,8 +16,10 @@\n \n \n     async def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n+        print(dir(bbgo))\n+        exit()\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n         # exit()\n"
+                },
+                {
+                    "date": 1652354463258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n \n \n     async def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n-        print(dir(bbgo))\n+        # print(dir(bbgo))\n         exit()\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n"
+                },
+                {
+                    "date": 1652354485119,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n from bbgo import MarketService\n+from bbgo \n # import bbgo_pb2\n # import bbgo_pb2_grpc\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n"
+                },
+                {
+                    "date": 1652354523390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n from bbgo import MarketService\n-from bbgo \n+from bbgo.data import Kline\n # import bbgo_pb2\n # import bbgo_pb2_grpc\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n"
+                },
+                {
+                    "date": 1652354612253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n from bbgo import MarketService\n-from bbgo.data import Kline\n # import bbgo_pb2\n # import bbgo_pb2_grpc\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n"
+                },
+                {
+                    "date": 1652354794689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \n     async def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n         # print(dir(bbgo))\n-        exit()\n+        # exit()\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n         # exit()\n"
+                },
+                {
+                    "date": 1652354845605,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,8 @@\n \n \n     async def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n-        # print(dir(bbgo))\n         # exit()\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n"
+                },
+                {
+                    "date": 1652355178291,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,8 @@\n         # exit()\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n-        # exit()\n         start = time.process_time()\n \n         result = []\n         for symbol in self.symbols:\n@@ -39,9 +38,8 @@\n \n                 pprint.pprint(req_para)\n                 print('\\n')\n                 klines = await asyncio.gather(asyncio.to_thread(self.service.query_klines, **req_para))\n-                # klines = await self.service.query_klines(**req_para)\n                 print(klines)\n                 # result.append(klines)\n         \n         end = time.process_time()\n"
+                },
+                {
+                    "date": 1652355415635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n from bbgo import MarketService\n-# import bbgo_pb2\n-# import bbgo_pb2_grpc\n+import bbgo_pb2\n+import bbgo_pb2_grpc\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n import time\n import asyncio\n"
+                },
+                {
+                    "date": 1652355446350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-from bbgo import MarketService\n+# from bbgo import MarketService\n import bbgo_pb2\n import bbgo_pb2_grpc\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n@@ -16,8 +16,9 @@\n \n \n     async def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n+        stub: bbgo_pb2_grpc.MarketServicesStub\n         # exit()\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n"
+                },
+                {
+                    "date": 1652355466886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-# from bbgo import MarketService\n+from bbgo import MarketService\n import bbgo_pb2\n import bbgo_pb2_grpc\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n"
+                },
+                {
+                    "date": 1652355511586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n \n \n     async def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n-        stub: bbgo_pb2_grpc.MarketServicesStub\n+        # stub: bbgo_pb2_grpc.MarketServicesStub\n         # exit()\n         # print(f'limit: {limit}')\n         # print(f'args: {args}')\n         # print(f'kwargs: {kwargs}')\n"
+                },
+                {
+                    "date": 1652355523856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n from bbgo import MarketService\n-import bbgo_pb2\n-import bbgo_pb2_grpc\n+# import bbgo_pb2\n+# import bbgo_pb2_grpc\n from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\n import pprint\n import time\n import asyncio\n@@ -45,10 +45,9 @@\n         \n         end = time.process_time()\n         # print(result)\n         print(f'process time {end - start}')\n-        # print(1)\n-        # print(2)\n \n+\n         return result\n \n \n"
+                },
+                {
+                    "date": 1652355943699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,16 +38,16 @@\n                 }\n \n                 pprint.pprint(req_para)\n                 print('\\n')\n+                ## currently, can't achieve async \n                 klines = await asyncio.gather(asyncio.to_thread(self.service.query_klines, **req_para))\n                 print(klines)\n                 # result.append(klines)\n         \n         end = time.process_time()\n         # print(result)\n         print(f'process time {end - start}')\n \n-\n         return result\n \n \n"
+                },
+                {
+                    "date": 1652355989598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n         # exit()\n         self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n         self.service = MarketService(host, port)\n \n-\n+    # TODO: achieve async effect\n     async def grpc_get_kline(self, limit=30, *args, **kwargs):\n         c = self.config\n         # stub: bbgo_pb2_grpc.MarketServicesStub\n         # exit()\n@@ -38,9 +38,9 @@\n                 }\n \n                 pprint.pprint(req_para)\n                 print('\\n')\n-                ## currently, can't achieve async \n+                # currently, can't achieve async effect\n                 klines = await asyncio.gather(asyncio.to_thread(self.service.query_klines, **req_para))\n                 print(klines)\n                 # result.append(klines)\n         \n"
+                }
+            ],
+            "date": 1652320104305,
+            "name": "Commit-0",
+            "content": "from bbgo import MarketService\nfrom exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime\nimport pprint\n\nclass bbgo_market_service():\n    def __init__(self, configured):\n        self.config = configured\n        self.symbols = convert_symbols_to_request_format(self.config['symbols'])\n        self.service = MarketService(self.config['db_host'], self.config['db_port'])\n        \n\n    def grpc_get_kline(self, limit=30, *args, **kwargs):\n        c = self.config\n        # print(f'limit: {limit}')\n        # print(f'args: {args}')\n        # print(f'kwargs: {kwargs}')\n        # exit()\n        result = []\n        for symbol in self.symbols:\n            for timeframe in c['timeframes']:\n                print('\\n')\n                req_para = {\n                    'exchange': c['session'],\n                    'symbol': symbol,\n                    'interval': timeframe,\n                    'start_time': isodate_to_unixtime(c['startAt']),\n                    'end_time': isodate_to_unixtime(c['endAt']),\n                    'limit': limit\n                }\n\n                pprint.pprint(req_para)\n                print('\\n')\n                klines = self.service.query_klines(\n                    exchange=c['session'],\n                    symbol=symbol,\n                    interval=timeframe,\n                    start_time=isodate_to_unixtime(c['startAt']),\n                    end_time=isodate_to_unixtime(c['endAt']),\n                    limit=limit,\n                )\n                result.append(klines)\n        print(result)\n        # print(klines)\n\n        # print(type(klines))\n        # for kline in klines:\n        #     print(kline)\n\n\n\n"
+        }
+    ]
+}
