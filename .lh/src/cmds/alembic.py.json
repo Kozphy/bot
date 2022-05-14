@@ -1,0 +1,74 @@
+{
+    "sourceFile": "src/cmds/alembic.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1652431033958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652431079152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,4 @@\n from alembic.config import Config\n-from alembic import command\n\\ No newline at end of file\n+from alembic import command\n+\n+alembic_cfg = \n"
+                },
+                {
+                    "date": 1652444699398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n from alembic.config import Config\n from alembic import command\n \n+from path\n+\n alembic_cfg = \n"
+                },
+                {
+                    "date": 1652444717106,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n from alembic.config import Config\n from alembic import command\n \n-from path\n+from pathlib import Path\n \n alembic_cfg = \n"
+                },
+                {
+                    "date": 1652444735396,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,5 @@\n from alembic import command\n \n from pathlib import Path\n \n-alembic_cfg = \n+alembic_cfg = Path.cwd()\n"
+                },
+                {
+                    "date": 1652444844999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,5 @@\n from alembic import command\n \n from pathlib import Path\n \n-alembic_cfg = Path.cwd()\n+alembic_cfg = Config(Path.cwd())\n"
+                },
+                {
+                    "date": 1652444989603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,5 @@\n from alembic import command\n \n from pathlib import Path\n \n-alembic_cfg = Config(Path.cwd())\n+alembic_cfg = Config(Path.cwd().parent / 'alembic.ini')\n"
+                },
+                {
+                    "date": 1652445024811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n from alembic.config import Config\n from alembic import command\n \n from pathlib import Path\n-\n-alembic_cfg = Config(Path.cwd().parent / 'alembic.ini')\n+relative_alembic_path= Path.cwd().parent / 'alembic.ini'\n+alembic_cfg = Config(relative_alembic_path)\n"
+                },
+                {
+                    "date": 1652445387963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,9 @@\n from alembic.config import Config\n from alembic import command\n-\n+import click\n from pathlib import Path\n relative_alembic_path= Path.cwd().parent / 'alembic.ini'\n alembic_cfg = Config(relative_alembic_path)\n+\n+\n+@click.command()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652445408118,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,5 @@\n relative_alembic_path= Path.cwd().parent / 'alembic.ini'\n alembic_cfg = Config(relative_alembic_path)\n \n \n-@click.command()\n\\ No newline at end of file\n+@click.cli()\n"
+                },
+                {
+                    "date": 1652445499694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,6 @@\n relative_alembic_path= Path.cwd().parent / 'alembic.ini'\n alembic_cfg = Config(relative_alembic_path)\n \n \n-@click.cli()\n+@click.cmd()\n+\n"
+                },
+                {
+                    "date": 1652445510417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,6 +5,7 @@\n relative_alembic_path= Path.cwd().parent / 'alembic.ini'\n alembic_cfg = Config(relative_alembic_path)\n \n \n-@click.cmd()\n+@click.command()\n \n+\n"
+                },
+                {
+                    "date": 1652445587836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,8 @@\n from pathlib import Path\n relative_alembic_path= Path.cwd().parent / 'alembic.ini'\n alembic_cfg = Config(relative_alembic_path)\n \n-\n+# alembic cmd alembic.command.revision\n @click.command()\n+@click.option()\n \n-\n"
+                },
+                {
+                    "date": 1652445978737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n alembic_cfg = Config(relative_alembic_path)\n \n # alembic cmd alembic.command.revision\n @click.command()\n-@click.option()\n+@click.option('-c')\n \n"
+                },
+                {
+                    "date": 1652446003388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n alembic_cfg = Config(relative_alembic_path)\n \n # alembic cmd alembic.command.revision\n @click.command()\n-@click.option('-c')\n+@click.option('-c', '--config')\n \n"
+                }
+            ],
+            "date": 1652431033958,
+            "name": "Commit-0",
+            "content": "from alembic.config import Config\nfrom alembic import command"
+        }
+    ]
+}

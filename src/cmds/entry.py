@@ -38,7 +38,7 @@ db_name, db_path, db_host, db_user, db_port):
 @click.pass_context
 @click.option(*AO['startAt'].cli, **AO['startAt'].kwargs)
 @click.option(*AO['endAt'].cli, **AO['endAt'].kwargs)
-def sync(ctx,start_at,end_at):
+def sync(ctx, start_at, end_at):
     args = {
         'startAt': start_at,
         'endAt': end_at,

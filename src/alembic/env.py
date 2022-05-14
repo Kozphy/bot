@@ -7,9 +7,9 @@ from pathlib import Path
 import sys
 sys.path.append(str(Path.cwd().parent))
 # print(sys.path)
-from bot.alembic.configuration_alembic import Configuration_alembic
-from bot.persistence.migrations import init_db_url
-from bot.persistence.models import metadata_obj
+from alembic.configuration_alembic import Configuration_alembic
+from persistence.migrations import init_db_url
+from persistence.models import metadata_obj
 
 # logger = logging.getLogger(__name__)
 # this is the Alembic Config object, which provides

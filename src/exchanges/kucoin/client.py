@@ -11,9 +11,7 @@ class Client:
 
     def active_service(self):
         client = Client_services(self.configured)
-        # print(dir(client))
 
-        # exit()
 
         # check accecpt pair and get all pairs list
         self.accepted_pairs = client.get_accept_pairs()

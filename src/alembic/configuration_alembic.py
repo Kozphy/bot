@@ -1,5 +1,5 @@
-from bot.configuration import Configuration
-from bot.alembic.load_config_alembic import Load_config_alembic
+from configuration import Configuration
+from alembic.load_config_alembic import Load_config_alembic
 from typing import Dict, Any
 import logging
 from copy import deepcopy

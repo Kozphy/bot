@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/cmds/entry.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1652426247376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1652426247376,
+            "name": "Commit-0",
+            "content": "import click\nfrom cmds.sync_command import start_sync\nfrom loggers import setup_logging_pre\nfrom cmds.cli_option import AVAILABLE_CLI_OPTIONS as AO\n\n\n@click.group()\n@click.pass_context\n@click.option(*AO['verbosity'].cli, **AO['verbosity'].kwargs)\n@click.option(*AO['logfile'].cli, **AO['logfile'].kwargs)\n@click.version_option(*AO['version'].cli, **AO['version'].kwargs)\n@click.option(*AO['config'].cli, **AO['config'].kwargs)\n@click.option(*AO['user_data_dir'].cli, **AO['user_data_dir'].kwargs)\n@click.option(*AO['db_name'].cli, **AO['db_name'].kwargs)\n@click.option(*AO['db_path'].cli, **AO['db_path'].kwargs)\n@click.option(*AO['db_host'].cli, **AO['db_host'].kwargs)\n@click.option(*AO['db_user'].cli, **AO['db_user'].kwargs)\n@click.option(*AO['db_port'].cli, **AO['db_port'].kwargs)\ndef cli(ctx, verbose, logfile, config, user_data_dir,\ndb_name, db_path, db_host, db_user, db_port):\n    setup_logging_pre()\n    ctx.ensure_object(dict)\n    args = {\n        'verbosity': verbose,\n        'logfile': logfile,\n        'config': config,\n        'user_data_dir': user_data_dir,\n        'db_name': db_name,\n        'db_path': db_path,\n        'db_host': db_host,\n        'db_user': db_user,\n        'db_port': db_port,\n    }\n    ctx.obj.update(args)\n\n\n@cli.command()\n@click.pass_context\n@click.option(*AO['startAt'].cli, **AO['startAt'].kwargs)\n@click.option(*AO['endAt'].cli, **AO['endAt'].kwargs)\ndef sync(ctx, start_at, end_at):\n    args = {\n        'startAt': start_at,\n        'endAt': end_at,\n    }\n    ctx.obj.update(args)\n    start_sync(ctx)\n\n@cli.command()\ndef trade():\n    click.echo('trade')\n    pass\n\n@cli.command()\ndef backtest():\n    click.echo('backtest')\n    pass"
+        }
+    ]
+}

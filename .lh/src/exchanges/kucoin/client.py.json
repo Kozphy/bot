@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1652343987925,
@@ -20,6 +20,10 @@
                 {
                     "date": 1652411045165,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,14 @@\n         self.accepted_pairs = None\n \n     def active_service(self):\n         client = Client_services(self.configured)\n-        print(dir(client))\n+        # print(dir(client))\n \n         # exit()\n \n         # check accecpt pair and get all pairs list\n-        # self.accepted_pairs = client.get_accept_pairs()\n+        self.accepted_pairs = client.get_accept_pairs()\n \n         return client \n \n     @staticmethod\n"
+                },
+                {
+                    "date": 1652426536276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,9 @@\n         self.accepted_pairs = None\n \n     def active_service(self):\n         client = Client_services(self.configured)\n-        # print(dir(client))\n \n-        # exit()\n \n         # check accecpt pair and get all pairs list\n         self.accepted_pairs = client.get_accept_pairs()\n \n"
                 }
             ],
             "date": 1652343987925,

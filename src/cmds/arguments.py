@@ -1,7 +1,7 @@
 """
 This module contains the argument manager class
 """
-# deprecated
+# Deprecated
 import click
 import argparse
 from pathlib import Path

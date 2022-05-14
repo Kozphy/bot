@@ -21,6 +21,7 @@ class Kucoin_market():
         '1d': '1day',
         '1w': '1week',
     }
+
     # symbols, timeframe, startAt, endAt, is_sandbox=False
     def __init__(self, configured, is_sandbox=False):
         self.market = Market()

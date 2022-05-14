@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/cmds/click_state.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1652498165585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652498188400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +0,0 @@\n-import click\n-\n-class State():\n-    def __init__(self):\n-        self.verbosity = 0\n-        self.debug = False\n-    \n-pass_state = click.make_pass_decorator(State, ensure=True)\n-\n-def verbosity_option(f):\n-    def callback(ctx, param, value):\n-        state = ctx.ensure_object(State)\n-        state.verbosity = value\n-        return value\n-    return click.option()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652498274066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,32 @@\n+\n+import click\n+\n+class State():\n+    def __init__(self):\n+        self.verbosity = 0\n+        self.debug = False\n+    \n+pass_state = click.make_pass_decorator(State, ensure=True)\n+\n+def verbosity_option(f):\n+    def callback(ctx, param, value):\n+        state = ctx.ensure_object(State)\n+        state.verbosity = value\n+        return value\n+    return click.option()\n+import click\n+\n+class State():\n+    def __init__(self):\n+        self.verbosity = 0\n+        self.debug = False\n+    \n+pass_state = click.make_pass_decorator(State, ensure=True)\n+\n+def verbosity_option(f):\n+    def callback(ctx, param, value):\n+        state = ctx.ensure_object(State)\n+        state.verbosity = value\n+        return value\n+    return click.option()\n+    \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652498313537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,6 +27,8 @@\n     def callback(ctx, param, value):\n         state = ctx.ensure_object(State)\n         state.verbosity = value\n         return value\n-    return click.option()\n-    \n\\ No newline at end of file\n+    return click.option(param)(f)\n+\n+\n+\n"
+                }
+            ],
+            "date": 1652498165585,
+            "name": "Commit-0",
+            "content": "import click\n\nclass State():\n    def __init__(self):\n        self.verbosity = 0\n        self.debug = False\n    \npass_state = click.make_pass_decorator(State, ensure=True)\n\ndef verbosity_option(f):\n    def callback(ctx, param, value):\n        state = ctx.ensure_object(State)\n        state.verbosity = value\n        return value\n    return click.option()"
+        }
+    ]
+}

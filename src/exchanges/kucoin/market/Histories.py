@@ -1,14 +1,13 @@
 import logging
 import aiohttp
 from .market_api import Kucoin_market
-from exchanges.utils.misc import convert_symbols_to_request_format
 import asyncio
 import numpy as np
 import time
 import pprint
 from persistence.write_kline import kline_to_database
-from typing import List
 
+from typing import List
 from .data.kline import KLine
 from .data.error import ErrorMessage
 
