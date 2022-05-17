@@ -1,11 +1,10 @@
 from sqlalchemy import (Column, Table, MetaData,
                         Integer, String, DateTime,Boolean, PrimaryKeyConstraint)
 from sqlalchemy.types import VARCHAR, NUMERIC
-import logging
+from loguru import logger
 
 # MysqlNumeric(16,8, unsigned=True)
 
-logger = logging.getLogger(__name__)
 
 metadata_obj = MetaData()
 

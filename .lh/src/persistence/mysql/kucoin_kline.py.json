@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/persistence/mysql/kucoin_kline.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1652771630335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1652771630335,
+            "name": "Commit-0",
+            "content": "from sqlalchemy import (Column, Table, MetaData,\n                        Integer, String, DateTime,Boolean, PrimaryKeyConstraint)\nfrom sqlalchemy.dialects.mysql import NUMERIC as MysqlNumeric\nfrom sqlalchemy.types import VARCHAR, NUMERIC\n\n\nmetadata_obj = MetaData()\n\n# klines table\n# kline_table = Table(\"Mysql_kucoin_kline\", metadata_obj, autoload=\n#     Column('Symbol', String),\n#     Column('exchange', VARCHAR(10), nullable=False),\n#     Column('timeframe', String),\n#     Column('start_time', DateTime, primary_key=True),\n#     Column('open', MysqlNumeric(16,8, unsigned=True), nullable=False),\n#     Column('close', MysqlNumeric(16,8, unsigned=True), nullable=False),\n#     Column('high', MysqlNumeric(16,8, unsigned=True), nullable=False),\n#     Column('low', MysqlNumeric(16,8, unsigned=True), nullable=False),\n#     Column('volume', NUMERIC(20,8)),\n#     Column('amount', NUMERIC(20,8)),\n# )\n\n"
+        }
+    ]
+}

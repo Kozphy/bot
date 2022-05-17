@@ -1,11 +1,9 @@
-import logging 
 from exchanges import Exchange
 # from kucoin.client import Market, User, Trade
 # from bot.exchanges.kucoin.market.market import Kucoin_market
 # from bot.exchanges.kucoin.trade.trade import Kucoin_trade
 # from bot.exchanges.kucoin.user.user import Kucoin_user
 
-logger = logging.getLogger(__name__)
 
 class Kucoin(Exchange):
     def __init__(self, configured):

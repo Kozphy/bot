@@ -1,14 +1,13 @@
 """
 This module contains the configuration class
 """
-import logging
+from loguru import logger
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 from configuration.load_config import Load_config
 from copy import deepcopy
 from configuration.process_options import Process_options
 
-logger = logging.getLogger(__name__)
 
 class Configuration(Process_options):
     """
@@ -23,7 +22,7 @@ class Configuration(Process_options):
         Return the config. Use this method to get the bot config
         :return: Dict: Bot config
         """
-        logging.debug("Checking config whether exist")
+        logger.debug("Checking config whether exist")
         if self._config is None:
             self._config = self.load_config()
 
@@ -50,7 +49,7 @@ class Configuration(Process_options):
         While cmd permission biggger than another one, override smaller one.
         """
 
-        logging.debug('merge config and yaml')
+        logger.debug('merge config and yaml')
         configured = deepcopy(args)
         self._process_logging_options(configured)
         self._process_api(configured)

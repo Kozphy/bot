@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/cmds/trade_command.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1652771454477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1652771454477,
+            "name": "Commit-0",
+            "content": "from loguru import logger\nfrom typing import Any, Dict\n\n\ndef start_trade(args: Dict[str, Any]) -> int:\n    \"\"\"\n    entry point for trading mode\n    \"\"\"\n    pass\n"
+        }
+    ]
+}

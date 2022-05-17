@@ -1,4 +1,4 @@
-import logging
+from loguru import logger
 import re
 import aiohttp
 from exceptions import BotException
@@ -7,7 +7,6 @@ import time
 from .market_api import Kucoin_market
 from  exchanges.utils.misc import convert_symbols_to_request_format
 
-logger = logging.getLogger(__name__)
 
 class Symbols_Ticker(Kucoin_market):
     def get_accept_pairs(self, reg="\S+-USDT$", currency_pair="USDS"):

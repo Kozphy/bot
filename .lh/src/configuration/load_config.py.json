@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/configuration/load_config.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1652771496657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652771507378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,15 +7,14 @@\n except:\n     from yaml import Loader, Dumper\n \n from pathlib import Path\n-import logging\n+from loguru import logger\n from typing import Any, Dict, Optional\n from dotenv import dotenv_values\n from exceptions import OperationalException\n from .misc import check_folder\n \n-logger = logging.getLogger(__name__)\n class Load_config():\n     def determine_destination(self, args):\n         logger.debug('determine where is user_data_dir')\n         from constants import (CONFIG, BOT_DIR, DEFAULT_USERDATA_DIR, \n"
+                }
+            ],
+            "date": 1652771496657,
+            "name": "Commit-0",
+            "content": "\"\"\"\nThis module contain functions to load the configuration file\n\"\"\"\nfrom yaml import load, dump\ntry:\n    from yaml import CLoader as Loader, CSafeLoader as CSLoader, CDumper as Dumper\nexcept:\n    from yaml import Loader, Dumper\n\nfrom pathlib import Path\nimport logging\nfrom typing import Any, Dict, Optional\nfrom dotenv import dotenv_values\nfrom exceptions import OperationalException\nfrom .misc import check_folder\n\nlogger = logging.getLogger(__name__)\nclass Load_config():\n    def determine_destination(self, args):\n        logger.debug('determine where is user_data_dir')\n        from constants import (CONFIG, BOT_DIR, DEFAULT_USERDATA_DIR, \n        DEFAULT_CONFIG_NAME, DEFAULT_CONFIG_DIR_NAME)\n        # use default\n        user_dir = DEFAULT_USERDATA_DIR \n        config_dir_name = DEFAULT_CONFIG_DIR_NAME\n        config_name = DEFAULT_CONFIG_NAME\n\n        \n        if args['user_data_dir'] != DEFAULT_USERDATA_DIR:\n            # user_data_dir use args\n            user_dir = f\"{BOT_DIR}/{args['user_data_dir']}\"\n            check_folder(f\"{user_dir}/{config_dir_name}\")\n\n        if args['config'] != CONFIG:\n            # config use args\n            config_name = args['config']\n\n        destination = f\"{user_dir}/{config_dir_name}/{config_name}\"\n        return destination\n\n\n    def load_yaml_setting(self, args) -> Dict[str, Any]:\n        destination = self.determine_destination(args)\n        \n        logger.debug('parse yaml file')\n        try:\n            with open(destination, 'r') as f:\n                yaml = CSLoader(stream=f).get_data()\n            return yaml\n        except FileNotFoundError as e:\n            logger.error(e)\n            raise OperationalException(f\"file {destination} not found\")\n\n\n\n"
+        }
+    ]
+}

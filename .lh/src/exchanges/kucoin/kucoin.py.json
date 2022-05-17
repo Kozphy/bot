@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/exchanges/kucoin/kucoin.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1652771618436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1652771618436,
+            "name": "Commit-0",
+            "content": "from exchanges import Exchange\n# from kucoin.client import Market, User, Trade\n# from bot.exchanges.kucoin.market.market import Kucoin_market\n# from bot.exchanges.kucoin.trade.trade import Kucoin_trade\n# from bot.exchanges.kucoin.user.user import Kucoin_user\n\n\nclass Kucoin(Exchange):\n    def __init__(self, configured):\n        super().__init__(configured)\n        # get_para = {\n        #     'host': '127.0.0.1',\n        #     'port': 50051,\n        #     'exchange': 'kucoin',\n        #     'symbol' : 'DOTUSDT',\n        #     'timeframe': '4h',\n        #     'start_time': 1651408281,\n        #     'end_time': 1651840281,\n        #     'limit':30\n        # }\n        # grpc_get_kline(**get_para)\n        # from bot.persistence.migrations import migrations_update, migrations_downgrade\n        # migrations_update(configured)\n        # migrations_downgrade(configured)\n    \n    # def migration():\n    #     migrations_downgrade(configured)\n    #     show_history(configured)\n        \n\n\n\n\n\n    \n    \n    "
+        }
+    ]
+}

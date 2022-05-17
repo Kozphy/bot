@@ -1,13 +1,12 @@
 from configuration.load_config import Load_config
 from exceptions import OperationalException
-import logging
 try:
     from yaml import CLoader as Loader, CSafeLoader as CSLoader, CDumper as Dumper
 except:
     from yaml import Loader, Dumper
+from loguru import logger
 
 
-logger = logging.getLogger(__name__)
 
 class Load_config_alembic(Load_config):
     def determine_destination(self):

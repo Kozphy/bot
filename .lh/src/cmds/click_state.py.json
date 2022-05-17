@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 28,
             "patches": [
                 {
                     "date": 1652498165585,
@@ -20,6 +20,106 @@
                 {
                     "date": 1652498313537,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,6 +27,8 @@\n     def callback(ctx, param, value):\n         state = ctx.ensure_object(State)\n         state.verbosity = value\n         return value\n-    return click.option()\n-    \n\\ No newline at end of file\n+    return click.option(param)(f)\n+\n+\n+\n"
+                },
+                {
+                    "date": 1652499138567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,13 +22,16 @@\n         self.debug = False\n     \n pass_state = click.make_pass_decorator(State, ensure=True)\n \n-def verbosity_option(f):\n+def verbosity_option(f, *args, **kwargs):\n     def callback(ctx, param, value):\n         state = ctx.ensure_object(State)\n         state.verbosity = value\n         return value\n-    return click.option(param)(f)\n+    return click.option(args, kwargs,callback=callback)(f)\n \n+def common_options(f):\n+    f= verbosity_option()\n \n \n+\n"
+                },
+                {
+                    "date": 1652499176336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,11 @@\n         state.verbosity = value\n         return value\n     return click.option(args, kwargs,callback=callback)(f)\n \n-def common_options(f):\n-    f= verbosity_option()\n+def common_options(f, description):\n+    f = verbosity_option(f, description=description)\n \n+    return f\n \n \n+\n"
+                },
+                {
+                    "date": 1652499226809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,6 +34,11 @@\n     f = verbosity_option(f, description=description)\n \n     return f\n \n+@click.command()\n+@common.options\n+@pass_state\n \n+def comd1(state):\n \n+\n"
+                },
+                {
+                    "date": 1652499238307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,8 +37,7 @@\n \n @click.command()\n @common.options\n @pass_state\n+def cmd1(state):\n \n-def comd1(state):\n \n-\n"
+                },
+                {
+                    "date": 1652499252687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n \n     return f\n \n @click.command()\n-@common.options\n+@common_options\n @pass_state\n def cmd1(state):\n \n \n"
+                },
+                {
+                    "date": 1652499269857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,6 +38,7 @@\n @click.command()\n @common_options\n @pass_state\n def cmd1(state):\n+    click.echo()\n \n \n"
+                },
+                {
+                    "date": 1652499292500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,7 +38,7 @@\n @click.command()\n @common_options\n @pass_state\n def cmd1(state):\n-    click.echo()\n+    click.echo(f'Verbosity: {state.verbosity}')\n \n \n"
+                },
+                {
+                    "date": 1652499323403,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-\n+# testing\n import click\n \n class State():\n     def __init__(self):\n"
+                },
+                {
+                    "date": 1652499330209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-# testing\n+#TODO: testing\n import click\n \n class State():\n     def __init__(self):\n"
+                },
+                {
+                    "date": 1652499353917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,23 +7,8 @@\n         self.debug = False\n     \n pass_state = click.make_pass_decorator(State, ensure=True)\n \n-def verbosity_option(f):\n-    def callback(ctx, param, value):\n-        state = ctx.ensure_object(State)\n-        state.verbosity = value\n-        return value\n-    return click.option()\n-import click\n-\n-class State():\n-    def __init__(self):\n-        self.verbosity = 0\n-        self.debug = False\n-    \n-pass_state = click.make_pass_decorator(State, ensure=True)\n-\n def verbosity_option(f, *args, **kwargs):\n     def callback(ctx, param, value):\n         state = ctx.ensure_object(State)\n         state.verbosity = value\n"
+                },
+                {
+                    "date": 1652500453097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         return value\n     return click.option(args, kwargs,callback=callback)(f)\n \n def common_options(f, description):\n-    f = verbosity_option(f, description=description)\n+    f = verbosity_option(f=f, description)\n \n     return f\n \n @click.command()\n"
+                },
+                {
+                    "date": 1652500534316,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,17 +7,17 @@\n         self.debug = False\n     \n pass_state = click.make_pass_decorator(State, ensure=True)\n \n-def verbosity_option(f, *args, **kwargs):\n+def verbosity_option(f, cli_options):\n     def callback(ctx, param, value):\n         state = ctx.ensure_object(State)\n         state.verbosity = value\n         return value\n     return click.option(args, kwargs,callback=callback)(f)\n \n-def common_options(f, description):\n-    f = verbosity_option(f=f, description)\n+def common_options(f, cli_options):\n+    f = verbosity_option(f, cli_options)\n \n     return f\n \n @click.command()\n"
+                },
+                {
+                    "date": 1652500572747,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,13 +8,14 @@\n     \n pass_state = click.make_pass_decorator(State, ensure=True)\n \n def verbosity_option(f, cli_options):\n+    cli = cli_options.cli\n     def callback(ctx, param, value):\n         state = ctx.ensure_object(State)\n         state.verbosity = value\n         return value\n-    return click.option(args, kwargs,callback=callback)(f)\n+    return click.option(cli_options, kwargs,callback=callback)(f)\n \n def common_options(f, cli_options):\n     f = verbosity_option(f, cli_options)\n \n"
+                },
+                {
+                    "date": 1652500584008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n pass_state = click.make_pass_decorator(State, ensure=True)\n \n def verbosity_option(f, cli_options):\n     cli = cli_options.cli\n+    kw = cli_options.kwargs\n     def callback(ctx, param, value):\n         state = ctx.ensure_object(State)\n         state.verbosity = value\n         return value\n"
+                },
+                {
+                    "date": 1652500605547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     def callback(ctx, param, value):\n         state = ctx.ensure_object(State)\n         state.verbosity = value\n         return value\n-    return click.option(cli_options, kwargs,callback=callback)(f)\n+    return click.option(*cli, **kw,callback=callback)(f)\n \n def common_options(f, cli_options):\n     f = verbosity_option(f, cli_options)\n \n"
+                },
+                {
+                    "date": 1652500963254,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n #TODO: testing\n import click\n-\n+from cmds.cli_option import AVAILABLE_CLI_OPTIONS\n class State():\n     def __init__(self):\n         self.verbosity = 0\n         self.debug = False\n"
+                },
+                {
+                    "date": 1652500990036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n #TODO: testing\n import click\n-from cmds.cli_option import AVAILABLE_CLI_OPTIONS\n+from cmds.cli_option import AVAILABLE_CLI_OPTIONS as AO\n class State():\n     def __init__(self):\n         self.verbosity = 0\n         self.debug = False\n@@ -16,10 +16,10 @@\n         state.verbosity = value\n         return value\n     return click.option(*cli, **kw,callback=callback)(f)\n \n-def common_options(f, cli_options):\n-    f = verbosity_option(f, cli_options)\n+def common_options(f):\n+    f = verbosity_option(f, AO['verbosity'])\n \n     return f\n \n @click.command()\n"
+                },
+                {
+                    "date": 1652501037916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     def callback(ctx, param, value):\n         state = ctx.ensure_object(State)\n         state.verbosity = value\n         return value\n-    return click.option(*cli, **kw,callback=callback)(f)\n+    return click.option(*cli, **kw, callback=callback)(f)\n \n def common_options(f):\n     f = verbosity_option(f, AO['verbosity'])\n \n"
+                },
+                {
+                    "date": 1652501176888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-#TODO: testing\n+#TODO: In testing can't use now\n import click\n from cmds.cli_option import AVAILABLE_CLI_OPTIONS as AO\n class State():\n     def __init__(self):\n"
+                },
+                {
+                    "date": 1652501184097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-#TODO: In testing can't use now\n+#TODO: In testing can't work now.\n import click\n from cmds.cli_option import AVAILABLE_CLI_OPTIONS as AO\n class State():\n     def __init__(self):\n"
+                },
+                {
+                    "date": 1652501219370,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n #TODO: In testing can't work now.\n import click\n from cmds.cli_option import AVAILABLE_CLI_OPTIONS as AO\n+\n class State():\n     def __init__(self):\n         self.verbosity = 0\n         self.debug = False\n"
+                },
+                {
+                    "date": 1652501235008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n #TODO: In testing can't work now.\n import click\n from cmds.cli_option import AVAILABLE_CLI_OPTIONS as AO\n \n+# https://github.com/pallets/click/issues/108\n+\n class State():\n     def __init__(self):\n         self.verbosity = 0\n         self.debug = False\n"
+                },
+                {
+                    "date": 1652502648591,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n #TODO: In testing can't work now.\n import click\n from cmds.cli_option import AVAILABLE_CLI_OPTIONS as AO\n \n-# https://github.com/pallets/click/issues/108\n+# source code from https://github.com/pallets/click/issues/108\n+# \n \n class State():\n     def __init__(self):\n         self.verbosity = 0\n"
+                },
+                {
+                    "date": 1652502665668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import click\n from cmds.cli_option import AVAILABLE_CLI_OPTIONS as AO\n \n # source code from https://github.com/pallets/click/issues/108\n-# \n+# similar option https://stackoverflow.com/questions/40182157/shared-options-and-flags-between-commands\n \n class State():\n     def __init__(self):\n         self.verbosity = 0\n"
+                },
+                {
+                    "date": 1652502677966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,8 @@\n     return click.option(*cli, **kw, callback=callback)(f)\n \n def common_options(f):\n     f = verbosity_option(f, AO['verbosity'])\n-\n     return f\n \n @click.command()\n @common_options\n"
                 }
             ],
             "date": 1652498165585,

@@ -1,14 +1,13 @@
-import logging
-from tabnanny import verbose
 # alembic
-from bot.src.constants import ALEMBIC_CONFIG_FILE
+from loguru import logger
+from constants import ALEMBIC_CONFIG_FILE
 from alembic.config import Config
 from alembic import command, script
 from alembic.runtime import migration
+
 from sqlalchemy import engine
 from sqlalchemy_utils.functions import create_database, database_exists
 
-logger = logging.getLogger(__name__)
 
 support_databases = {
     'MYSQL': "mysql+mysqldb://"
@@ -44,19 +43,19 @@ def init_db_url(db, user, password, host, dbname, port, charset="utf8mb4", ssl=F
 
     return db_url
     
-def migrations_update(configured, revision='head'):
+def migration_upgrade(configured, revision, sql, tag):
     alem_config, url = setting_alembic_cfg(configured)
     if database_exists(url) == False:
         create_database(url)
-        command.upgrade(alem_config, revision)
+        command.upgrade(alem_config, revision, sql, tag)
     # check revirsion whether is head
     if check_current_head(alem_config, engine.create_engine(url)) == False:
-        command.upgrade(alem_config, revision)
+        command.upgrade(alem_config, revision, sql, tag)
     
     # command.history(alem_config, verbose=True)
 
 # TODO: implement alembic downgrade in cmd with bot config
-def migrations_downgrade(configured, revision='base'):
+def migration_downgrade(configured, revision='base'):
     alem_config, _ = setting_alembic_cfg(configured)
     command.downgrade(alem_config, revision)
     

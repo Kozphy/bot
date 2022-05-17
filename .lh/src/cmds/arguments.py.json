@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1652430177595,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652771423476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import click\n import argparse\n from pathlib import Path\n from typing import Any, Dict, List, Optional\n-import logging\n+from loguru import logger\n # from bot.constants import CONFIG\n from cmds.cli_option import (AVAILABLE_CLI_OPTIONS, ARGS_COMMON, ARGS_TRADE,\n  SYNC_ARGS, ARGS_COMMON_OPTIMIZE)\n \n@@ -16,9 +16,8 @@\n \n ## position argument\n POSITION_ARGS = ['trade', 'backtesting', 'sync']\n \n-logger = logging.getLogger(__name__)\n \n \n class Arguments:\n     \"\"\"\n"
                 }
             ],
             "date": 1652430177595,

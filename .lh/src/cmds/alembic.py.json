@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 14,
+            "activePatchIndex": 15,
             "patches": [
                 {
                     "date": 1652431033958,
@@ -64,6 +64,10 @@
                 {
                     "date": 1652446003388,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n alembic_cfg = Config(relative_alembic_path)\n \n # alembic cmd alembic.command.revision\n @click.command()\n-@click.option('-c')\n+@click.option('-c', '--config')\n \n"
+                },
+                {
+                    "date": 1652502765708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,4 +8,7 @@\n # alembic cmd alembic.command.revision\n @click.command()\n @click.option('-c', '--config')\n \n+@click.group()\n+def cmd():\n+    \n\\ No newline at end of file\n"
                 }
             ],
             "date": 1652431033958,

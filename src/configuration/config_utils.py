@@ -1,10 +1,9 @@
-import logging
+from loguru import logger
 from typing import Any, Dict
 
 from bot.enums import RunMode
 from .configuration import Configuration
 
-logger = logging.getLogger(__name__)
 
 def setup_utils_configuration(args: Dict[str, Any], runmode: RunMode) -> Dict[str, Any]:
     """

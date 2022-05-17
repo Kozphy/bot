@@ -1,7 +1,6 @@
 """
 This module contain functions to load the configuration file
 """
-from tabnanny import check
 from yaml import load, dump
 try:
     from yaml import CLoader as Loader, CSafeLoader as CSLoader, CDumper as Dumper
@@ -9,13 +8,12 @@ except:
     from yaml import Loader, Dumper
 
 from pathlib import Path
-import logging
+from loguru import logger
 from typing import Any, Dict, Optional
 from dotenv import dotenv_values
 from exceptions import OperationalException
 from .misc import check_folder
 
-logger = logging.getLogger(__name__)
 class Load_config():
     def determine_destination(self, args):
         logger.debug('determine where is user_data_dir')

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/exchanges/kucoin/trade/trade.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1652771607916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1652771607916,
+            "name": "Commit-0",
+            "content": "from kucoin.client import Trade\n\n\nclass Kucoin_trade(Trade):\n    def __init__(self, api=None, secrect=None, passphrase=None):\n        self.__api = api\n        self.__secrect = secrect\n        self.__passphrase = passphrase\n        # self.market = None\n        # self.User = None\n        # self.trade = None\n        # self.client = None\n    "
+        }
+    ]
+}

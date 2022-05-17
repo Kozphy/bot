@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/alembic_scripts/utils/load_config_alembic.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1652689833537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652771393260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n from configuration.load_config import Load_config\n from exceptions import OperationalException\n-import logging\n try:\n     from yaml import CLoader as Loader, CSafeLoader as CSLoader, CDumper as Dumper\n except:\n     from yaml import Loader, Dumper\n"
+                }
+            ],
+            "date": 1652689833537,
+            "name": "Commit-0",
+            "content": "from configuration.load_config import Load_config\nfrom exceptions import OperationalException\nimport logging\ntry:\n    from yaml import CLoader as Loader, CSafeLoader as CSLoader, CDumper as Dumper\nexcept:\n    from yaml import Loader, Dumper\nfrom loguru import logger\n\n\n\nclass Load_config_alembic(Load_config):\n    def determine_destination(self):\n        logger.debug('Determine destination in alembic env')\n        from constants import (USERDATA_DIR_alembic_autogenerate,\n        DEFAULT_CONFIG_DIR_NAME, DEFAULT_CONFIG_NAME)\n        user_dir = USERDATA_DIR_alembic_autogenerate\n        config_dir_name = DEFAULT_CONFIG_DIR_NAME\n        config_name = DEFAULT_CONFIG_NAME\n\n        destination = f\"{user_dir}/{config_dir_name}/{config_name}\"\n        return destination \n\n    def load_yaml_setting(self):\n        logger.debug('Parse yaml file in alembic env')\n        destination = self.determine_destination()\n\n        try:\n            with open(destination, 'r') as f:\n                yaml = CSLoader(stream=f).get_data()\n            return yaml\n        except FileNotFoundError as e:\n            logger.error(e)\n            raise OperationalException(f\"file {destination} not found\")\n\n\n\n        "
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/configuration/configuration.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1652771486625,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652772376952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n         \"\"\"\n         Return the config. Use this method to get the bot config\n         :return: Dict: Bot config\n         \"\"\"\n-        logging.debug(\"Checking config whether exist\")\n+        logger.debug(\"Checking config whether exist\")\n         if self._config is None:\n             self._config = self.load_config()\n \n         return self._config, self._yaml\n@@ -48,9 +48,9 @@\n         The command permission is args > .env > config\n         While cmd permission biggger than another one, override smaller one.\n         \"\"\"\n \n-        logging.debug('merge config and yaml')\n+        logger.debug('merge config and yaml')\n         configured = deepcopy(args)\n         self._process_logging_options(configured)\n         self._process_api(configured)\n         self._process_sync_options(configured)\n"
+                }
+            ],
+            "date": 1652771486625,
+            "name": "Commit-0",
+            "content": "\"\"\"\nThis module contains the configuration class\n\"\"\"\nfrom loguru import logger\nfrom pathlib import Path\nfrom typing import Any, Dict, List, Optional\nfrom configuration.load_config import Load_config\nfrom copy import deepcopy\nfrom configuration.process_options import Process_options\n\n\nclass Configuration(Process_options):\n    \"\"\"\n    Class to read and init bot configuration\n    Reuse this class for the bot, every script that required configuration\n    \"\"\"\n    def __init__(self, args):\n        super().__init__(args)\n\n    def get_config(self) -> Dict[str, Any]:\n        \"\"\"\n        Return the config. Use this method to get the bot config\n        :return: Dict: Bot config\n        \"\"\"\n        logging.debug(\"Checking config whether exist\")\n        if self._config is None:\n            self._config = self.load_config()\n\n        return self._config, self._yaml\n        \n        \n    def load_config(self) -> Dict[str, Any]:\n\n        \"\"\"\n        Extract information from sys.argv and load the bot configuration\n        :return: Configuration dictionary\n        \"\"\"    \n            \n        # Load all configs\n        load = Load_config()\n        self._yaml = load.load_yaml_setting(self._args)\n        configured = self._merge_args_yaml(self._args) \n\n        return configured\n\n    def _merge_args_yaml(self, args:Dict[str,Any]) -> Dict[str, Any]:\n        \"\"\"\n        The command permission is args > .env > config\n        While cmd permission biggger than another one, override smaller one.\n        \"\"\"\n\n        logging.debug('merge config and yaml')\n        configured = deepcopy(args)\n        self._process_logging_options(configured)\n        self._process_api(configured)\n        self._process_sync_options(configured)\n        self._process_exchange_options(configured)\n        self._process_persistece_options(configured)\n        \n        \n        return configured\n\n        \n"
+        }
+    ]
+}

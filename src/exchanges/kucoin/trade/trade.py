@@ -1,7 +1,5 @@
-import logging
 from kucoin.client import Trade
 
-logger = logging.getLogger(__name__)
 
 class Kucoin_trade(Trade):
     def __init__(self, api=None, secrect=None, passphrase=None):

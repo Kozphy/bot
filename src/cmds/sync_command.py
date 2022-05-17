@@ -1,4 +1,4 @@
-import logging
+from loguru import logger
 from typing import Any, Dict, List
 from exchanges.kucoin.client import Client
 from exchanges import Exchange
@@ -8,7 +8,6 @@ import sys
 import asyncio
 import pprint
 
-logger = logging.getLogger(__name__)
 
 
 def start_sync(ctx: Dict[str, Any]) -> None:

@@ -10,7 +10,7 @@ __version__ = '0.0.1'
 ## bot
 BOT_NAME = 'bot'
 BOT_DIR = f'{Path.cwd()}/src'
-BOT_DIR_alembic_autogenerate = f'{Path.cwd().parent}/{BOT_NAME}'
+BOT_DIR_alembic_autogenerate = f'{Path.cwd()}'
 
 
 ## cmd Directory and name

@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1652325535126,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652771708785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,10 @@\n Main bot script.\n Read the documentation to know what cli arguments you need.\n \"\"\"\n \n-import logging\n+\n+from loguru import logger\n import sys\n from typing import Any, List\n \n from cmds.arguments import Arguments\n@@ -23,9 +24,8 @@\n if sys.version_info < (3, 9, 12):\n     sys.exit('short bot requires Python version >= 3.9.12')\n \n \n-logger = logging.getLogger('short_bot')        \n \n args = None\n \n def main(sysargv: List[str] = None) -> None:\n"
                 }
             ],
             "date": 1652325535126,

@@ -3,7 +3,6 @@ Definition of cli arguments used in arguments.py
 """
 
 from pathlib import Path
-import logging
 from constants import (BOT_DIR, CONFIG, LOG_FILE, DEFAULT_USERDATA_DIR, BOT_NAME,
 DEFAULT_DB_DIR, DEFAULT_DB_PORT,DEFAULT_DB_NAME, DEFAULT_DB_USER, DEFAULT_DB_HOST, __version__)
 from datetime import datetime
@@ -16,7 +15,7 @@ class Arg:
         self.cli = args
         self.kwargs = kwargs
 
-# deprecated
+# Deprecated
 def valid_date(s):
     try:
         return datetime.strptime(s, "%Y-%M-%D")

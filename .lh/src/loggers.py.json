@@ -1,0 +1,230 @@
+{
+    "sourceFile": "src/loggers.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 53,
+            "patches": [
+                {
+                    "date": 1652689885438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652689914987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,12 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n \n-\n LOGFORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'\n LOGFORMATED = Formatter(LOGFORMAT)\n \n+logger.add(sys.stderr, format=LOGFORMAT, level='INFO')\n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n     Set logging level for third party libraries\n     :return None\n"
+                },
+                {
+                    "date": 1652690943320,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n \n-LOGFORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'\n+LOGFORMAT = '{YYYY} - %(name)s - %(levelname)s - %(message)s'\n LOGFORMATED = Formatter(LOGFORMAT)\n \n logger.add(sys.stderr, format=LOGFORMAT, level='INFO')\n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n"
+                },
+                {
+                    "date": 1652690984047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n \n-LOGFORMAT = '{YYYY} - %(name)s - %(levelname)s - %(message)s'\n+LOGFORMAT = '{time:YYYY-MM-DD at HH:mm:ss} - %(name)s - %(levelname)s - %(message)s'\n LOGFORMATED = Formatter(LOGFORMAT)\n \n logger.add(sys.stderr, format=LOGFORMAT, level='INFO')\n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n"
+                },
+                {
+                    "date": 1652691307416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n \n-LOGFORMAT = '{time:YYYY-MM-DD at HH:mm:ss} - %(name)s - %(levelname)s - %(message)s'\n+LOGFORMAT = '{time:YYYY-MM-DD at HH:mm:ss} - %(name)s - %(levelname)s - {message}'\n LOGFORMATED = Formatter(LOGFORMAT)\n \n logger.add(sys.stderr, format=LOGFORMAT, level='INFO')\n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n"
+                },
+                {
+                    "date": 1652691320787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n \n-LOGFORMAT = '{time:YYYY-MM-DD at HH:mm:ss} - %(name)s - %(levelname)s - {message}'\n+LOGFORMAT = '{time:YYYY-MM-DD at HH:mm:ss} - {name} - {levelname} - {message}'\n LOGFORMATED = Formatter(LOGFORMAT)\n \n logger.add(sys.stderr, format=LOGFORMAT, level='INFO')\n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n"
+                },
+                {
+                    "date": 1652691547128,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n \n-LOGFORMAT = '{time:YYYY-MM-DD at HH:mm:ss} - {name} - {levelname} - {message}'\n+LOGFORMAT = '{time:YYYY-MM-DD at HH:mm:ss} - {name} - {level} - {message}'\n LOGFORMATED = Formatter(LOGFORMAT)\n \n logger.add(sys.stderr, format=LOGFORMAT, level='INFO')\n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n"
+                },
+                {
+                    "date": 1652691607748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n # from bot.constants import LOG_FILE\n import os\n \n LOGFORMAT = '{time:YYYY-MM-DD at HH:mm:ss} - {name} - {level} - {message}'\n-LOGFORMATED = Formatter(LOGFORMAT)\n+# LOGFORMATED = Formatter(LOGFORMAT)\n \n logger.add(sys.stderr, format=LOGFORMAT, level='INFO')\n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652691640724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,8 @@\n \n LOGFORMAT = '{time:YYYY-MM-DD at HH:mm:ss} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n-logger.add(sys.stderr, format=LOGFORMAT, level='INFO')\n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n     Set logging level for third party libraries\n     :return None\n@@ -26,8 +25,10 @@\n     logging handlers after the real initialization, because we don't know which\n     ones the user desires beforehand.\n     \"\"\"\n \n+\n+    logger.add(sys.stderr, format=LOGFORMAT, level='INFO')\n     logging.basicConfig(\n         level=logging.DEBUG,\n         format=LOGFORMAT,\n         handlers=[logging.StreamHandler(sys.stderr)]\n"
+                },
+                {
+                    "date": 1652691654886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,14 +26,14 @@\n     ones the user desires beforehand.\n     \"\"\"\n \n \n-    logger.add(sys.stderr, format=LOGFORMAT, level='INFO')\n-    logging.basicConfig(\n-        level=logging.DEBUG,\n-        format=LOGFORMAT,\n-        handlers=[logging.StreamHandler(sys.stderr)]\n-    )\n+    logger.add(sys.stderr, format=LOGFORMAT, level='DEBUG')\n+    # logging.basicConfig(\n+    #     level=logging.DEBUG,\n+    #     format=LOGFORMAT,\n+    #     handlers=[logging.StreamHandler(sys.stderr)]\n+    # )\n     \n     \n # TODO: confuse this function doing\n def get_existing_handlers(handlertype):\n"
+                },
+                {
+                    "date": 1652691830756,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,11 +24,14 @@\n     Early messages (before proper logging setup) will therefore only be sent to additional\n     logging handlers after the real initialization, because we don't know which\n     ones the user desires beforehand.\n     \"\"\"\n+    handler=[\n+        dict(sink=sys.stderr, format=LOGFORMAT, level='DEBUG'),\n+    ]\n \n+    logger.configure(handlers=handler)\n \n-    logger.add(sys.stderr, format=LOGFORMAT, level='DEBUG')\n     # logging.basicConfig(\n     #     level=logging.DEBUG,\n     #     format=LOGFORMAT,\n     #     handlers=[logging.StreamHandler(sys.stderr)]\n"
+                },
+                {
+                    "date": 1652691837656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     handler=[\n         dict(sink=sys.stderr, format=LOGFORMAT, level='DEBUG'),\n     ]\n \n-    logger.configure(handlers=handler)\n+    logger.configure(handler)\n \n     # logging.basicConfig(\n     #     level=logging.DEBUG,\n     #     format=LOGFORMAT,\n"
+                },
+                {
+                    "date": 1652691849209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,14 +38,14 @@\n     # )\n     \n     \n # TODO: confuse this function doing\n-def get_existing_handlers(handlertype):\n-    \"\"\"\n-    Returns Existing handler or None (if the handler has not yet been added to the root handlers).\n-    \"\"\"\n+# def get_existing_handlers(handlertype):\n+#     \"\"\"\n+#     Returns Existing handler or None (if the handler has not yet been added to the root handlers).\n+#     \"\"\"\n \n-    return next((h for h in logging.root.handers if isinstance(h, handlertype)), None)\n+#     return next((h for h in logging.root.handers if isinstance(h, handlertype)), None)\n \n def setup_logging(config: Dict[str, Any]) -> None:\n     \"\"\"\n     Process -v/--verbose, --logfile options\n"
+                },
+                {
+                    "date": 1652707324088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n     logging handlers after the real initialization, because we don't know which\n     ones the user desires beforehand.\n     \"\"\"\n     handler=[\n-        dict(sink=sys.stderr, format=LOGFORMAT, level='DEBUG'),\n+        dict(sink=sys.stderr, format=LOGFORMAT, level='DEBUG', serialize=True),\n     ]\n \n     logger.configure(handler)\n \n"
+                },
+                {
+                    "date": 1652772271284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     handler=[\n         dict(sink=sys.stderr, format=LOGFORMAT, level='DEBUG', serialize=True),\n     ]\n \n-    logger.configure(handler)\n+    logger.configure(**handler)\n \n     # logging.basicConfig(\n     #     level=logging.DEBUG,\n     #     format=LOGFORMAT,\n"
+                },
+                {
+                    "date": 1652772297180,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,11 +24,13 @@\n     Early messages (before proper logging setup) will therefore only be sent to additional\n     logging handlers after the real initialization, because we don't know which\n     ones the user desires beforehand.\n     \"\"\"\n-    handler=[\n-        dict(sink=sys.stderr, format=LOGFORMAT, level='DEBUG', serialize=True),\n-    ]\n+    config = {\n+        handler=[\n+            dict(sink=sys.stderr, format=LOGFORMAT, level='DEBUG', serialize=True),\n+        ]\n+    }\n \n     logger.configure(**handler)\n \n     # logging.basicConfig(\n"
+                },
+                {
+                    "date": 1652772307080,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n     logging handlers after the real initialization, because we don't know which\n     ones the user desires beforehand.\n     \"\"\"\n     config = {\n-        handler=[\n+        \"handlers\"=[\n             dict(sink=sys.stderr, format=LOGFORMAT, level='DEBUG', serialize=True),\n         ]\n     }\n \n"
+                },
+                {
+                    "date": 1652772323869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,11 +25,11 @@\n     logging handlers after the real initialization, because we don't know which\n     ones the user desires beforehand.\n     \"\"\"\n     config = {\n-        \"handlers\"=[\n+        \"handlers\" : [\n             dict(sink=sys.stderr, format=LOGFORMAT, level='DEBUG', serialize=True),\n-        ]\n+        ],\n     }\n \n     logger.configure(**handler)\n \n"
+                },
+                {
+                    "date": 1652772337996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n             dict(sink=sys.stderr, format=LOGFORMAT, level='DEBUG', serialize=True),\n         ],\n     }\n \n-    logger.configure(**handler)\n+    logger.configure(**config)\n \n     # logging.basicConfig(\n     #     level=logging.DEBUG,\n     #     format=LOGFORMAT,\n"
+                },
+                {
+                    "date": 1652772536597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,8 +70,8 @@\n         logging.root.addHandler(handler_rf)\n         # print(logging.root.handle)\n \n \n-    logging.root.setLevel(logging.INFO if verbosity < 1 else logging.DEBUG)\n+    logging.root.setLevel(logger.INFO if verbosity < 1 else logger.DEBUG)\n     # print(logging.root.handle)\n     logger.info(f'Verbosity set to {verbosity}')\n \n"
+                },
+                {
+                    "date": 1652772596517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,10 +54,15 @@\n     \"\"\"\n     # print(config) \n     # Log level\n     verbosity = config['verbosity']\n+    print(verbosity)\n     # logging.root.anddHandler()\n     logfile = config.get('logfile')\n+    print('\\n')\n+    print(logfile)\n+    exit()\n+\n     if logfile:\n         # handler_rf = get_existing_handlers(RotatingFileHandler)\n         # print(logfile)\n         handler_rf = RotatingFileHandler(logfile, \n"
+                },
+                {
+                    "date": 1652772743388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     ones the user desires beforehand.\n     \"\"\"\n     config = {\n         \"handlers\" : [\n-            dict(sink=sys.stderr, format=LOGFORMAT, level='DEBUG', serialize=True),\n+            dict(sink=sys.stderr, format=LOGFORMAT, level='DEBUG', serialize=False),\n         ],\n     }\n \n     logger.configure(**config)\n"
+                },
+                {
+                    "date": 1652772972098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n \n-LOGFORMAT = '{time:YYYY-MM-DD at HH:mm:ss} - {name} - {level} - {message}'\n+LOGFORMAT = '{time:HH:mm:ss} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652772994916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n \n-LOGFORMAT = '{time:HH:mm:ss} - {name} - {level} - {message}'\n+LOGFORMAT = '{time:ddd HH:mm:ss} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652773156228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n \n-LOGFORMAT = '{time:ddd HH:mm:ss} - {name} - {level} - {message}'\n+LOGFORMAT = '{time:YYYY:MM:DD HH:mm:ss} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652773176968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n \n-LOGFORMAT = '{time:YYYY:MM:DD HH:mm:ss} - {name} - {level} - {message}'\n+LOGFORMAT = '{time:YYYY/MM/DD HH:mm:ss} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652773286017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,10 @@\n from logging.handlers import RotatingFileHandler\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n-\n-LOGFORMAT = '{time:YYYY/MM/DD HH:mm:ss} - {name} - {level} - {message}'\n+asctime = '%(asctime)s'\n+LOGFORMAT = '{time:asctime} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652773298816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n asctime = '%(asctime)s'\n-LOGFORMAT = '{time:asctime} - {name} - {level} - {message}'\n+LOGFORMAT = '{asctime} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652773315797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n from logging.handlers import RotatingFileHandler\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n-asctime = '%(asctime)s'\n+\n LOGFORMAT = '{asctime} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n"
+                },
+                {
+                    "date": 1652773336891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,10 @@\n from logging.handlers import RotatingFileHandler\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n-\n-LOGFORMAT = '{asctime} - {name} - {level} - {message}'\n+asctime = ''\n+LOGFORMAT = '{time:asctime} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652773394997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,10 @@\n from logging.handlers import RotatingFileHandler\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n-asctime = ''\n-LOGFORMAT = '{time:asctime} - {name} - {level} - {message}'\n+\n+LOGFORMAT = '{time:MM DD HH:mm:ss YYYY} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652773451168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n \n-LOGFORMAT = '{time:MM DD HH:mm:ss YYYY} - {name} - {level} - {message}'\n+LOGFORMAT = '{time:MM/DD HH:mm:ss YYYY} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652773484397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n \n-LOGFORMAT = '{time:MM/DD HH:mm:ss YYYY} - {name} - {level} - {message}'\n+LOGFORMAT = '{time:YYYY-MM-DD HH:mm:ss} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652773531459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n \n-LOGFORMAT = '{time:YYYY-MM-DD HH:mm:ss} - {name} - {level} - {message}'\n+LOGFORMAT = '{time:YYYY-MM-DD HH:mm:ss,SSS} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652773581819,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n \n-LOGFORMAT = '{time:YYYY-MM-DD HH:mm:ss,SSS} - {name} - {level} - {message}'\n+LOGFORMAT = '{time:YYYY-MM-DD HH:mm:ss,SSSS} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652773609737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n \n-LOGFORMAT = '{time:YYYY-MM-DD HH:mm:ss,SSSS} - {name} - {level} - {message}'\n+LOGFORMAT = '{time:YYYY-MM-DD HH:mm:ss,SSS} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652773675684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,10 @@\n from logging.handlers import RotatingFileHandler\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n-\n-LOGFORMAT = '{time:YYYY-MM-DD HH:mm:ss,SSS} - {name} - {level} - {message}'\n+ASCTIME = 'YYYY-MM-DD HH:mm:ss,SSS'\n+LOGFORMAT = 'f{time:ASCTIME} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652773681638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n ASCTIME = 'YYYY-MM-DD HH:mm:ss,SSS'\n-LOGFORMAT = 'f{time:ASCTIME} - {name} - {level} - {message}'\n+LOGFORMAT = '{time:ASCTIME} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652773798059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,10 @@\n from logging.handlers import RotatingFileHandler\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n-ASCTIME = 'YYYY-MM-DD HH:mm:ss,SSS'\n-LOGFORMAT = '{time:ASCTIME} - {name} - {level} - {message}'\n+ASCTIME = ''\n+LOGFORMAT = '{time:YYYY-MM-DD HH:mm:ss,SSS} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n     \"\"\"\n"
+                },
+                {
+                    "date": 1652773854548,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,8 @@\n from logging.handlers import RotatingFileHandler\n from typing import Any, Dict\n # from bot.constants import LOG_FILE\n import os\n-ASCTIME = ''\n LOGFORMAT = '{time:YYYY-MM-DD HH:mm:ss,SSS} - {name} - {level} - {message}'\n # LOGFORMATED = Formatter(LOGFORMAT)\n \n def _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n@@ -59,9 +58,8 @@\n     # logging.root.anddHandler()\n     logfile = config.get('logfile')\n     print('\\n')\n     print(logfile)\n-    exit()\n \n     if logfile:\n         # handler_rf = get_existing_handlers(RotatingFileHandler)\n         # print(logfile)\n"
+                },
+                {
+                    "date": 1652774155080,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,8 +60,9 @@\n     print('\\n')\n     print(logfile)\n \n     if logfile:\n+        logger.add(\"logfile\", rotation='10MB')\n         # handler_rf = get_existing_handlers(RotatingFileHandler)\n         # print(logfile)\n         handler_rf = RotatingFileHandler(logfile, \n                                         maxBytes=1024*1024*10,\n"
+                },
+                {
+                    "date": 1652774692768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n     print('\\n')\n     print(logfile)\n \n     if logfile:\n-        logger.add(\"logfile\", rotation='10MB')\n+        logger.add(logfile, rotation='10MB')\n         # handler_rf = get_existing_handlers(RotatingFileHandler)\n         # print(logfile)\n         handler_rf = RotatingFileHandler(logfile, \n                                         maxBytes=1024*1024*10,\n"
+                },
+                {
+                    "date": 1652774861638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n     print('\\n')\n     print(logfile)\n \n     if logfile:\n-        logger.add(logfile, rotation='10MB')\n+        logger.add(logfile, level='DEBUG', format=LOGFORMAT, rotation='10MB')\n         # handler_rf = get_existing_handlers(RotatingFileHandler)\n         # print(logfile)\n         handler_rf = RotatingFileHandler(logfile, \n                                         maxBytes=1024*1024*10,\n"
+                },
+                {
+                    "date": 1652774883188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,11 +69,11 @@\n                                         backupCount=5\n                                         )\n \n         # print(handler_rf)\n-        handler_rf.setFormatter(LOGFORMATED)\n-        logging.root.addHandler(handler_rf)\n-        # print(logging.root.handle)\n+        # handler_rf.setFormatter(LOGFORMATED)\n+        # logging.root.addHandler(handler_rf)\n+        # .handle)\n \n \n     logging.root.setLevel(logger.INFO if verbosity < 1 else logger.DEBUG)\n     # print(logging.root.handle)\n"
+                },
+                {
+                    "date": 1652774931768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,10 @@\n     print('\\n')\n     print(logfile)\n \n     if logfile:\n-        logger.add(logfile, level='DEBUG', format=LOGFORMAT, rotation='10MB')\n+        logger.add(logfile, level='DEBUG', format=LOGFORMAT,\n+        , rotation='10MB')\n         # handler_rf = get_existing_handlers(RotatingFileHandler)\n         # print(logfile)\n         handler_rf = RotatingFileHandler(logfile, \n                                         maxBytes=1024*1024*10,\n"
+                },
+                {
+                    "date": 1652776190738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,15 +61,15 @@\n     print(logfile)\n \n     if logfile:\n         logger.add(logfile, level='DEBUG', format=LOGFORMAT,\n-        , rotation='10MB')\n+         rotation='10MB')\n         # handler_rf = get_existing_handlers(RotatingFileHandler)\n         # print(logfile)\n-        handler_rf = RotatingFileHandler(logfile, \n-                                        maxBytes=1024*1024*10,\n-                                        backupCount=5\n-                                        )\n+        # handler_rf = RotatingFileHandler(logfile, \n+        #                                 maxBytes=1024*1024*10,\n+        #                                 backupCount=5\n+        #                                 )\n \n         # print(handler_rf)\n         # handler_rf.setFormatter(LOGFORMATED)\n         # logging.root.addHandler(handler_rf)\n"
+                },
+                {
+                    "date": 1652776804000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n         # handler_rf.setFormatter(LOGFORMATED)\n         # logging.root.addHandler(handler_rf)\n         # .handle)\n \n-\n+    logger = logger.patch()\n     logging.root.setLevel(logger.INFO if verbosity < 1 else logger.DEBUG)\n     # print(logging.root.handle)\n     logger.info(f'Verbosity set to {verbosity}')\n \n"
+                },
+                {
+                    "date": 1652777138137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,10 +58,12 @@\n     # logging.root.anddHandler()\n     logfile = config.get('logfile')\n     print('\\n')\n     print(logfile)\n+    loglevel = 'DEBUG' if verbosity > 0 else 'INFO'\n \n     if logfile:\n+\n         logger.add(logfile, level='DEBUG', format=LOGFORMAT,\n          rotation='10MB')\n         # handler_rf = get_existing_handlers(RotatingFileHandler)\n         # print(logfile)\n"
+                },
+                {
+                    "date": 1652777212522,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n     # logging.root.anddHandler()\n     logfile = config.get('logfile')\n     print('\\n')\n     print(logfile)\n-    loglevel = 'DEBUG' if verbosity > 0 else 'INFO'\n+    loglevel = 'INFO' if verbosity < 1 else 'DEBUG'\n \n     if logfile:\n \n         logger.add(logfile, level='DEBUG', format=LOGFORMAT,\n"
+                },
+                {
+                    "date": 1652777231367,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n     loglevel = 'INFO' if verbosity < 1 else 'DEBUG'\n \n     if logfile:\n \n-        logger.add(logfile, level='DEBUG', format=LOGFORMAT,\n+        logger.add(logfile, level=loglevel, format=LOGFORMAT,\n          rotation='10MB')\n         # handler_rf = get_existing_handlers(RotatingFileHandler)\n         # print(logfile)\n         # handler_rf = RotatingFileHandler(logfile, \n@@ -76,9 +76,7 @@\n         # handler_rf.setFormatter(LOGFORMATED)\n         # logging.root.addHandler(handler_rf)\n         # .handle)\n \n-    logger = logger.patch()\n-    logging.root.setLevel(logger.INFO if verbosity < 1 else logger.DEBUG)\n     # print(logging.root.handle)\n     logger.info(f'Verbosity set to {verbosity}')\n \n"
+                },
+                {
+                    "date": 1652777244398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -78,5 +78,6 @@\n         # .handle)\n \n     # print(logging.root.handle)\n     logger.info(f'Verbosity set to {verbosity}')\n+    exit()\n \n"
+                },
+                {
+                    "date": 1652777368718,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -78,6 +78,5 @@\n         # .handle)\n \n     # print(logging.root.handle)\n     logger.info(f'Verbosity set to {verbosity}')\n-    exit()\n \n"
+                },
+                {
+                    "date": 1652777409488,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,13 +53,12 @@\n     \"\"\"\n     # print(config) \n     # Log level\n     verbosity = config['verbosity']\n-    print(verbosity)\n+    # print(verbosity)\n     # logging.root.anddHandler()\n     logfile = config.get('logfile')\n-    print('\\n')\n-    print(logfile)\n+    # print(logfile)\n     loglevel = 'INFO' if verbosity < 1 else 'DEBUG'\n \n     if logfile:\n \n"
+                },
+                {
+                    "date": 1652777415891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,19 +50,16 @@\n def setup_logging(config: Dict[str, Any]) -> None:\n     \"\"\"\n     Process -v/--verbose, --logfile options\n     \"\"\"\n-    # print(config) \n     # Log level\n     verbosity = config['verbosity']\n     # print(verbosity)\n-    # logging.root.anddHandler()\n     logfile = config.get('logfile')\n     # print(logfile)\n     loglevel = 'INFO' if verbosity < 1 else 'DEBUG'\n \n     if logfile:\n-\n         logger.add(logfile, level=loglevel, format=LOGFORMAT,\n          rotation='10MB')\n         # handler_rf = get_existing_handlers(RotatingFileHandler)\n         # print(logfile)\n"
+                }
+            ],
+            "date": 1652689885438,
+            "name": "Commit-0",
+            "content": "from loguru import logger\nimport sys\nfrom logging import Formatter, StreamHandler\nfrom logging.handlers import RotatingFileHandler\nfrom typing import Any, Dict\n# from bot.constants import LOG_FILE\nimport os\n\n\nLOGFORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'\nLOGFORMATED = Formatter(LOGFORMAT)\n\ndef _set_thirdlib_loggers(verbosity: int = 0, api_verbosity:str = 'info') -> None:\n    \"\"\"\n    Set logging level for third party libraries\n    :return None\n    \"\"\"\n    pass\n\n\ndef setup_logging_pre() -> None:\n    \"\"\"\n    Early setup for logging.\n    Uses DEBUG loglevel and only the Streamhandler.\n    Early messages (before proper logging setup) will therefore only be sent to additional\n    logging handlers after the real initialization, because we don't know which\n    ones the user desires beforehand.\n    \"\"\"\n\n    logging.basicConfig(\n        level=logging.DEBUG,\n        format=LOGFORMAT,\n        handlers=[logging.StreamHandler(sys.stderr)]\n    )\n    \n    \n# TODO: confuse this function doing\ndef get_existing_handlers(handlertype):\n    \"\"\"\n    Returns Existing handler or None (if the handler has not yet been added to the root handlers).\n    \"\"\"\n\n    return next((h for h in logging.root.handers if isinstance(h, handlertype)), None)\n\ndef setup_logging(config: Dict[str, Any]) -> None:\n    \"\"\"\n    Process -v/--verbose, --logfile options\n    \"\"\"\n    # print(config) \n    # Log level\n    verbosity = config['verbosity']\n    # logging.root.anddHandler()\n    logfile = config.get('logfile')\n    if logfile:\n        # handler_rf = get_existing_handlers(RotatingFileHandler)\n        # print(logfile)\n        handler_rf = RotatingFileHandler(logfile, \n                                        maxBytes=1024*1024*10,\n                                        backupCount=5\n                                        )\n\n        # print(handler_rf)\n        handler_rf.setFormatter(LOGFORMATED)\n        logging.root.addHandler(handler_rf)\n        # print(logging.root.handle)\n\n\n    logging.root.setLevel(logging.INFO if verbosity < 1 else logging.DEBUG)\n    # print(logging.root.handle)\n    logger.info(f'Verbosity set to {verbosity}')\n\n"
+        }
+    ]
+}

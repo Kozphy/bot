@@ -1,5 +1,5 @@
+from loguru import logger
 from distutils.command.config import config
-import logging
 from .misc import check_folder
 from loggers import setup_logging
 from typing import Any, Dict, List, Optional
@@ -7,7 +7,6 @@ from pathlib import PurePath
 import pprint
 from enums import RunMode
 
-logger = logging.getLogger(__name__)
 
 
 class Process_options:

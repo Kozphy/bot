@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/configuration/misc.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1652771518437,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1652771518437,
+            "name": "Commit-0",
+            "content": "from pathlib import Path\nfrom loguru import logger\n\n\ndef check_folder(folder) -> None:\n    ## if log folder not exists create one\n\n    if not Path(folder).exists():\n        logger.info(f\"Creating {folder}, which not exists\")\n        Path(folder).mkdir(parents=True)\n    return\n\n\n"
+        }
+    ]
+}

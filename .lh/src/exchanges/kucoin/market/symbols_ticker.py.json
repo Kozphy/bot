@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/exchanges/kucoin/market/symbols_ticker.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1652771293796,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652771309132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,14 @@\n import logging\n-from logru\n+from loguru import logger\n import re\n import aiohttp\n from exceptions import BotException\n import numpy as np\n import time\n from .market_api import Kucoin_market\n from  exchanges.utils.misc import convert_symbols_to_request_format\n \n-logger = logging.getLogger(__name__)\n \n class Symbols_Ticker(Kucoin_market):\n     def get_accept_pairs(self, reg=\"\\S+-USDT$\", currency_pair=\"USDS\"):\n         \"\"\"\n"
+                },
+                {
+                    "date": 1652771598059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-import logging\n from loguru import logger\n import re\n import aiohttp\n from exceptions import BotException\n"
+                }
+            ],
+            "date": 1652771293796,
+            "name": "Commit-0",
+            "content": "import logging\nfrom logru\nimport re\nimport aiohttp\nfrom exceptions import BotException\nimport numpy as np\nimport time\nfrom .market_api import Kucoin_market\nfrom  exchanges.utils.misc import convert_symbols_to_request_format\n\nlogger = logging.getLogger(__name__)\n\nclass Symbols_Ticker(Kucoin_market):\n    def get_accept_pairs(self, reg=\"\\S+-USDT$\", currency_pair=\"USDS\"):\n        \"\"\"\n        filter out pairs which exchnage allow\n        :return filtered pairs :list\n        \"\"\"\n        symbols = self.configured['symbols']\n        pairs = self.get_symbol_list(currency_pair)\n        origin_pairs = [pair['name'] for pair in pairs]\n        r = re.compile(reg)\n        # TODO: not very understand why this work\n        pairs_done = list(filter(r.match, origin_pairs))\n        self.check_accept_pairs(symbols, pairs_done)\n\n        return pairs_done\n\n    def check_accept_pairs(self, symbols, accept_pairs) -> None:\n        \"\"\"\n        check if pairs is valid\n        :return None\n        \"\"\"\n        # start = time.time()\n        Not_accept = []\n        for symbol in symbols:\n            symbol = symbol.split('/')\n            symbol = symbol[0] + '-' + symbol[1]\n            if symbol not in accept_pairs:\n                Not_accept.append(symbol)\n\n        if len(Not_accept) > 0:\n            raise(BotException(f\"{Not_accept} not accept pair in exchange\"))\n\n        return None\n\n        # stop = time.time()\n        # print('Time: ', stop - start)\n    \n\n    \n"
+        }
+    ]
+}

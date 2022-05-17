@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 8,
             "patches": [
                 {
                     "date": 1652359248348,
@@ -36,6 +36,10 @@
                 {
                     "date": 1652426279728,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n         '12h': '12hour',\n         '1d': '1day',\n         '1w': '1week',\n     }\n+    \n     # symbols, timeframe, startAt, endAt, is_sandbox=False\n     def __init__(self, configured, is_sandbox=False):\n         self.market = Market()\n         self.exchange = configured['session']\n"
+                },
+                {
+                    "date": 1652771333959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,9 @@\n-import logging\n+from loguru import logger\n from kucoin.client import Market\n import asyncio\n from exchanges.utils.misc import isodate_to_unixtime, convert_symbols_to_request_format\n \n-logger = logging.getLogger(__name__)\n \n class Kucoin_market():\n     timeframe_format = {\n         '1m': '1min',\n@@ -20,9 +19,9 @@\n         '12h': '12hour',\n         '1d': '1day',\n         '1w': '1week',\n     }\n-    \n+\n     # symbols, timeframe, startAt, endAt, is_sandbox=False\n     def __init__(self, configured, is_sandbox=False):\n         self.market = Market()\n         self.exchange = configured['session']\n"
                 }
             ],
             "date": 1652359248348,

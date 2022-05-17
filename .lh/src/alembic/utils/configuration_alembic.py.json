@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/alembic/utils/configuration_alembic.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1652523766576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1652523766576,
+            "name": "Commit-0",
+            "content": "from configuration import Configuration\nfrom alembic.utils.load_config_alembic import Load_config_alembic\nfrom typing import Dict, Any\nimport logging\nfrom copy import deepcopy\n\nlogger = logging.getLogger(__name__)\n\nclass Configuration_alembic(Configuration):\n    def __init__(self):\n        self.db_para = None\n\n    def get_config(self) -> Dict[str, Any]:\n        logger.debug(\"Checking alembic config whether exist in --autogenerate mode\")\n        if self.db_para is None:\n            self.db_para = self.load_config()\n        return self.db_para\n        \n    def load_config(self) -> Dict[str, Any]:\n        \"\"\"\n        Extract information from sys.argv and load the bot configuration\n        :return: Configuration dictionary\n        \"\"\"    \n        # Load all configs\n        load = Load_config_alembic()\n        yaml = load.load_yaml_setting()\n        yaml_copy = deepcopy(yaml)\n        db_para = self._process_persistece_options(yaml_copy)\n        return db_para\n\n    def _process_persistece_options(self, yaml):\n        logger.debug(\"Processing persistence options in alembic env in --autogenerate mode\")\n        # TODO: write another function for alembic autogenerate \n        persistence = yaml['persistence']\n        db_para = {\n            'db': persistence['db'],\n            'user': persistence['user'],\n            'password': persistence['password'],\n            'host': persistence['host'],\n            'dbname':persistence['name'],\n            'port': persistence['port'],\n        }\n        return db_para"
+        }
+    ]
+}

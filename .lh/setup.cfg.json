@@ -1,0 +1,42 @@
+{
+    "sourceFile": "setup.cfg",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1652500658616,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652500685266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,5 +21,5 @@\n console_scripts = \n     script_test = cmds.cmd_test:cli\n     sync = cmds.sync_command:sync\n     entry = cmds.entry:cli\n-    click_state_test = cmds.click_state\n\\ No newline at end of file\n+    click_state_test = cmds.click_state:cli\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652500693255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,5 +21,5 @@\n console_scripts = \n     script_test = cmds.cmd_test:cli\n     sync = cmds.sync_command:sync\n     entry = cmds.entry:cli\n-    click_state_test = cmds.click_state:cli\n\\ No newline at end of file\n+    click_state_test = cmds.click_state:cmd1\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652502798006,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,5 +21,6 @@\n console_scripts = \n     script_test = cmds.cmd_test:cli\n     sync = cmds.sync_command:sync\n     entry = cmds.entry:cli\n-    click_state_test = cmds.click_state:cmd1\n\\ No newline at end of file\n+    click_state_test = cmds.click_state:cmd1\n+    alembic_cmd = cmds.alembic\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652502807276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,5 +22,5 @@\n     script_test = cmds.cmd_test:cli\n     sync = cmds.sync_command:sync\n     entry = cmds.entry:cli\n     click_state_test = cmds.click_state:cmd1\n-    alembic_cmd = cmds.alembic\n\\ No newline at end of file\n+    alembic_cmd = cmds.alembic:cli\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652502873608,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,5 +22,5 @@\n     script_test = cmds.cmd_test:cli\n     sync = cmds.sync_command:sync\n     entry = cmds.entry:cli\n     click_state_test = cmds.click_state:cmd1\n-    alembic_cmd = cmds.alembic:cli\n\\ No newline at end of file\n+    alembic_cmd = cmds.alembic_cmds:cli\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652502905307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,5 +22,5 @@\n     script_test = cmds.cmd_test:cli\n     sync = cmds.sync_command:sync\n     entry = cmds.entry:cli\n     click_state_test = cmds.click_state:cmd1\n-    alembic_cmd = cmds.alembic_cmds:cli\n\\ No newline at end of file\n+    alembic_cmds = cmds.alembic_cmds:cli\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1652500658616,
+            "name": "Commit-0",
+            "content": "# from setuptools import setup, find_packages\n# from .constants import BOT_NAME, CMD_NAME1, CMD_1\n\n[metadata]\nname = attr:BOT_NAME\nversion = 0.0.1\n\n[options]\npackage_dir=\n    =src\npackages = find:\ninstall_requires = \n    Click\ninclude_package_data=True\n\n[options.packages.find]\nwhere=src\ninclude = *\n\n[options.entry_points]\nconsole_scripts = \n    script_test = cmds.cmd_test:cli\n    sync = cmds.sync_command:sync\n    entry = cmds.entry:cli\n    click_state_test = cmds.click_state"
+        }
+    ]
+}

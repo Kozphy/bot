@@ -5047,3 +5047,11 @@ NameError: name 'grpc_kline' is not defined
 2022-05-13 14:47:55,652 - loggers - INFO - Verbosity set to 0
 2022-05-13 14:51:59,060 - loggers - INFO - Verbosity set to 0
 2022-05-13 15:31:24,136 - loggers - INFO - Verbosity set to 0
+2022-05-17 16:47:26,398 - loggers - INFO - Verbosity set to 0
+2022-05-17 16:48:14,681 - loggers - INFO - Verbosity set to 2
+2022-05-17 16:48:20,290 - loggers - INFO - Verbosity set to 1
+2022-05-17 16:49:30,769 - loggers - INFO - Verbosity set to 1
+2022-05-17 16:49:30,769 - configuration.process_options - DEBUG - process api options
+2022-05-17 16:49:30,770 - configuration.process_options - DEBUG - process sync options
+2022-05-17 16:49:30,770 - configuration.process_options - DEBUG - process exchange options
+2022-05-17 16:49:30,770 - configuration.process_options - DEBUG - process persistence options

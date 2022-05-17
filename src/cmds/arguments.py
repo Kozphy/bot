@@ -6,7 +6,7 @@ import click
 import argparse
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-import logging
+from loguru import logger
 # from bot.constants import CONFIG
 from cmds.cli_option import (AVAILABLE_CLI_OPTIONS, ARGS_COMMON, ARGS_TRADE,
  SYNC_ARGS, ARGS_COMMON_OPTIMIZE)
@@ -17,7 +17,6 @@ from cmds.cli_option import (AVAILABLE_CLI_OPTIONS, ARGS_COMMON, ARGS_TRADE,
 ## position argument
 POSITION_ARGS = ['trade', 'backtesting', 'sync']
 
-logger = logging.getLogger(__name__)
 
 
 class Arguments:

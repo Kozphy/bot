@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/persistence/engine.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1652771636563,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1652771636563,
+            "name": "Commit-0",
+            "content": "\"\"\"\nContain database metaclass\n\"\"\"\nfrom sqlalchemy import create_engine\n\n\n\nlogger = logging.getLogger(__name__)\n\nsupport_databases = {\n    'MYSQL': \"mysql+mysqldb://\"\n}\n\nsupport_ssl = ['MYSQL']\n\ndef init_db(db, user, password, host, dbname, port, charset=\"utf8mb4\", ssl=False, echo=True, future=True) -> None:\n        \"\"\"Initialize the database engine\"\"\"\n        db = db.upper()\n\n        if db not in support_databases:\n            raise Exception(\"Database not supported\")\n        try:\n            db_url = f\"{support_databases[db]}{user}:{password}@{host}:{port}/{dbname}?charset={charset}\"\n\n            if db not in support_ssl or ssl == False:\n                engine = create_engine(db_url, echo=echo, future=future)\n                return engine\n\n            # TODO: not set now, need to set\n            connect_args ={\n                \"ssl\": {\n                    \"ssl_ca\": \"/etc/mysql/ca-cert.pem\",\n                    \"ssl_cert\": \"/etc/mysql/client-cert.pem\",\n                    \"ssl_key\": \"/etc/mysql/client-key.pem\"\n                }\n            }\n\n            engine = create_engine(db_url, connect_args, echo=echo, future=future)\n            return engine\n            \n        except Exception as e:\n            logger.error(e)\n            raise Exception(\"Database connection failed\")\n\n"
+        }
+    ]
+}

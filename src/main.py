@@ -6,7 +6,8 @@ Main bot script.
 Read the documentation to know what cli arguments you need.
 """
 
-import logging
+
+from loguru import logger
 import sys
 from typing import Any, List
 
@@ -23,8 +24,6 @@ import sys
 if sys.version_info < (3, 9, 12):
     sys.exit('short bot requires Python version >= 3.9.12')
 
-
-logger = logging.getLogger('short_bot')        
 
 args = None
 

@@ -3,11 +3,8 @@ from logging.config import fileConfig
 from sqlalchemy import engine_from_config, pool
 from alembic import context
 from pathlib import Path
-# context.config.set_main_option('prepend_sys_path', str(Path.cwd()))
-import sys
-sys.path.append(str(Path.cwd().parent))
-# print(sys.path)
-from alembic.configuration_alembic import Configuration_alembic
+
+from alembic_scripts.utils.configuration_alembic import Configuration_alembic
 from persistence.migrations import init_db_url
 from persistence.models import metadata_obj
 
@@ -25,7 +22,7 @@ config = context.config
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = [metadata_obj]
+target_metadata = metadata_obj
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
@@ -39,7 +36,7 @@ def get_db_url():
         configured = c.get_config()
         url = init_db_url(**configured)
         config.set_main_option('sqlalchemy.url', url)
-        print('In autogenerate mode url is :' + url)
+        print('In autogenerate mode url is: ' + url)
     return None
     
 def run_migrations_offline():
@@ -74,7 +71,6 @@ def run_migrations_online():
     and associate a connection with the context.
 
     """
-
     connectable = engine_from_config(
         config.get_section(config.config_ini_section),
         prefix="sqlalchemy.",
@@ -91,8 +87,10 @@ def run_migrations_online():
         
 # if in --autogenerate mode detect yaml file, catch the config
 if hasattr(config.cmd_opts, 'autogenerate'):
+    # print(config.cmd_opts)
+    # print(config.get_context())
+    # exit()
     get_db_url()
-print(config.get_context())
 
 if context.is_offline_mode():
     run_migrations_offline()

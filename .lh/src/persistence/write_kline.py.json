@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/persistence/write_kline.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1652771673735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652771680015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n+from loguru import logger\n from sqlalchemy import insert\n from .models import kline_table\n \n \n+\n def kline_to_database(engine, data):\n     \"\"\"\n     Insert data to database\n     \"\"\"\n"
+                }
+            ],
+            "date": 1652771673735,
+            "name": "Commit-0",
+            "content": "from sqlalchemy import insert\nfrom .models import kline_table\n\n\ndef kline_to_database(engine, data):\n    \"\"\"\n    Insert data to database\n    \"\"\"\n    print(engine)\n    print(data)\n    # kline = convert_kline_format(data)\n    # print(data)\n    # print(engine)\n    # exit()\n\n\n\n    # stmt = insert(kline_table).Values()\n\n    # connect and insert\n    # with engine.connect() as conn:\n        \ndef convert_kline_format(data):\n    \"\"\"\n    Convert kline format\n    \"\"\"\n    # print(data)"
+        }
+    ]
+}

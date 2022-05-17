@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/constants.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1652527561202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1652527561202,
+            "name": "Commit-0",
+            "content": "\"\"\"\nbot constants\n\"\"\"\n\nfrom typing import List, Tuple\nfrom pathlib import Path\nfrom exchanges.kucoin import Kucoin\n__version__ = '0.0.1'\n\n## bot\nBOT_NAME = 'bot'\nBOT_DIR = f'{Path.cwd()}/src'\nBOT_DIR_alembic_autogenerate = f'{Path.cwd()}'\n\n\n## cmd Directory and name\nCMD_DIR = f'{BOT_DIR}/cmd'\nCMD_NAME1 = 'scripts'\nCMD_1 = f'{CMD_DIR}/{CMD_NAME1}'\n\n\n## user data dir\nDEFAULT_USERDATA_DIR_NAME = 'user_data'\nDEFAULT_USERDATA_DIR = f'{BOT_DIR}/{DEFAULT_USERDATA_DIR_NAME}'\nUSERDATA_DIR_alembic_autogenerate = f'{BOT_DIR_alembic_autogenerate}/{DEFAULT_USERDATA_DIR_NAME}'\n\n## alembic\nALEMBIC_CONFIG_FILE = f'{BOT_DIR}/alembic.ini'\n\n## database \nDEFAULT_DB_USER = 'root'\nDEFAULT_DB_HOST = 'localhost'\nDEFAULT_DB_DIR_NAME = 'db'\nDEFAULT_DB_NAME = 'test'\nDEFAULT_DB_DIR = f'{DEFAULT_USERDATA_DIR}/{DEFAULT_DB_DIR_NAME}'\nDATABASE = f'{DEFAULT_DB_DIR}/{DEFAULT_DB_NAME}'\nDEFAULT_DB_PORT = 8080\n\n## config file\nDEFAULT_CONFIG_DIR_NAME = 'config'\nDEFAULT_CONFIG_NAME = 'config.yaml'\nDEFAULT_CONFIG_DIR = f'{DEFAULT_USERDATA_DIR}/{DEFAULT_CONFIG_NAME}'\nCONFIG = f'{DEFAULT_CONFIG_DIR}/{DEFAULT_CONFIG_NAME}'\n\n## logfile\nDEFAULT_LOG_FILE_DIR_NAME = 'log'\nDEFAULT_LOG_FILE_NAME = 'bot_record'\nDEFAULT_LOG_FILE_DIR = f'{BOT_DIR}/{DEFAULT_LOG_FILE_DIR_NAME}'\nLOG_FILE = f'{DEFAULT_LOG_FILE_DIR}/{DEFAULT_LOG_FILE_NAME}'\n\n## exchange\nDEFAUT_EXCHANGE = 'kucoin'\nsupport_exchange_api = {\n     'kucoin': Kucoin\n}\nsupport_bbgo_grpc = ['kucoin', 'binance', 'ftx', 'max', 'okex']\n\n## .env\nDEFAUT_ENV = '.env'\n\n"
+        }
+    ]
+}

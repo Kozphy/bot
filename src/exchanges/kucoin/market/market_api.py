@@ -1,9 +1,8 @@
-import logging
+from loguru import logger
 from kucoin.client import Market
 import asyncio
 from exchanges.utils.misc import isodate_to_unixtime, convert_symbols_to_request_format
 
-logger = logging.getLogger(__name__)
 
 class Kucoin_market():
     timeframe_format = {

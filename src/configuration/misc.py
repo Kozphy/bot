@@ -1,7 +1,6 @@
 from pathlib import Path
-import logging
+from loguru import logger
 
-logger = logging.getLogger(__name__)
 
 def check_folder(folder) -> None:
     ## if log folder not exists create one

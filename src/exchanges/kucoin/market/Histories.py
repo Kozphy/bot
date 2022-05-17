@@ -1,4 +1,4 @@
-import logging
+from loguru import logger
 import aiohttp
 from .market_api import Kucoin_market
 import asyncio
@@ -11,7 +11,6 @@ from typing import List
 from .data.kline import KLine
 from .data.error import ErrorMessage
 
-logger = logging.getLogger(__name__)
 
 class Histories(Kucoin_market):
     async def get_klines(self) -> List[KLine]:

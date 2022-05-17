@@ -2,9 +2,7 @@ from sqlalchemy import (Column, Table, MetaData,
                         Integer, String, DateTime,Boolean, PrimaryKeyConstraint)
 from sqlalchemy.dialects.mysql import NUMERIC as MysqlNumeric
 from sqlalchemy.types import VARCHAR, NUMERIC
-import logging
 
-logger = logging.getLogger(__name__)
 
 metadata_obj = MetaData()
 

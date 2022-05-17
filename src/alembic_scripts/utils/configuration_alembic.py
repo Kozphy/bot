@@ -1,10 +1,9 @@
 from configuration import Configuration
-from alembic.load_config_alembic import Load_config_alembic
+from alembic_scripts.utils.load_config_alembic import Load_config_alembic
 from typing import Dict, Any
-import logging
+from loguru import logger
 from copy import deepcopy
 
-logger = logging.getLogger(__name__)
 
 class Configuration_alembic(Configuration):
     def __init__(self):

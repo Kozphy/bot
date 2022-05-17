@@ -1,0 +1,166 @@
+{
+    "sourceFile": "src/cmds/alembic_cmds.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 37,
+            "patches": [
+                {
+                    "date": 1652502882444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652502890526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,6 +9,8 @@\n @click.command()\n @click.option('-c', '--config')\n \n @click.group()\n+@pass_context()\n def cli():\n+    pass\n     \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652502912231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,7 @@\n @click.command()\n @click.option('-c', '--config')\n \n @click.group()\n-@pass_context()\n def cli():\n     pass\n     \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652503129296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,10 @@\n relative_alembic_path= Path.cwd().parent / 'alembic.ini'\n alembic_cfg = Config(relative_alembic_path)\n \n # alembic cmd alembic.command.revision\n-@click.command()\n-@click.option('-c', '--config')\n \n @click.group()\n+@pass_context\n def cli():\n     pass\n     \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652503150303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,7 @@\n # alembic cmd alembic.command.revision\n \n @click.group()\n @pass_context\n-def cli():\n+def cli(ctx):\n     pass\n     \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652503169936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,8 @@\n \n # alembic cmd alembic.command.revision\n \n @click.group()\n-@pass_context\n+@clickpass_context\n def cli(ctx):\n     pass\n     \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652511802185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,8 @@\n \n # alembic cmd alembic.command.revision\n \n @click.group()\n-@clickpass_context\n+@click.pass_context\n def cli(ctx):\n     pass\n     \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652511941576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,9 @@\n @click.group()\n @click.pass_context\n def cli(ctx):\n     pass\n-    \n\\ No newline at end of file\n+\n+@click.command()\n+@click.pass_context\n+def revision(ctx):\n+    command.revision(alembic_cfg)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652511953781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,8 @@\n @click.pass_context\n def cli(ctx):\n     pass\n \n-@click.command()\n+@cli.command()\n @click.pass_context\n def revision(ctx):\n     command.revision(alembic_cfg)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652511998807,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,5 +14,9 @@\n \n @cli.command()\n @click.pass_context\n def revision(ctx):\n-    command.revision(alembic_cfg)\n\\ No newline at end of file\n+    command.revision(alembic_cfg)\n+\n+@cli.command()\n+@click.pass_context\n+def \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652512035826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,5 +18,6 @@\n     command.revision(alembic_cfg)\n \n @cli.command()\n @click.pass_context\n-def \n\\ No newline at end of file\n+def upgrade(ctx):\n+    command.upgrade(alembic_cfg)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652512216797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,8 @@\n @click.pass_context\n def revision(ctx):\n     command.revision(alembic_cfg)\n \n-@cli.command()\n+@cli.command(context_settings=dict(i))\n @click.pass_context\n def upgrade(ctx):\n     command.upgrade(alembic_cfg)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652512277117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,8 @@\n @click.pass_context\n def revision(ctx):\n     command.revision(alembic_cfg)\n \n-@cli.command(context_settings=dict(i))\n+@cli.command()\n @click.pass_context\n def upgrade(ctx):\n     command.upgrade(alembic_cfg)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652512308615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,11 @@\n @click.pass_context\n def cli(ctx):\n     pass\n \n-@cli.command()\n+@cli.command(context_settings=dict(\n+    ignore_unknown_options=True,\n+))\n @click.pass_context\n def revision(ctx):\n     command.revision(alembic_cfg)\n \n"
+                },
+                {
+                    "date": 1652513041320,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n \n @cli.command(context_settings=dict(\n     ignore_unknown_options=True,\n ))\n+@click.option('--message', '-m', default=None, help='Revision message')\n @click.pass_context\n def revision(ctx):\n     command.revision(alembic_cfg)\n \n"
+                },
+                {
+                    "date": 1652517367438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,13 +14,10 @@\n \n @cli.command(context_settings=dict(\n     ignore_unknown_options=True,\n ))\n-@click.option('--message', '-m', default=None, help='Revision message')\n-@click.pass_context\n-def revision(ctx):\n-    command.revision(alembic_cfg)\n \n+\n @cli.command()\n @click.pass_context\n def upgrade(ctx):\n     command.upgrade(alembic_cfg)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652517402298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,13 +11,21 @@\n @click.pass_context\n def cli(ctx):\n     pass\n \n-@cli.command(context_settings=dict(\n-    ignore_unknown_options=True,\n-))\n+# @cli.command(context_settings=dict(\n+#     ignore_unknown_options=True,\n+# ))\n+# @click.option('--message', '-m', default=None, help='Revision message')\n+# @click.pass_context\n+# def revision(ctx):\n\\ No newline at end of file\n+#     command.revision(alembic_cfg)\n \n+@cli.command()\n+@click.pass_context\n+def upgrade(ctx):\n+    command.upgrade(alembic_cfg)\n \n @cli.command()\n @click.pass_context\n-def upgrade(ctx):\n-    command.upgrade(alembic_cfg)\n+def downgrade(ctx):\n+    command.downgrade(alembic_cfg)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652517542806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,11 @@\n # def revision(ctx):\n #     command.revision(alembic_cfg)\n \n @cli.command()\n+@click.option('--revision', type=str)\n+@click.option('--sql', type=bool, default=False)\n+@click.option('--tag'type=Optional[str], default=None)\n @click.pass_context\n def upgrade(ctx):\n     command.upgrade(alembic_cfg)\n \n"
+                },
+                {
+                    "date": 1652517574429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n @click.option('--revision', type=str)\n @click.option('--sql', type=bool, default=False)\n @click.option('--tag'type=Optional[str], default=None)\n @click.pass_context\n-def upgrade(ctx):\n+def upgrade(ctx, revision, sql, tag):\n     command.upgrade(alembic_cfg)\n \n @cli.command()\n @click.pass_context\n"
+                },
+                {
+                    "date": 1652517583768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n @click.option('--sql', type=bool, default=False)\n @click.option('--tag'type=Optional[str], default=None)\n @click.pass_context\n def upgrade(ctx, revision, sql, tag):\n-    command.upgrade(alembic_cfg)\n+    command.upgrade(alembic_cfg,revision, sql, tag)\n \n @cli.command()\n @click.pass_context\n def downgrade(ctx):\n"
+                },
+                {
+                    "date": 1652517592537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n \n @cli.command()\n @click.option('--revision', type=str)\n @click.option('--sql', type=bool, default=False)\n-@click.option('--tag'type=Optional[str], default=None)\n+@click.option('--tag',type=Optional[str], default=None)\n @click.pass_context\n def upgrade(ctx, revision, sql, tag):\n     command.upgrade(alembic_cfg,revision, sql, tag)\n \n"
+                },
+                {
+                    "date": 1652517602596,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n from alembic.config import Config\n from alembic import command\n import click\n from pathlib import Path\n+from typing import Optional\n relative_alembic_path= Path.cwd().parent / 'alembic.ini'\n alembic_cfg = Config(relative_alembic_path)\n \n # alembic cmd alembic.command.revision\n@@ -22,9 +23,9 @@\n \n @cli.command()\n @click.option('--revision', type=str)\n @click.option('--sql', type=bool, default=False)\n-@click.option('--tag',type=Optional[str], default=None)\n+@click.option('--tag', type=Optional[str], default=None)\n @click.pass_context\n def upgrade(ctx, revision, sql, tag):\n     command.upgrade(alembic_cfg,revision, sql, tag)\n \n"
+                },
+                {
+                    "date": 1652517615604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n from alembic import command\n import click\n from pathlib import Path\n from typing import Optional\n+\n relative_alembic_path= Path.cwd().parent / 'alembic.ini'\n alembic_cfg = Config(relative_alembic_path)\n \n # alembic cmd alembic.command.revision\n@@ -29,7 +30,10 @@\n def upgrade(ctx, revision, sql, tag):\n     command.upgrade(alembic_cfg,revision, sql, tag)\n \n @cli.command()\n+@click.option('--revision', type=str)\n+@click.option('--sql', type=bool, default=False)\n+@click.option('--tag', type=Optional[str], default=None)\n @click.pass_context\n def downgrade(ctx):\n     command.downgrade(alembic_cfg)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652517635829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,6 +34,6 @@\n @click.option('--revision', type=str)\n @click.option('--sql', type=bool, default=False)\n @click.option('--tag', type=Optional[str], default=None)\n @click.pass_context\n-def downgrade(ctx):\n+def downgrade(ctx, revision, sql, tag):\n     command.downgrade(alembic_cfg)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652517647422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,13 +27,13 @@\n @click.option('--sql', type=bool, default=False)\n @click.option('--tag', type=Optional[str], default=None)\n @click.pass_context\n def upgrade(ctx, revision, sql, tag):\n-    command.upgrade(alembic_cfg,revision, sql, tag)\n+    command.upgrade(alembic_cfg, revision, sql, tag)\n \n @cli.command()\n @click.option('--revision', type=str)\n @click.option('--sql', type=bool, default=False)\n @click.option('--tag', type=Optional[str], default=None)\n @click.pass_context\n def downgrade(ctx, revision, sql, tag):\n\\ No newline at end of file\n-    command.downgrade(alembic_cfg)\n+    command.downgrade(alembic_cfg, revision, sql, tag)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652523935890,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n from alembic.config import Config\n-from alembic import command\n+from alembic_src import command\n import click\n from pathlib import Path\n from typing import Optional\n \n"
+                },
+                {
+                    "date": 1652524072412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n from alembic.config import Config\n-from alembic_src import command\n+from scripts import command\n import click\n from pathlib import Path\n from typing import Optional\n \n"
+                },
+                {
+                    "date": 1652524092649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n from alembic.config import Config\n-from scripts import command\n+from alembic_scripts import command\n import click\n from pathlib import Path\n from typing import Optional\n \n"
+                },
+                {
+                    "date": 1652529423942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,15 +6,15 @@\n \n relative_alembic_path= Path.cwd().parent / 'alembic.ini'\n alembic_cfg = Config(relative_alembic_path)\n \n-# alembic cmd alembic.command.revision\n \n @click.group()\n @click.pass_context\n def cli(ctx):\n     pass\n \n+# alembic cmd alembic.command.revision\n # @cli.command(context_settings=dict(\n #     ignore_unknown_options=True,\n # ))\n # @click.option('--message', '-m', default=None, help='Revision message')\n"
+                },
+                {
+                    "date": 1652529460941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n from alembic_scripts import command\n import click\n from pathlib import Path\n from typing import Optional\n+from persistence.migrations import \n \n relative_alembic_path= Path.cwd().parent / 'alembic.ini'\n alembic_cfg = Config(relative_alembic_path)\n \n"
+                },
+                {
+                    "date": 1652529564166,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n from alembic_scripts import command\n import click\n from pathlib import Path\n from typing import Optional\n-from persistence.migrations import \n+from persistence.migrations import migrations_upgrade, migrations_downgrade\n \n relative_alembic_path= Path.cwd().parent / 'alembic.ini'\n alembic_cfg = Config(relative_alembic_path)\n \n"
+                },
+                {
+                    "date": 1652529571346,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n from alembic_scripts import command\n import click\n from pathlib import Path\n from typing import Optional\n-from persistence.migrations import migrations_upgrade, migrations_downgrade\n+from persistence.migrations import migrations_update, migrations_downgrade\n \n relative_alembic_path= Path.cwd().parent / 'alembic.ini'\n alembic_cfg = Config(relative_alembic_path)\n \n"
+                },
+                {
+                    "date": 1652529576939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n from alembic_scripts import command\n import click\n from pathlib import Path\n from typing import Optional\n-from persistence.migrations import migrations_update, migrations_downgrade\n+from persistence.migrations import migrations_upgrade, migrations_downgrade\n \n relative_alembic_path= Path.cwd().parent / 'alembic.ini'\n alembic_cfg = Config(relative_alembic_path)\n \n"
+                },
+                {
+                    "date": 1652529606418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n from alembic_scripts import command\n import click\n from pathlib import Path\n from typing import Optional\n-from persistence.migrations import migrations_upgrade, migrations_downgrade\n+from persistence.migrations import migration_upgrade, migration_downgrade\n \n relative_alembic_path= Path.cwd().parent / 'alembic.ini'\n alembic_cfg = Config(relative_alembic_path)\n \n"
+                },
+                {
+                    "date": 1652529642667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n @click.option('--sql', type=bool, default=False)\n @click.option('--tag', type=Optional[str], default=None)\n @click.pass_context\n def upgrade(ctx, revision, sql, tag):\n+    migration_upgrade(alembic_cfg, revision, sql, tag)\n     command.upgrade(alembic_cfg, revision, sql, tag)\n \n @cli.command()\n @click.option('--revision', type=str)\n"
+                },
+                {
+                    "date": 1652529652358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,5 +37,6 @@\n @click.option('--sql', type=bool, default=False)\n @click.option('--tag', type=Optional[str], default=None)\n @click.pass_context\n def downgrade(ctx, revision, sql, tag):\n+    migration_downgrade(alembic_cfg)\n     command.downgrade(alembic_cfg, revision, sql, tag)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652529685871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,14 +29,14 @@\n @click.option('--tag', type=Optional[str], default=None)\n @click.pass_context\n def upgrade(ctx, revision, sql, tag):\n     migration_upgrade(alembic_cfg, revision, sql, tag)\n-    command.upgrade(alembic_cfg, revision, sql, tag)\n+    # command.upgrade(alembic_cfg, revision, sql, tag)\n \n @cli.command()\n @click.option('--revision', type=str)\n @click.option('--sql', type=bool, default=False)\n @click.option('--tag', type=Optional[str], default=None)\n @click.pass_context\n def downgrade(ctx, revision, sql, tag):\n     migration_downgrade(alembic_cfg)\n\\ No newline at end of file\n-    command.downgrade(alembic_cfg, revision, sql, tag)\n+    # command.downgrade(alembic_cfg, revision, sql, tag)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1652529748120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n # def revision(ctx):\n #     command.revision(alembic_cfg)\n \n @cli.command()\n-@click.option('--revision', type=str)\n+@click.option('--revision', type=str, default='head')\n @click.option('--sql', type=bool, default=False)\n @click.option('--tag', type=Optional[str], default=None)\n @click.pass_context\n def upgrade(ctx, revision, sql, tag):\n"
+                }
+            ],
+            "date": 1652502882444,
+            "name": "Commit-0",
+            "content": "from alembic.config import Config\nfrom alembic import command\nimport click\nfrom pathlib import Path\nrelative_alembic_path= Path.cwd().parent / 'alembic.ini'\nalembic_cfg = Config(relative_alembic_path)\n\n# alembic cmd alembic.command.revision\n@click.command()\n@click.option('-c', '--config')\n\n@click.group()\ndef cli():\n    "
+        }
+    ]
+}

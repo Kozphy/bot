@@ -1,8 +1,8 @@
-import logging
+from loguru import logger
 from sqlalchemy import insert
 from .models import kline_table
 
-logger = logging.getLogger(__name__)
+
 
 def kline_to_database(engine, data):
     """

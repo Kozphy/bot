@@ -1,0 +1,74 @@
+{
+    "sourceFile": "src/persistence/migrations.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1652523935865,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1652524072413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n from tabnanny import verbose\n # alembic\n from bot.src.constants import ALEMBIC_CONFIG_FILE\n from alembic.config import Config\n-from alembic_src import command, script\n+from scripts import command, script\n from alembic.runtime import migration\n from sqlalchemy import engine\n from sqlalchemy_utils.functions import create_database, database_exists\n \n"
+                },
+                {
+                    "date": 1652524092649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n from tabnanny import verbose\n # alembic\n from bot.src.constants import ALEMBIC_CONFIG_FILE\n from alembic.config import Config\n-from scripts import command, script\n+from alembic_scripts import command, script\n from alembic.runtime import migration\n from sqlalchemy import engine\n from sqlalchemy_utils.functions import create_database, database_exists\n \n"
+                },
+                {
+                    "date": 1652527109728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import logging\n from tabnanny import verbose\n # alembic\n-from bot.src.constants import ALEMBIC_CONFIG_FILE\n+from src.constants import ALEMBIC_CONFIG_FILE\n from alembic.config import Config\n from alembic_scripts import command, script\n from alembic.runtime import migration\n from sqlalchemy import engine\n"
+                },
+                {
+                    "date": 1652527276926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n from tabnanny import verbose\n # alembic\n from src.constants import ALEMBIC_CONFIG_FILE\n from alembic.config import Config\n-from alembic_scripts import command, script\n+from alembic import command, script\n from alembic.runtime import migration\n from sqlalchemy import engine\n from sqlalchemy_utils.functions import create_database, database_exists\n \n"
+                },
+                {
+                    "date": 1652527415976,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import logging\n-from tabnanny import verbose\n # alembic\n from src.constants import ALEMBIC_CONFIG_FILE\n from alembic.config import Config\n from alembic import command, script\n"
+                },
+                {
+                    "date": 1652529087797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,11 @@\n import logging\n # alembic\n-from src.constants import ALEMBIC_CONFIG_FILE\n+from constants import ALEMBIC_CONFIG_FILE\n from alembic.config import Config\n from alembic import command, script\n from alembic.runtime import migration\n+\n from sqlalchemy import engine\n from sqlalchemy_utils.functions import create_database, database_exists\n \n logger = logging.getLogger(__name__)\n"
+                },
+                {
+                    "date": 1652529586254,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n     db_url = f\"{support_databases[db]}{user}:{password}@{host}:{port}/{dbname}?charset={charset}\"\n \n     return db_url\n     \n-def migrations_update(configured, revision='head'):\n+def migrations_upgrade(configured, revision='head'):\n     alem_config, url = setting_alembic_cfg(configured)\n     if database_exists(url) == False:\n         create_database(url)\n         command.upgrade(alem_config, revision)\n"
+                },
+                {
+                    "date": 1652529615568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n     db_url = f\"{support_databases[db]}{user}:{password}@{host}:{port}/{dbname}?charset={charset}\"\n \n     return db_url\n     \n-def migrations_upgrade(configured, revision='head'):\n+def migration_upgrade(configured, revision='head'):\n     alem_config, url = setting_alembic_cfg(configured)\n     if database_exists(url) == False:\n         create_database(url)\n         command.upgrade(alem_config, revision)\n@@ -55,9 +55,9 @@\n     \n     # command.history(alem_config, verbose=True)\n \n # TODO: implement alembic downgrade in cmd with bot config\n-def migrations_downgrade(configured, revision='base'):\n+def migration_downgrade(configured, revision='base'):\n     alem_config, _ = setting_alembic_cfg(configured)\n     command.downgrade(alem_config, revision)\n     \n def migration_show_history(configured, rev_range='base:current', verbose='True'):\n"
+                },
+                {
+                    "date": 1652529710932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n     db_url = f\"{support_databases[db]}{user}:{password}@{host}:{port}/{dbname}?charset={charset}\"\n \n     return db_url\n     \n-def migration_upgrade(configured, revision='head'):\n+def migration_upgrade(configured, revision='head', _sql, tag):\n     alem_config, url = setting_alembic_cfg(configured)\n     if database_exists(url) == False:\n         create_database(url)\n         command.upgrade(alem_config, revision)\n"
+                },
+                {
+                    "date": 1652529736680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n     db_url = f\"{support_databases[db]}{user}:{password}@{host}:{port}/{dbname}?charset={charset}\"\n \n     return db_url\n     \n-def migration_upgrade(configured, revision='head', _sql, tag):\n+def migration_upgrade(configured, revision='head', sql, tag):\n     alem_config, url = setting_alembic_cfg(configured)\n     if database_exists(url) == False:\n         create_database(url)\n         command.upgrade(alem_config, revision)\n"
+                },
+                {
+                    "date": 1652529752997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n     db_url = f\"{support_databases[db]}{user}:{password}@{host}:{port}/{dbname}?charset={charset}\"\n \n     return db_url\n     \n-def migration_upgrade(configured, revision='head', sql, tag):\n+def migration_upgrade(configured, revision, sql, tag):\n     alem_config, url = setting_alembic_cfg(configured)\n     if database_exists(url) == False:\n         create_database(url)\n         command.upgrade(alem_config, revision)\n"
+                },
+                {
+                    "date": 1652529766737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,12 +47,12 @@\n def migration_upgrade(configured, revision, sql, tag):\n     alem_config, url = setting_alembic_cfg(configured)\n     if database_exists(url) == False:\n         create_database(url)\n-        command.upgrade(alem_config, revision)\n+        command.upgrade(alem_config, revision, sql, tag)\n     # check revirsion whether is head\n     if check_current_head(alem_config, engine.create_engine(url)) == False:\n-        command.upgrade(alem_config, revision)\n+        command.upgrade(alem_config, revision, sql, tag)\n     \n     # command.history(alem_config, verbose=True)\n \n # TODO: implement alembic downgrade in cmd with bot config\n"
+                },
+                {
+                    "date": 1652771650587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-import logging\n # alembic\n from constants import ALEMBIC_CONFIG_FILE\n from alembic.config import Config\n from alembic import command, script\n@@ -7,9 +6,8 @@\n \n from sqlalchemy import engine\n from sqlalchemy_utils.functions import create_database, database_exists\n \n-logger = logging.getLogger(__name__)\n \n support_databases = {\n     'MYSQL': \"mysql+mysqldb://\"\n }\n"
+                },
+                {
+                    "date": 1652771655915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n # alembic\n+from loguru import logger\n from constants import ALEMBIC_CONFIG_FILE\n from alembic.config import Config\n from alembic import command, script\n from alembic.runtime import migration\n"
+                }
+            ],
+            "date": 1652523935865,
+            "name": "Commit-0",
+            "content": "import logging\nfrom tabnanny import verbose\n# alembic\nfrom bot.src.constants import ALEMBIC_CONFIG_FILE\nfrom alembic.config import Config\nfrom alembic_src import command, script\nfrom alembic.runtime import migration\nfrom sqlalchemy import engine\nfrom sqlalchemy_utils.functions import create_database, database_exists\n\nlogger = logging.getLogger(__name__)\n\nsupport_databases = {\n    'MYSQL': \"mysql+mysqldb://\"\n}\n\nsupport_ssl = ['MYSQL']\n\ndef setting_alembic_cfg(configured):\n    logger.debug(\"Setting alembic context env\")\n    print(configured)\n    db_para = {\n            'db': configured['db'],\n            'user': configured['db_user'],\n            'password': configured['db_password'],\n            'host': configured['db_host'],\n            'dbname':configured['db_name'],\n            'port': configured['db_port'],\n        }\n\n    url = init_db_url(**db_para)\n    alembic_cfg = Config(ALEMBIC_CONFIG_FILE)\n    alembic_cfg.set_main_option(\"script_location\", \"./bot/alembic\")\n    alembic_cfg.set_main_option(\"sqlalchemy.url\", url)\n    return alembic_cfg, url\n\n\ndef init_db_url(db, user, password, host, dbname, port, charset=\"utf8mb4\", ssl=False, echo=True, future=True) -> str:\n    db = db.upper()\n\n    if db not in support_databases:\n        raise Exception(\"Database not supported\")\n    db_url = f\"{support_databases[db]}{user}:{password}@{host}:{port}/{dbname}?charset={charset}\"\n\n    return db_url\n    \ndef migrations_update(configured, revision='head'):\n    alem_config, url = setting_alembic_cfg(configured)\n    if database_exists(url) == False:\n        create_database(url)\n        command.upgrade(alem_config, revision)\n    # check revirsion whether is head\n    if check_current_head(alem_config, engine.create_engine(url)) == False:\n        command.upgrade(alem_config, revision)\n    \n    # command.history(alem_config, verbose=True)\n\n# TODO: implement alembic downgrade in cmd with bot config\ndef migrations_downgrade(configured, revision='base'):\n    alem_config, _ = setting_alembic_cfg(configured)\n    command.downgrade(alem_config, revision)\n    \ndef migration_show_history(configured, rev_range='base:current', verbose='True'):\n    alem_config, _ = setting_alembic_cfg(configured)\n    command.history(alem_config, verbose=verbose)\n\ndef migration_revision(configured, message='', autogenerate='True'):\n    alem_config, _ = setting_alembic_cfg(configured)\n    command.revision(alem_config, message=message, autogenerate=autogenerate)\n\ndef check_current_head(alembic_cfg, connectable):\n    # type: (Config, engine.Engine) -> bool\n    directory = script.ScriptDirectory.from_config(alembic_cfg)\n    with connectable.begin() as connection:\n        context = migration.MigrationContext.configure(connection)\n        return set(context.get_current_heads()) == set(directory.get_heads())"
+        }
+    ]
+}
