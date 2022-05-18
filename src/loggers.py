@@ -24,13 +24,15 @@ def setup_logging_pre() -> None:
     logging handlers after the real initialization, because we don't know which
     ones the user desires beforehand.
     """
-    config = {
-        "handlers" : [
-            dict(sink=sys.stderr, format=LOGFORMAT, level='DEBUG', serialize=False),
-        ],
-    }
+    # config = {
+    #     "handlers" : [
+    #         dict(sink=sys.stderr, format=LOGFORMAT, level='DEBUG', serialize=False),
+    #     ],
+    # }
 
-    logger.configure(**config)
+    # logger.configure(**config)
+    logger.remove()
+    logger.add(sys.stderr,level='DEBUG')
 
     # logging.basicConfig(
     #     level=logging.DEBUG,
@@ -57,6 +59,9 @@ def setup_logging(config: Dict[str, Any]) -> None:
     logfile = config.get('logfile')
     # print(logfile)
     loglevel = 'INFO' if verbosity < 1 else 'DEBUG'
+    logger.remove()
+    logger.add(sys.stderr, level=loglevel)
+    
 
     if logfile:
         logger.add(logfile, level=loglevel, format=LOGFORMAT,

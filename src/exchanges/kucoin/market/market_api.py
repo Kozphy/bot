@@ -28,7 +28,7 @@ class Kucoin_market():
         self.symbols = convert_symbols_to_request_format(configured['symbols'], '-')
         self.startAt = isodate_to_unixtime(configured['startAt'])
         self.endAt = isodate_to_unixtime(configured['endAt'])
-        self.timeframe = configured['timeframes']
+        self.timeframes = configured['timeframes']
         self.configured = configured
         self.is_sandbox = is_sandbox
 

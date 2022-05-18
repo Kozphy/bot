@@ -159,3 +159,6 @@ pushgit.sh
 
 # user_data
 user_data/
+
+.lh/
+.lh/**

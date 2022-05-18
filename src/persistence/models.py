@@ -11,9 +11,9 @@ metadata_obj = MetaData()
 # metadata_obj.reflect()
 # klines table
 kline_table = Table("kline", metadata_obj,
-    Column('Symbol', String),
+    Column('Symbol', VARCHAR(20), nullable=False),
     Column('exchange', VARCHAR(10), nullable=False),
-    Column('timeframe', String),
+    Column('timeframe', VARCHAR(3), nullable=False),
     Column('start_time', DateTime, primary_key=True),
     Column('open', NUMERIC(20,8), nullable=False),
     Column('close',  NUMERIC(20,8), nullable=False),

@@ -110,7 +110,6 @@ class Process_options:
             # print(args, '\n')
             # print(config_persistence, '\n')
 
-            # TODO: refactor
             # config
             if args['db_path'] == DEFAULT_DB_DIR and DEFAULT_DB_DIR != config_db_path:
                 persistence['db_path'] = config_persistence['path'] 

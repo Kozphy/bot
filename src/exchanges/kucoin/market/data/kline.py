@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Dict, Any
 
-from exchanges.kucoin.market.data.utils.convert import (parse_float, 
+from exchanges.kucoin.market.data.utils.convert import (parse_number, 
 from_unix_timestamp_to_localdate)
 
 @dataclass
@@ -27,12 +27,12 @@ class KLine:
         return cls(
             exchange=data['exchange'],
             symbol=data['symbol'],
-            open=parse_float(data['open']),
-            high=parse_float(data['high']),
-            low=parse_float(data['low']),
-            close=parse_float(data['close']),
-            volume=parse_float(data['volume']),
-            amount=parse_float(data['amount']),
+            open=parse_number(data['open']),
+            high=parse_number(data['high']),
+            low=parse_number(data['low']),
+            close=parse_number(data['close']),
+            volume=parse_number(data['volume']),
+            amount=parse_number(data['amount']),
             start_time=from_unix_timestamp_to_localdate(data['start_time']),
             end_time=from_unix_timestamp_to_localdate(data['end_time']),
             closed=data['close'],

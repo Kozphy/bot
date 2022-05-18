@@ -7,16 +7,16 @@ from pathlib import Path
 from alembic_scripts.utils.configuration_alembic import Configuration_alembic
 from persistence.migrations import init_db_url
 from persistence.models import metadata_obj
+from loguru import logger
 
-# logger = logging.getLogger(__name__)
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
-# if config.config_file_name is not None:
-#     fileConfig(config.config_file_name)
+if config.config_file_name is not None:
+    fileConfig(config.config_file_name)
 
 # add your model's MetaData object here
 # for 'autogenerate' support
@@ -30,13 +30,15 @@ target_metadata = metadata_obj
 # ... etc.
 
 def get_db_url():
-    autogenerate = vars(config.cmd_opts)['autogenerate']
-    if autogenerate:
+    execute_ph = str(Path.cwd()).split('/')[-1]
+    ## if not programmatically execute
+    if execute_ph == 'src':
         c = Configuration_alembic()
         configured = c.get_config()
         url = init_db_url(**configured)
         config.set_main_option('sqlalchemy.url', url)
-        print('In autogenerate mode url is: ' + url)
+        logger.debug(f"db url is {url}")
+        # print('In autogenerate mode url is: ' + url)
     return None
     
 def run_migrations_offline():
@@ -85,12 +87,8 @@ def run_migrations_online():
         with context.begin_transaction():
             context.run_migrations()
         
-# if in --autogenerate mode detect yaml file, catch the config
-if hasattr(config.cmd_opts, 'autogenerate'):
-    # print(config.cmd_opts)
-    # print(config.get_context())
-    # exit()
-    get_db_url()
+# cmd's db_url separate from db_url of programmatic migration
+get_db_url()
 
 if context.is_offline_mode():
     run_migrations_offline()

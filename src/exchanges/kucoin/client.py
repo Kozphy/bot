@@ -2,6 +2,7 @@ from kucoin.client import Market
 from datetime import datetime, timedelta
 import math
 from exchanges.kucoin.client_services import Client_services
+import pprint
 
 class Client:
     def __init__(self, configured, is_sandbox=False):
@@ -15,6 +16,7 @@ class Client:
 
         # check accecpt pair and get all pairs list
         self.accepted_pairs = client.get_accept_pairs()
+        # pprint.pprint(self.accepted_pairs)
 
         return client 
 

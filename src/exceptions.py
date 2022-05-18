@@ -76,3 +76,8 @@ class StrategyError(BotException):
     Errors with custom user-code detected.
     Usually caused by errors in the strategy.
     """
+
+class CallApiError(BotException):
+    """
+    calling api error
+    """

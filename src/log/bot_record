@@ -5055,3 +5055,141 @@ NameError: name 'grpc_kline' is not defined
 2022-05-17 16:49:30,770 - configuration.process_options - DEBUG - process sync options
 2022-05-17 16:49:30,770 - configuration.process_options - DEBUG - process exchange options
 2022-05-17 16:49:30,770 - configuration.process_options - DEBUG - process persistence options
+2022-05-17 19:58:43,202 - loggers - INFO - Verbosity set to 0
+2022-05-17 20:15:16,912 - loggers - INFO - Verbosity set to 0
+2022-05-17 20:15:17,485 - exchanges.kucoin.market.Histories - ERROR - 'Exception' object is not iterable
+2022-05-17 20:21:17,939 - loggers - INFO - Verbosity set to 0
+2022-05-17 20:27:19,281 - loggers - INFO - Verbosity set to 0
+2022-05-17 20:34:05,498 - loggers - INFO - Verbosity set to 0
+2022-05-17 20:38:32,908 - loggers - INFO - Verbosity set to 0
+2022-05-17 20:40:20,069 - loggers - INFO - Verbosity set to 0
+2022-05-17 20:44:33,294 - loggers - INFO - Verbosity set to 0
+2022-05-17 20:59:58,264 - loggers - INFO - Verbosity set to 0
+2022-05-17 20:59:58,543 - exchanges.kucoin.market.Histories - ERROR - 'Exception' object is not iterable
+2022-05-17 21:12:20,011 - loggers - INFO - Verbosity set to 0
+2022-05-17 21:12:32,555 - loggers - INFO - Verbosity set to 0
+2022-05-17 21:12:52,346 - loggers - INFO - Verbosity set to 0
+2022-05-17 21:13:10,483 - loggers - INFO - Verbosity set to 0
+2022-05-17 21:13:41,796 - loggers - INFO - Verbosity set to 0
+2022-05-17 21:14:45,426 - loggers - INFO - Verbosity set to 0
+2022-05-17 21:16:07,020 - loggers - INFO - Verbosity set to 0
+2022-05-17 21:20:40,935 - loggers - INFO - Verbosity set to 0
+2022-05-17 21:23:34,079 - loggers - INFO - Verbosity set to 0
+2022-05-17 21:24:31,685 - loggers - INFO - Verbosity set to 0
+2022-05-17 21:29:31,991 - loggers - INFO - Verbosity set to 0
+2022-05-17 21:30:00,284 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:49:28,431 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:49:30,193 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:49:32,117 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:49:33,787 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:49:35,320 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:49:36,846 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:49:38,357 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:49:59,841 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:52:28,098 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:53:05,783 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:54:04,555 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:54:18,127 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:54:21,201 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:54:23,182 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:54:24,558 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:54:25,843 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:54:27,055 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:54:28,244 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:54:29,848 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:54:31,360 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:54:33,482 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:56:06,617 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:56:08,136 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:56:09,627 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:56:11,010 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:56:12,491 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:56:13,940 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:56:15,866 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:56:17,446 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:56:30,898 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:56:41,656 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:56:45,485 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:57:01,414 - loggers - INFO - Verbosity set to 0
+2022-05-17 23:57:20,849 - loggers - INFO - Verbosity set to 0
+2022-05-18 00:09:20,635 - loggers - INFO - Verbosity set to 0
+2022-05-18 00:09:29,653 - loggers - INFO - Verbosity set to 1
+2022-05-18 00:09:29,653 - configuration.process_options - DEBUG - process api options
+2022-05-18 00:09:29,653 - configuration.process_options - DEBUG - process sync options
+2022-05-18 00:09:29,654 - configuration.process_options - DEBUG - process exchange options
+2022-05-18 00:09:29,654 - configuration.process_options - DEBUG - process persistence options
+2022-05-18 00:09:29,860 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 1d kline consume time: 0.00016100000000007775
+2022-05-18 00:09:29,960 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12h kline consume time: 0.0003005999999999842
+2022-05-18 00:09:30,058 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1d kline consume time: 0.00018450000000003186
+2022-05-18 00:09:30,153 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12h kline consume time: 0.0003068000000000515
+2022-05-18 00:14:09,036 - loggers - INFO - Verbosity set to 0
+2022-05-18 00:14:12,856 - loggers - INFO - Verbosity set to 0
+2022-05-18 00:14:22,496 - loggers - INFO - Verbosity set to 0
+2022-05-18 00:16:00,492 - loggers - INFO - Verbosity set to 1
+2022-05-18 00:16:00,492 - configuration.process_options - DEBUG - process api options
+2022-05-18 00:16:00,493 - configuration.process_options - DEBUG - process sync options
+2022-05-18 00:16:00,493 - configuration.process_options - DEBUG - process exchange options
+2022-05-18 00:16:00,493 - configuration.process_options - DEBUG - process persistence options
+2022-05-18 00:16:00,736 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 1d kline consume time: 0.0001634999999999831
+2022-05-18 00:16:00,844 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12h kline consume time: 0.00031890000000001084
+2022-05-18 00:16:00,947 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1d kline consume time: 0.0001594999999999791
+2022-05-18 00:16:01,046 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12h kline consume time: 0.0003065999999999347
+2022-05-18 00:16:51,962 - loggers - INFO - Verbosity set to 1
+2022-05-18 00:16:51,962 - configuration.process_options - DEBUG - process api options
+2022-05-18 00:16:51,963 - configuration.process_options - DEBUG - process sync options
+2022-05-18 00:16:51,963 - configuration.process_options - DEBUG - process exchange options
+2022-05-18 00:16:51,963 - configuration.process_options - DEBUG - process persistence options
+2022-05-18 00:16:52,190 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 1d kline consume time: 0.00015570000000009188
+2022-05-18 00:16:52,301 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12h kline consume time: 0.0002783000000000646
+2022-05-18 00:16:52,398 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1d kline consume time: 0.0001723000000000141
+2022-05-18 00:16:52,499 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12h kline consume time: 0.00027959999999993546
+2022-05-18 00:18:13,933 - loggers - INFO - Verbosity set to 1
+2022-05-18 00:18:13,933 - configuration.process_options - DEBUG - process api options
+2022-05-18 00:18:13,934 - configuration.process_options - DEBUG - process sync options
+2022-05-18 00:18:13,934 - configuration.process_options - DEBUG - process exchange options
+2022-05-18 00:18:13,934 - configuration.process_options - DEBUG - process persistence options
+2022-05-18 00:18:14,141 - exchanges.kucoin.market.Histories - ERROR - 429-{"code":"429000","msg":"Too Many Requests"}
+2022-05-18 00:20:11,851 - loggers - INFO - Verbosity set to 1
+2022-05-18 00:20:11,852 - configuration.process_options - DEBUG - process api options
+2022-05-18 00:20:11,852 - configuration.process_options - DEBUG - process sync options
+2022-05-18 00:20:11,852 - configuration.process_options - DEBUG - process exchange options
+2022-05-18 00:20:11,852 - configuration.process_options - DEBUG - process persistence options
+2022-05-18 00:20:12,173 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 1d kline consume time: 0.00019210000000002836
+2022-05-18 00:20:12,291 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12h kline consume time: 0.0003002999999999201
+2022-05-18 00:20:12,389 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1d kline consume time: 0.00015339999999997023
+2022-05-18 00:20:12,488 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12h kline consume time: 0.0002862999999999616
+2022-05-18 15:43:14,809 - loggers - INFO - Verbosity set to 0
+2022-05-18 17:51:05,943 - loggers - INFO - Verbosity set to 0
+2022-05-18 17:51:24,010 - loggers - INFO - Verbosity set to 0
+2022-05-18 17:52:07,350 - loggers - INFO - Verbosity set to 0
+2022-05-18 17:52:19,328 - loggers - INFO - Verbosity set to 0
+2022-05-18 17:53:33,150 - loggers - INFO - Verbosity set to 0
+2022-05-18 17:53:33,356 - exchanges.kucoin.market.Histories - ERROR - 429-{"code":"429000","msg":"Too Many Requests"}
+2022-05-18 17:53:43,158 - loggers - INFO - Verbosity set to 0
+2022-05-18 17:53:43,449 - exchanges.kucoin.market.Histories - ERROR - 429-{"code":"429000","msg":"Too Many Requests"}
+2022-05-18 17:53:57,373 - loggers - INFO - Verbosity set to 0
+2022-05-18 17:54:11,346 - loggers - INFO - Verbosity set to 0
+2022-05-18 17:55:07,129 - loggers - INFO - Verbosity set to 0
+2022-05-18 17:56:14,680 - loggers - INFO - Verbosity set to 0
+2022-05-18 18:00:35,558 - loggers - INFO - Verbosity set to 0
+2022-05-18 18:00:35,897 - exchanges.kucoin.market.Histories - ERROR - 429-{"code":"429000","msg":"Too Many Requests"}
+2022-05-18 18:00:39,187 - loggers - INFO - Verbosity set to 0
+2022-05-18 18:01:45,060 - loggers - INFO - Verbosity set to 0
+2022-05-18 18:03:49,595 - loggers - INFO - Verbosity set to 0
+2022-05-18 18:04:25,025 - loggers - INFO - Verbosity set to 0
+2022-05-18 18:08:00,405 - loggers - INFO - Verbosity set to 0
+2022-05-18 18:08:37,754 - loggers - INFO - Verbosity set to 0
+2022-05-18 18:08:38,225 - exchanges.kucoin.market.Histories - ERROR - 429-{"code":"429000","msg":"Too Many Requests"}
+2022-05-18 18:08:56,906 - loggers - INFO - Verbosity set to 0
+2022-05-18 18:09:11,000 - loggers - INFO - Verbosity set to 0
+2022-05-18 18:09:34,920 - loggers - INFO - Verbosity set to 0
+2022-05-18 18:18:41,189 - loggers - INFO - Verbosity set to 0
+2022-05-18 18:24:51,013 - loggers - INFO - Verbosity set to 0
+2022-05-18 18:26:03,884 - loggers - INFO - Verbosity set to 2
+2022-05-18 18:26:03,884 - configuration.process_options - DEBUG - process api options
+2022-05-18 18:26:03,885 - configuration.process_options - DEBUG - process sync options
+2022-05-18 18:26:03,885 - configuration.process_options - DEBUG - process exchange options
+2022-05-18 18:26:03,885 - configuration.process_options - DEBUG - process persistence options
+2022-05-18 18:26:03,991 - persistence.migrations - DEBUG - upgrade database schema
+2022-05-18 18:26:03,991 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-18 18:26:03,992 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4

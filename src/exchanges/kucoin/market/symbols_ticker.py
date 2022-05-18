@@ -18,7 +18,7 @@ class Symbols_Ticker(Kucoin_market):
         pairs = self.get_symbol_list(currency_pair)
         origin_pairs = [pair['name'] for pair in pairs]
         r = re.compile(reg)
-        # TODO: not very understand why this work
+        # TODO: filter not very understand why this syntax work
         pairs_done = list(filter(r.match, origin_pairs))
         self.check_accept_pairs(symbols, pairs_done)
 
@@ -31,9 +31,8 @@ class Symbols_Ticker(Kucoin_market):
         """
         # start = time.time()
         Not_accept = []
+        symbols = convert_symbols_to_request_format(symbols, '-')
         for symbol in symbols:
-            symbol = symbol.split('/')
-            symbol = symbol[0] + '-' + symbol[1]
             if symbol not in accept_pairs:
                 Not_accept.append(symbol)
 

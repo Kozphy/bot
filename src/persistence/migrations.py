@@ -17,7 +17,8 @@ support_ssl = ['MYSQL']
 
 def setting_alembic_cfg(configured):
     logger.debug("Setting alembic context env")
-    print(configured)
+    # print(configured)
+    # exit()
     db_para = {
             'db': configured['db'],
             'user': configured['db_user'],
@@ -29,8 +30,9 @@ def setting_alembic_cfg(configured):
 
     url = init_db_url(**db_para)
     alembic_cfg = Config(ALEMBIC_CONFIG_FILE)
-    alembic_cfg.set_main_option("script_location", "./bot/alembic")
+    alembic_cfg.set_main_option("script_location", "./src/alembic_scripts")
     alembic_cfg.set_main_option("sqlalchemy.url", url)
+    logger.debug(f"db url is {url}")
     return alembic_cfg, url
 
 
@@ -43,7 +45,8 @@ def init_db_url(db, user, password, host, dbname, port, charset="utf8mb4", ssl=F
 
     return db_url
     
-def migration_upgrade(configured, revision, sql, tag):
+def migration_upgrade(configured, revision, sql=None, tag=None):
+    logger.debug('upgrade database schema')
     alem_config, url = setting_alembic_cfg(configured)
     if database_exists(url) == False:
         create_database(url)

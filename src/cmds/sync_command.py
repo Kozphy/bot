@@ -4,6 +4,7 @@ from exchanges.kucoin.client import Client
 from exchanges import Exchange
 from enums import RunMode
 from configuration import Configuration
+from persistence.migrations import migration_upgrade
 import sys
 import asyncio
 import pprint
@@ -31,8 +32,11 @@ def start_sync(ctx: Dict[str, Any]) -> None:
         # print(data)
         # migrations_update(configured)
 
+        migration_upgrade(configured, 'head')
+        exit()
         data = asyncio.run(client.get_klines())
-        pprint.pprint(data)
+
+        # pprint.pprint(data)
       
         # data = asyncio.run(client.get_trade_histories())
 

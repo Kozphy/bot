@@ -10,7 +10,7 @@ class Configuration_alembic(Configuration):
         self.db_para = None
 
     def get_config(self) -> Dict[str, Any]:
-        logger.debug("Checking alembic config whether exist in --autogenerate mode")
+        logger.debug("Checking config whether exist in alembic env")
         if self.db_para is None:
             self.db_para = self.load_config()
         return self.db_para
@@ -28,7 +28,7 @@ class Configuration_alembic(Configuration):
         return db_para
 
     def _process_persistece_options(self, yaml):
-        logger.debug("Processing persistence options in alembic env in --autogenerate mode")
+        logger.debug("Processing persistence options in alembic env")
         # TODO: write another function for alembic autogenerate 
         persistence = yaml['persistence']
         db_para = {
