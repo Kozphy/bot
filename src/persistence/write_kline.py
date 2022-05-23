@@ -1,6 +1,6 @@
 from loguru import logger
 from sqlalchemy import insert
-from .models import kline_table
+# from .mysql.kline import kline_table
 
 
 

@@ -7,27 +7,42 @@ import time
 import pprint
 from persistence.write_kline import kline_to_database
 
-from typing import List
+from typing import List, Dict, Any
+from attrs import define, field
 from .data.kline import KLine
 from .data.error import ErrorMessage
 
 
-class Histories(Kucoin_market):
+@define
+class Histories:
+    _market_api: Kucoin_market
+
+
+    @classmethod 
+    def from_api(cls, configured: Dict[str, Any], is_sandbox):
+        return cls(
+            market_api=Kucoin_market.from_config(configured, is_sandbox)
+        )
+
     async def get_klines(self) -> List[KLine]:
+        market: Kucoin_market = self._market_api
+        # print(market)
+        # exit()
+
         data = []
         # TODO: refactor
-        for symbol in self.symbols:
+        for symbol in market.symbols:
             # data.update({symbol:{}})
             req_args = {
                 'symbol': symbol,
                 'kline_type': None,
-                'startAt': self.startAt,
-                'endAt': self.endAt,
+                'startAt': market.startAt,
+                'endAt': market.endAt,
             }
 
-            for timeframe in self.timeframes:
-                req_args['kline_type'] = self.timeframe_format[timeframe]
-                res = await self.asy_to_thread(self.market.get_kline, req_args)
+            for timeframe in market.timeframes:
+                req_args['kline_type'] = market.timeframe_format[timeframe]
+                res = await market.asy_to_thread(market.get_kline, req_args)
 
                 start = time.process_time()
                 # TODO: fix to many request
@@ -38,7 +53,7 @@ class Histories(Kucoin_market):
                     # print(res)
                     for kline in res[0]:
                         ohlcv = {
-                            'exchange': self.exchange,
+                            'exchange': market.exchange,
                             'symbol': symbol,
                             'timeframe': timeframe,
                             'start_time': kline[0],
@@ -71,11 +86,13 @@ class Histories(Kucoin_market):
         return data
 
     async def get_trade_histories(self):
-        for symbol in self.symbols:
+        market: Kucoin_market = self._market_api
+
+        for symbol in market.symbols:
             req_args = {
                 'symbol': symbol
             }
-            res = await self.asy_to_thread(self.market.get_trade_histories, req_args)
+            res = await market.asy_to_thread(market.get_trade_histories, req_args)
         
         return res
 

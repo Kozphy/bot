@@ -27,7 +27,7 @@ class Configuration(Process_options):
             self._config = self.load_config()
 
         return self._config, self._yaml
-        
+    
         
     def load_config(self) -> Dict[str, Any]:
 

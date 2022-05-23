@@ -1,4 +1,4 @@
-# stop development, temporarily
+# stop development
 # Not using, currently
 from alembic.config import Config
 import click

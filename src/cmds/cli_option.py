@@ -38,7 +38,7 @@ AVAILABLE_CLI_OPTIONS = {
     # Common options
     'verbosity': Arg(
         '-v', '--verbose', 
-        help='Verbose mode (-vv for more, -vvv to get all messages).',
+        help='Verbose mode (-vv for debug message, -vvv to get all messages).',
         count=True,
         default=0,
         show_default=True,

@@ -4,7 +4,7 @@ from exchanges.kucoin.client import Client
 from exchanges import Exchange
 from enums import RunMode
 from configuration import Configuration
-from persistence.migrations import migration_upgrade
+from persistence.migrations import migration_upgrade, migration_downgrade
 import sys
 import asyncio
 import pprint
@@ -21,20 +21,23 @@ def start_sync(ctx: Dict[str, Any]) -> None:
         ctx.obj['runmode'] = RunMode.SYNC
         configured, _ = Configuration(ctx.obj).get_config()
         pprint.pprint(configured)
+        # exit()
         exchange = Exchange(configured)
         exchange = exchange.init_exchange()
         # exit()
         client = Client(configured)
         client = client.active_service()
         # print(dir(client))
-        if configured['bbgo_grpc_service']['market'] == True:
+        if configured['bbgo_grpc_services']['market'] == True:
             data = asyncio.run(client.grpc_get_kline(limit=20))
+        # exit()
         # print(data)
         # migrations_update(configured)
 
         migration_upgrade(configured, 'head')
-        exit()
-        data = asyncio.run(client.get_klines())
+        # migration_downgrade(configured)
+        # exit()
+        data = asyncio.run(client.market_services.get_klines())
 
         # pprint.pprint(data)
       

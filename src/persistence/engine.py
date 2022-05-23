@@ -4,22 +4,18 @@ Contain database metaclass
 from loguru import logger
 from sqlalchemy import create_engine
 
-
-
-logger = logging.getLogger(__name__)
-
 support_databases = {
     'MYSQL': "mysql+mysqldb://"
 }
 
 support_ssl = ['MYSQL']
 
-def init_db(db, user, password, host, dbname, port, charset="utf8mb4", ssl=False, echo=True, future=True) -> None:
+def init_db_engine(db, user, password, host, dbname, port=3306, charset="utf8mb4", ssl=False, echo=True, future=True) -> None:
         """Initialize the database engine"""
         db = db.upper()
 
         if db not in support_databases:
-            raise Exception("Database not supported")
+            raise Exception(f"{db} Database not supported")
         try:
             db_url = f"{support_databases[db]}{user}:{password}@{host}:{port}/{dbname}?charset={charset}"
 

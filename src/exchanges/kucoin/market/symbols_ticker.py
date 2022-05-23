@@ -7,15 +7,27 @@ import time
 from .market_api import Kucoin_market
 from  exchanges.utils.misc import convert_symbols_to_request_format
 
+from attrs import define, field
+from typing import Dict, Any
 
-class Symbols_Ticker(Kucoin_market):
+@define
+class Symbols_Ticker:
+    _market_api: Kucoin_market
+    
+    @classmethod
+    def from_api(cls, configured: Dict[str, Any], is_sandbox) -> Kucoin_market:
+        return cls(
+            market_api=Kucoin_market.from_config(configured, is_sandbox)
+        )
+
     def get_accept_pairs(self, reg="\S+-USDT$", currency_pair="USDS"):
         """
         filter out pairs which exchnage allow
         :return filtered pairs :list
         """
-        symbols = self.configured['symbols']
-        pairs = self.get_symbol_list(currency_pair)
+        market: Kucoin_market = self._market_api
+        symbols = market.symbols
+        pairs = market.get_symbol_list(currency_pair=currency_pair)
         origin_pairs = [pair['name'] for pair in pairs]
         r = re.compile(reg)
         # TODO: filter not very understand why this syntax work
@@ -31,7 +43,7 @@ class Symbols_Ticker(Kucoin_market):
         """
         # start = time.time()
         Not_accept = []
-        symbols = convert_symbols_to_request_format(symbols, '-')
+
         for symbol in symbols:
             if symbol not in accept_pairs:
                 Not_accept.append(symbol)

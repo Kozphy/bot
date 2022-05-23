@@ -1,6 +1,6 @@
 from datetime import datetime
 
-def convert_symbols_to_request_format(pairs, delimiter=None):
+def convert_symbols_to_request_format(pairs, in_delimiter=None, out_delimiter=None):
     """
     convert symbols to request format
     :param pairs:
@@ -8,13 +8,13 @@ def convert_symbols_to_request_format(pairs, delimiter=None):
     """
     result = []
     for pair in pairs:
-        pair = pair.split('/')
-        if delimiter is None:
+        pair = pair.split(in_delimiter)
+        if out_delimiter is None:
             pair = pair[0] + pair[1]
             result.append(pair)
             continue
 
-        pair = pair[0] + delimiter + pair[1]
+        pair = pair[0] + out_delimiter + pair[1]
         result.append(pair)
     return result
 
