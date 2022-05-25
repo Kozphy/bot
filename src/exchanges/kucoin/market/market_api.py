@@ -1,9 +1,12 @@
-from loguru import logger
-from kucoin.client import Market
-from typing import Dict, Any
+from enums import RunMode
 import asyncio
-from exchanges.utils.misc import isodate_to_unixtime, convert_symbols_to_request_format
+from typing import Dict, Any
+
+from loguru import logger
 from attrs import define, field
+from kucoin.client import Market
+from pyrate_limiter import BucketFullException, Duration, RequestRate, Limiter
+
 
 @define(slots=False)
 class Kucoin_market(Market):
@@ -13,10 +16,6 @@ class Kucoin_market(Market):
     is_v1api: bool
     timeframe_format: Dict[str, str] 
     exchange: str
-    symbols: str
-    startAt: str
-    endAt: str
-    timeframes: list
     is_sandbox: bool
 
     def __attrs_post_init__(self):
@@ -24,8 +23,9 @@ class Kucoin_market(Market):
 
 
     @classmethod
-    def from_config(cls, configured: Dict[str, Any], is_sandbox: bool):
-        apikey = configured['apikey']
+    def from_config(cls, configured: Dict[str, Any]):
+        exchange = configured['exchange']
+        apikey = exchange['apikey']
         version_api = False if apikey['version'] == 2 else True
         return cls(
             timeframe_format = cls.get_timeframe_format(),
@@ -33,12 +33,8 @@ class Kucoin_market(Market):
             secret=apikey['secret'],
             is_v1api=version_api,
             passphrase=apikey['password'],
-            exchange = configured['session'],
-            symbols = convert_symbols_to_request_format(configured['symbols'], '/', '-'),
-            startAt = isodate_to_unixtime(configured['startAt']),
-            endAt = isodate_to_unixtime(configured['endAt']),
-            timeframes = configured['timeframes'],
-            is_sandbox = is_sandbox
+            exchange = exchange['marketplace'],
+            is_sandbox = exchange['is_sandbox'],
         )
     def get_timeframe_format():
         timeframe_format = {
@@ -63,5 +59,18 @@ class Kucoin_market(Market):
         # TODO: need to fix rate limit
         # reference article: https://nordicapis.com/everything-you-need-to-know-about-api-rate-limiting/
         # In considering use https://github.com/vutran1710/PyrateLimiter, or other method
-        res = await asyncio.gather(asyncio.to_thread(fn, **req_args), return_exceptions=True)
-        return res
+        res = await asyncio.gather(
+            asyncio.to_thread(fn, **req_args),
+            return_exceptions=True)
+        
+        result = self.process_to_many_request(res, req_args.get('symbol'))
+        
+
+        return result
+    
+    async def process_to_many_request(self, res):
+        if isinstance(res[0], Exception) == True:
+            if res[0].get('code') == 429:
+                logger.error(f"{res[0]}")
+
+                

@@ -6,9 +6,10 @@ import numpy as np
 import time
 import pprint
 from persistence.write_kline import kline_to_database
-
+from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime
 from typing import List, Dict, Any
 from attrs import define, field
+
 from .data.kline import KLine
 from .data.error import ErrorMessage
 
@@ -17,41 +18,44 @@ from .data.error import ErrorMessage
 class Histories:
     _market_api: Kucoin_market
 
-
     @classmethod 
-    def from_api(cls, configured: Dict[str, Any], is_sandbox):
+    def from_api(cls, configured: Dict[str, Any]):
         return cls(
-            market_api=Kucoin_market.from_config(configured, is_sandbox)
+            market_api=Kucoin_market.from_config(configured),
         )
 
-    async def get_klines(self) -> List[KLine]:
+    async def get_klines(self, symbols, startAt, endAt, timeframes) -> List[KLine]:
         market: Kucoin_market = self._market_api
-        # print(market)
         # exit()
-
+        symbols = convert_symbols_to_request_format(symbols, '/', '-')
         data = []
         # TODO: refactor
-        for symbol in market.symbols:
+        for symbol in symbols:
             # data.update({symbol:{}})
             req_args = {
                 'symbol': symbol,
                 'kline_type': None,
-                'startAt': market.startAt,
-                'endAt': market.endAt,
+                'startAt': isodate_to_unixtime(startAt),
+                'endAt': isodate_to_unixtime(endAt),
             }
+            # exit()
 
-            for timeframe in market.timeframes:
+            for timeframe in timeframes:
                 req_args['kline_type'] = market.timeframe_format[timeframe]
-                res = await market.asy_to_thread(market.get_kline, req_args)
+
+                # print(req_args)
+                # exit()
+                data = await market.asy_to_thread(market.get_kline, req_args)
 
                 start = time.process_time()
+                # print(data)
                 # TODO: fix to many request
-                if isinstance(res[0], Exception) == True:
-                    logger.error(f"{res[0]}")
-                    raise
-                if res:
-                    # print(res)
-                    for kline in res[0]:
+                if isinstance(data[0], Exception) == True:
+                    logger.error(f"{data[0]}")
+                    raise Exception(data[0])
+
+                if len(data[0]) > 0:
+                    for kline in data[0]:
                         ohlcv = {
                             'exchange': market.exchange,
                             'symbol': symbol,
@@ -67,17 +71,9 @@ class Histories:
                             'closed': True
                         }
                         
-
-                        # dt_format = {
-                        #     kline[0]: ohlcv
-                        # }
-                        # pprint.pprint(ohlcv)
-                        # data[symbol].update(dt_format)
                         data.append(KLine.from_api(ohlcv))
 
-                        # error = ErrorMessage.from_api(res)
-                        # if error.code != 0:
-                        #     logger.error(error.message)
+
 
                 # print(data)
                 end = time.process_time() 

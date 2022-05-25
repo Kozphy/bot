@@ -1,3 +1,5 @@
+# Deprecated
+
 from exchanges.kucoin.market.market_facade import Market_facade
 from exchanges.bbgo_grpc.market_service import bbgo_market_service
 
@@ -44,7 +46,6 @@ class Client_services:
     #             self.bbgo_market_service_method = [f for f in dir(self.bbgo_market_service) if not f.startswith('_')]
     #             self.bbgo_market_service_attribute = [a for a in self.bbgo_market_service.__dict__.keys()]
 
-    # TODO: need to fix dir issue
     # def __dir__(self):
     #     if self.bbgo_options['market']:
     #         return list(self.__dict__.keys()) + self.bbgo_market_service_method

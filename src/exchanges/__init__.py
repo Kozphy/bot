@@ -1,2 +1,1 @@
-# flake8: noqa
-from exchanges.exchange import Exchange
+from exchanges.exchanges import Exchanges

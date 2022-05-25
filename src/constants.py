@@ -50,7 +50,8 @@ LOG_FILE = f'{DEFAULT_LOG_FILE_DIR}/{DEFAULT_LOG_FILE_NAME}'
 
 ## exchange
 DEFAUT_EXCHANGE = 'kucoin'
-support_exchange_api = {
+# support_exchange_api = ['kucoin']
+support_exchanges = {
      'kucoin': Kucoin
 }
 support_bbgo_grpc = ['kucoin', 'binance', 'ftx', 'max', 'okex']

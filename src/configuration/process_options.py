@@ -4,19 +4,32 @@ from .misc import check_folder
 from loggers import setup_logging
 from typing import Any, Dict, List, Optional
 from pathlib import PurePath
+from configuration.load_config import Load_config
 import pprint
 from enums import RunMode
 
+from attrs import define
 
-
+@define
 class Process_options:
-    setting_format = Optional[Dict[str, Any]]
-    def __init__(self, args: setting_format):
-        self._args = args
-        self._config: self.setting_format = None
-        self._yaml: self.setting_format = None
+    configured: Dict[str, Any]
+    _args: Dict[str, Any]
+    _yaml: Optional[Dict[str, Any]]
 
-    def _process_logging_options(self, args: setting_format):
+    @classmethod
+    def from_args(cls, args: Dict[str, Any]):
+        return cls(
+            configured={},
+            args=args,
+            yaml=None,
+        )
+
+    def load_yaml(self):
+        load = Load_config()
+        self._yaml = load.load_yaml_setting(self._args)
+
+
+    def _process_logging_options(self):
         """
         change logger level
         """
@@ -27,104 +40,92 @@ class Process_options:
         filename = self._args['logfile'].split('/')[-1]
 
         # args and default
-        args['logfile'] = f"{DEFAULT_LOG_FILE_DIR}/{filename}"
+        self.configured['logfile'] = f"{DEFAULT_LOG_FILE_DIR}/{filename}"
 
         if 'logfile' in self._yaml and self._yaml['logfile'] is not None:
             # yaml
-            args['logfile'] = f"{DEFAULT_LOG_FILE_DIR}/{self._yaml['logfile']}"
+            self.configured['logfile'] = f"{DEFAULT_LOG_FILE_DIR}/{self._yaml['logfile']}"
 
         check_folder(DEFAULT_LOG_FILE_DIR)
             
-        setup_logging(args)
+        setup_logging(self._args)
 
-    def _process_api(self, args: setting_format):
+    def _process_common(self):
+        logger.debug("process common options")
+        common = self._yaml['common']
+
+        self.configured.update({'common': common})
+
+    def _process_api(self):
         """
         setting which source api featrue do you want
         """
         logger.debug("process api options")
-        # print(self._yaml)
+
         bbgo = self._yaml['bbgo']
         ccxt = self._yaml['ccxt']
-        args.update(bbgo)
+        api = {
+            'bbgo':bbgo,
+            'ccxt':ccxt
+        }
+        self.configured.update(api)
 
         
-    def _process_exchange_options(self, args: setting_format):
+    def _process_exchange_options(self):
         logger.debug("process exchange options")
         # TODO: process exchange yaml
         exchange_yaml = self._yaml['exchange']
         
         exchange = {**exchange_yaml}
-        args.update(exchange)
+        self.configured.update({'exchange': exchange})
 
 
-
-
-    def _process_sync_options(self, args: setting_format):
+    def _process_sync_options(self):
         logger.debug("process sync options") 
 
         ## process yaml sync 
         yaml_sync_dict = self._yaml['sync']
-        # pprint.pprint(self._yaml)
-        # print('\n')
-        # print(yaml_sync_dict)
-        # exit()
-        if args['runmode'] == RunMode.SYNC:
-            args['symbols'] = yaml_sync_dict['sync_symbols']
+        sync = {
+            **yaml_sync_dict,
+        }
 
-        # process startAt amd emdAt
-        if 'startAt' in args == False or args['startAt'] is None:
-            args['startAt'] = yaml_sync_dict['startAt']
-        if 'endAt' in args == False or args['endAt'] is None:
-            args['endAt'] = yaml_sync_dict['endAt']
+        # args
+        if self._args['startAt'] is not None:
+            sync['startAt'] = self._args['startAt']
+        if self._args['endAt'] is not None:
+            sync['endAt'] = self._args['endAt']
 
-        del yaml_sync_dict['startAt']
-        del yaml_sync_dict['endAt']
-        del yaml_sync_dict['sync_symbols']
-
-        args.update(yaml_sync_dict)
+        self.configured.update({'sync':sync})
         
      
-    def _process_persistece_options(self, args: setting_format):
+    def _process_persistece_options(self):
             logger.debug("process persistence options") 
 
             from constants import (DEFAULT_DB_HOST, DEFAULT_DB_PORT, DEFAULT_DB_USER,
             DEFAULT_USERDATA_DIR, DEFAULT_DB_DIR, DEFAULT_DB_NAME)
-            # print(self._yaml)
             config_persistence = self._yaml['persistence']
-            config_db_path: str = str(PurePath(DEFAULT_USERDATA_DIR,config_persistence['path']))
-            config_db_name: str = config_persistence['name']
-            config_db_user: str = config_persistence['user']
-            config_db_port: int = config_persistence['port']
-            config_db_host = config_persistence['host']
 
             # default and args
             persistence = {
-                'db': config_persistence['db'],
-                'db_password': config_persistence['password'],
-                'db_path': args['db_path'],
-                'db_name': args['db_name'],
-                'db_user': args['db_user'],
-                'db_port': args['db_port'],
-                'db_host': args['db_host'],
+                **config_persistence,
             }
-            # print(args, '\n')
-            # print(config_persistence, '\n')
 
-            # config
-            if args['db_path'] == DEFAULT_DB_DIR and DEFAULT_DB_DIR != config_db_path:
-                persistence['db_path'] = config_persistence['path'] 
-                # print("database_path: " + db_path)
+            # args
+            if self._args['db_path'] != DEFAULT_DB_DIR:
+                #TODO: implement USERDATA_DIR and purePath
+                persistence['path'] = self._args['db_path']
+                # logger.debug(f"db_path: {self._args['db_path']}")
             
-            if args['db_name'] == DEFAULT_DB_NAME and DEFAULT_DB_NAME != config_db_name:
-                persistence['db_name'] = config_persistence['name']
-                # print("database name: " + db_name)
+            if self._args['db_name'] != DEFAULT_DB_NAME:
+                persistence['name'] = self._args['db_name']
             
-            if args['db_user'] == DEFAULT_DB_USER and DEFAULT_DB_USER != config_db_user:
-                persistence['db_user'] = config_persistence['user']
+            if self._args['db_user'] != DEFAULT_DB_USER:
+                persistence['user'] = self._args['db_user']
+            
+            if self._args['db_port'] != DEFAULT_DB_PORT:
+                persistence['port'] = self._args['db_port']
+            
+            if self._args['db_host'] != DEFAULT_DB_HOST:
+                persistence['host'] = self._args['db_host']
 
-            if args['db_port'] == DEFAULT_DB_PORT and DEFAULT_DB_PORT != config_db_port:
-                persistence['db_port'] = config_persistence['port']
-
-            if args ['db_host']  == DEFAULT_DB_HOST and DEFAULT_DB_HOST != config_db_host:
-                persistence['db_host'] = config_persistence['host']
-            args.update(persistence)
+            self.configured.update({"persistence":persistence})

@@ -17,23 +17,21 @@ support_ssl = ['MYSQL']
 
 def setting_alembic_cfg(configured):
     logger.debug("Setting alembic context env")
-    # print(configured)
-    # exit()
-    db_para = {
-            'db': configured['db'],
-            'user': configured['db_user'],
-            'password': configured['db_password'],
-            'host': configured['db_host'],
-            'dbname':configured['db_name'],
-            'port': configured['db_port'],
-        }
+    db_para = {}
+    for (key, value) in configured['persistence'].items():
+        if key == 'name':
+            db_para.update({'dbname': value})
+            continue
+        if key not in ['ORM', 'path']:
+            db_para.update({key: value})
+
 
     url = init_db_url(**db_para)
     alembic_cfg = Config(ALEMBIC_CONFIG_FILE)
     alembic_cfg.set_main_option("script_location", "./src/alembic_scripts")
     alembic_cfg.set_main_option("sqlalchemy.url", url)
     logger.debug(f"db url is {url}")
-    return alembic_cfg, url, configured['db_name']
+    return alembic_cfg, url, configured['persistence']['name']
 
 
 def init_db_url(db, user, password, host, dbname, port, charset="utf8mb4", ssl=False, echo=True, future=True) -> str:

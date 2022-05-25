@@ -5847,3 +5847,1003 @@ NameError: name 'grpc_kline' is not defined
 2022-05-23 16:29:28,137 - configuration.process_options - DEBUG - process sync options
 2022-05-23 16:29:28,137 - configuration.process_options - DEBUG - process exchange options
 2022-05-23 16:29:28,137 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 08:33:11,863 - loggers - INFO - Verbosity set to 2
+2022-05-24 08:33:11,863 - configuration.process_options - DEBUG - process api options
+2022-05-24 08:33:11,864 - configuration.process_options - DEBUG - process sync options
+2022-05-24 08:33:11,864 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 08:33:11,864 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 08:46:10,418 - loggers - INFO - Verbosity set to 2
+2022-05-24 08:46:10,418 - configuration.process_options - DEBUG - process api options
+2022-05-24 08:46:10,418 - configuration.process_options - DEBUG - process sync options
+2022-05-24 08:46:10,419 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 08:46:10,419 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 08:48:03,498 - loggers - INFO - Verbosity set to 2
+2022-05-24 08:48:03,498 - configuration.process_options - DEBUG - process api options
+2022-05-24 08:48:03,498 - configuration.process_options - DEBUG - process sync options
+2022-05-24 08:48:03,499 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 08:48:03,500 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 08:50:15,890 - loggers - INFO - Verbosity set to 2
+2022-05-24 08:50:15,890 - configuration.process_options - DEBUG - process api options
+2022-05-24 08:50:15,891 - configuration.process_options - DEBUG - process sync options
+2022-05-24 08:50:15,891 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 08:50:15,892 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 08:50:37,124 - loggers - INFO - Verbosity set to 2
+2022-05-24 08:50:37,124 - configuration.process_options - DEBUG - process api options
+2022-05-24 08:50:37,125 - configuration.process_options - DEBUG - process sync options
+2022-05-24 08:50:37,125 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 08:50:37,125 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 08:51:15,463 - loggers - INFO - Verbosity set to 2
+2022-05-24 08:51:15,463 - configuration.process_options - DEBUG - process api options
+2022-05-24 08:51:15,466 - configuration.process_options - DEBUG - process sync options
+2022-05-24 08:51:15,467 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 08:51:15,469 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 08:51:56,753 - loggers - INFO - Verbosity set to 2
+2022-05-24 08:51:56,754 - configuration.process_options - DEBUG - process api options
+2022-05-24 08:51:56,754 - configuration.process_options - DEBUG - process sync options
+2022-05-24 08:51:56,754 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 08:51:56,755 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 08:53:32,969 - loggers - INFO - Verbosity set to 2
+2022-05-24 08:53:32,969 - configuration.process_options - DEBUG - process api options
+2022-05-24 08:53:32,969 - configuration.process_options - DEBUG - process sync options
+2022-05-24 08:53:32,970 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 08:53:32,970 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 08:54:52,638 - loggers - INFO - Verbosity set to 2
+2022-05-24 08:54:52,638 - configuration.process_options - DEBUG - process api options
+2022-05-24 08:54:52,638 - configuration.process_options - DEBUG - process sync options
+2022-05-24 08:54:52,639 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 08:54:52,639 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 08:55:57,501 - loggers - INFO - Verbosity set to 2
+2022-05-24 08:55:57,501 - configuration.process_options - DEBUG - process api options
+2022-05-24 08:55:57,501 - configuration.process_options - DEBUG - process sync options
+2022-05-24 08:55:57,502 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 08:55:57,502 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 08:59:58,615 - loggers - INFO - Verbosity set to 2
+2022-05-24 08:59:58,615 - configuration.process_options - DEBUG - process api options
+2022-05-24 08:59:58,616 - configuration.process_options - DEBUG - process sync options
+2022-05-24 08:59:58,616 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 08:59:58,616 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 13:12:03,870 - loggers - INFO - Verbosity set to 2
+2022-05-24 13:12:03,870 - configuration.process_options - DEBUG - process api options
+2022-05-24 13:12:03,871 - configuration.process_options - DEBUG - process sync options
+2022-05-24 13:12:03,871 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 13:12:03,871 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 13:22:16,865 - loggers - INFO - Verbosity set to 2
+2022-05-24 13:22:16,865 - configuration.process_options - DEBUG - process api options
+2022-05-24 13:22:16,865 - configuration.process_options - DEBUG - process sync options
+2022-05-24 13:22:16,865 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 13:22:16,866 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 13:23:48,244 - loggers - INFO - Verbosity set to 2
+2022-05-24 13:23:48,244 - configuration.process_options - DEBUG - process api options
+2022-05-24 13:23:48,244 - configuration.process_options - DEBUG - process sync options
+2022-05-24 13:23:48,244 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 13:23:48,245 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 13:24:02,512 - loggers - INFO - Verbosity set to 2
+2022-05-24 13:24:02,512 - configuration.process_options - DEBUG - process api options
+2022-05-24 13:24:02,512 - configuration.process_options - DEBUG - process sync options
+2022-05-24 13:24:02,513 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 13:24:02,513 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 13:27:15,705 - loggers - INFO - Verbosity set to 2
+2022-05-24 13:27:15,706 - configuration.process_options - DEBUG - process api options
+2022-05-24 13:27:15,706 - configuration.process_options - DEBUG - process sync options
+2022-05-24 13:27:15,707 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 13:27:15,707 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 13:30:13,741 - loggers - INFO - Verbosity set to 2
+2022-05-24 13:30:13,741 - configuration.process_options - DEBUG - process api options
+2022-05-24 13:30:13,741 - configuration.process_options - DEBUG - process sync options
+2022-05-24 13:30:13,742 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 13:30:13,742 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 13:36:38,362 - loggers - INFO - Verbosity set to 2
+2022-05-24 13:36:38,362 - configuration.process_options - DEBUG - process api options
+2022-05-24 13:36:38,362 - configuration.process_options - DEBUG - process sync options
+2022-05-24 13:36:38,363 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 13:36:38,363 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 13:36:47,935 - loggers - INFO - Verbosity set to 2
+2022-05-24 13:36:47,936 - configuration.process_options - DEBUG - process api options
+2022-05-24 13:36:47,936 - configuration.process_options - DEBUG - process sync options
+2022-05-24 13:36:47,937 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 13:36:47,938 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 13:41:24,407 - loggers - INFO - Verbosity set to 2
+2022-05-24 13:41:24,407 - configuration.process_options - DEBUG - process api options
+2022-05-24 13:41:24,407 - configuration.process_options - DEBUG - process sync options
+2022-05-24 13:41:24,409 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 13:41:24,409 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 13:50:20,497 - loggers - INFO - Verbosity set to 2
+2022-05-24 13:50:20,497 - configuration.process_options - DEBUG - process api options
+2022-05-24 13:50:20,497 - configuration.process_options - DEBUG - process sync options
+2022-05-24 13:50:20,497 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 13:50:20,497 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 13:50:51,515 - loggers - INFO - Verbosity set to 2
+2022-05-24 13:50:51,515 - configuration.process_options - DEBUG - process api options
+2022-05-24 13:50:51,515 - configuration.process_options - DEBUG - process sync options
+2022-05-24 13:50:51,516 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 13:50:51,516 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 13:52:48,521 - loggers - INFO - Verbosity set to 2
+2022-05-24 13:52:48,522 - configuration.process_options - DEBUG - process common options
+2022-05-24 13:52:48,522 - configuration.process_options - DEBUG - process api options
+2022-05-24 13:52:48,522 - configuration.process_options - DEBUG - process sync options
+2022-05-24 13:52:48,523 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 13:52:48,523 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 14:10:35,022 - loggers - INFO - Verbosity set to 2
+2022-05-24 14:10:35,022 - configuration.process_options - DEBUG - process common options
+2022-05-24 14:10:35,022 - configuration.process_options - DEBUG - process api options
+2022-05-24 14:10:35,022 - configuration.process_options - DEBUG - process sync options
+2022-05-24 14:10:35,023 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 14:10:35,023 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 14:12:33,336 - loggers - INFO - Verbosity set to 2
+2022-05-24 14:12:33,336 - configuration.process_options - DEBUG - process common options
+2022-05-24 14:12:33,336 - configuration.process_options - DEBUG - process api options
+2022-05-24 14:12:33,336 - configuration.process_options - DEBUG - process sync options
+2022-05-24 14:12:33,337 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 14:12:33,337 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 14:14:15,333 - loggers - INFO - Verbosity set to 2
+2022-05-24 14:14:15,333 - configuration.process_options - DEBUG - process common options
+2022-05-24 14:14:15,334 - configuration.process_options - DEBUG - process api options
+2022-05-24 14:14:15,334 - configuration.process_options - DEBUG - process sync options
+2022-05-24 14:14:15,334 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 14:14:15,334 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 14:18:57,749 - loggers - INFO - Verbosity set to 2
+2022-05-24 14:18:57,749 - configuration.process_options - DEBUG - process common options
+2022-05-24 14:18:57,749 - configuration.process_options - DEBUG - process api options
+2022-05-24 14:18:57,749 - configuration.process_options - DEBUG - process sync options
+2022-05-24 14:18:57,750 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 14:18:57,750 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 14:19:18,301 - loggers - INFO - Verbosity set to 2
+2022-05-24 14:19:18,301 - configuration.process_options - DEBUG - process common options
+2022-05-24 14:19:18,301 - configuration.process_options - DEBUG - process api options
+2022-05-24 14:19:18,301 - configuration.process_options - DEBUG - process sync options
+2022-05-24 14:19:18,302 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 14:19:18,302 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 14:19:30,574 - loggers - INFO - Verbosity set to 2
+2022-05-24 14:19:30,574 - configuration.process_options - DEBUG - process common options
+2022-05-24 14:19:30,575 - configuration.process_options - DEBUG - process api options
+2022-05-24 14:19:30,576 - configuration.process_options - DEBUG - process sync options
+2022-05-24 14:19:30,577 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 14:19:30,577 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 14:31:23,145 - loggers - INFO - Verbosity set to 2
+2022-05-24 14:31:23,145 - configuration.process_options - DEBUG - process common options
+2022-05-24 14:31:23,145 - configuration.process_options - DEBUG - process api options
+2022-05-24 14:31:23,145 - configuration.process_options - DEBUG - process sync options
+2022-05-24 14:31:23,146 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 14:31:23,146 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 14:31:38,267 - loggers - INFO - Verbosity set to 2
+2022-05-24 14:31:38,267 - configuration.process_options - DEBUG - process common options
+2022-05-24 14:31:38,267 - configuration.process_options - DEBUG - process api options
+2022-05-24 14:31:38,268 - configuration.process_options - DEBUG - process sync options
+2022-05-24 14:31:38,268 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 14:31:38,268 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 14:32:58,435 - loggers - INFO - Verbosity set to 2
+2022-05-24 14:32:58,435 - configuration.process_options - DEBUG - process common options
+2022-05-24 14:32:58,436 - configuration.process_options - DEBUG - process api options
+2022-05-24 14:32:58,436 - configuration.process_options - DEBUG - process sync options
+2022-05-24 14:32:58,437 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 14:32:58,437 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 14:33:20,438 - loggers - INFO - Verbosity set to 2
+2022-05-24 14:33:20,439 - configuration.process_options - DEBUG - process common options
+2022-05-24 14:33:20,439 - configuration.process_options - DEBUG - process api options
+2022-05-24 14:33:20,439 - configuration.process_options - DEBUG - process sync options
+2022-05-24 14:33:20,440 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 14:33:20,440 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 14:38:46,941 - loggers - INFO - Verbosity set to 2
+2022-05-24 14:38:46,942 - configuration.process_options - DEBUG - process common options
+2022-05-24 14:38:46,942 - configuration.process_options - DEBUG - process api options
+2022-05-24 14:38:46,942 - configuration.process_options - DEBUG - process sync options
+2022-05-24 14:38:46,942 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 14:38:46,943 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 14:53:12,213 - loggers - INFO - Verbosity set to 2
+2022-05-24 14:53:12,213 - configuration.process_options - DEBUG - process common options
+2022-05-24 14:53:12,214 - configuration.process_options - DEBUG - process api options
+2022-05-24 14:53:12,214 - configuration.process_options - DEBUG - process sync options
+2022-05-24 14:53:12,214 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 14:53:12,215 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 16:16:13,982 - loggers - INFO - Verbosity set to 2
+2022-05-24 16:16:13,982 - configuration.process_options - DEBUG - process common options
+2022-05-24 16:16:13,983 - configuration.process_options - DEBUG - process api options
+2022-05-24 16:16:13,983 - configuration.process_options - DEBUG - process sync options
+2022-05-24 16:16:13,983 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 16:16:13,983 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 16:29:44,156 - loggers - INFO - Verbosity set to 2
+2022-05-24 16:29:44,156 - configuration.process_options - DEBUG - process common options
+2022-05-24 16:29:44,157 - configuration.process_options - DEBUG - process api options
+2022-05-24 16:29:44,157 - configuration.process_options - DEBUG - process sync options
+2022-05-24 16:29:44,159 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 16:29:44,160 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 16:30:21,453 - loggers - INFO - Verbosity set to 2
+2022-05-24 16:30:21,454 - configuration.process_options - DEBUG - process common options
+2022-05-24 16:30:21,454 - configuration.process_options - DEBUG - process api options
+2022-05-24 16:30:21,454 - configuration.process_options - DEBUG - process sync options
+2022-05-24 16:30:21,454 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 16:30:21,454 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 16:31:23,140 - loggers - INFO - Verbosity set to 2
+2022-05-24 16:31:23,141 - configuration.process_options - DEBUG - process common options
+2022-05-24 16:31:23,141 - configuration.process_options - DEBUG - process api options
+2022-05-24 16:31:23,141 - configuration.process_options - DEBUG - process sync options
+2022-05-24 16:31:23,141 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 16:31:23,141 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 16:33:18,767 - loggers - INFO - Verbosity set to 2
+2022-05-24 16:33:18,767 - configuration.process_options - DEBUG - process common options
+2022-05-24 16:33:18,768 - configuration.process_options - DEBUG - process api options
+2022-05-24 16:33:18,768 - configuration.process_options - DEBUG - process sync options
+2022-05-24 16:33:18,768 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 16:33:18,768 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 16:33:34,240 - loggers - INFO - Verbosity set to 2
+2022-05-24 16:33:34,241 - configuration.process_options - DEBUG - process common options
+2022-05-24 16:33:34,241 - configuration.process_options - DEBUG - process api options
+2022-05-24 16:33:34,241 - configuration.process_options - DEBUG - process sync options
+2022-05-24 16:33:34,242 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 16:33:34,242 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 18:07:32,562 - loggers - INFO - Verbosity set to 2
+2022-05-24 18:07:32,562 - configuration.process_options - DEBUG - process common options
+2022-05-24 18:07:32,562 - configuration.process_options - DEBUG - process api options
+2022-05-24 18:07:32,562 - configuration.process_options - DEBUG - process sync options
+2022-05-24 18:07:32,563 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 18:07:32,563 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 18:08:38,867 - loggers - INFO - Verbosity set to 2
+2022-05-24 18:08:38,867 - configuration.process_options - DEBUG - process common options
+2022-05-24 18:08:38,868 - configuration.process_options - DEBUG - process api options
+2022-05-24 18:08:56,423 - loggers - INFO - Verbosity set to 2
+2022-05-24 18:08:56,423 - configuration.process_options - DEBUG - process common options
+2022-05-24 18:08:56,423 - configuration.process_options - DEBUG - process api options
+2022-05-24 18:09:15,458 - loggers - INFO - Verbosity set to 2
+2022-05-24 18:09:15,458 - configuration.process_options - DEBUG - process common options
+2022-05-24 18:09:15,459 - configuration.process_options - DEBUG - process api options
+2022-05-24 18:09:15,459 - configuration.process_options - DEBUG - process sync options
+2022-05-24 18:09:15,460 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 18:09:15,461 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 18:10:15,587 - loggers - INFO - Verbosity set to 2
+2022-05-24 18:10:15,587 - configuration.process_options - DEBUG - process common options
+2022-05-24 18:10:15,587 - configuration.process_options - DEBUG - process api options
+2022-05-24 18:10:15,588 - configuration.process_options - DEBUG - process sync options
+2022-05-24 18:10:15,588 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 18:10:15,589 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 18:11:21,414 - loggers - INFO - Verbosity set to 2
+2022-05-24 18:11:21,414 - configuration.process_options - DEBUG - process common options
+2022-05-24 18:11:21,414 - configuration.process_options - DEBUG - process api options
+2022-05-24 18:11:21,414 - configuration.process_options - DEBUG - process sync options
+2022-05-24 18:11:21,414 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 18:11:21,414 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 18:17:02,668 - loggers - INFO - Verbosity set to 2
+2022-05-24 18:17:02,668 - configuration.process_options - DEBUG - process common options
+2022-05-24 18:17:02,668 - configuration.process_options - DEBUG - process api options
+2022-05-24 18:17:02,669 - configuration.process_options - DEBUG - process sync options
+2022-05-24 18:17:02,671 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 18:17:02,672 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 18:49:52,273 - loggers - INFO - Verbosity set to 2
+2022-05-24 18:49:52,273 - configuration.process_options - DEBUG - process common options
+2022-05-24 18:49:52,273 - configuration.process_options - DEBUG - process api options
+2022-05-24 18:49:52,273 - configuration.process_options - DEBUG - process sync options
+2022-05-24 18:49:52,273 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 18:49:52,274 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 18:51:02,860 - loggers - INFO - Verbosity set to 2
+2022-05-24 18:51:02,860 - configuration.process_options - DEBUG - process common options
+2022-05-24 18:51:02,861 - configuration.process_options - DEBUG - process api options
+2022-05-24 18:51:02,861 - configuration.process_options - DEBUG - process sync options
+2022-05-24 18:51:02,861 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 18:51:02,861 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 18:53:01,036 - loggers - INFO - Verbosity set to 2
+2022-05-24 18:53:01,036 - configuration.process_options - DEBUG - process common options
+2022-05-24 18:53:01,036 - configuration.process_options - DEBUG - process api options
+2022-05-24 18:53:01,036 - configuration.process_options - DEBUG - process sync options
+2022-05-24 18:53:01,037 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 18:53:01,037 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 18:53:52,625 - loggers - INFO - Verbosity set to 2
+2022-05-24 18:53:52,625 - configuration.process_options - DEBUG - process common options
+2022-05-24 18:53:52,627 - configuration.process_options - DEBUG - process api options
+2022-05-24 18:53:52,627 - configuration.process_options - DEBUG - process sync options
+2022-05-24 18:53:52,628 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 18:53:52,629 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 18:54:20,192 - loggers - INFO - Verbosity set to 2
+2022-05-24 18:54:20,193 - configuration.process_options - DEBUG - process common options
+2022-05-24 18:54:20,193 - configuration.process_options - DEBUG - process api options
+2022-05-24 18:54:20,193 - configuration.process_options - DEBUG - process sync options
+2022-05-24 18:54:20,193 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 18:54:20,194 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 18:54:34,326 - loggers - INFO - Verbosity set to 2
+2022-05-24 18:54:34,326 - configuration.process_options - DEBUG - process common options
+2022-05-24 18:54:34,326 - configuration.process_options - DEBUG - process api options
+2022-05-24 18:54:34,327 - configuration.process_options - DEBUG - process sync options
+2022-05-24 18:54:34,327 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 18:54:34,327 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 20:08:16,824 - loggers - INFO - Verbosity set to 2
+2022-05-24 20:08:16,824 - configuration.process_options - DEBUG - process common options
+2022-05-24 20:08:16,824 - configuration.process_options - DEBUG - process api options
+2022-05-24 20:08:16,825 - configuration.process_options - DEBUG - process sync options
+2022-05-24 20:08:16,826 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 20:08:16,827 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 20:09:20,267 - loggers - INFO - Verbosity set to 2
+2022-05-24 20:09:20,268 - configuration.process_options - DEBUG - process common options
+2022-05-24 20:09:20,268 - configuration.process_options - DEBUG - process api options
+2022-05-24 20:09:20,268 - configuration.process_options - DEBUG - process sync options
+2022-05-24 20:09:20,268 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 20:09:20,269 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 20:09:20,430 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 20:10:36,141 - loggers - INFO - Verbosity set to 2
+2022-05-24 20:10:36,141 - configuration.process_options - DEBUG - process common options
+2022-05-24 20:10:36,141 - configuration.process_options - DEBUG - process api options
+2022-05-24 20:10:36,142 - configuration.process_options - DEBUG - process sync options
+2022-05-24 20:10:36,142 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 20:10:36,142 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 20:10:36,293 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 20:14:55,162 - loggers - INFO - Verbosity set to 2
+2022-05-24 20:14:55,162 - configuration.process_options - DEBUG - process common options
+2022-05-24 20:14:55,162 - configuration.process_options - DEBUG - process api options
+2022-05-24 20:14:55,162 - configuration.process_options - DEBUG - process sync options
+2022-05-24 20:14:55,162 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 20:14:55,163 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 20:14:55,341 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 20:17:18,712 - loggers - INFO - Verbosity set to 2
+2022-05-24 20:17:18,712 - configuration.process_options - DEBUG - process common options
+2022-05-24 20:17:18,712 - configuration.process_options - DEBUG - process api options
+2022-05-24 20:17:18,712 - configuration.process_options - DEBUG - process sync options
+2022-05-24 20:17:18,713 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 20:17:18,713 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 20:17:18,824 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 20:18:19,599 - loggers - INFO - Verbosity set to 2
+2022-05-24 20:18:19,599 - configuration.process_options - DEBUG - process common options
+2022-05-24 20:18:19,599 - configuration.process_options - DEBUG - process api options
+2022-05-24 20:18:19,599 - configuration.process_options - DEBUG - process sync options
+2022-05-24 20:18:19,599 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 20:18:19,600 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 20:18:19,711 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 20:19:06,210 - loggers - INFO - Verbosity set to 2
+2022-05-24 20:19:06,210 - configuration.process_options - DEBUG - process common options
+2022-05-24 20:19:06,211 - configuration.process_options - DEBUG - process api options
+2022-05-24 20:19:06,211 - configuration.process_options - DEBUG - process sync options
+2022-05-24 20:19:06,212 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 20:19:06,213 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 20:19:06,363 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 20:22:16,263 - loggers - INFO - Verbosity set to 2
+2022-05-24 20:22:16,263 - configuration.process_options - DEBUG - process common options
+2022-05-24 20:22:16,263 - configuration.process_options - DEBUG - process api options
+2022-05-24 20:22:16,263 - configuration.process_options - DEBUG - process sync options
+2022-05-24 20:22:16,264 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 20:22:16,264 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 20:22:16,456 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 20:22:44,901 - loggers - INFO - Verbosity set to 2
+2022-05-24 20:22:44,901 - configuration.process_options - DEBUG - process common options
+2022-05-24 20:22:44,901 - configuration.process_options - DEBUG - process api options
+2022-05-24 20:22:44,901 - configuration.process_options - DEBUG - process sync options
+2022-05-24 20:22:44,902 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 20:22:44,902 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 20:22:45,043 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 20:23:24,665 - loggers - INFO - Verbosity set to 2
+2022-05-24 20:23:24,665 - configuration.process_options - DEBUG - process common options
+2022-05-24 20:23:24,665 - configuration.process_options - DEBUG - process api options
+2022-05-24 20:23:24,665 - configuration.process_options - DEBUG - process sync options
+2022-05-24 20:23:24,666 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 20:23:24,666 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 20:23:24,774 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 20:23:24,776 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-24 20:24:04,407 - loggers - INFO - Verbosity set to 2
+2022-05-24 20:24:04,407 - configuration.process_options - DEBUG - process common options
+2022-05-24 20:24:04,407 - configuration.process_options - DEBUG - process api options
+2022-05-24 20:24:04,407 - configuration.process_options - DEBUG - process sync options
+2022-05-24 20:24:04,408 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 20:24:04,408 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 20:24:04,554 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 20:24:04,558 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-24 20:33:11,963 - loggers - INFO - Verbosity set to 2
+2022-05-24 20:33:11,963 - configuration.process_options - DEBUG - process common options
+2022-05-24 20:33:11,964 - configuration.process_options - DEBUG - process api options
+2022-05-24 20:33:11,964 - configuration.process_options - DEBUG - process sync options
+2022-05-24 20:33:11,964 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 20:33:11,964 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 20:33:12,161 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 20:33:12,163 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-24 21:19:46,111 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:19:46,112 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:19:46,112 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:19:46,112 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:19:46,112 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:19:46,112 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:20:13,030 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:20:13,031 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:20:13,031 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:20:13,031 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:20:13,032 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:20:13,032 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:32:51,388 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:32:51,388 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:32:51,388 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:32:51,389 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:32:51,390 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:32:51,390 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:33:46,501 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:33:46,501 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:33:46,502 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:33:46,502 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:33:46,503 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:33:46,503 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:35:22,487 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:35:22,487 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:35:22,488 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:35:22,488 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:35:22,489 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:35:22,489 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:35:42,435 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:35:42,435 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:35:42,435 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:35:42,435 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:35:42,436 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:35:42,436 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:35:53,945 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:35:53,946 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:35:53,946 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:35:53,946 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:35:53,946 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:35:53,947 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:35:54,679 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 21:35:54,681 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-24 21:36:12,885 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:36:12,885 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:36:12,886 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:36:12,886 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:36:12,886 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:36:12,886 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:36:13,004 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 21:36:13,005 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-24 21:36:43,707 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:36:43,707 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:36:43,708 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:36:43,708 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:36:43,708 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:36:43,709 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:36:44,252 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 21:36:44,254 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-24 21:36:45,062 - exchanges.kucoin.market.Histories - ERROR - 400-{"code":"400000","msg":"Bad Request"}
+2022-05-24 21:37:28,886 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:37:28,886 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:37:28,886 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:37:28,887 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:37:28,887 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:37:28,887 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:37:28,998 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 21:37:29,000 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-24 21:37:29,426 - exchanges.kucoin.market.Histories - ERROR - 400-{"code":"400000","msg":"Bad Request"}
+2022-05-24 21:41:17,031 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:41:17,031 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:41:17,032 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:41:17,032 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:41:17,032 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:41:17,033 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:41:17,216 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 21:41:17,219 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-24 21:41:17,346 - exchanges.kucoin.market.Histories - ERROR - 400-{"code":"400000","msg":"Bad Request"}
+2022-05-24 21:44:21,292 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:44:21,292 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:44:21,292 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:44:21,293 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:44:21,293 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:44:21,293 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:44:21,425 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 21:44:21,428 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-24 21:44:21,653 - exchanges.kucoin.market.Histories - ERROR - 400-{"code":"400000","msg":"Bad Request"}
+2022-05-24 21:44:41,368 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:44:41,368 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:44:41,368 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:44:41,369 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:44:41,369 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:44:41,369 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:44:41,493 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-24 21:44:41,494 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-24 21:44:41,609 - exchanges.kucoin.market.Histories - ERROR - 400-{"code":"400000","msg":"Bad Request"}
+2022-05-24 21:45:04,996 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:45:04,997 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:45:04,997 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:45:04,997 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:45:04,997 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:45:04,997 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:48:43,609 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:48:43,609 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:48:43,610 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:48:43,610 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:48:43,610 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:48:43,610 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:49:28,665 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:49:28,665 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:49:28,666 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:49:28,666 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:49:28,666 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:49:28,666 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:49:34,570 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:49:34,571 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:49:34,571 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:49:34,572 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:49:34,572 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:49:34,573 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:50:03,038 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:50:03,038 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:50:03,039 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:50:03,039 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:50:03,039 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:50:03,040 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:50:03,040 - cmds.sync_command - DEBUG - {'logfile': '/home/kopher/short_bot/bot/src/log/bot_record', 'common': {'dry-run': True, 'marketplace': 'kucoin', 'symbols': ['BTC/USDT', 'ETH/USDT'], 'runmode': <RunMode.SYNC: 'sync'>}, 'bbgo': {False: 'bbgo', 'bbgo_grpc_services': {'market': False, 'user': False, 'trading': False, 'market_stream': False, 'user_stream': False, 'trading_stream': False}, 'bbgo_grpc_server': {'host': '127.0.0.1', 'port': 50051}, 'bbgo_db': {'reflect': False, 'db': 'mysql', 'user': 'kopher', 'password': '0270453', 'host': 'localhost', 'db_name': 'bbgo'}}, 'ccxt': {False: 'ccxt', 'rest_api': False, 'web_socket': False}, 'sync': {'startAt': datetime.date(2022, 4, 4), 'endAt': datetime.date(2022, 5, 1), 'sync_symbols': ['BTC/USDT', 'ETH/USDT'], 'timeframes': ['1d', '12h']}, 'exchange': {'marketplace': 'kucoin', 'is_sandbox': False, 'balances': {'ETH': 10, 'USDT': 1000}, 'apikey': {'version': 2, 'public': '624ff3f554f07a0001d29423', 'secret': 'a278ec3c-6645-4c77-b587-91471023caae', 'password': 'miox_*0270453'}}, 'persistence': {'ORM': 'sqlalchemy', 'db': 'MySQL', 'host': 'localhost', 'port': '11010', 'user': 'kopher', 'path': 'db', 'name': 'test', 'password': '0270453'}}
+2022-05-24 21:50:16,847 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:50:16,847 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:50:16,848 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:50:16,848 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:50:16,848 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:50:16,848 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:50:16,849 - cmds.sync_command - DEBUG - None
+2022-05-24 21:51:03,828 - loggers - INFO - Verbosity set to 2
+2022-05-24 21:51:03,828 - configuration.process_options - DEBUG - process common options
+2022-05-24 21:51:03,828 - configuration.process_options - DEBUG - process api options
+2022-05-24 21:51:03,829 - configuration.process_options - DEBUG - process sync options
+2022-05-24 21:51:03,829 - configuration.process_options - DEBUG - process exchange options
+2022-05-24 21:51:03,829 - configuration.process_options - DEBUG - process persistence options
+2022-05-24 21:51:03,829 - cmds.sync_command - DEBUG - print debug
+2022-05-25 09:02:58,919 - loggers - INFO - Verbosity set to 2
+2022-05-25 09:02:58,919 - configuration.process_options - DEBUG - process common options
+2022-05-25 09:02:58,920 - configuration.process_options - DEBUG - process api options
+2022-05-25 09:02:58,920 - configuration.process_options - DEBUG - process sync options
+2022-05-25 09:02:58,920 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 09:02:58,921 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 09:02:58,921 - cmds.sync_command - DEBUG - print debug
+2022-05-25 09:06:47,307 - loggers - INFO - Verbosity set to 2
+2022-05-25 09:06:47,307 - configuration.process_options - DEBUG - process common options
+2022-05-25 09:06:47,308 - configuration.process_options - DEBUG - process api options
+2022-05-25 09:06:47,308 - configuration.process_options - DEBUG - process sync options
+2022-05-25 09:06:47,309 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 09:06:47,309 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 09:06:47,310 - cmds.sync_command - DEBUG - print debug
+2022-05-25 09:07:53,874 - loggers - INFO - Verbosity set to 2
+2022-05-25 09:07:53,875 - configuration.process_options - DEBUG - process common options
+2022-05-25 09:07:53,877 - configuration.process_options - DEBUG - process api options
+2022-05-25 09:07:53,877 - configuration.process_options - DEBUG - process sync options
+2022-05-25 09:07:53,877 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 09:07:53,877 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 09:07:53,878 - cmds.sync_command - DEBUG - print debug
+2022-05-25 09:08:04,266 - loggers - INFO - Verbosity set to 2
+2022-05-25 09:08:04,267 - configuration.process_options - DEBUG - process common options
+2022-05-25 09:08:04,267 - configuration.process_options - DEBUG - process api options
+2022-05-25 09:08:04,267 - configuration.process_options - DEBUG - process sync options
+2022-05-25 09:08:04,268 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 09:08:04,269 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 09:08:04,269 - cmds.sync_command - DEBUG - print debug
+2022-05-25 09:57:56,906 - loggers - INFO - Verbosity set to 2
+2022-05-25 09:57:56,907 - configuration.process_options - DEBUG - process common options
+2022-05-25 09:57:56,907 - configuration.process_options - DEBUG - process api options
+2022-05-25 09:57:56,908 - configuration.process_options - DEBUG - process sync options
+2022-05-25 09:57:56,909 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 09:57:56,909 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 09:57:56,909 - cmds.sync_command - DEBUG - print debug
+2022-05-25 10:03:05,329 - loggers - INFO - Verbosity set to 2
+2022-05-25 10:03:05,329 - configuration.process_options - DEBUG - process common options
+2022-05-25 10:03:05,330 - configuration.process_options - DEBUG - process api options
+2022-05-25 10:03:05,330 - configuration.process_options - DEBUG - process sync options
+2022-05-25 10:03:05,330 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 10:03:05,330 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 10:03:05,330 - cmds.sync_command - DEBUG - print debug
+2022-05-25 10:32:49,423 - loggers - INFO - Verbosity set to 2
+2022-05-25 10:32:49,424 - configuration.process_options - DEBUG - process common options
+2022-05-25 10:32:49,424 - configuration.process_options - DEBUG - process api options
+2022-05-25 10:32:49,424 - configuration.process_options - DEBUG - process sync options
+2022-05-25 10:32:49,429 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 10:32:49,429 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 10:32:49,430 - cmds.sync_command - DEBUG - print debug
+2022-05-25 10:33:48,544 - loggers - INFO - Verbosity set to 2
+2022-05-25 10:33:48,544 - configuration.process_options - DEBUG - process common options
+2022-05-25 10:33:48,545 - configuration.process_options - DEBUG - process api options
+2022-05-25 10:33:48,545 - configuration.process_options - DEBUG - process sync options
+2022-05-25 10:33:48,545 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 10:33:48,545 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 10:33:48,545 - cmds.sync_command - DEBUG - print debug
+2022-05-25 10:34:06,380 - loggers - INFO - Verbosity set to 2
+2022-05-25 10:34:06,381 - configuration.process_options - DEBUG - process common options
+2022-05-25 10:34:06,381 - configuration.process_options - DEBUG - process api options
+2022-05-25 10:34:06,381 - configuration.process_options - DEBUG - process sync options
+2022-05-25 10:34:06,381 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 10:34:06,381 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 10:34:06,381 - cmds.sync_command - DEBUG - print debug
+2022-05-25 10:34:55,228 - loggers - INFO - Verbosity set to 2
+2022-05-25 10:34:55,228 - configuration.process_options - DEBUG - process common options
+2022-05-25 10:34:55,228 - configuration.process_options - DEBUG - process api options
+2022-05-25 10:34:55,230 - configuration.process_options - DEBUG - process sync options
+2022-05-25 10:34:55,232 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 10:34:55,235 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 10:34:55,235 - cmds.sync_command - DEBUG - print debug
+2022-05-25 11:24:39,529 - loggers - INFO - Verbosity set to 2
+2022-05-25 11:24:39,529 - configuration.process_options - DEBUG - process common options
+2022-05-25 11:24:39,530 - configuration.process_options - DEBUG - process api options
+2022-05-25 11:24:39,530 - configuration.process_options - DEBUG - process sync options
+2022-05-25 11:24:39,530 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 11:24:39,531 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 11:24:39,531 - cmds.sync_command - DEBUG - print debug
+2022-05-25 11:26:29,075 - loggers - INFO - Verbosity set to 2
+2022-05-25 11:26:29,075 - configuration.process_options - DEBUG - process common options
+2022-05-25 11:26:29,075 - configuration.process_options - DEBUG - process api options
+2022-05-25 11:26:29,076 - configuration.process_options - DEBUG - process sync options
+2022-05-25 11:26:29,076 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 11:26:29,076 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 11:26:29,076 - cmds.sync_command - DEBUG - print debug
+2022-05-25 11:27:23,102 - loggers - INFO - Verbosity set to 2
+2022-05-25 11:27:23,103 - configuration.process_options - DEBUG - process common options
+2022-05-25 11:27:23,103 - configuration.process_options - DEBUG - process api options
+2022-05-25 11:27:23,103 - configuration.process_options - DEBUG - process sync options
+2022-05-25 11:27:23,103 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 11:27:23,103 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 11:27:23,104 - cmds.sync_command - DEBUG - print debug
+2022-05-25 11:27:54,627 - loggers - INFO - Verbosity set to 2
+2022-05-25 11:27:54,627 - configuration.process_options - DEBUG - process common options
+2022-05-25 11:27:54,627 - configuration.process_options - DEBUG - process api options
+2022-05-25 11:27:54,627 - configuration.process_options - DEBUG - process sync options
+2022-05-25 11:27:54,627 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 11:27:54,628 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 11:27:54,628 - cmds.sync_command - DEBUG - print debug
+2022-05-25 11:30:14,402 - loggers - INFO - Verbosity set to 2
+2022-05-25 11:30:14,402 - configuration.process_options - DEBUG - process common options
+2022-05-25 11:30:14,402 - configuration.process_options - DEBUG - process api options
+2022-05-25 11:30:14,403 - configuration.process_options - DEBUG - process sync options
+2022-05-25 11:30:14,404 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 11:30:14,404 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 11:30:14,404 - cmds.sync_command - DEBUG - print debug
+2022-05-25 11:40:51,560 - loggers - INFO - Verbosity set to 2
+2022-05-25 11:40:51,560 - configuration.process_options - DEBUG - process common options
+2022-05-25 11:40:51,560 - configuration.process_options - DEBUG - process api options
+2022-05-25 11:40:51,560 - configuration.process_options - DEBUG - process sync options
+2022-05-25 11:40:51,561 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 11:40:51,561 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 11:40:51,561 - cmds.sync_command - DEBUG - print debug
+2022-05-25 11:41:32,982 - loggers - INFO - Verbosity set to 2
+2022-05-25 11:41:32,982 - configuration.process_options - DEBUG - process common options
+2022-05-25 11:41:32,983 - configuration.process_options - DEBUG - process api options
+2022-05-25 11:41:32,983 - configuration.process_options - DEBUG - process sync options
+2022-05-25 11:41:32,983 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 11:41:32,984 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 11:41:32,984 - cmds.sync_command - DEBUG - print debug
+2022-05-25 11:41:53,746 - loggers - INFO - Verbosity set to 2
+2022-05-25 11:41:53,747 - configuration.process_options - DEBUG - process common options
+2022-05-25 11:41:53,747 - configuration.process_options - DEBUG - process api options
+2022-05-25 11:41:53,747 - configuration.process_options - DEBUG - process sync options
+2022-05-25 11:41:53,747 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 11:41:53,748 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 11:41:53,748 - cmds.sync_command - DEBUG - print debug
+2022-05-25 12:16:10,945 - loggers - INFO - Verbosity set to 2
+2022-05-25 12:16:10,946 - configuration.process_options - DEBUG - process common options
+2022-05-25 12:16:10,946 - configuration.process_options - DEBUG - process api options
+2022-05-25 12:16:10,946 - configuration.process_options - DEBUG - process sync options
+2022-05-25 12:16:10,947 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 12:16:10,947 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 12:16:10,947 - cmds.sync_command - DEBUG - print debug
+2022-05-25 13:02:58,612 - loggers - INFO - Verbosity set to 2
+2022-05-25 13:02:58,613 - configuration.process_options - DEBUG - process common options
+2022-05-25 13:02:58,613 - configuration.process_options - DEBUG - process api options
+2022-05-25 13:02:58,613 - configuration.process_options - DEBUG - process sync options
+2022-05-25 13:02:58,613 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 13:02:58,613 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 13:02:58,613 - cmds.sync_command - DEBUG - print debug
+2022-05-25 13:04:34,959 - loggers - INFO - Verbosity set to 2
+2022-05-25 13:04:34,959 - configuration.process_options - DEBUG - process common options
+2022-05-25 13:04:34,960 - configuration.process_options - DEBUG - process api options
+2022-05-25 13:04:34,960 - configuration.process_options - DEBUG - process sync options
+2022-05-25 13:04:34,961 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 13:04:34,961 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 13:04:34,961 - cmds.sync_command - DEBUG - print debug
+2022-05-25 13:06:29,764 - loggers - INFO - Verbosity set to 2
+2022-05-25 13:06:29,764 - configuration.process_options - DEBUG - process common options
+2022-05-25 13:06:29,764 - configuration.process_options - DEBUG - process api options
+2022-05-25 13:06:29,764 - configuration.process_options - DEBUG - process sync options
+2022-05-25 13:06:29,764 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 13:06:29,764 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 13:06:29,765 - cmds.sync_command - DEBUG - print debug
+2022-05-25 13:07:12,157 - loggers - INFO - Verbosity set to 2
+2022-05-25 13:07:12,157 - configuration.process_options - DEBUG - process common options
+2022-05-25 13:07:12,158 - configuration.process_options - DEBUG - process api options
+2022-05-25 13:07:12,158 - configuration.process_options - DEBUG - process sync options
+2022-05-25 13:07:12,158 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 13:07:12,159 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 13:07:12,159 - cmds.sync_command - DEBUG - print debug
+2022-05-25 13:08:16,682 - loggers - INFO - Verbosity set to 2
+2022-05-25 13:08:16,682 - configuration.process_options - DEBUG - process common options
+2022-05-25 13:08:16,682 - configuration.process_options - DEBUG - process api options
+2022-05-25 13:08:16,682 - configuration.process_options - DEBUG - process sync options
+2022-05-25 13:08:16,683 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 13:08:16,683 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 13:08:16,683 - cmds.sync_command - DEBUG - print debug
+2022-05-25 14:47:40,812 - loggers - INFO - Verbosity set to 2
+2022-05-25 14:47:40,812 - configuration.process_options - DEBUG - process common options
+2022-05-25 14:47:40,812 - configuration.process_options - DEBUG - process api options
+2022-05-25 14:47:40,813 - configuration.process_options - DEBUG - process sync options
+2022-05-25 14:47:40,813 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 14:47:40,813 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 14:47:40,813 - cmds.sync_command - DEBUG - print debug
+2022-05-25 14:47:41,048 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 14:47:41,050 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 14:47:41,234 - exchanges.kucoin.market.Histories - ERROR - 400-{"code":"400000","msg":"Bad Request"}
+2022-05-25 14:48:38,012 - loggers - INFO - Verbosity set to 2
+2022-05-25 14:48:38,012 - configuration.process_options - DEBUG - process common options
+2022-05-25 14:48:38,013 - configuration.process_options - DEBUG - process api options
+2022-05-25 14:48:38,013 - configuration.process_options - DEBUG - process sync options
+2022-05-25 14:48:38,014 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 14:48:38,014 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 14:48:38,014 - cmds.sync_command - DEBUG - print debug
+2022-05-25 14:48:38,132 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 14:48:38,133 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 14:48:38,280 - exchanges.kucoin.market.Histories - ERROR - 400-{"code":"400000","msg":"Bad Request"}
+2022-05-25 14:49:10,819 - loggers - INFO - Verbosity set to 2
+2022-05-25 14:49:10,819 - configuration.process_options - DEBUG - process common options
+2022-05-25 14:49:10,819 - configuration.process_options - DEBUG - process api options
+2022-05-25 14:49:10,819 - configuration.process_options - DEBUG - process sync options
+2022-05-25 14:49:10,819 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 14:49:10,820 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 14:49:10,820 - cmds.sync_command - DEBUG - print debug
+2022-05-25 14:49:10,926 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 14:49:10,930 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 14:52:00,376 - loggers - INFO - Verbosity set to 2
+2022-05-25 14:52:00,376 - configuration.process_options - DEBUG - process common options
+2022-05-25 14:52:00,376 - configuration.process_options - DEBUG - process api options
+2022-05-25 14:52:00,376 - configuration.process_options - DEBUG - process sync options
+2022-05-25 14:52:00,376 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 14:52:00,377 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 14:52:00,377 - cmds.sync_command - DEBUG - print debug
+2022-05-25 14:52:00,494 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 14:52:00,495 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 14:52:13,560 - loggers - INFO - Verbosity set to 2
+2022-05-25 14:52:13,560 - configuration.process_options - DEBUG - process common options
+2022-05-25 14:52:13,561 - configuration.process_options - DEBUG - process api options
+2022-05-25 14:52:13,561 - configuration.process_options - DEBUG - process sync options
+2022-05-25 14:52:13,561 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 14:52:13,561 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 14:52:13,561 - cmds.sync_command - DEBUG - print debug
+2022-05-25 14:52:13,662 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 14:52:13,663 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 14:52:13,778 - exchanges.kucoin.market.Histories - ERROR - 400-{"code":"400000","msg":"Bad Request"}
+2022-05-25 14:52:24,574 - loggers - INFO - Verbosity set to 2
+2022-05-25 14:52:24,575 - configuration.process_options - DEBUG - process common options
+2022-05-25 14:52:24,575 - configuration.process_options - DEBUG - process api options
+2022-05-25 14:52:24,575 - configuration.process_options - DEBUG - process sync options
+2022-05-25 14:52:24,576 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 14:52:24,576 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 14:52:24,576 - cmds.sync_command - DEBUG - print debug
+2022-05-25 14:52:24,690 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 14:52:24,691 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 14:52:24,907 - exchanges.kucoin.market.Histories - ERROR - 400-{"code":"400000","msg":"Bad Request"}
+2022-05-25 14:52:45,375 - loggers - INFO - Verbosity set to 2
+2022-05-25 14:52:45,376 - configuration.process_options - DEBUG - process common options
+2022-05-25 14:52:45,376 - configuration.process_options - DEBUG - process api options
+2022-05-25 14:52:45,376 - configuration.process_options - DEBUG - process sync options
+2022-05-25 14:52:45,376 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 14:52:45,376 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 14:52:45,377 - cmds.sync_command - DEBUG - print debug
+2022-05-25 14:52:45,585 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 14:52:45,587 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 14:55:25,238 - loggers - INFO - Verbosity set to 2
+2022-05-25 14:55:25,238 - configuration.process_options - DEBUG - process common options
+2022-05-25 14:55:25,239 - configuration.process_options - DEBUG - process api options
+2022-05-25 14:55:25,239 - configuration.process_options - DEBUG - process sync options
+2022-05-25 14:55:25,239 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 14:55:25,240 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 14:55:25,240 - cmds.sync_command - DEBUG - print debug
+2022-05-25 14:55:25,354 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 14:55:25,355 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 14:55:25,472 - exchanges.kucoin.market.Histories - ERROR - 400-{"code":"400000","msg":"Bad Request"}
+2022-05-25 14:58:18,441 - loggers - INFO - Verbosity set to 2
+2022-05-25 14:58:18,441 - configuration.process_options - DEBUG - process common options
+2022-05-25 14:58:18,441 - configuration.process_options - DEBUG - process api options
+2022-05-25 14:58:18,442 - configuration.process_options - DEBUG - process sync options
+2022-05-25 14:58:18,442 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 14:58:18,442 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 14:58:18,442 - cmds.sync_command - DEBUG - print debug
+2022-05-25 14:58:18,674 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 14:58:18,676 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:06:54,163 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:06:54,163 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:06:54,164 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:06:54,164 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:06:54,164 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:06:54,164 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:06:54,164 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:06:54,372 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:06:54,374 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:07:53,441 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:07:53,441 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:07:53,442 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:07:53,442 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:07:53,442 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:07:53,442 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:07:53,443 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:07:53,558 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:07:53,560 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:08:09,545 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:08:09,545 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:08:09,546 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:08:09,548 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:08:09,548 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:08:09,548 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:08:09,548 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:08:09,694 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:08:09,696 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:11:18,293 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:11:18,294 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:11:18,294 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:11:18,294 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:11:18,294 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:11:18,294 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:11:18,294 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:11:18,402 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:11:18,404 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:11:40,669 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:11:40,669 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:11:40,671 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:11:40,672 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:11:40,672 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:11:40,672 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:11:40,672 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:11:40,785 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:11:40,788 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:11:40,913 - exchanges.kucoin.market.Histories - ERROR - 429-{"code":"429000","msg":"Too Many Requests"}
+2022-05-25 15:11:51,711 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:11:51,712 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:11:51,712 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:11:51,712 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:11:51,713 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:11:51,713 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:11:51,713 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:11:51,821 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:11:51,823 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:12:47,379 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:12:47,379 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:12:47,380 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:12:47,380 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:12:47,380 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:12:47,380 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:12:47,380 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:12:47,596 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:12:47,601 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:12:47,733 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 1d kline consume time: 4.899999999974369e-06
+2022-05-25 15:12:47,831 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12h kline consume time: 3.900000000056636e-06
+2022-05-25 15:12:47,944 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1d kline consume time: 4.600000000021254e-06
+2022-05-25 15:12:48,025 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12h kline consume time: 4.099999999951365e-06
+2022-05-25 15:15:12,809 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:15:12,809 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:15:12,810 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:15:12,810 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:15:12,810 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:15:12,811 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:15:12,811 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:15:12,937 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:15:12,939 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:16:48,565 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:16:48,565 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:16:48,566 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:16:48,566 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:16:48,567 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:16:48,567 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:16:48,568 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:16:48,717 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:16:48,721 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:20:55,761 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:20:55,762 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:20:55,762 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:20:55,763 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:20:55,763 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:20:55,763 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:20:55,764 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:20:56,003 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:20:56,005 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:22:46,822 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:22:46,822 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:22:46,823 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:22:46,823 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:22:46,823 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:22:46,824 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:22:46,824 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:22:46,935 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:22:46,937 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:23:06,433 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:23:06,433 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:23:06,433 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:23:06,433 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:23:06,434 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:23:06,434 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:23:06,434 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:23:06,542 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:23:06,546 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:27:36,388 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:27:36,388 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:27:36,388 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:27:36,389 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:27:36,389 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:27:36,389 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:27:36,389 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:27:36,627 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:27:36,631 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:28:16,175 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:28:16,176 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:28:16,176 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:28:16,176 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:28:16,176 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:28:16,176 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:28:16,176 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:28:16,289 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:28:16,291 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:28:38,085 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:28:38,086 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:28:38,086 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:28:38,087 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:28:38,087 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:28:38,087 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:28:38,087 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:28:38,195 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:28:38,197 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:28:38,330 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 1d kline consume time: 0.0010590999999999795
+2022-05-25 15:28:38,415 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12h kline consume time: 0.00173230000000002
+2022-05-25 15:28:38,504 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1d kline consume time: 0.0010524999999999007
+2022-05-25 15:28:38,590 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12h kline consume time: 0.0016088000000000768
+2022-05-25 15:29:13,881 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:29:13,881 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:29:13,882 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:29:13,882 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:29:13,882 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:29:13,882 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:29:13,882 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:29:13,994 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:29:13,996 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:29:14,130 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 1d kline consume time: 0.00017610000000001236
+2022-05-25 15:29:14,212 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12h kline consume time: 0.0002880999999999023
+2022-05-25 15:29:14,312 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1d kline consume time: 0.0001618999999999371
+2022-05-25 15:29:14,415 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12h kline consume time: 0.00030920000000000947
+2022-05-25 15:56:34,823 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:56:34,824 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:56:34,827 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:56:34,827 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:56:34,827 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:56:34,827 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:56:34,827 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:56:35,024 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:56:35,026 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:56:35,141 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 1d kline consume time: 0.0001850999999999381
+2022-05-25 15:56:35,229 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12h kline consume time: 0.0002884000000000775
+2022-05-25 15:56:35,324 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1d kline consume time: 0.00015790000000004412
+2022-05-25 15:56:35,415 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12h kline consume time: 0.000302400000000036
+2022-05-25 15:56:49,255 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:56:49,255 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:56:49,256 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:56:49,256 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:56:49,257 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:56:49,257 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:56:49,257 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:56:49,370 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:56:49,371 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:56:49,493 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 1d kline consume time: 0.00018570000000006637
+2022-05-25 15:56:49,576 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12h kline consume time: 0.0002922999999999121
+2022-05-25 15:56:49,662 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1d kline consume time: 0.0001794999999999991
+2022-05-25 15:56:49,745 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12h kline consume time: 0.000321600000000144
+2022-05-25 15:57:40,011 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:57:40,011 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:57:40,012 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:57:40,012 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:57:40,012 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:57:40,013 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:57:40,013 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:57:40,124 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:57:40,125 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:57:40,266 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 1d kline consume time: 0.00024500000000005073
+2022-05-25 15:57:40,352 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12h kline consume time: 0.0004000999999997923
+2022-05-25 15:57:40,452 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1d kline consume time: 0.00022560000000004798
+2022-05-25 15:57:40,533 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12h kline consume time: 0.00038549999999992757
+2022-05-25 15:58:21,030 - loggers - INFO - Verbosity set to 2
+2022-05-25 15:58:21,031 - configuration.process_options - DEBUG - process common options
+2022-05-25 15:58:21,031 - configuration.process_options - DEBUG - process api options
+2022-05-25 15:58:21,031 - configuration.process_options - DEBUG - process sync options
+2022-05-25 15:58:21,031 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 15:58:21,031 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 15:58:21,031 - cmds.sync_command - DEBUG - print debug
+2022-05-25 15:58:21,139 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 15:58:21,139 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 15:58:21,263 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 1d kline consume time: 0.00031639999999999446
+2022-05-25 15:58:21,365 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12h kline consume time: 0.0003982000000000152
+2022-05-25 15:58:21,495 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1d kline consume time: 0.00022889999999997634
+2022-05-25 15:58:21,583 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12h kline consume time: 0.00039400000000000546
+2022-05-25 16:01:44,020 - loggers - INFO - Verbosity set to 2
+2022-05-25 16:01:44,021 - configuration.process_options - DEBUG - process common options
+2022-05-25 16:01:44,021 - configuration.process_options - DEBUG - process api options
+2022-05-25 16:01:44,021 - configuration.process_options - DEBUG - process sync options
+2022-05-25 16:01:44,021 - configuration.process_options - DEBUG - process exchange options
+2022-05-25 16:01:44,022 - configuration.process_options - DEBUG - process persistence options
+2022-05-25 16:01:44,022 - cmds.sync_command - DEBUG - print debug
+2022-05-25 16:01:44,271 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-25 16:01:44,271 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-25 16:01:44,396 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 1d kline consume time: 0.00021139999999997272
+2022-05-25 16:01:44,495 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12h kline consume time: 0.0003367000000000786
+2022-05-25 16:01:44,581 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1d kline consume time: 0.0001861999999999142
+2022-05-25 16:01:44,671 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12h kline consume time: 0.00029079999999992445

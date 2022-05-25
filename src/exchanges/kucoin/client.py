@@ -1,26 +1,34 @@
 from kucoin.client import Market
 from datetime import datetime, timedelta
 import math
-from exchanges.kucoin.client_services import Client_services
 import pprint
 import inspect
 
-class Client:
-    def __init__(self, configured, is_sandbox=False):
-        self.configured = configured
-        self.__is_sandbox = is_sandbox
-        self.accepted_pairs = None
 
-    def active_service(self, is_sandbox=False):
-        client = Client_services.from_config(self.configured,
-         is_sandbox=is_sandbox)
+from  exchanges.utils.misc import convert_symbols_to_request_format
+from typing import Dict, Any, List, Optional
+from exchanges.kucoin.market.market_facade import Market_facade
+from attrs import define
 
-        # check accecpt pair and get all pairs list
-        self.accepted_pairs = client.market_services.get_accept_pairs()
-        # pprint.pprint(self.accepted_pairs)
-        # exit()
+@define
+class Kucoin_client:
+    market_services: Market_facade
+    
+    accept_pairs: Optional[List[str]]
 
-        return client 
+    @classmethod
+    def active_service(cls, configured: Dict[str, Any]) -> 'Kucoin_client':
+        return cls(
+            market_services = Market_facade.from_market(configured),
+            accept_pairs = None
+        )
+
+    def check_paries(self, symbols, reg="\S+-USDT$", currency_pair="USDS") -> None:
+        symbols = convert_symbols_to_request_format(symbols, '/', '-')
+        accept_pairs = self.market_services.symbols_ticker.get_accept_pairs(reg, currency_pair)
+        self.accept_pairs = accept_pairs
+        self.market_services.symbols_ticker.check_accept_pairs(symbols, accept_pairs)
+
 
     @staticmethod
     def current_request_time():

@@ -1,31 +1,26 @@
-from exchanges import Exchange
 # from kucoin.client import Market, User, Trade
 # from bot.exchanges.kucoin.market.market import Kucoin_market
 # from bot.exchanges.kucoin.trade.trade import Kucoin_trade
 # from bot.exchanges.kucoin.user.user import Kucoin_user
+from exchanges.kucoin.client import Kucoin_client
+from exchanges.bbgo_grpc.bbgo_client import BBGO_client
 
+from typing import Optional, Dict, Any
+from attrs import define
 
-class Kucoin(Exchange):
-    def __init__(self, configured):
-        super().__init__(configured)
-        # get_para = {
-        #     'host': '127.0.0.1',
-        #     'port': 50051,
-        #     'exchange': 'kucoin',
-        #     'symbol' : 'DOTUSDT',
-        #     'timeframe': '4h',
-        #     'start_time': 1651408281,
-        #     'end_time': 1651840281,
-        #     'limit':30
-        # }
-        # grpc_get_kline(**get_para)
-        # from bot.persistence.migrations import migrations_update, migrations_downgrade
-        # migrations_update(configured)
-        # migrations_downgrade(configured)
-    
-    # def migration():
-    #     migrations_downgrade(configured)
-    #     show_history(configured)
+@define
+class Kucoin:
+    client: Kucoin_client
+    bbgo_client: Optional[BBGO_client]
+
+    @classmethod
+    def from_client(cls, configured, client: Kucoin_client,
+    bbgo_client:BBGO_client=None) -> 'Kucoin':
+        return cls(
+            client=client.active_service(configured),
+            bbgo_client=bbgo_client,
+        )
+
         
 
 
