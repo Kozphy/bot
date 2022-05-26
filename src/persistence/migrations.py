@@ -19,9 +19,6 @@ def setting_alembic_cfg(configured):
     logger.debug("Setting alembic context env")
     db_para = {}
     for (key, value) in configured['persistence'].items():
-        if key == 'name':
-            db_para.update({'dbname': value})
-            continue
         if key not in ['ORM', 'path']:
             db_para.update({key: value})
 
@@ -34,12 +31,13 @@ def setting_alembic_cfg(configured):
     return alembic_cfg, url, configured['persistence']['name']
 
 
-def init_db_url(db, user, password, host, dbname, port, charset="utf8mb4", ssl=False, echo=True, future=True) -> str:
+def init_db_url(db, user, password, host, db_name, port, charset="utf8mb4",
+ ssl=False, echo=True, future=True, **kwargs) -> str:
     db = db.upper()
 
     if db not in support_databases:
         raise Exception("Database not supported")
-    db_url = f"{support_databases[db]}{user}:{password}@{host}:{port}/{dbname}?charset={charset}"
+    db_url = f"{support_databases[db]}{user}:{password}@{host}:{port}/{db_name}?charset={charset}"
 
     return db_url
     

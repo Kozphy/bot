@@ -7,7 +7,6 @@ from exceptions import ExchangeError
 from enums import RunMode
 from exchanges.kucoin.client import Kucoin_client
 from exchanges.bbgo_grpc.bbgo_client import BBGO_client
-from constants import support_exchanges, support_bbgo_grpc
 
 from attrs import define
 
@@ -29,7 +28,10 @@ class Exchanges:
         checking exchange is support or not
         :return exchange obj is selected by user :obj
         """
+        from constants import support_exchanges, support_bbgo_grpc
+
         name = configured['exchange']['marketplace'].lower()
+
 
         if name not in support_exchanges:
             raise ExchangeError(f'{name} exchange is not support')
@@ -52,6 +54,8 @@ class Exchanges:
         :param name: exchange name
         :return: exchange obj
         """
+        from constants import support_exchanges
+
         client = {
             'kucoin': [Kucoin_client, BBGO_client],
         } 

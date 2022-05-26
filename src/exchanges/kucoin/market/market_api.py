@@ -5,7 +5,7 @@ from typing import Dict, Any
 from loguru import logger
 from attrs import define, field
 from kucoin.client import Market
-from pyrate_limiter import BucketFullException, Duration, RequestRate, Limiter
+# from pyrate_limiter import BucketFullException, Duration, RequestRate, Limiter
 
 
 @define(slots=False)
@@ -17,6 +17,7 @@ class Kucoin_market(Market):
     timeframe_format: Dict[str, str] 
     exchange: str
     is_sandbox: bool
+    # limiter: Limiter
 
     def __attrs_post_init__(self):
         super().__init__(self.key, self.secret, self.passphrase, self.is_sandbox, self.is_v1api)
@@ -63,14 +64,15 @@ class Kucoin_market(Market):
             asyncio.to_thread(fn, **req_args),
             return_exceptions=True)
         
-        result = self.process_to_many_request(res, req_args.get('symbol'))
+        # result = self.process_to_many_request(res, req_args.get('symbol'))
         
 
-        return result
+        return res
     
-    async def process_to_many_request(self, res):
-        if isinstance(res[0], Exception) == True:
-            if res[0].get('code') == 429:
-                logger.error(f"{res[0]}")
+    # async def process_to_many_request(self, res):
+    #     if isinstance(res[0], Exception) == True:
+    #         if res[0].get('code') == 429:
+    #             logger.error(f"{res[0]}")
+
 
                 

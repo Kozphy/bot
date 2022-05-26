@@ -44,7 +44,7 @@ def start_sync(ctx: Dict[str, Any]) -> None:
             timeframes=configured['sync']['timeframes']
         ))
 
-        # pprint.pprint(data)
+        pprint.pprint(data)
       
         # data = asyncio.run(client.get_trade_histories())
 

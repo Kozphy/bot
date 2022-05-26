@@ -6,8 +6,6 @@ from pathlib import Path
 
 from alembic_scripts.utils.configuration_alembic import Configuration_alembic
 from persistence.migrations import init_db_url
-# from persistence.mysql import (exchanges_meta, symbols_meta, timeframes_meta,
-# klines_meta)
 from persistence.mysql.kline import exchanges_meta
 from persistence.mysql.kucoin_kline import kucoin_kline_meta
 from loguru import logger
@@ -39,9 +37,9 @@ def get_db_url():
     execute_ph = str(Path.cwd()).split('/')[-1]
     ## if not programmatically execute
     if execute_ph == 'src':
-        c = Configuration_alembic()
+        c = Configuration_alembic.from_options()
         configured = c.get_config()
-        url = init_db_url(**configured)
+        url = init_db_url(**configured['persistence'])
         config.set_main_option('sqlalchemy.url', url)
         logger.debug(f"db url is {url}")
         # print('In autogenerate mode url is: ' + url)
@@ -104,7 +102,7 @@ def run_migrations_online():
         with context.begin_transaction():
             context.run_migrations()
         
-# cmd's db_url separate from db_url of programmatic migration
+# change getting db_url process in cmd mode
 get_db_url()
 
 if context.is_offline_mode():

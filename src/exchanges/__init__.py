@@ -1,1 +1,2 @@
-from exchanges.exchanges import Exchanges
+from .exchanges import Exchanges
+from .kucoin import Kucoin

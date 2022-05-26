@@ -2,9 +2,10 @@ aiohttp==3.8.1
 aiosignal==1.2.0
 alembic==1.7.7
 async-timeout==4.0.2
+-e git+https://github.com/Kozphy/bot.git@6bc2fa7af9ed97da98007ae56c87960bd18168cb#egg=attr_BOT_NAME
 attrs==21.4.0
 bbgo @ file:///home/kopher/go/src/github.com/c9s/bbgo/python
--e git+https://github.com/Kozphy/bot.git@4b57015267149dc7e2c345f30729178173e8f822#egg=bot
+-e git+https://github.com/Kozphy/bot.git@6bc2fa7af9ed97da98007ae56c87960bd18168cb#egg=bot
 build==0.7.0
 certifi==2021.10.8
 charset-normalizer==2.0.12
@@ -30,6 +31,7 @@ psycopg2==2.9.3
 pycodestyle==2.8.0
 pyflakes==2.4.0
 pyparsing==3.0.8
+pyrate-limiter==2.8.1
 python-dotenv==0.20.0
 PyYAML==6.0
 requests==2.27.1

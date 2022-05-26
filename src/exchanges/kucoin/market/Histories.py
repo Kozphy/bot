@@ -5,13 +5,11 @@ import asyncio
 import numpy as np
 import time
 import pprint
-from persistence.write_kline import kline_to_database
 from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime
 from typing import List, Dict, Any
 from attrs import define, field
 
 from .data.kline import KLine
-from .data.error import ErrorMessage
 
 
 @define
@@ -31,31 +29,29 @@ class Histories:
         data = []
         # TODO: refactor
         for symbol in symbols:
-            # data.update({symbol:{}})
             req_args = {
                 'symbol': symbol,
                 'kline_type': None,
                 'startAt': isodate_to_unixtime(startAt),
                 'endAt': isodate_to_unixtime(endAt),
             }
-            # exit()
 
             for timeframe in timeframes:
                 req_args['kline_type'] = market.timeframe_format[timeframe]
 
                 # print(req_args)
                 # exit()
-                data = await market.asy_to_thread(market.get_kline, req_args)
+                res = await market.asy_to_thread(market.get_kline, req_args)
 
                 start = time.process_time()
                 # print(data)
                 # TODO: fix to many request
-                if isinstance(data[0], Exception) == True:
-                    logger.error(f"{data[0]}")
-                    raise Exception(data[0])
+                if isinstance(res[0], Exception) == True:
+                    logger.error(f"{res[0]}")
+                    raise Exception(res[0])
 
-                if len(data[0]) > 0:
-                    for kline in data[0]:
+                if len(res[0]) > 0:
+                    for kline in res[0]:
                         ohlcv = {
                             'exchange': market.exchange,
                             'symbol': symbol,
@@ -72,12 +68,14 @@ class Histories:
                         }
                         
                         data.append(KLine.from_api(ohlcv))
-
+                
 
 
                 # print(data)
                 end = time.process_time() 
                 logger.debug(f'process {symbol} {timeframe} kline consume time: {end-start}')
+
+        data = np.array(data, dtype=KLine)
 
         return data
 

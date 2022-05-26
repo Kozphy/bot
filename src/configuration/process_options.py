@@ -4,7 +4,6 @@ from .misc import check_folder
 from loggers import setup_logging
 from typing import Any, Dict, List, Optional
 from pathlib import PurePath
-from configuration.load_config import Load_config
 import pprint
 from enums import RunMode
 
@@ -13,20 +12,16 @@ from attrs import define
 @define
 class Process_options:
     configured: Dict[str, Any]
-    _args: Dict[str, Any]
+    _args: Optional[Dict[str, Any]]
     _yaml: Optional[Dict[str, Any]]
 
     @classmethod
-    def from_args(cls, args: Dict[str, Any]):
+    def from_args(cls, args: Optional[Dict[str, Any]]):
         return cls(
             configured={},
             args=args,
             yaml=None,
         )
-
-    def load_yaml(self):
-        load = Load_config()
-        self._yaml = load.load_yaml_setting(self._args)
 
 
     def _process_logging_options(self):
@@ -109,23 +104,23 @@ class Process_options:
             persistence = {
                 **config_persistence,
             }
-
-            # args
-            if self._args['db_path'] != DEFAULT_DB_DIR:
-                #TODO: implement USERDATA_DIR and purePath
-                persistence['path'] = self._args['db_path']
-                # logger.debug(f"db_path: {self._args['db_path']}")
-            
-            if self._args['db_name'] != DEFAULT_DB_NAME:
-                persistence['name'] = self._args['db_name']
-            
-            if self._args['db_user'] != DEFAULT_DB_USER:
-                persistence['user'] = self._args['db_user']
-            
-            if self._args['db_port'] != DEFAULT_DB_PORT:
-                persistence['port'] = self._args['db_port']
-            
-            if self._args['db_host'] != DEFAULT_DB_HOST:
-                persistence['host'] = self._args['db_host']
+            if self._args is not None:
+                # args
+                if self._args['db_path'] != DEFAULT_DB_DIR:
+                    #TODO: implement USERDATA_DIR and purePath
+                    persistence['path'] = self._args['db_path']
+                    # logger.debug(f"db_path: {self._args['db_path']}")
+                
+                if self._args['db_name'] != DEFAULT_DB_NAME:
+                    persistence['db_name'] = self._args['db_name']
+                
+                if self._args['db_user'] != DEFAULT_DB_USER:
+                    persistence['user'] = self._args['db_user']
+                
+                if self._args['db_port'] != DEFAULT_DB_PORT:
+                    persistence['port'] = self._args['db_port']
+                
+                if self._args['db_host'] != DEFAULT_DB_HOST:
+                    persistence['host'] = self._args['db_host']
 
             self.configured.update({"persistence":persistence})

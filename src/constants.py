@@ -4,13 +4,12 @@ bot constants
 
 from typing import List, Tuple
 from pathlib import Path
-from exchanges.kucoin import Kucoin
+from exchanges import Kucoin
 __version__ = '0.0.1'
 
 ## bot
 BOT_NAME = 'bot'
 BOT_DIR = f'{Path.cwd()}/src'
-BOT_DIR_alembic_autogenerate = f'{Path.cwd()}'
 
 
 ## cmd Directory and name
@@ -22,7 +21,6 @@ CMD_1 = f'{CMD_DIR}/{CMD_NAME1}'
 ## user data dir
 DEFAULT_USERDATA_DIR_NAME = 'user_data'
 DEFAULT_USERDATA_DIR = f'{BOT_DIR}/{DEFAULT_USERDATA_DIR_NAME}'
-USERDATA_DIR_alembic_autogenerate = f'{BOT_DIR_alembic_autogenerate}/{DEFAULT_USERDATA_DIR_NAME}'
 
 ## alembic
 ALEMBIC_CONFIG_FILE = f'{BOT_DIR}/alembic.ini'

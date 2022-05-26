@@ -38,8 +38,7 @@ class Load_config():
         return destination
 
 
-    def load_yaml_setting(self, args) -> Dict[str, Any]:
-        destination = self.determine_destination(args)
+    def load_yaml_setting(self, destination) -> Dict[str, Any]:
         
         logger.debug('parse yaml file')
         try:

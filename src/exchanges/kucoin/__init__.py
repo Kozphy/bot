@@ -1,1 +1,1 @@
-from exchanges.kucoin.kucoin import Kucoin
+from .kucoin import Kucoin

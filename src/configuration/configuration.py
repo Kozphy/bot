@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 from copy import deepcopy
 from configuration.process_options import Process_options
+from configuration.load_config import Load_config
 
 from attrs import define
 
@@ -19,7 +20,7 @@ class Configuration:
 
 
     @classmethod
-    def from_options(cls, args: Dict[str, Any]):
+    def from_options(cls, args: Optional[Dict[str, Any]]=None):
         return cls(
             process = Process_options.from_args(args),
         )
@@ -44,7 +45,10 @@ class Configuration:
         """    
             
         # Load all configs
-        self.process.load_yaml()
+        load = Load_config()
+
+        destination = load.determine_destination(self.process._args)
+        self.process._yaml = load.load_yaml_setting(destination)
         self._merge_args_yaml() 
 
     def _merge_args_yaml(self):
