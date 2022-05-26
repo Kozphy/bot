@@ -28,7 +28,7 @@ def setting_alembic_cfg(configured):
     alembic_cfg.set_main_option("script_location", "./src/alembic_scripts")
     alembic_cfg.set_main_option("sqlalchemy.url", url)
     logger.debug(f"db url is {url}")
-    return alembic_cfg, url, configured['persistence']['name']
+    return alembic_cfg, url, configured['persistence']['db_name']
 
 
 def init_db_url(db, user, password, host, db_name, port, charset="utf8mb4",

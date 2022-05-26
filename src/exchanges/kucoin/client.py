@@ -23,11 +23,10 @@ class Kucoin_client:
             accept_pairs = None
         )
 
-    def check_paries(self, symbols, reg="\S+-USDT$", currency_pair="USDS") -> None:
-        symbols = convert_symbols_to_request_format(symbols, '/', '-')
+    def check_paries(self, reg="\S+-USDT$", currency_pair="USDS") -> None:
         accept_pairs = self.market_services.symbols_ticker.get_accept_pairs(reg, currency_pair)
         self.accept_pairs = accept_pairs
-        self.market_services.symbols_ticker.check_accept_pairs(symbols, accept_pairs)
+        self.market_services.symbols_ticker.check_accept_pairs(accept_pairs)
 
 
     @staticmethod

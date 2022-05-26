@@ -6932,3 +6932,74 @@ NameError: name 'grpc_kline' is not defined
 2022-05-26 12:30:27,219 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12h kline consume time: 0.00032560000000003697
 2022-05-26 12:30:27,326 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1d kline consume time: 0.00016870000000013263
 2022-05-26 12:30:27,410 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12h kline consume time: 0.00031890000000012186
+2022-05-26 18:20:45,990 - loggers - INFO - Verbosity set to 2
+2022-05-26 18:20:45,990 - configuration.process_options - DEBUG - process common options
+2022-05-26 18:20:45,990 - configuration.process_options - DEBUG - process api options
+2022-05-26 18:20:45,991 - configuration.process_options - DEBUG - process sync options
+2022-05-26 18:20:45,991 - configuration.process_options - DEBUG - process exchange options
+2022-05-26 18:20:45,991 - configuration.process_options - DEBUG - process persistence options
+2022-05-26 18:20:45,992 - cmds.sync_command - DEBUG - print debug
+2022-05-26 18:20:46,197 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-26 18:20:46,198 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-26 18:21:07,691 - loggers - INFO - Verbosity set to 2
+2022-05-26 18:21:07,691 - configuration.process_options - DEBUG - process common options
+2022-05-26 18:21:07,691 - configuration.process_options - DEBUG - process api options
+2022-05-26 18:21:07,691 - configuration.process_options - DEBUG - process sync options
+2022-05-26 18:21:07,691 - configuration.process_options - DEBUG - process exchange options
+2022-05-26 18:21:07,691 - configuration.process_options - DEBUG - process persistence options
+2022-05-26 18:21:07,691 - cmds.sync_command - DEBUG - print debug
+2022-05-26 18:21:07,864 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-26 18:21:07,865 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-26 18:21:08,001 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 1d kline consume time: 0.00017359999999988496
+2022-05-26 18:21:08,088 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12h kline consume time: 0.0007183999999997859
+2022-05-26 18:21:08,183 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1d kline consume time: 0.00017430000000007162
+2022-05-26 18:21:08,277 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12h kline consume time: 0.0003026999999999891
+2022-05-26 20:40:12,555 - loggers - INFO - Verbosity set to 2
+2022-05-26 20:40:12,555 - configuration.process_options - DEBUG - process common options
+2022-05-26 20:40:12,555 - configuration.process_options - DEBUG - process api options
+2022-05-26 20:40:12,555 - configuration.process_options - DEBUG - process sync options
+2022-05-26 20:40:12,555 - configuration.process_options - DEBUG - process exchange options
+2022-05-26 20:40:12,556 - configuration.process_options - DEBUG - process persistence options
+2022-05-26 20:40:12,556 - cmds.sync_command - DEBUG - print debug
+2022-05-26 20:40:32,044 - loggers - INFO - Verbosity set to 2
+2022-05-26 20:40:32,045 - configuration.process_options - DEBUG - process common options
+2022-05-26 20:40:32,045 - configuration.process_options - DEBUG - process api options
+2022-05-26 20:40:32,045 - configuration.process_options - DEBUG - process sync options
+2022-05-26 20:40:32,045 - configuration.process_options - DEBUG - process exchange options
+2022-05-26 20:40:32,045 - configuration.process_options - DEBUG - process persistence options
+2022-05-26 20:40:32,045 - cmds.sync_command - DEBUG - print debug
+2022-05-26 20:42:31,132 - loggers - INFO - Verbosity set to 2
+2022-05-26 20:42:31,133 - configuration.process_options - DEBUG - process common options
+2022-05-26 20:42:31,134 - configuration.process_options - DEBUG - process api options
+2022-05-26 20:42:31,134 - configuration.process_options - DEBUG - process sync options
+2022-05-26 20:42:31,134 - configuration.process_options - DEBUG - process exchange options
+2022-05-26 20:42:31,135 - configuration.process_options - DEBUG - process persistence options
+2022-05-26 20:42:31,135 - cmds.sync_command - DEBUG - print debug
+2022-05-26 20:42:31,364 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-26 20:42:31,366 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-26 20:43:01,379 - loggers - INFO - Verbosity set to 2
+2022-05-26 20:43:01,380 - configuration.process_options - DEBUG - process common options
+2022-05-26 20:43:01,380 - configuration.process_options - DEBUG - process api options
+2022-05-26 20:43:01,381 - configuration.process_options - DEBUG - process sync options
+2022-05-26 20:43:01,381 - configuration.process_options - DEBUG - process exchange options
+2022-05-26 20:43:01,381 - configuration.process_options - DEBUG - process persistence options
+2022-05-26 20:43:01,381 - cmds.sync_command - DEBUG - print debug
+2022-05-26 20:43:01,533 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-26 20:43:01,534 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-26 20:43:01,654 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 1day kline consume time: 0.0001727000000000256
+2022-05-26 20:43:01,738 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12hour kline consume time: 0.00033260000000012724
+2022-05-26 20:43:01,837 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1day kline consume time: 0.00020529999999996384
+2022-05-26 20:43:01,928 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12hour kline consume time: 0.0003112999999999033
+2022-05-26 20:44:34,521 - loggers - INFO - Verbosity set to 2
+2022-05-26 20:44:34,521 - configuration.process_options - DEBUG - process common options
+2022-05-26 20:44:34,521 - configuration.process_options - DEBUG - process api options
+2022-05-26 20:44:34,521 - configuration.process_options - DEBUG - process sync options
+2022-05-26 20:44:34,522 - configuration.process_options - DEBUG - process exchange options
+2022-05-26 20:44:34,522 - configuration.process_options - DEBUG - process persistence options
+2022-05-26 20:44:34,522 - cmds.sync_command - DEBUG - print debug
+2022-05-26 20:44:34,632 - persistence.migrations - DEBUG - Setting alembic context env
+2022-05-26 20:44:34,633 - persistence.migrations - DEBUG - db url is mysql+mysqldb://kopher:0270453@localhost:11010/test?charset=utf8mb4
+2022-05-26 20:44:34,759 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 1day kline consume time: 0.00017089999999986283
+2022-05-26 20:44:34,849 - exchanges.kucoin.market.Histories - DEBUG - process BTC-USDT 12hour kline consume time: 0.0002997999999998502
+2022-05-26 20:44:34,942 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 1day kline consume time: 0.00016549999999981857
+2022-05-26 20:44:35,032 - exchanges.kucoin.market.Histories - DEBUG - process ETH-USDT 12hour kline consume time: 0.0003245999999998972

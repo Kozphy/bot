@@ -5,7 +5,7 @@ from .Histories import Histories
 from attrs import define, field
 from typing import Dict, Any
 
-@define()
+@define
 class Market_facade:
     histories: Histories
     symbols_ticker: Symbols_Ticker

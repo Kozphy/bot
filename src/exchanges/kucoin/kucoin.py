@@ -1,7 +1,3 @@
-# from kucoin.client import Market, User, Trade
-# from bot.exchanges.kucoin.market.market import Kucoin_market
-# from bot.exchanges.kucoin.trade.trade import Kucoin_trade
-# from bot.exchanges.kucoin.user.user import Kucoin_user
 from exchanges.kucoin.client import Kucoin_client
 from exchanges.bbgo_grpc.bbgo_client import BBGO_client
 

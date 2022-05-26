@@ -22,25 +22,22 @@ class Histories:
             market_api=Kucoin_market.from_config(configured),
         )
 
-    async def get_klines(self, symbols, startAt, endAt, timeframes) -> List[KLine]:
+    async def get_klines(self) -> List[KLine]:
         market: Kucoin_market = self._market_api
-        # exit()
-        symbols = convert_symbols_to_request_format(symbols, '/', '-')
+
         data = []
         # TODO: refactor
-        for symbol in symbols:
+        for symbol in market.symbols:
             req_args = {
                 'symbol': symbol,
                 'kline_type': None,
-                'startAt': isodate_to_unixtime(startAt),
-                'endAt': isodate_to_unixtime(endAt),
+                'startAt': market.startAt,
+                'endAt': market.endAt,
             }
 
-            for timeframe in timeframes:
-                req_args['kline_type'] = market.timeframe_format[timeframe]
+            for timeframe in market.timeframes:
+                req_args['kline_type'] = timeframe
 
-                # print(req_args)
-                # exit()
                 res = await market.asy_to_thread(market.get_kline, req_args)
 
                 start = time.process_time()

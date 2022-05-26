@@ -20,16 +20,6 @@ class Load_config_alembic(Load_config):
         destination = f"{user_dir}/{config_dir_name}/{config_name}"
         return destination 
 
-    # def load_yaml_setting(self, desn):
-    #     logger.debug('Parse yaml file in alembic env')
-
-    #     try:
-    #         with open(desn, 'r') as f:
-    #             yaml = CSLoader(stream=f).get_data()
-    #         return yaml
-    #     except FileNotFoundError as e:
-    #         logger.error(e)
-    #         raise OperationalException(f"file {desn} not found")
 
 
 

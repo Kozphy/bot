@@ -23,11 +23,11 @@ def start_sync(ctx: Dict[str, Any]) -> None:
         logger.debug('print debug')
         pprint.pprint(configured)
         
-        marketplace = Exchanges.init_exchange(configured).marketplace
+        marketplace = Exchanges.init_exchange(configured)
         client = marketplace.client
         bbgo_client = marketplace.bbgo_client
 
-        client.check_paries(symbols=configured['sync']['sync_symbols'])
+        client.check_paries()
         
 
         if configured['bbgo']['bbgo_grpc_services']['market'] == True:
@@ -37,14 +37,14 @@ def start_sync(ctx: Dict[str, Any]) -> None:
         # migration_downgrade(configured)
         # exit()
 
-        data = asyncio.run(client.market_services.histories.get_klines(
-            symbols=configured['sync']['sync_symbols'],
-            startAt=configured['sync']['startAt'],
-            endAt= configured['sync']['endAt'],
-            timeframes=configured['sync']['timeframes']
-        ))
+        kline_data = asyncio.run(client.market_services.histories.get_klines())
 
-        pprint.pprint(data)
+        trade_histories_data = asyncio.run(
+            client.market_services.histories.get_trade_histories()
+        )
+        
+        pprint.pprint(kline_data)
+        pprint.pprint(trade_histories_data)
       
         # data = asyncio.run(client.get_trade_histories())
 

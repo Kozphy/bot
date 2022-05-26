@@ -33,14 +33,16 @@ class Symbols_Ticker:
 
         return pairs_done
 
-    def check_accept_pairs(self, symbols, accept_pairs) -> None:
+    def check_accept_pairs(self, accept_pairs) -> None:
         """
         check if pairs whether valid in exchange
         :return None
         """
         # start = time.time()
+        market: Kucoin_market = self._market_api
+
         Not_accept = []
-        for symbol in symbols:
+        for symbol in market.symbols:
             if symbol not in accept_pairs:
                 Not_accept.append(symbol)
 
