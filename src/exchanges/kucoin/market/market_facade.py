@@ -1,6 +1,6 @@
 from symtable import Symbol
 from .symbols_ticker import Symbols_Ticker
-from .Histories import Histories
+from .histories import Histories
 
 from attrs import define, field
 from typing import Dict, Any

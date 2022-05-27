@@ -34,6 +34,7 @@ class Kucoin_market(Market):
         exchange = configured['exchange']
         apikey = exchange['apikey']
         version_api = False if apikey['version'] == 2 else True
+
         return cls(
             # timeframe_format = cls.get_timeframe_format(),
             key=apikey['public'],
@@ -47,6 +48,7 @@ class Kucoin_market(Market):
             endAt = req_params['endAt'],
             timeframes = req_params['timeframes'],
         )
+
     def convert_to_request_format(self, configured):
         req_para = {}
         timeframe_format = self.get_timeframe_format()
@@ -82,24 +84,52 @@ class Kucoin_market(Market):
         }
         return timeframe_format
 
+    def request_api(self, fn, req_args=None, async_bool=False):
+        if async_bool:
+            res = asyncio.run(self.async_request(fn, req_args))
+            return res
 
-    async def asy_to_thread(self, fn, req_args):
+        res = self.common_request(fn, req_args)
+
+        if isinstance(res, Exception) == True:
+            logger.error(f"{res}")
+            raise Exception(res)
+        return res
+
+    async def async_request(self, fn, req_args):
         # TODO: need to fix rate limit
         # reference article: https://nordicapis.com/everything-you-need-to-know-about-api-rate-limiting/
         # In considering use https://github.com/vutran1710/PyrateLimiter, or other method
-        res = await asyncio.gather(
-            asyncio.to_thread(fn, **req_args),
+        task_obj = []
+        for req_arg in req_args:
+            task_obj.append(asyncio.create_task(asyncio.to_thread(fn, **req_arg)))
+
+        # print(task_obj)
+        # exit()
+
+        res = await asyncio.gather(*task_obj,
             return_exceptions=True)
-        
-        # result = self.process_to_many_request(res, req_args.get('symbol'))
-        
 
         return res
-    
     # async def process_to_many_request(self, res):
     #     if isinstance(res[0], Exception) == True:
     #         if res[0].get('code') == 429:
     #             logger.error(f"{res[0]}")
+
+    def common_request(self, fn, req_args):
+        """
+        not async request
+        """
+
+        if req_args is not None:
+            res = fn(**req_args)
+            return res
+
+        res = fn()
+        return res
+    
+        
+
 
 
                 

@@ -14,23 +14,23 @@ from attrs import define
 class Kucoin_client:
     market_services: Market_facade
     
-    accept_pairs: Optional[List[str]]
+    available_pairs: Optional[List[str]]
 
     @classmethod
     def active_service(cls, configured: Dict[str, Any]) -> 'Kucoin_client':
         return cls(
             market_services = Market_facade.from_market(configured),
-            accept_pairs = None
+            available_pairs = None
         )
 
-    def check_paries(self, reg="\S+-USDT$", currency_pair="USDS") -> None:
-        accept_pairs = self.market_services.symbols_ticker.get_accept_pairs(reg, currency_pair)
-        self.accept_pairs = accept_pairs
-        self.market_services.symbols_ticker.check_accept_pairs(accept_pairs)
+    def check_pairs(self) -> None:
+        available_pairs = self.market_services.symbols_ticker.get_accept_pairs()
+        self.available_pairs = available_pairs
+        self.market_services.symbols_ticker.check_accept_pairs(self.available_pairs)
 
 
     @staticmethod
-    def current_request_time():
+    def get_server_and_current_time():
         """
         Get server and local time in millisecond
         :return localtime, servertime

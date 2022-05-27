@@ -27,7 +27,9 @@ def start_sync(ctx: Dict[str, Any]) -> None:
         client = marketplace.client
         bbgo_client = marketplace.bbgo_client
 
-        client.check_paries()
+        client.check_pairs()
+        # print(client.available_pairs)
+        # exit()
         
 
         if configured['bbgo']['bbgo_grpc_services']['market'] == True:
@@ -37,14 +39,17 @@ def start_sync(ctx: Dict[str, Any]) -> None:
         # migration_downgrade(configured)
         # exit()
 
-        kline_data = asyncio.run(client.market_services.histories.get_klines())
+        kline_data = client.market_services.histories.get_klines()
 
-        trade_histories_data = asyncio.run(
-            client.market_services.histories.get_trade_histories()
-        )
+        # pprint.pprint(kline_data)
+
+        # trade_histories_data = client.market_services.histories.get_symbol_histories()
+        # pprint.pprint(trade_histories_data)
         
-        pprint.pprint(kline_data)
-        pprint.pprint(trade_histories_data)
+
+        # client.market_services.symbols_ticker.get_all_tickers_current_info()
+        
+        # pprint.pprint(trade_histories_data)
       
         # data = asyncio.run(client.get_trade_histories())
 

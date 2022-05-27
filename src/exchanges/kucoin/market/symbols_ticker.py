@@ -7,7 +7,7 @@ import time
 from .market_api import Kucoin_market
 
 from attrs import define, field
-from typing import Dict, Any
+from typing import Dict, Any, List
 
 @define
 class Symbols_Ticker:
@@ -19,23 +19,25 @@ class Symbols_Ticker:
             market_api=Kucoin_market.from_config(configured)
         )
 
-    def get_accept_pairs(self, reg, currency_pair):
+    def get_accept_pairs(self):
         """
-        filter out pairs which exchnage allow
-        :return filtered pairs :list
+        get available pairs in exchange
+        :return available pairs :list
         """
         market: Kucoin_market = self._market_api
-        pairs = market.get_symbol_list(currency_pair=currency_pair)
-        origin_pairs = [pair['name'] for pair in pairs]
-        r = re.compile(reg)
+
+        pairs = market.request_api(market.get_all_tickers, async_bool=False)
+        available_pairs = [pair['symbolName'] for pair in pairs['ticker']]
+        # r = re.compile(reg)
         # TODO: filter not very understand why this syntax work
-        pairs_done = list(filter(r.match, origin_pairs))
+        # pairs_done = list(filter(r.match, origin_pairs))
 
-        return pairs_done
-
-    def check_accept_pairs(self, accept_pairs) -> None:
+        return available_pairs
+    
+        
+    def check_accept_pairs(self, available_pairs) -> None:
         """
-        check if pairs whether valid in exchange
+        check pairs in config file whether valid in exchange
         :return None
         """
         # start = time.time()
@@ -43,7 +45,7 @@ class Symbols_Ticker:
 
         Not_accept = []
         for symbol in market.symbols:
-            if symbol not in accept_pairs:
+            if symbol not in available_pairs:
                 Not_accept.append(symbol)
 
         if len(Not_accept) > 0:
@@ -54,5 +56,44 @@ class Symbols_Ticker:
         # stop = time.time()
         # print('Time: ', stop - start)
     
-
     
+    def get_all_tickers_current_info(self):
+        """
+        Request market tickers for all the trading pairs in the market (including 24h volume).
+        :return List
+        """
+        market: Kucoin_market = self._market_api
+        
+        res = market.request_api(market.get_all_tickers, False)
+        
+        """response
+        {
+            "time":1602832092060,
+            "ticker":[
+                {
+                    "symbol": "BTC-USDT",   // symbol
+                    "symbolName":"BTC-USDT", // Name of trading pairs, it would change after renaming
+                    "buy": "11328.9",   // bestAsk
+                    "sell": "11329",    // bestBid
+                    "changeRate": "-0.0055",    // 24h change rate
+                    "changePrice": "-63.6", // 24h change price
+                    "high": "11610",    // 24h highest price
+                    "low": "11200", // 24h lowest price
+                    "vol": "2282.70993217", // 24h volume，the aggregated trading volume in BTC
+                    "volValue": "25984946.157790431",   // 24h total, the trading volume in quote currency of last 24 hours
+                    "last": "11328.9",  // last price
+                    "averagePrice": "11360.66065903",   // 24h average transaction price yesterday
+                    "takerFeeRate": "0.001",    // Basic Taker Fee
+                    "makerFeeRate": "0.001",    // Basic Maker Fee
+                    "takerCoefficient": "1",    // Taker Fee Coefficient
+                    "makerCoefficient": "1" // Maker Fee Coefficient
+                }
+            ]
+        }
+        """
+        print(res)
+
+        # if res[0]
+
+        
+
