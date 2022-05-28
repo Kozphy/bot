@@ -160,5 +160,8 @@ pushgit.sh
 # user_data
 user_data/
 
+# log
+/log
+
 .lh/
 .lh/**

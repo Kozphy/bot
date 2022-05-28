@@ -6,10 +6,9 @@ from exceptions import ExchangeError
 from enums import RunMode
 from exchanges.kucoin.client import Kucoin_client
 from exchanges.bbgo_grpc.bbgo_client import BBGO_client
+import ccxt
 
 from attrs import define
-
-
 
 @define
 class Exchanges:
@@ -50,7 +49,7 @@ class Exchanges:
         from constants import support_exchanges
 
         client = {
-            'kucoin': [Kucoin_client, BBGO_client],
+            'kucoin': [Kucoin_client, BBGO_client, ccxt.kucoin],
         } 
         exchange = support_exchanges[name].from_client(configured, *client[name])
         

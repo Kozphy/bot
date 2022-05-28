@@ -8,8 +8,8 @@ import pprint
 from typing import List, Dict, Any
 from attrs import define, field
 
-from .data.kline import KLine
-from .data.symbol_histories import Symbol_trade_history
+from .data.histories.kline import KLine
+from .data.histories.symbol_histories import Symbol_history
 
 
 @define
@@ -22,12 +22,18 @@ class Histories:
             market_api=Kucoin_market.from_config(configured),
         )
 
+    # TODO: Each query only return maximum 1500 pieces of data.
+    # if query period have over 1500 pieces of data, 
+    # the part over which will be ignored.
+    # need to implement a loop by time to get all data.
     def get_klines(self) -> List[KLine]:
+        """
+        Request via this endpoint to get the kline of the specified symbol. 
+        Data are returned in grouped buckets based on requested type.
+        """
         market: Kucoin_market = self._market_api
         task = []
-        data = []
 
-        # TODO: refactor
         for symbol in market.symbols:
             for timeframe in market.timeframes:
                 req_args = {
@@ -39,14 +45,18 @@ class Histories:
                 task.append(req_args)
 
         start_reqesut_time = time.time()
-        res = market.request_api(market.get_kline, task, async_bool=True)
+        res = market.request_handler.request_api(market.get_kline, task, async_bool=True)
         end_request_time = time.time()
         logger.debug(f'request klines consume time: {end_request_time-start_reqesut_time}')
-        # print(task)
+
+        from exchanges.utils.misc import unix_timestamp_to_localtime
         # print(res[0])
-        # exit()
-        # TODO: fix to many request
-        if len(res) > 0:
+        print(len(res[0]))
+        print(unix_timestamp_to_localtime(res[0][0][0]))
+        print(unix_timestamp_to_localtime(res[0][len(res[0])-1][0]))
+
+        data = []
+        if res:
             for i in range(len(res)):
                 start = time.time()
                 for kline in res[i]:
@@ -72,7 +82,7 @@ class Histories:
                         'closed': True
                     }
                     data.append(KLine.from_api(ohlcv))
-                end= time.time()
+                end=time.time()
                 logger.debug(f"process {task[i]['symbol']} {task[i]['kline_type']} kline cunsume {end - start}")
 
         data = np.array(data, dtype=KLine)
@@ -81,22 +91,32 @@ class Histories:
         return data
 
     def get_symbol_histories(self):
+        """
+        Request via this endpoint to get the trade history of the specified symbol.
+        """
         market: Kucoin_market = self._market_api
 
-        data = []
+        task = []
+
 
         for symbol in market.symbols:
             req_args = {
                 'symbol': symbol
             }
-            res = market.request_api(market.get_trade_histories, req_args, async_bool=True)
-        
-            if isinstance(res[0], Exception) == True:
-                logger.error(f"{res[0]}")
-                raise Exception(res[0])
-            
-            if len(res[0]) > 0:
-                for symbol_history in res[0]:
+            task.append(req_args)
+
+            start_reqesut_time = time.time()
+            res = market.request_handler.request_api(market.get_trade_histories, task, async_bool=True)
+            end_request_time = time.time()
+            logger.debug(f'request symbols histories consume time: {end_request_time-start_reqesut_time}')
+
+
+
+        data = []
+        if res:
+            for i in range(len(res)):
+                start = time.time()
+                for symbol_history in res[i]:
                     """
                     sequence: Sequence number
                     time: Transaction time (milliseconds.)
@@ -109,6 +129,7 @@ class Histories:
                     A taker order is the order that was matched with orders opened on the order book.
                     """
                     histories = {
+                        'exchange': market.exchange,
                         'symbol': symbol,
                         'sequence': symbol_history['sequence'],
                         'ms_time': symbol_history['time'],
@@ -117,7 +138,9 @@ class Histories:
                         'side': symbol_history['side'],
                     }
 
-                    data.append(Symbol_trade_history.from_api(histories))
+                    data.append(Symbol_history.from_api(histories))
+                end = time.time()
+                logger.debug(f'convert {task[i]["symbol"]} histories cunsume {end - start}')
         
         data = np.array(data)
                 

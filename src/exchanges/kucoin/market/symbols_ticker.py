@@ -8,6 +8,7 @@ from .market_api import Kucoin_market
 
 from attrs import define, field
 from typing import Dict, Any, List
+from .data.symbols_ticker.all_tickers import All_tickers
 
 @define
 class Symbols_Ticker:
@@ -26,12 +27,11 @@ class Symbols_Ticker:
         """
         market: Kucoin_market = self._market_api
 
-        pairs = market.request_api(market.get_all_tickers, async_bool=False)
+        pairs = market.request_handler.request_api(market.get_all_tickers, async_bool=False)
         available_pairs = [pair['symbolName'] for pair in pairs['ticker']]
         # r = re.compile(reg)
         # TODO: filter not very understand why this syntax work
         # pairs_done = list(filter(r.match, origin_pairs))
-
         return available_pairs
     
         
@@ -60,12 +60,10 @@ class Symbols_Ticker:
     def get_all_tickers_current_info(self):
         """
         Request market tickers for all the trading pairs in the market (including 24h volume).
-        :return List
         """
         market: Kucoin_market = self._market_api
         
-        res = market.request_api(market.get_all_tickers, False)
-        
+        res = market.request_handler.request_api(market.get_all_tickers, async_bool=False)
         """response
         {
             "time":1602832092060,
@@ -91,9 +89,35 @@ class Symbols_Ticker:
             ]
         }
         """
-        print(res)
 
-        # if res[0]
+        data = []
+
+        if res:
+            for ticker_info in range(len(res['ticker'])):
+                ticker = res['ticker'][ticker_info]
+                ticker = {
+                    'exchange': market.exchange,
+                    'time': res['time'],
+                    'symbol': ticker['symbol'],
+                    'symbolName': ticker['symbolName'],
+                    'buy': ticker['buy'],
+                    'sell': ticker['sell'],
+                    'changeRate': ticker['changeRate'],
+                    'changePrice': ticker['changePrice'],
+                    'high': ticker['high'],
+                    'low': ticker['low'],
+                    'vol': ticker['vol'],
+                    'volValue': ticker['volValue'],
+                    'last': ticker['last'],
+                    'averagePrice': ticker['averagePrice'],
+                    'takerFeeRate': ticker['takerFeeRate'],
+                    'makerFeeRate': ticker['makerFeeRate'],
+                    'takerCoefficient': ticker['takerCoefficient'],
+                    'makerCoefficient': ticker['makerCoefficient']
+                }
+                data.append(All_tickers.from_api(ticker))
+        return data
+            
 
         
 

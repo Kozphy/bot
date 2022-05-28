@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime
 from typing import Dict, Any, Union
+from decimal import Decimal
 
 from exchanges.utils.misc import (parse_number)
 
@@ -11,15 +12,15 @@ class KLine:
     exchange: str
     symbol: str
     timeframe: str
-    open: float
-    high: float
-    low: float
-    close: float
-    amount: float
+    open: Decimal
+    high: Decimal
+    low: Decimal
+    close: Decimal
+    amount: Decimal
     session: str = None
     start_time: Union[str,int] = None
     end_time: Union[str, int] = None
-    volume: float = None
+    volume: Decimal = None
     closed: bool = None
 
     @classmethod

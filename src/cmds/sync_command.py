@@ -8,6 +8,7 @@ from persistence.migrations import migration_upgrade, migration_downgrade
 import sys
 import asyncio
 import pprint
+import ccxt
 
 
 
@@ -26,8 +27,11 @@ def start_sync(ctx: Dict[str, Any]) -> None:
         marketplace = Exchanges.init_exchange(configured)
         client = marketplace.client
         bbgo_client = marketplace.bbgo_client
+        ccxt_client = marketplace.ccxt_client
+        # print(ccxt_client.NetworkError)
+        # print(ccxt.BaseError)
+        # exit()
 
-        client.check_pairs()
         # print(client.available_pairs)
         # exit()
         
@@ -42,14 +46,15 @@ def start_sync(ctx: Dict[str, Any]) -> None:
         kline_data = client.market_services.histories.get_klines()
 
         # pprint.pprint(kline_data)
+        print(len(kline_data))
 
         # trade_histories_data = client.market_services.histories.get_symbol_histories()
         # pprint.pprint(trade_histories_data)
         
 
-        # client.market_services.symbols_ticker.get_all_tickers_current_info()
+        # ticker= client.market_services.symbols_ticker.get_all_tickers_current_info()
+        # pprint.pprint(ticker)
         
-        # pprint.pprint(trade_histories_data)
       
         # data = asyncio.run(client.get_trade_histories())
 

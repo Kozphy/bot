@@ -7,15 +7,16 @@ from attrs import define, field
 from kucoin.client import Market
 from exchanges.utils.misc import convert_symbols_to_request_format, isodate_to_unixtime
 # from pyrate_limiter import BucketFullException, Duration, RequestRate, Limiter
+from exchanges.request_handler import Request_handler
 
 
 @define(slots=False)
 class Kucoin_market(Market):
+    request_handler: Request_handler
     key: str
     secret: str
     passphrase: str
     is_v1api: bool
-    # timeframe_format: Dict[str, str] 
     exchange: str
     is_sandbox: bool
     symbols: List[str]
@@ -36,7 +37,7 @@ class Kucoin_market(Market):
         version_api = False if apikey['version'] == 2 else True
 
         return cls(
-            # timeframe_format = cls.get_timeframe_format(),
+            request_handler = Request_handler.activate(),
             key=apikey['public'],
             secret=apikey['secret'],
             is_v1api=version_api,
@@ -84,49 +85,10 @@ class Kucoin_market(Market):
         }
         return timeframe_format
 
-    def request_api(self, fn, req_args=None, async_bool=False):
-        if async_bool:
-            res = asyncio.run(self.async_request(fn, req_args))
-            return res
 
-        res = self.common_request(fn, req_args)
+                
 
-        if isinstance(res, Exception) == True:
-            logger.error(f"{res}")
-            raise Exception(res)
-        return res
 
-    async def async_request(self, fn, req_args):
-        # TODO: need to fix rate limit
-        # reference article: https://nordicapis.com/everything-you-need-to-know-about-api-rate-limiting/
-        # In considering use https://github.com/vutran1710/PyrateLimiter, or other method
-        task_obj = []
-        for req_arg in req_args:
-            task_obj.append(asyncio.create_task(asyncio.to_thread(fn, **req_arg)))
-
-        # print(task_obj)
-        # exit()
-
-        res = await asyncio.gather(*task_obj,
-            return_exceptions=True)
-
-        return res
-    # async def process_to_many_request(self, res):
-    #     if isinstance(res[0], Exception) == True:
-    #         if res[0].get('code') == 429:
-    #             logger.error(f"{res[0]}")
-
-    def common_request(self, fn, req_args):
-        """
-        not async request
-        """
-
-        if req_args is not None:
-            res = fn(**req_args)
-            return res
-
-        res = fn()
-        return res
     
         
 
