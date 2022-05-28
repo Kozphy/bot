@@ -11,21 +11,37 @@ from attrs import define, field
 
 @define
 class Kucoin_client:
-    market_services: Market_facade
+    rest_services: Dict[str, Market_facade]
     
     available_pairs: Optional[List[str]] = field()
 
     @classmethod
     def active_service(cls, configured: Dict[str, Any]) -> 'Kucoin_client':
         return cls(
-            market_services = Market_facade.from_market(configured),
+            rest_services = {
+                'market': Market_facade.from_client(configured, 
+                cls.get_auth(cls, configured)),
+                }
         )
     
     @available_pairs.default
     def check_pairs(self):
-        available_pairs = self.market_services.symbols_ticker.get_accept_pairs()
-        self.market_services.symbols_ticker.check_accept_pairs(available_pairs)
+        available_pairs = self.rest_services['market'].symbols_ticker.get_accept_pairs()
+        self.rest_services['market'].symbols_ticker.check_accept_pairs(available_pairs)
         return available_pairs
+
+    def get_auth(self, configured):
+        exchange = configured['exchange']
+        apikey = exchange['apikey']
+        version_api = False if apikey['version'] == 2 else True
+        auth = {
+            'key': apikey['public'],
+            'secret': apikey['secret'],
+            'is_v1api': version_api,
+            'passphrase': apikey['password'],
+        }
+        return auth
+
 
 
     @staticmethod

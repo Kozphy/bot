@@ -13,11 +13,12 @@ from .data.symbols_ticker.all_tickers import All_tickers
 @define
 class Symbols_Ticker:
     _market_api: Kucoin_market
+
     
     @classmethod
-    def from_api(cls, configured: Dict[str, Any]) -> Kucoin_market:
+    def from_facade(cls, configured: Dict[str, Any], auth) -> Kucoin_market:
         return cls(
-            market_api=Kucoin_market.from_config(configured)
+            market_api=Kucoin_market.from_config(configured, auth)
         )
 
     def get_accept_pairs(self):

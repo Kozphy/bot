@@ -13,10 +13,7 @@ from exchanges.request_handler import Request_handler
 @define(slots=False)
 class Kucoin_market(Market):
     request_handler: Request_handler
-    key: str
-    secret: str
-    passphrase: str
-    is_v1api: bool
+    auth: Dict[str, Any]
     exchange: str
     is_sandbox: bool
     symbols: List[str]
@@ -26,22 +23,19 @@ class Kucoin_market(Market):
     # limiter: Limiter
 
     def __attrs_post_init__(self):
-        super().__init__(self.key, self.secret, self.passphrase, self.is_sandbox, self.is_v1api)
+        # print(dir(self.auth))
+        super().__init__(self.auth['key'], self.auth['secret'],
+         self.auth['passphrase'], self.is_sandbox)
 
 
     @classmethod
-    def from_config(cls, configured: Dict[str, Any]):
+    def from_config(cls, configured: Dict[str, Any], auth: Dict[str, Any]):
         req_params = cls.convert_to_request_format(cls, configured)
         exchange = configured['exchange']
-        apikey = exchange['apikey']
-        version_api = False if apikey['version'] == 2 else True
 
         return cls(
             request_handler = Request_handler.activate(),
-            key=apikey['public'],
-            secret=apikey['secret'],
-            is_v1api=version_api,
-            passphrase=apikey['password'],
+            auth = auth,
             exchange = exchange['marketplace'],
             is_sandbox = exchange['is_sandbox'],
             symbols = req_params['symbols'],

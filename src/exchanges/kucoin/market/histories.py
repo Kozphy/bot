@@ -17,9 +17,9 @@ class Histories:
     _market_api: Kucoin_market
 
     @classmethod 
-    def from_api(cls, configured: Dict[str, Any]):
+    def from_facade(cls, configured: Dict[str, Any], auth):
         return cls(
-            market_api=Kucoin_market.from_config(configured),
+            market_api=Kucoin_market.from_config(configured, auth),
         )
 
     # TODO: Each query only return maximum 1500 pieces of data.

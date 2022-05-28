@@ -43,7 +43,7 @@ def start_sync(ctx: Dict[str, Any]) -> None:
         # migration_downgrade(configured)
         # exit()
 
-        kline_data = client.market_services.histories.get_klines()
+        kline_data = client.rest_services['market'].histories.get_klines()
 
         # pprint.pprint(kline_data)
         print(len(kline_data))

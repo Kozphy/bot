@@ -26,10 +26,10 @@ class Market_facade:
     #     return cls()
 
     @classmethod
-    def from_market(cls, configured: Dict[str, Any]) -> 'Market_facade':
+    def from_client(cls, configured: Dict[str, Any], auth) -> 'Market_facade':
         return cls(
-            histories=Histories.from_api(configured),
-            symbols_ticker=Symbols_Ticker.from_api(configured),
+            histories=Histories.from_facade(configured, auth),
+            symbols_ticker=Symbols_Ticker.from_facade(configured, auth),
         )
 
 
