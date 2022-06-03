@@ -4,7 +4,6 @@ This module contains the configuration class
 from loguru import logger
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-from copy import deepcopy
 from configuration.process_options import Process_options
 from configuration.load_config import Load_config
 
